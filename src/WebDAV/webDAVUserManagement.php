@@ -2,7 +2,7 @@
     use Sabre\VObject;
 
     function webDAVUserCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname) {
-        if (R::findOne('userz', 'username = ?', $webDAVUsername) == NULL) {
+        if (R::findOne('users', 'username = ?', $webDAVUsername) == NULL) {
 
         }
     return false;
