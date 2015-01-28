@@ -1,10 +1,9 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . "\\src\\Services\\serviceDatabaseManagement.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . "\\lib\\SabreDAV\\vendor\\autoload.php");
-
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/src/Services/serviceDatabaseManagement.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/lib/SabreDAV/vendor/autoload.php");
     use Sabre\VObject;
 
-    /*@todo Acquire this from GroupAwareServer.php and Configure it*/
+    /*@todo configure GroupAwareServer.php*/
     const SABREDAV_REALM = ":SabreDAV:";
     const WEBDAV_BASE_URI = "";
 
@@ -79,3 +78,4 @@
         }
     return FALSE;
     }
+

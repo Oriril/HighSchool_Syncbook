@@ -1,4 +1,5 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/src/databaseConstants.php");
 
 /**
  * This server combines both CardDAV and CalDAV functionality into a single
@@ -24,7 +25,7 @@ date_default_timezone_set('UTC');
  *
  * This can be for example the root / or a complete path to your server script.
  */
-// $baseUri = '/';
+$baseUri = '/Syncbook/lib/SabreDAV/groupwareserver.php/';
 
 /**
  * Database
@@ -32,7 +33,7 @@ date_default_timezone_set('UTC');
  * Feel free to switch this to MySQL, it will definitely be better for higher
  * concurrency.
  */
-$pdo = new \PDO('sqlite:data/db.sqlite');
+$pdo = new PDO('mysql:dbname = sabredav_; hostname = ' . DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD);
 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 /**

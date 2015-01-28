@@ -1,9 +1,6 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . "\\lib\\RedBeanPHP.php");
-
-    const DATABASE_HOST = '10.8.0.1';
-    const DATABASE_USERNAME = 'longh';
-    const DATABASE_PASSWORD = 'longh123';
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/src/databaseConstants.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/lib/RedBeanPHP.php");
 
     function databaseSabreDAVUserConnect ($webDAVUsername) {
         try {
