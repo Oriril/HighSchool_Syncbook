@@ -21,6 +21,7 @@
     return $beanUser;
     }
 
+    /*#todo vCard Default from Register*/
     function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl = NULL) {
         databaseSabreDAVUserConnect($webDAVUsername);
 
