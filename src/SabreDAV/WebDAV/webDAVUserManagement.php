@@ -58,6 +58,7 @@
 
                 // Closing Transaction (Success)
                 R::commit();
+                return TRUE;
             }
         } catch (Exception $exceptionError) {
             // Closing Transaction (Failure)
