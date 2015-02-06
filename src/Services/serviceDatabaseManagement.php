@@ -1,10 +1,8 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/src/databaseConstants.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/lib/RedBeanPHP.php");
-
-    function databaseSabreDAVUserConnect ($webDAVUsername) {
+    function databaseSabreDAVUserConnect($webDAVUsername, $config) {
         try {
-            R::setup('mysql:host = ' . DATABASE_HOST . '; dbname = sabredav_' . strtolower($webDAVUsername), DATABASE_USERNAME, DATABASE_PASSWORD);
+            R::setup('mysql:host = ' . $config['DATABASE_HOST'] . '; dbname = sabredav_' . strtolower($webDAVUsername),
+                $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
             R::freeze(TRUE);
         } catch (Exception $exceptionError) {}
     }

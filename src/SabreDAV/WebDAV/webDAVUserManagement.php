@@ -1,6 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/src/Services/serviceDatabaseManagement.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/lib/SabreDAV/vendor/autoload.php");
+    $config = require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/config.php");
     use Sabre\VObject;
 
     /*@todo configure GroupAwareServer.php*/
@@ -22,8 +21,8 @@
     }
 
     /*#todo vCard Default from Register*/
-    function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl = NULL) {
-        databaseSabreDAVUserConnect($webDAVUsername);
+    function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl = NULL, $config) {
+        databaseSabreDAVUserConnect($webDAVUsername, $config);
 
         try {
             if (R::findOne('users', 'username = ?', $webDAVUsername) == NULL) {

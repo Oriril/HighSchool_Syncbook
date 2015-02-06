@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/src/databaseConstants.php");
+$config = require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/config.php");
 
 /**
  * This server combines both CardDAV and CalDAV functionality into a single
@@ -33,7 +33,8 @@ $baseUri = '/Syncbook/lib/SabreDAV/groupwareserver.php/';
  * Feel free to switch this to MySQL, it will definitely be better for higher
  * concurrency.
  */
-$pdo = new PDO('mysql:dbname = sabredav_; hostname = ' . DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD);
+$pdo = new PDO('mysql:dbname = sabredav_; hostname = ' . $config['DATABASE_HOST'],
+    $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 /**
