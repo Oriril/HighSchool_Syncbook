@@ -1,5 +1,6 @@
 <?php
-$config = require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");
+$config = new configurationClass() and $config = $config->configurationArray;
 
 /**
  * This server combines both CardDAV and CalDAV functionality into a single
@@ -27,13 +28,30 @@ date_default_timezone_set('UTC');
  */
 $baseUri = '/Syncbook/lib/SabreDAV/groupwareserver.php/';
 
+if (!isset($databaseUsername)) {
+    $serverUri = $_SERVER["REQUEST_URI"];
+    $serverName = $_SERVER["SCRIPT_NAME"];
+
+    if (strpos($serverUri, '/principals/') !== false) {
+        $urlParamsString = str_replace($serverName . "/principals/", "", $serverUri);
+    } else if (strpos($serverUri, '/calendars/') !== false) {
+        $urlParamsString = str_replace($serverName . "/calendars/", "", $serverUri);
+    } else if (strpos($serverUri, '/addressbooks/') !== false) {
+        $urlParamsString = str_replace($serverName . "/addressbooks/", "", $serverUri);
+    } else {
+        $urlParamsString = '';
+    }
+
+    if ($urlParamsString === '') {$urlParamsString = 'admin';}
+}
+
 /**
  * Database
  *
  * Feel free to switch this to MySQL, it will definitely be better for higher
  * concurrency.
  */
-$pdo = new PDO('mysql:dbname = sabredav_; hostname = ' . $config['DATABASE_HOST'],
+$pdo = new PDO('mysql:dbname=sabredav_' . $urlParamsString . ';hostname=' . $config['DATABASE_HOST'],
     $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 

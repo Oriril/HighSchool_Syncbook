@@ -1,0 +1,27 @@
+var class_sabre_1_1_cal_d_a_v_1_1_calendar =
+[
+    [ "__construct", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a4cb50f0d57e9230d1ca7ccd9d653b8db", null ],
+    [ "calendarQuery", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a655a6ae4342484cae5ef9e8f43592fcf", null ],
+    [ "childExists", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a9c5c664f8f1e4a514235a31837de9988", null ],
+    [ "createDirectory", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#ad2c87f2e1012d1860d1d343a9ee54fa1", null ],
+    [ "createFile", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#ae186012cf1daf8abd950c9c9fdff938d", null ],
+    [ "delete", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a13bdffdd926f26b825ea57066334ff01", null ],
+    [ "getACL", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a4c497416dd8d68bf82a3c2e41689fda3", null ],
+    [ "getChanges", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#ae443d6cda9d7e33376af53e57a7c2294", null ],
+    [ "getChild", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a1cfdba129d25b04b73af8290f58ba7c1", null ],
+    [ "getChildACL", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a620c7ce567cc08ab1387421e4b9dfa06", null ],
+    [ "getChildren", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a8650a4f6150ed357d88fa043f1685ac5", null ],
+    [ "getGroup", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a4f44e7bc9de772c21b4304d11e87bf16", null ],
+    [ "getLastModified", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#aa388e2fda4fe702e8953c1a731868f18", null ],
+    [ "getMultipleChildren", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#af3d8e1b0b8f24a1f074110eab5f33f3e", null ],
+    [ "getName", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a3d0963e68bb313b163a73f2803c64600", null ],
+    [ "getOwner", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#adf7c472f5ffc30ad0aa95c63cd2b8f6c", null ],
+    [ "getProperties", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a1a83345db5971b7ca0f7e8c9bcf62e37", null ],
+    [ "getSupportedPrivilegeSet", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a036f32003b3e05de64911e63b46dfc80", null ],
+    [ "getSyncToken", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a88cf40715fea416e00bc445278bc704b", null ],
+    [ "propPatch", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#aaa1ed377aaa9f4d644fda86f01afab25", null ],
+    [ "setACL", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a811d95216cc93cf763bbccd3ece222b9", null ],
+    [ "setName", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a7f017b045970fb17a992ba3f03b01f49", null ],
+    [ "$caldavBackend", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#a0183edc9b79e1f1df4b87166fa9babb3", null ],
+    [ "$calendarInfo", "class_sabre_1_1_cal_d_a_v_1_1_calendar.html#ade3ba780268273eb3686c2c4f034dbcb", null ]
+];

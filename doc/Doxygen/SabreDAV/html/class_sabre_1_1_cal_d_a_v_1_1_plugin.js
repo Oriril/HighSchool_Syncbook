@@ -1,0 +1,26 @@
+var class_sabre_1_1_cal_d_a_v_1_1_plugin =
+[
+    [ "beforeCreateFile", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a69964b1615143d63a866e773fe683013", null ],
+    [ "beforeWriteContent", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#abd8787b28def50f264a90f05a079308c", null ],
+    [ "browserPostAction", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a53b059fa1cff2dd9aea5dfe3efad335b", null ],
+    [ "calendarMultiGetReport", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#adb16ea399bc277144c26b0672db1fd95", null ],
+    [ "calendarQueryReport", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a9406e1ea2a1c9214ce9ac130db6d0a2f", null ],
+    [ "freeBusyQueryReport", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a66b43ed3f8689d5eee730b603f68b204", null ],
+    [ "getCalendarHomeForPrincipal", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a91b302166f7ddc30e7c97a14a6bb8689", null ],
+    [ "getFeatures", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a96fc19c600322e93e3e3a3463410e7ca", null ],
+    [ "getHTTPMethods", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#ac30290b589c493f35b9850ea1a508d31", null ],
+    [ "getPluginName", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a667b4742b17228855e7ebec67113e629", null ],
+    [ "getSupportedReportSet", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a07ebbe608e0b7b0a8079181bc13bf52c", null ],
+    [ "htmlActionsPanel", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#afb0123a81b37489143bb9316cb5a771b", null ],
+    [ "httpAfterGet", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a90fbebe93ff63ee1818e19ac99928336", null ],
+    [ "httpMkCalendar", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#ad513c8f1dd694fd0613868abe712dd87", null ],
+    [ "initialize", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a2f763b753d8c30e255c076537f0f498d", null ],
+    [ "propFind", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#aa71c38645f273a7b65d1d80b8fec72b3", null ],
+    [ "report", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#af81edb0f2b13708b5a08590079bc0fd1", null ],
+    [ "validateICalendar", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a7c0a4d121b94e42a0eb1cc79aea9d148", null ],
+    [ "$maxResourceSize", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a203cd88faf8747282e30cd52fa947169", null ],
+    [ "$server", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#ad135cc8a47e55f0829949cf62214170f", null ],
+    [ "CALENDAR_ROOT", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a7901efde288f486cd9bf7160a92d5277", null ],
+    [ "NS_CALDAV", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a677f592642bcdbfbf95328aa64931128", null ],
+    [ "NS_CALENDARSERVER", "class_sabre_1_1_cal_d_a_v_1_1_plugin.html#a9cbea379d624b6d8c413cf5744f0702b", null ]
+];
