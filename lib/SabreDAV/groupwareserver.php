@@ -33,16 +33,16 @@ if (!isset($databaseUsername)) {
     $serverName = $_SERVER["SCRIPT_NAME"];
 
     if (strpos($serverUri, '/principals/') !== false) {
-        $urlParamsString = str_replace($serverName . "/principals/", "", $serverUri);
+        $databaseUsername = str_replace($serverName . "/principals/", "", $serverUri);
     } else if (strpos($serverUri, '/calendars/') !== false) {
-        $urlParamsString = str_replace($serverName . "/calendars/", "", $serverUri);
+        $databaseUsername = str_replace($serverName . "/calendars/", "", $serverUri);
     } else if (strpos($serverUri, '/addressbooks/') !== false) {
-        $urlParamsString = str_replace($serverName . "/addressbooks/", "", $serverUri);
+        $databaseUsername = str_replace($serverName . "/addressbooks/", "", $serverUri);
     } else {
-        $urlParamsString = '';
+        $databaseUsername = '';
     }
 
-    if ($urlParamsString === '') {$urlParamsString = 'admin';}
+    if ($databaseUsername === '') {$databaseUsername = 'admin';}
 }
 
 /**
@@ -51,7 +51,7 @@ if (!isset($databaseUsername)) {
  * Feel free to switch this to MySQL, it will definitely be better for higher
  * concurrency.
  */
-$pdo = new PDO('mysql:dbname=sabredav_' . $urlParamsString . ';hostname=' . $config['DATABASE_HOST'],
+$pdo = new PDO('mysql:dbname=sabredav_' . $databaseUsername . ';hostname=' . $config['DATABASE_HOST'],
     $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 

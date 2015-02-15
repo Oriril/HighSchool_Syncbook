@@ -1,33 +1,60 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");
-    use Sabre\VObject;
 
-    require_once(SOURCE_PATH . "Services/serviceDatabaseManagement.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");
+use Sabre\VObject;
 
+require_once(SOURCE_PATH . "Services/serviceDatabaseManagement.php");
 
-    /*@todo configure GroupAwareServer.php*/
-    const SABREDAV_REALM = ":SabreDAV:";
-    const WEBDAV_BASE_URI = "/Syncbook/lib/SabreDAV/groupwareserver.php/";
+const SABREDAV_REALM = ":SabreDAV:";
+const WEBDAV_BASE_URI = "/Syncbook/lib/SabreDAV/groupwareserver.php/";
 
-    function webDAVPrincipalBuild($beanPrincipal, $webDAVUsername, $webDAVEMail = NULL, $webDAVDisplayname = NULL, $webDAVvCardUrl = NULL) {
-        $beanPrincipal -> displayname = $webDAVDisplayname;
-        $beanPrincipal -> email = $webDAVEMail;
-        $beanPrincipal -> uri = "principals/" . $webDAVUsername;
-        $beanPrincipal -> vcardurl = $webDAVvCardUrl;
-    return $beanPrincipal;
-    }
+/**
+ * Function for building a Principal Bean
+ *
+ * @param $beanPrincipal
+ * @param $webDAVUsername
+ * @param null $webDAVEMail
+ * @param null $webDAVDisplayname
+ * @param null $webDAVvCardUrl
+ * @return $beanPrincipal
+ */
+function webDAVPrincipalBuild($beanPrincipal, $webDAVUsername, $webDAVEMail = NULL, $webDAVDisplayname = NULL, $webDAVvCardUrl = NULL) {
+    $beanPrincipal->displayname = $webDAVDisplayname;
+    $beanPrincipal->email = $webDAVEMail;
+    $beanPrincipal->uri = "principals/" . $webDAVUsername;
+    $beanPrincipal->vcardurl = $webDAVvCardUrl;
+return $beanPrincipal;
+}
 
-    function webDAVUserBuild($beanUser, $webDAVUsername, $webDAVPassword) {
-        $beanUser -> username = $webDAVUsername;
-        $beanUser -> digesta1 = md5($webDAVUsername . SABREDAV_REALM . $webDAVPassword);
-    return $beanUser;
-    }
+/**
+ * Function for Building an User Bean
+ *
+ * @param $beanUser
+ * @param $webDAVUsername
+ * @param $webDAVPassword
+ * @return $beanUser
+ */
+function webDAVUserBuild($beanUser, $webDAVUsername, $webDAVPassword) {
+    $beanUser->username = $webDAVUsername;
+    $beanUser->digesta1 = md5($webDAVUsername . SABREDAV_REALM . $webDAVPassword);
+return $beanUser;
+}
 
-    /*#todo vCard Default from Register*/
-    function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl = NULL) {
-        databaseSabreDAVUserConnect($webDAVUsername, new configurationClass());
-
+/**
+ * Function to Create a webDAV User/Principal
+ *
+ * @param $webDAVUsername
+ * @param $webDAVPassword
+ * @param $webDAVEMail
+ * @param $webDAVDisplayname
+ * @param null $webDAVvCardUrl
+ * @return bool
+ *
+ * #todo vCard Default from Register
+ */
+function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl = NULL) {
+    if (databaseSabreDAVUserConnect($webDAVUsername, new configurationClass())) {
         try {
             // Starting Transaction
             R::begin();
@@ -66,20 +93,28 @@
             // Closing Transaction (Failure)
             R::rollback();
         }
-    return FALSE;
     }
+return FALSE;
+}
 
-    function webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword) {
-        // Creating User Authentication Informations
-        $webDAVConnectionSettings = array('baseUri' => WEBDAV_BASE_URI, 'userName' => $webDAVUsername, 'password' => $webDAVPassword);
-        $webDAVClient = new Sabre\DAV\Client($webDAVConnectionSettings);
-        print_r($webDAVConnectionSettings);
+/**
+ * Function for Checking webDAV User/Principal Creation
+ *
+ * @param $webDAVUsername
+ * @param $webDAVPassword
+ * @return bool
+ */
+function webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword) {
+    // Creating User Authentication Informations
+    $webDAVConnectionSettings = array('baseUri' => WEBDAV_BASE_URI, 'userName' => $webDAVUsername, 'password' => $webDAVPassword);
+    $webDAVClient = new Sabre\DAV\Client($webDAVConnectionSettings);
+    print_r($webDAVConnectionSettings);
 
-        // Sending Request and checking Response with User Informations
-        $webDAVResponse = $webDAVClient -> request('GET');
-        if ($webDAVResponse['statusCode'] == 200) {
-            // The user has been Successfully Created
-            return TRUE;
-        }
-    return FALSE;
+    // Sending Request and checking Response with User Informations
+    $webDAVResponse = $webDAVClient->request('GET');
+    if ($webDAVResponse['statusCode'] == 200) {
+        // The user has been Successfully Created
+        return TRUE;
     }
+return FALSE;
+}
