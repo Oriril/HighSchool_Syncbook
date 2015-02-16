@@ -12,7 +12,7 @@
       <paths name="localhost">
         <serverdata>
           <mappings>
-            <mapping deploy="Syncbook" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="Syncbook" local="$PROJECT_DIR$" web="/Syncbook/" />
           </mappings>
         </serverdata>
       </paths>

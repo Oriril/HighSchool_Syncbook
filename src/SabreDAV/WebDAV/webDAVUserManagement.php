@@ -13,10 +13,10 @@ const WEBDAV_BASE_URI = "/Syncbook/lib/SabreDAV/groupwareserver.php/";
  * Function for building a Principal Bean
  *
  * @param $beanPrincipal
- * @param $webDAVUsername
- * @param null $webDAVEMail
- * @param null $webDAVDisplayname
- * @param null $webDAVvCardUrl
+ * @param string $webDAVUsername
+ * @param null/string $webDAVEMail
+ * @param null/string $webDAVDisplayname
+ * @param null/string $webDAVvCardUrl
  * @return $beanPrincipal
  */
 function webDAVPrincipalBuild($beanPrincipal, $webDAVUsername, $webDAVEMail = NULL, $webDAVDisplayname = NULL, $webDAVvCardUrl = NULL) {
@@ -31,8 +31,8 @@ return $beanPrincipal;
  * Function for Building an User Bean
  *
  * @param $beanUser
- * @param $webDAVUsername
- * @param $webDAVPassword
+ * @param string $webDAVUsername
+ * @param string $webDAVPassword
  * @return $beanUser
  */
 function webDAVUserBuild($beanUser, $webDAVUsername, $webDAVPassword) {
@@ -44,17 +44,17 @@ return $beanUser;
 /**
  * Function to Create a webDAV User/Principal
  *
- * @param $webDAVUsername
- * @param $webDAVPassword
- * @param $webDAVEMail
- * @param $webDAVDisplayname
- * @param null $webDAVvCardUrl
+ * @param string $webDAVUsername
+ * @param string $webDAVPassword
+ * @param string $webDAVEMail
+ * @param string $webDAVDisplayname
+ * @param null/string $webDAVvCardUrl
  * @return bool
  *
  * #todo vCard Default from Register
  */
 function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl = NULL) {
-    if (databaseSabreDAVUserConnect($webDAVUsername, new configurationClass())) {
+    if (databaseSabreDAVConnectRedBean($webDAVUsername, new configurationClass())) {
         try {
             // Starting Transaction
             R::begin();
@@ -100,8 +100,8 @@ return FALSE;
 /**
  * Function for Checking webDAV User/Principal Creation
  *
- * @param $webDAVUsername
- * @param $webDAVPassword
+ * @param string $webDAVUsername
+ * @param string $webDAVPassword
  * @return bool
  */
 function webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword) {

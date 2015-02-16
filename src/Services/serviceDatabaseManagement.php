@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Function for connecting to Database
+ * Function to connect to Database with RedBean PHP
  *
- * @param $webDAVUsername
+ * @param string $webDAVUsername
  * @param configurationClass $config
  * @return bool
  */
-function databaseSabreDAVUserConnect($webDAVUsername, configurationClass $config) {
+function databaseSabreDAVConnectRedBean($webDAVUsername, configurationClass $config) {
     // Getting configurationArray to Set Up Database Connection
     $config = $config->configurationArray;
 
@@ -28,4 +28,26 @@ function databaseSabreDAVUserConnect($webDAVUsername, configurationClass $config
         }
     }
 return TRUE;
+}
+
+/**
+ * Function to connect to Database with PDO
+ *
+ * @param string $webDAVUsername
+ * @param configurationClass $config
+ * @return bool|PDO
+ */
+function databaseSabreDAVConnectPDO($webDAVUsername, configurationClass $config)
+{
+    // Getting configurationArray to Set Up Database Connection
+    $config = $config->configurationArray;
+
+    try {
+        // Database connection with PDO Method
+        $connectionPDO = new PDO('mysql:dbname=sabredav_' . $webDAVUsername . ';hostname=' . $config['DATABASE_HOST'],
+            $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
+    } catch (Exception $exceptionError) {
+        return FALSE;
+    }
+return $connectionPDO;
 }
