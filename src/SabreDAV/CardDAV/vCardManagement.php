@@ -54,7 +54,7 @@ function vCardUpdate(Sabre\CardDAV\AddressBook $addressBook, VObject\Component\V
         // Retrieving vCard UID from vCardData
         if ($vCard = $addressBook->getChild($vCardData->UID . ".vcf")) {
             // Updating vCard in Server and checking if all went good
-            if ($vCard->put($vCardData->serialize())) {echo("Test"); return TRUE;}
+            if ($vCard->put($vCardData->serialize())) {return TRUE;}
         }
     } catch (Exception $exceptionError) {}
 return FALSE;
