@@ -14,9 +14,9 @@ const WEBDAV_BASE_URI = "/Syncbook/lib/SabreDAV/groupwareserver.php/";
  *
  * @param $beanPrincipal
  * @param string $webDAVUsername
- * @param null/string $webDAVEMail
- * @param null/string $webDAVDisplayname
- * @param null/string $webDAVvCardUrl
+ * @param null|string $webDAVEMail
+ * @param null|string $webDAVDisplayname
+ * @param null|string $webDAVvCardUrl
  * @return $beanPrincipal
  */
 function webDAVPrincipalBuild($beanPrincipal, $webDAVUsername, $webDAVEMail = NULL, $webDAVDisplayname = NULL, $webDAVvCardUrl = NULL) {
@@ -48,7 +48,7 @@ return $beanUser;
  * @param string $webDAVPassword
  * @param string $webDAVEMail
  * @param string $webDAVDisplayname
- * @param null/string $webDAVvCardUrl
+ * @param null|string $webDAVvCardUrl
  * @return bool
  *
  * #todo vCard Default from Register

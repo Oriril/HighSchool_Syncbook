@@ -12,22 +12,16 @@ function databaseSabreDAVConnectRedBean($webDAVUsername, configurationClass $con
     $config = $config->configurationArray;
 
     try {
-        // Checking if already connected to Database
-        R::inspect();
-    } catch (Exception $exceptionError) {
-        try {
-            // Connect to Database and Freeze that connection
-            R::setup('mysql:host=' . $config['DATABASE_HOST'] . ';dbname=sabredav_' . strtolower($webDAVUsername),
-                $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
-            R::freeze(TRUE);
+        // Connect to Database and Freeze that connection
+        R::setup('mysql:host=' . $config['DATABASE_HOST'] . ';dbname=sabredav_' . strtolower($webDAVUsername),
+            $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
+        R::freeze(TRUE);
 
-            // Checking if everything worked
-            R::inspect();
-        } catch (Exception $exceptionError) {
-            return FALSE;
-        }
-    }
-return TRUE;
+        // Checking if everything worked
+        R::inspect();
+        return TRUE;
+    } catch (Exception $exceptionError) {}
+return FALSE;
 }
 
 /**
@@ -46,8 +40,7 @@ function databaseSabreDAVConnectPDO($webDAVUsername, configurationClass $config)
         // Database connection with PDO Method
         $connectionPDO = new PDO('mysql:dbname=sabredav_' . $webDAVUsername . ';hostname=' . $config['DATABASE_HOST'],
             $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
-    } catch (Exception $exceptionError) {
-        return FALSE;
-    }
-return $connectionPDO;
+        return $connectionPDO;
+    } catch (Exception $exceptionError) {}
+return FALSE;
 }
