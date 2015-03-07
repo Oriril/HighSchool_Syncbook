@@ -12,7 +12,7 @@ class Redirect
 	 */
 	public static function home()
 	{
-		header("location: " . Config::get('URL'));
+		header("location: " . Config::get('URL') . "index/index");
 	}
 
 	/**
