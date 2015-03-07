@@ -1,3 +1,7 @@
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,7 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="<?php echo $_SERVER['DOCUMENT_ROOT'] . "/Syncbook/lib/bootstrap-3.3.2-dist/"?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,9 +21,6 @@
     <![endif]-->
 </head>
 <body>
-<?php
-    echo $_SERVER['DOCUMENT_ROOT'] . "/Syncbook/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css";
-?>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -85,6 +86,6 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="<?php echo $_SERVER['DOCUMENT_ROOT'] . "/Syncbook/lib/bootstrap-3.3.2-dist/"?>js/bootstrap.min.js"></script>
+<script src="../lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
