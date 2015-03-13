@@ -5,7 +5,7 @@
         <h2>Edit a note</h2>
 
         <!-- echo out the system feedback (error and success messages) -->
-        <?php $this->renderFeedbackMessages(); ?>
+        <?php //$this->renderFeedbackMessages(); ?>
 
         <?php if ($this->note) { ?>
             <form method="post" action="<?php echo Config::get('URL'); ?>note/editSave">
