@@ -2,7 +2,7 @@
     <h1>Upload an avatar</h1>
 
     <!-- echo out the system feedback (error and success messages) -->
-    <?php $this->renderFeedbackMessages(); ?>
+    <?php //$this->renderFeedbackMessages(); ?>
 
     <div class="feedback info">
         If you still see the old picture after uploading a new one: Hard-Reload the page with F5! Your browser doesn't

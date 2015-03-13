@@ -2,7 +2,7 @@
     <h1>LoginController/editUserEmail</h1>
 
     <!-- echo out the system feedback (error and success messages) -->
-    <?php $this->renderFeedbackMessages(); ?>
+    <?php //$this->renderFeedbackMessages(); ?>
 
     <div class="box">
         <h2>Change your email address</h2>

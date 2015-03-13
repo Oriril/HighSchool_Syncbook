@@ -3,7 +3,7 @@
     <div class="box">
 
         <!-- echo out the system feedback (error and success messages) -->
-        <?php $this->renderFeedbackMessages(); ?>
+        <?php //$this->renderFeedbackMessages(); ?>
 
         <!-- request password reset form box -->
         <form method="post" action="<?php echo Config::get('URL'); ?>login/requestPasswordReset_action">
