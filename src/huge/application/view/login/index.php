@@ -16,17 +16,17 @@
                             <div class="col-lg-10">
                                 <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Username or email" required />
                             </div>
+                        </div>
+                        <div class="form-group">
                             <label for="user_password" class="col-lg-2 control-label">Password</label>
                             <div class="col-lg-10">
                                 <input type="password" class="form-control" id="user_password" name="user_password" placeholder="Password" required />
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="set_remember_me_cookie"> Remember me for 2 weeks
+                                    </label>
+                                </div>
                             </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="set_remember_me_cookie" class="col-lg-2 control-label">
-                                <input type="checkbox" name="set_remember_me_cookie" class="remember-me-checkbox" />
-                                Remember me for 2 weeks
-                            </label>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10">
