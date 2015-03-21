@@ -54,7 +54,9 @@ return $beanUser;
  * #todo vCard Default from Register
  */
 function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl = NULL) {
-    if (databaseSabreDAVConnectRedBean($webDAVUsername, new configurationClass())) {
+    $configurationClass = new configurationClass();
+
+    if (databaseSabreDAVConnectRedBean($webDAVUsername, $configurationClass)) {
         try {
             // Starting Transaction
             R::begin();
@@ -62,7 +64,6 @@ function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMai
             // Adding Instance to "users" Table for User creation purpose
             $beanUser = R::dispense('users');
             $beanUser = webDAVUserBuild($beanUser, $webDAVUsername, $webDAVPassword);
-            print_r($beanUser);
             $beanUserID = R::store($beanUser);
 
             // Adding Instance to "principals" Table for Principal creation purpose
@@ -95,9 +96,8 @@ function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMai
             R::rollback();
         }
     } else {
-        if(databaseSabreDAVCreatePDO($webDAVUsername, new configurationClass())) {
-            echo("Test Create");
-            //webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl);
+        if (databaseSabreDAVCreatePDO($webDAVUsername, $configurationClass)) {
+            return TRUE;
         }
     }
 return FALSE;
@@ -125,4 +125,7 @@ function webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword)
 return FALSE;
 }
 
-webDAVUserPrincipalCreate("admin", "admin", "admin@example.com", "adminDisplay");
+if (webDAVUserPrincipalCreate("admin", "password", "admin@example.com", "adminDisplay")) {
+    sleep(25);
+    webDAVUserPrincipalCreate("admin", "password", "admin@example.com", "adminDisplay");
+}
