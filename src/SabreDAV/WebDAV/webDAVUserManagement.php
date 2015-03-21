@@ -88,10 +88,16 @@ function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMai
 
             // Closing Transaction (Success)
             R::commit();
+            echo("Test True");
             return TRUE;
         } catch (Exception $exceptionError) {
             // Closing Transaction (Failure)
             R::rollback();
+        }
+    } else {
+        if(databaseSabreDAVCreatePDO($webDAVUsername, new configurationClass())) {
+            echo("Test Create");
+            //webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl);
         }
     }
 return FALSE;
@@ -118,3 +124,5 @@ function webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword)
     }
 return FALSE;
 }
+
+webDAVUserPrincipalCreate("admin", "admin", "admin@example.com", "adminDisplay");
