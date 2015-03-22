@@ -49,7 +49,7 @@ return FALSE;
 }
 
 /**
- * unction to create SabreDAV Database with PDO
+ * Function to create SabreDAV Database with PDO
  *
  * @param string $webDAVUsername
  * @param configurationClass $config
@@ -67,13 +67,32 @@ function databaseSabreDAVCreatePDO($webDAVUsername, configurationClass $config) 
             $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
 
         // Database Create
-        $connectionPDO->exec("CREATE DATABASE IF NOT EXISTS sabredav_" . $webDAVUsername . " DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-        USE sabredav_" . $webDAVUsername . ";" . require_once(SQL_PATH . "Sabredav.php"));
-
-        return TRUE;
+        if (databaseSabreDAVCreatePDOExec($webDAVUsername, $connectionPDO)) {
+            return TRUE;
+        }
     } catch (Exception $exceptionError) {
         $connectionPDO->exec("DROP DATABASE sabredav_" . $webDAVUsername);
-        echo($exceptionError);
     }
 return FALSE;
+}
+
+/**
+ * Function to Execute Queries to create SabreDAV Database
+ *
+ * @param string $webDAVUsername
+ * @param PDO $connectionPDO
+ * @return bool
+ */
+function databaseSabreDAVCreatePDOExec($webDAVUsername, $connectionPDO) {
+    try {
+        if ($connectionPDO->exec("CREATE DATABASE sabredav_" . $webDAVUsername . " DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;")) {
+            $queryArray = require_once(SQL_PATH . "SabreDAV.php");
+
+            foreach ($queryArray as $queryKey => $queryExecute) {
+                $connectionPDO->exec("USE sabredav_" . $webDAVUsername . ";" . $queryExecute);
+            }
+            return TRUE;
+        }
+    } catch (Exception $exceptionError) {}
+    return FALSE;
 }

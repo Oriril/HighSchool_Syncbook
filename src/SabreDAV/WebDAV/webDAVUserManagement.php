@@ -1,5 +1,4 @@
 <?php
-
 require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");
 use Sabre\VObject;
@@ -96,9 +95,7 @@ function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMai
             R::rollback();
         }
     } else {
-        if (databaseSabreDAVCreatePDO($webDAVUsername, $configurationClass)) {
-            return TRUE;
-        }
+        if (databaseSabreDAVCreatePDO($webDAVUsername, $configurationClass)) {return TRUE;}
     }
 return FALSE;
 }
@@ -123,9 +120,4 @@ function webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword)
         return TRUE;
     }
 return FALSE;
-}
-
-if (webDAVUserPrincipalCreate("admin", "password", "admin@example.com", "adminDisplay")) {
-    sleep(25);
-    webDAVUserPrincipalCreate("admin", "password", "admin@example.com", "adminDisplay");
 }

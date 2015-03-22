@@ -1,4 +1,6 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
+require_once(SOURCE_PATH . "SabreDAV/WebDAV/webDAVUserManagement.php");
 
 /**
  * LoginController
@@ -226,6 +228,7 @@ class LoginController extends Controller
     {
         if (isset($user_id) && isset($user_activation_verification_code)) {
             RegistrationModel::verifyNewUser($user_id, $user_activation_verification_code);
+
             /*@todo FUNCTION FOR SABREDAV CREATION WITH FLAG = 0 IF SOMETHING WENT WRONG*/
             $this->View->render('login/verify');
         } else {

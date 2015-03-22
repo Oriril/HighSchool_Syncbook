@@ -21,7 +21,7 @@ return array(
 
     "DATABASE" => array(
         "DATABASE_USER_LIST" => array(
-            "DB_NAME" => "syncbook_users",
+            "DB_NAME" => "huge",
 
             "USERNAME" => "root",
             "PASSWORD" => ""
