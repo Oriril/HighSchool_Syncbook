@@ -55,7 +55,7 @@ return $beanUser;
 function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl = NULL) {
     $configurationClass = new configurationClass();
 
-    if (databaseSabreDAVConnectRedBean($webDAVUsername, $configurationClass)) {
+    if (databaseSabreDAVConnectRedBean($webDAVUsername, $configurationClass, TRUE)) {
         try {
             // Starting Transaction
             R::begin();
@@ -94,8 +94,6 @@ function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMai
             // Closing Transaction (Failure)
             R::rollback();
         }
-    } else {
-        if (databaseSabreDAVCreatePDO($webDAVUsername, $configurationClass)) {return TRUE;}
     }
 return FALSE;
 }
@@ -121,3 +119,10 @@ function webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword)
     }
 return FALSE;
 }
+
+/*
+    $principalCreateResult = webDAVUserPrincipalCreate("admin", "admin", "example@example.com", "Federico Longhin");
+    if ($principalCreateResult) {
+        webDAVUserPrincipalCreate("admin", "admin", "example@example.com", "Federico Longhin");
+    }
+*/

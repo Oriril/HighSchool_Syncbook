@@ -8,9 +8,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
  * @param configurationClass $config
  * @return bool
  */
-function databaseSabreDAVConnectRedBean($webDAVUsername, configurationClass $config) {
+function databaseSabreDAVConnectRedBean($webDAVUsername, configurationClass $configClass, $silentFlag = FALSE) {
     // Getting configurationArray to Set Up Database Connection
-    $config = $config->configurationArray;
+    $config = $configClass->configurationArray;
+    // Normalizing $webDAVUsername
+    $webDAVUsername = strtolower($webDAVUsername);
 
     try {
         // Connect to Database and Freeze that connection
@@ -21,8 +23,44 @@ function databaseSabreDAVConnectRedBean($webDAVUsername, configurationClass $con
         // Checking if everything worked
         R::inspect();
         return TRUE;
-    } catch (Exception $exceptionError) {}
+    } catch (Exception $exceptionError) {
+        if ($silentFlag === TRUE) {
+            if (databaseSabreDAVCreateRedBean($webDAVUsername, $configClass)) {return TRUE;}
+        }
+    }
 return FALSE;
+}
+
+/**
+ * Function to create Database with RedBean PHP
+ *
+ * @param string $webDAVUsername
+ * @param configurationClass $config
+ * @return bool
+ */
+function databaseSabreDAVCreateRedBean($webDAVUsername, configurationClass $config) {
+    // Getting configurationArray to Set Up Database Connection
+    $config = $config->configurationArray;
+    // Normalizing $webDAVUsername
+    $webDAVUsername = strtolower($webDAVUsername);
+
+    try {
+        // Connect to Database and Selecting that connection
+        R::addDatabase('Root', 'mysql:host=' . $config['DATABASE_HOST'] . ';',
+            $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
+        R::selectDatabase('Root');
+
+        if (R::exec("CREATE DATABASE sabredav_" . $webDAVUsername . " DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+            USE sabredav_" . $webDAVUsername . ";" . require_once(SQL_PATH . "SabreDAV.php"))) {
+            // Back to Default Database
+            R::selectDatabase('default');
+            return TRUE;
+        }
+    } catch (Exception $exceptionError) {}
+
+    // Closing Database connection before finishing
+    R::close();
+    return FALSE;
 }
 
 /**
@@ -46,53 +84,4 @@ function databaseSabreDAVConnectPDO($webDAVUsername, configurationClass $config)
         return $connectionPDO;
     } catch (Exception $exceptionError) {}
 return FALSE;
-}
-
-/**
- * Function to create SabreDAV Database with PDO
- *
- * @param string $webDAVUsername
- * @param configurationClass $config
- * @return bool
- */
-function databaseSabreDAVCreatePDO($webDAVUsername, configurationClass $config) {
-    // Getting configurationArray to Set Up Database Connection
-    $config = $config->configurationArray;
-    // Normalizing $webDAVUsername
-    $webDAVUsername = strtolower($webDAVUsername);
-
-    try {
-        // Host connection with PDO Method
-        $connectionPDO = new PDO("mysql:hostname=" . $config['DATABASE_HOST'],
-            $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
-
-        // Database Create
-        if (databaseSabreDAVCreatePDOExec($webDAVUsername, $connectionPDO)) {
-            return TRUE;
-        }
-    } catch (Exception $exceptionError) {
-        $connectionPDO->exec("DROP DATABASE sabredav_" . $webDAVUsername);
-    }
-return FALSE;
-}
-
-/**
- * Function to Execute Queries to create SabreDAV Database
- *
- * @param string $webDAVUsername
- * @param PDO $connectionPDO
- * @return bool
- */
-function databaseSabreDAVCreatePDOExec($webDAVUsername, $connectionPDO) {
-    try {
-        if ($connectionPDO->exec("CREATE DATABASE sabredav_" . $webDAVUsername . " DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;")) {
-            $queryArray = require_once(SQL_PATH . "SabreDAV.php");
-
-            foreach ($queryArray as $queryKey => $queryExecute) {
-                $connectionPDO->exec("USE sabredav_" . $webDAVUsername . ";" . $queryExecute);
-            }
-            return TRUE;
-        }
-    } catch (Exception $exceptionError) {}
-    return FALSE;
 }
