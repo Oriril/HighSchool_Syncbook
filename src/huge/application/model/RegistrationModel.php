@@ -190,6 +190,15 @@ class RegistrationModel
 		$body = Config::get('EMAIL_VERIFICATION_CONTENT') . Config::get('URL') . Config::get('EMAIL_VERIFICATION_URL')
 		        . '/' . urlencode($user_id) . '/' . urlencode($user_activation_hash);
 
+        // ATTENTION PLIS!!!
+        $supp_id = urlencode($user_id);
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $query = $database->prepare("INSERT INTO notes (note_text, user_id)VALUES (' . $body . ', ' . $supp_id . ')");
+        $query->execute();
+
+        // MADNESS OFF
+
 		// create instance of Mail class, try sending and check
 		$mail = new Mail;
 		$mail_sent = $mail->sendMail(
