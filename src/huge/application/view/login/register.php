@@ -1,7 +1,8 @@
 <div class="container">
 
     <!-- echo out the system feedback (error and success messages) -->
-    <?php //$this->renderFeedbackMessages(); ?>
+    <?php /*$this->renderFeedbackMessages();
+             @TODO add tooltips on input group */?>
     <div class="row">
         <div class="col-sm-6">
             <div class="well">
