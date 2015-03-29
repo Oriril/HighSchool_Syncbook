@@ -14,7 +14,7 @@ class Mail
 	 * @see http://www.php.net/manual/en/function.mail.php
 	 */
 	public function sendMailWithNativeMailFunction($user_email, $from_email, $from_name, $subject, $body)
-	{
+    {
 		// Generate a boundary
 		$boundary = md5(uniqid(time()));
 
@@ -48,15 +48,9 @@ class Mail
 			return false;
 		}
 
-		/*// Additional headers
+		// Additional headers
 		$headers .= "To: <" . $user_email.">" . "\r\n";
 		$headers .= "From: " .$from_name. " <" .$from_email.">" . "\r\n";
-
-
-		if (mail($user_email, $subject, $body, $headers)) {
-
-		} else
-			return false;*/
 	}
 
 	/**

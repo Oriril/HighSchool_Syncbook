@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");
 
 /**
  * Function to connect to Database with RedBean PHP
@@ -45,18 +46,22 @@ function databaseSabreDAVCreateRedBean($webDAVUsername, configurationClass $conf
     $webDAVUsername = strtolower($webDAVUsername);
 
     try {
+        error_log("HOST : " . $config['DATABASE_HOST']);
+        error_log("USERNAME : " . $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME']);
+        error_log("PASSWORD : " . $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
+
         // Connect to Database and Selecting that connection
-        R::addDatabase('Root', 'mysql:host=' . $config['DATABASE_HOST'] . ';',
+        R::addDatabase('Root', 'mysql:host=' . $config['DATABASE_HOST'],
             $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
         R::selectDatabase('Root');
 
-        if (R::exec("CREATE DATABASE sabredav_" . $webDAVUsername . " DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+        if (R::exec("CREATE DATABASE sabredav_" . $webDAVUsername . " DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
             USE sabredav_" . $webDAVUsername . ";" . require_once(SQL_PATH . "SabreDAV.php"))) {
             // Back to Default Database
             R::selectDatabase('default');
             return TRUE;
         }
-    } catch (Exception $exceptionError) {}
+    } catch (Exception $exceptionError) {error_log($exceptionError);}
 
     // Closing Database connection before finishing
     R::close();

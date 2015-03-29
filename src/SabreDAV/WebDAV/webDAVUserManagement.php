@@ -120,9 +120,4 @@ function webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword)
 return FALSE;
 }
 
-/*
-    $principalCreateResult = webDAVUserPrincipalCreate("admin", "admin", "example@example.com", "Federico Longhin");
-    if ($principalCreateResult) {
-        webDAVUserPrincipalCreate("admin", "admin", "example@example.com", "Federico Longhin");
-    }
-*/
+// webDAVUserPrincipalCreate("Nildric", "password", "longhin.federico.nildric@gmail.com", "Federico" . " " . "Longhin");

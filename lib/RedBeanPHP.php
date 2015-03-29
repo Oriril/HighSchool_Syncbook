@@ -737,23 +737,29 @@ class RPDO implements Driver
 	{
 		if ( $this->isConnected ) return;
 		try {
+            error_log("INIT");
 			$user = $this->connectInfo['user'];
 			$pass = $this->connectInfo['pass'];
+            error_log("INSERT USER AND PSW");
 
 			$this->pdo = new\PDO(
 				$this->dsn,
 				$user,
 				$pass
 			);
+            error_log("CREATE PDO");
 
 			$this->setEncoding();
 			$this->pdo->setAttribute(\PDO::ATTR_STRINGIFY_FETCHES, TRUE );
 			//cant pass these as argument to constructor, CUBRID driver does not understand...
 			$this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			$this->pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE,\PDO::FETCH_ASSOC);
+            error_log("SET ATTRIBUTE");
 
 			$this->isConnected = TRUE;
+            error_log("CHECK CONNECTION");
 		} catch (\PDOException $exception ) {
+            error_log("EXCEPTION : " . $exception);
 			$matches = array();
 
 			$dbname  = ( preg_match( '/dbname=(\w+)/', $this->dsn, $matches ) ) ? $matches[1] : '?';
