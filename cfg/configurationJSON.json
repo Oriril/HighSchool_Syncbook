@@ -1,0 +1,18 @@
+{
+	"DATABASE_HOST": "localhost",
+	"DATABASE":
+	{
+		"DATABASE_USER_LIST":
+		{
+    		"DB_NAME": "syncbook_users",
+    		"USERNAME": "basso.enrico",
+    		"PASSWORD": "password"
+    	},
+    	
+    	"DATABASE_USER_SINGLE":
+		{
+            "USERNAME": "longhin.federico",
+            "PASSWORD": "password"
+	    }
+    }
+}
