@@ -110,12 +110,12 @@ return array(
 	 * EMAIL_USE_SMTP: Use SMTP or not
 	 * EMAIL_SMTP_AUTH: leave this true unless your SMTP service does not need authentication
 	 */
-	'EMAIL_USED_MAILER' => 'native',
+	'EMAIL_USED_MAILER' => 'phpmailer',
 	'EMAIL_USE_SMTP' => true,
 	'EMAIL_SMTP_HOST' => '127.0.0.1',
-	'EMAIL_SMTP_AUTH' => false,
-	'EMAIL_SMTP_USERNAME' => 'yourusername',
-	'EMAIL_SMTP_PASSWORD' => 'yourpassword',
+	'EMAIL_SMTP_AUTH' => true,
+	'EMAIL_SMTP_USERNAME' => 'no-reply@syncbook.me',
+	'EMAIL_SMTP_PASSWORD' => 'FaT6uSwa4r@s5aBE',
 	'EMAIL_SMTP_PORT' => 25,
 	'EMAIL_SMTP_ENCRYPTION' => 'ssl',
 	/**
