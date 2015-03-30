@@ -28,7 +28,7 @@ return array(
 	 * This detects your URL/IP incl. sub-folder automatically. You can also deactivate auto-detection and provide the
 	 * URL manually. This should then look like 'http://192.168.33.44/' ! Note the slash in the end.
 	 */
-	'URL' => 'https://' . $_SERVER['HTTP_HOST'] . str_replace('public', '', dirname($_SERVER['SCRIPT_NAME'])),
+	'URL' => 'http://' . $_SERVER['HTTP_HOST'] . str_replace('public', '', dirname($_SERVER['SCRIPT_NAME'])),
 	/**
 	 * Configuration for: Folders
 	 * Usually there's no reason to change this.

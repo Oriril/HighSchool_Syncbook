@@ -32,10 +32,6 @@ class RegistrationModel
 		$user_password_new = Request::post('user_password_new');
 		$user_password_repeat = Request::post('user_password_repeat');
 
-        if (webDAVUserPrincipalCreate($user_name, $user_password_new, $user_email, $user_firstname . " " . $user_lastname)) {
-            error_log("SPERIAMO");
-        }
-
 		// stop registration flow if registrationInputValidation() returns false (= anything breaks the input check rules)
 		$validation_result = RegistrationModel::registrationInputValidation(Request::post('captcha'), $user_firstname, $user_lastname, $user_name, $user_password_new, $user_password_repeat, $user_email);
 		if (!$validation_result) {
@@ -76,13 +72,12 @@ class RegistrationModel
 
 		// send verification email
 		if (RegistrationModel::sendVerificationEmail($user_id, $user_email, $user_activation_hash)) {
-            error_log("User ID = " . $user_id . " - User PASSWORD = " . $user_password_new . " - User EMAIL = " . $user_email . " - User FIRSTNAME = " . $user_firstname . " - User LASTNAME = " . $user_lastname);
-            /*if (webDAVUserPrincipalCreate($user_name, $user_password_new, $user_email, $user_firstname . " " . $user_lastname)) {
-                if (webDAVUserPrincipalCreate($user_name, $user_password_new, $user_email, $user_firstname . " " . $user_lastname)) {
-                    Session::add('feedback_positive', Text::get('FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED'));
-                    return true;
-                }
-            }*/
+            // error_log("User ID = " . $user_id . " - User PASSWORD = " . $user_password_new . " - User EMAIL = " . $user_email . " - User FIRSTNAME = " . $user_firstname . " - User LASTNAME = " . $user_lastname);
+
+            if (webDAVUserPrincipalCreate($user_name, $user_password_new, $user_email, $user_firstname . " " . $user_lastname)) {
+                Session::add('feedback_positive', Text::get('FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED'));
+                return true;
+            }
             /*Session::add('feedback_positive', Text::get('FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED'));
             return true;*/
 		}

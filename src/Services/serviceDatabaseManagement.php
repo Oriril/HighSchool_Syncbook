@@ -46,10 +46,6 @@ function databaseSabreDAVCreateRedBean($webDAVUsername, configurationClass $conf
     $webDAVUsername = strtolower($webDAVUsername);
 
     try {
-        error_log("HOST : " . $config['DATABASE_HOST']);
-        error_log("USERNAME : " . $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME']);
-        error_log("PASSWORD : " . $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
-
         // Connect to Database and Selecting that connection
         R::addDatabase('Root', 'mysql:host=' . $config['DATABASE_HOST'],
             $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
