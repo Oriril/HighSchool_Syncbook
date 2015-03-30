@@ -1,0 +1,365 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "bodyPadding": null,
+        "designer|snapToGrid": 10,
+        "designer|userAlias": "AddEventWindow_ua",
+        "designer|userClassName": "AddEventWindow",
+        "height": 430,
+        "itemId": "addEventWindow",
+        "layout": "absolute",
+        "margin": null,
+        "modal": true,
+        "padding": null,
+        "title": "Add Event Window",
+        "titleAlign": "center",
+        "width": 690
+    },
+    "designerId": "7bc57f53-3ec5-4782-8b84-96879849a4f6",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "border": false,
+                "designer|snapToGrid": 10,
+                "frameHeader": false,
+                "height": null,
+                "itemId": "addEventForm",
+                "layout": "absolute",
+                "maxHeight": null,
+                "method": "POST",
+                "minHeight": 50,
+                "minWidth": 50,
+                "title": null,
+                "titleAlign": "center",
+                "waitTitle": "Loading...",
+                "width": null
+            },
+            "designerId": "0f8cd35d-9355-4edc-95af-3a9c92d9468e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "blankText": "Required Field",
+                        "designer|displayName": "EventNameTF",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Event",
+                        "frame": false,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 40,
+                        "layout|y": 60,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "eventName",
+                        "size": null
+                    },
+                    "designerId": "1c1b8e9a-bbab-4abc-883c-91b60c9fea30"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "cls": "textFieldCSS",
+                        "dock": null,
+                        "emptyText": null,
+                        "fieldCls": "x-form-field textFieldCSS",
+                        "fieldLabel": "Event Start Date",
+                        "format": "d/m/Y",
+                        "itemId": "eventStartDF",
+                        "labelAlign": "top",
+                        "labelCls": "x-form-item-label, styleSincbook",
+                        "labelSeparator": " ",
+                        "layout|x": 40,
+                        "layout|y": 100,
+                        "name": "eventStart",
+                        "submitFormat": "Y-m-d"
+                    },
+                    "designerId": "3f2f26fc-bec5-4648-8877-8936d5644143"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "cls": "textFieldCSS",
+                        "dock": null,
+                        "emptyText": null,
+                        "fieldCls": "x-form-field textFieldCSS",
+                        "fieldLabel": "Event End Date",
+                        "format": "d/m/Y",
+                        "itemId": "eventEndDF",
+                        "labelAlign": "top",
+                        "labelCls": "x-form-item-label, styleSincbook",
+                        "labelSeparator": " ",
+                        "layout|x": 240,
+                        "layout|y": 100,
+                        "name": "eventEnd",
+                        "submitFormat": "Y-m-d"
+                    },
+                    "designerId": "dbaba4ab-4be1-4f10-bd5a-47d1f8b90b4c"
+                },
+                {
+                    "type": "Ext.form.field.Time",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "editable": false,
+                        "emptyText": "Event Start Time",
+                        "fieldLabel": null,
+                        "format": "H:i",
+                        "increment": 5,
+                        "layout|x": 40,
+                        "layout|y": 150,
+                        "name": "eventStartTime",
+                        "snapToIncrement": true,
+                        "submitFormat": "H:i"
+                    },
+                    "designerId": "ff9d1264-6a27-40cc-b172-eb0746692038"
+                },
+                {
+                    "type": "Ext.form.field.Time",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "editable": false,
+                        "emptyText": "Event End Time",
+                        "fieldLabel": null,
+                        "format": "H:i",
+                        "increment": 5,
+                        "layout|x": 240,
+                        "layout|y": 150,
+                        "name": "eventEndTime",
+                        "snapToIncrement": true,
+                        "submitFormat": "H:i"
+                    },
+                    "designerId": "a85e9a61-429d-4d18-bf18-474c4ea07c8b"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "EventDescriptionTF",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Event Description",
+                        "frame": false,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 40,
+                        "layout|y": 230,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "eventDescription",
+                        "size": null
+                    },
+                    "designerId": "3a525a3a-2cbc-4d16-95f1-e253b1edbe9d"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "TypeComboBox",
+                        "displayField": "label",
+                        "editable": false,
+                        "emptyText": "Choose Event Type",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Type",
+                        "frame": false,
+                        "hideLabel": true,
+                        "itemId": "typeComboBox",
+                        "labelSeparator": null,
+                        "labelWidth": null,
+                        "layout|x": 350,
+                        "layout|y": 220,
+                        "margin": 10,
+                        "maxLength": null,
+                        "maxLengthText": null,
+                        "minLength": null,
+                        "minLengthText": null,
+                        "name": "eventType",
+                        "padding": null,
+                        "size": null,
+                        "store": "EventTypeStore",
+                        "valueField": "value"
+                    },
+                    "designerId": "95156aa6-74b3-47e7-8103-b46de56ff1dd"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "EventLocationTF",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Event Location",
+                        "frame": false,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 40,
+                        "layout|y": 310,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "eventLocation",
+                        "size": null
+                    },
+                    "designerId": "bf63821a-0da5-4590-a250-39cfff83f773"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "EventUrlTF",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Event Url",
+                        "frame": false,
+                        "inputType": "url",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 360,
+                        "layout|y": 310,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "eventUrl",
+                        "size": null,
+                        "vtype": "url"
+                    },
+                    "designerId": "2baffeed-c6e4-401d-b772-12da6e5c1117"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frame": false,
+                        "layout|x": 20,
+                        "layout|y": 20,
+                        "text": "EVENT BASIC INFORMATION",
+                        "weight": null
+                    },
+                    "designerId": "cc050bc0-1cf4-46f3-8def-94e843113571"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frame": false,
+                        "layout|x": 20,
+                        "layout|y": 190,
+                        "text": "EVENT CUSTOM INFORMATION",
+                        "weight": null
+                    },
+                    "designerId": "2f696bb9-f1ca-4e5f-aa17-524457727197"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frame": false,
+                        "layout|x": 20,
+                        "layout|y": 270,
+                        "text": "EVENT ADVANCED INFORMATION",
+                        "weight": null
+                    },
+                    "designerId": "0a955d58-b402-49dc-87b4-cb6c575169d9"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "addEventSubmit",
+                        "layout|x": 600,
+                        "layout|y": 350,
+                        "text": "Submit"
+                    },
+                    "designerId": "2b307372-9d9a-4683-8368-3219bebfc5b1"
+                }
+            ]
+        }
+    ]
+}

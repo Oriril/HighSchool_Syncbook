@@ -1,0 +1,48 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "autoSync": true,
+        "designer|userClassName": "ContactDatabaseStore",
+        "model": "ContactInformationModel",
+        "storeId": "ContactDatabaseStore"
+    },
+    "designerId": "8d9f1bf7-5107-41d7-a09a-dd6d67368826",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "DatabaseRestfulProxy",
+                "headers": null,
+                "idParam": "ID",
+                "url": "resources/libraries/syncbookServices/contactService.php/contacts"
+            },
+            "designerId": "2c983734-bde7-4223-9004-9b30ba502627",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "DatabaseRestfulReader",
+                        "root": "contacts"
+                    },
+                    "designerId": "7806813d-6da6-44e5-aa3e-a3ebac4b28d0"
+                }
+            ]
+        }
+    ]
+}

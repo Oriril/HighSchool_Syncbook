@@ -5,9 +5,23 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/doc" />
+      <excludeFolder url="file://$MODULE_DIR$/old/Syncbook" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/alpha/Syncbook Alpha/build/testing/syncbook/resources/libraries/RedBeanPHP4_0_5/rb.phar" />
+          <root url="phar://$MODULE_DIR$/alpha/Syncbook Alpha/resources/libraries/RedBeanPHP4_0_5/rb.phar" />
+          <root url="phar://$MODULE_DIR$/alpha/Syncbook Alpha/resources/libraries/RedBeanPHP4_0_5/._rb.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/alpha/Syncbook Alpha/build/testing/syncbook/resources/libraries/RedBeanPHP4_0_5/rb.phar" />
+          <root url="phar://$MODULE_DIR$/alpha/Syncbook Alpha/resources/libraries/RedBeanPHP4_0_5/rb.phar" />
+          <root url="phar://$MODULE_DIR$/alpha/Syncbook Alpha/resources/libraries/RedBeanPHP4_0_5/._rb.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
-

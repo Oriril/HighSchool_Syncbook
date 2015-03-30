@@ -1,0 +1,267 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ContactOptionController"
+    },
+    "designerId": "0b8dc1e4-aad3-4d47-be52-111e09bf8871",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#optionsContact",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "optionsContactClick",
+                "implHandler": [
+                    "this.contactOptionButton();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "607d1a9f-cb36-4b50-bade-8b24ea231c86"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ModContactOptionWindow",
+                "selector": "ModContactOptionWindow_ua"
+            },
+            "designerId": "c9672c9f-a5f3-4715-a22c-e0f3b14f1699"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "contactOptionButton",
+                "implHandler": [
+                    "var mySelf = this;",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: \"resources/libraries/syncbookServices/optionService.php\",",
+                    "    params: {",
+                    "        syncType: \"carddav\"",
+                    "    },",
+                    "",
+                    "    success: function(response) {",
+                    "        var operationResult = Ext.decode(response.responseText);",
+                    "",
+                    "        if(operationResult.option.errorSuccess != 'undefined' && operationResult.option.errorSuccess === false) {",
+                    "            console.error(\"An error with code : \"+operationResult.option.errorCode+\" has occoured = \"+operationResult.option.errorDescription);",
+                    "        } else {",
+                    "            var modContactOptionWindow = Ext.create(\"syncbook.view.ModContactOptionWindow\");",
+                    "",
+                    "            if(operationResult.option.syncflag*1 === 0) {",
+                    "                mySelf.getModContactOptionWindow().getComponent('modContactOptionForm').getForm().findField('synctime').setDisabled(true);",
+                    "            }",
+                    "",
+                    "            var toLoadSyncRecord = Ext.create(\"syncbook.model.SyncModel\", {",
+                    "                synctype: operationResult.option.synctype,",
+                    "                syncflag: operationResult.option.syncflag*1,",
+                    "                synctime: operationResult.option.synctime",
+                    "            });",
+                    "",
+                    "            mySelf.getModContactOptionWindow().getComponent('modContactOptionForm').loadRecord(toLoadSyncRecord);",
+                    "            modContactOptionWindow.show();",
+                    "        }",
+                    "    },",
+                    "",
+                    "    failure: function(response) {",
+                    "        Ext.Msg.show({",
+                    "            title: \"Response Error\",",
+                    "            msg: \"Response Error Message\",",
+                    "            buttons: Ext.Msg.OK,",
+                    "            closable: false,",
+                    "            scope: this,",
+                    "            icon: Ext.window.MessageBox.ERROR",
+                    "        });",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "4ebe922c-e015-4075-af1f-e775223552b6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "contactOptionSubmitButton",
+                "implHandler": [
+                    "var mySelf = this;",
+                    "",
+                    "var auxiliarForm = mySelf.getModContactOptionWindow().getComponent('modContactOptionForm').getForm();",
+                    "formRecord = auxiliarForm.getRecord();",
+                    "auxiliarForm.updateRecord(formRecord);",
+                    "auxiliarForm.clearInvalid();",
+                    "",
+                    "if(auxiliarForm.isValid()) {",
+                    "    mySelf.getModContactOptionWindow().close();",
+                    "    formRecord.setDirty();",
+                    "",
+                    "    Ext.Ajax.request({",
+                    "        url: \"resources/libraries/syncbookServices/optionService.php\",",
+                    "        params: {",
+                    "            syncType: \"carddav\",",
+                    "            newSyncOption: Ext.encode(formRecord.data)",
+                    "        },",
+                    "",
+                    "        success: function(response) {",
+                    "            var operationResult = Ext.decode(response.responseText);",
+                    "",
+                    "            if(operationResult.option.errorSuccess != 'undefined' && operationResult.option.errorSuccess === false) {",
+                    "                console.error(\"An error with code : \"+operationResult.option.errorCode+\" has occoured = \"+operationResult.option.errorDescription);",
+                    "            } else {",
+                    "                mySelf.taskFunction();",
+                    "            }",
+                    "        },",
+                    "",
+                    "        failure: function(response) {",
+                    "            Ext.Msg.show({",
+                    "                title: \"Response Error\",",
+                    "                msg: \"Response Error Message\",",
+                    "                buttons: Ext.Msg.OK,",
+                    "                closable: false,",
+                    "                scope: this,",
+                    "                icon: Ext.window.MessageBox.ERROR",
+                    "            });",
+                    "        }",
+                    "    });",
+                    "} else {",
+                    "    Ext.Msg.show({",
+                    "        title: \"Form Error\",",
+                    "        msg: \"Uncorrect Form Compilation\",",
+                    "        buttons: Ext.Msg.OK,",
+                    "        closable: false,",
+                    "        scope: this,",
+                    "        icon: Ext.window.MessageBox.ERROR",
+                    "    });",
+                    "}"
+                ]
+            },
+            "designerId": "af732816-b3a2-47f1-a9a6-f620bf888bcf"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#modContactOptionSubmit",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "modContactOptionSubmitClick",
+                "implHandler": [
+                    "if(syncTaskContact === null) {",
+                    "    this.taskFunction();",
+                    "} else {",
+                    "    syncTaskContact.stop();",
+                    "}",
+                    "",
+                    "this.contactOptionSubmitButton();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "3f85a99f-e3c6-4c7d-b825-8c3eb2634d50"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#myviewport",
+                "designer|targetType": "Ext.container.Viewport",
+                "fn": "viewportBeforeRender",
+                "implHandler": [
+                    "this.taskFunction();"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "designerId": "93da3176-0869-4098-8eeb-94b923982afa"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "taskFunction",
+                "implHandler": [
+                    "Ext.Ajax.request({",
+                    "    url: \"resources/libraries/syncbookServices/optionService.php\",",
+                    "    params: {",
+                    "        syncType: \"carddav\"",
+                    "    },",
+                    "",
+                    "    success: function(response) {",
+                    "        var operationResult = Ext.decode(response.responseText);",
+                    "",
+                    "        if(operationResult.option.errorSuccess != 'undefined' && operationResult.option.errorSuccess === false) {",
+                    "            console.error(\"An error with code : \"+operationResult.option.errorCode+\" has occoured = \"+operationResult.option.errorDescription);",
+                    "        } else {",
+                    "",
+                    "            if(operationResult.option.syncflag*1 == 1) {",
+                    "                var runner = new Ext.util.TaskRunner();",
+                    "",
+                    "                syncTaskContact = runner.newTask({",
+                    "                    run: function () {",
+                    "                        // console.log(\"Timestamp Contact : \", Ext.util.Format.date(new Date(), 'H:i:s'));",
+                    "                        syncbook.app.getController('ContactActionController').syncContactsFunction();",
+                    "                    },",
+                    "",
+                    "                    interval: operationResult.option.synctime*1000",
+                    "                });",
+                    "",
+                    "                syncTaskContact.start();",
+                    "            } else {",
+                    "                if(syncTaskContact !== null)",
+                    "                    syncTaskContact.stop();",
+                    "            }",
+                    "        }",
+                    "    },",
+                    "",
+                    "    failure: function(response) {",
+                    "        Ext.Msg.show({",
+                    "            title: \"Response Error\",",
+                    "            msg: \"Response Error Message\",",
+                    "            buttons: Ext.Msg.OK,",
+                    "            closable: false,",
+                    "            scope: this,",
+                    "            icon: Ext.window.MessageBox.ERROR",
+                    "        });",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "90d2495c-5094-40b4-954a-e720dcb655d8"
+        }
+    ]
+}

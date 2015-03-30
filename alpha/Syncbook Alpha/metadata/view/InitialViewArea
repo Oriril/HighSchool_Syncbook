@@ -1,0 +1,1324 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "InitialViewArea_ua",
+        "designer|userClassName": "InitialViewArea",
+        "itemId": "myviewport",
+        "layout": null
+    },
+    "designerId": "b7fbc8c1-f171-4712-9214-3697a94685b9",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "activeTab": 0,
+                "designer|displayName": "GroupTabbedPane",
+                "itemId": "groupTabbedPane",
+                "width": null
+            },
+            "designerId": "e9e2d1c8-0f4c-4edd-8c20-ee7678d14abd",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "collapseDirection": null,
+                        "container|align": "stretch",
+                        "itemId": "groupName",
+                        "layout": "hbox",
+                        "title": "Federico Nildric Longhin",
+                        "titleAlign": "center"
+                    },
+                    "designerId": "97ce72fe-4686-4a9f-be05-2b2bf76d36ea",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "TabConfiguration"
+                            },
+                            "designerId": "264781a7-6bd8-4968-9004-6ebf60d6cd11"
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoScroll": true,
+                                "bodyBorder": true,
+                                "columnLines": true,
+                                "componentCls": null,
+                                "emptyText": "Empty Storage",
+                                "enableColumnHide": false,
+                                "enableColumnMove": false,
+                                "enableColumnResize": false,
+                                "enableLocking": true,
+                                "forceFit": false,
+                                "frame": true,
+                                "headerPosition": null,
+                                "itemId": "chooseContactGrid",
+                                "layout|flex": 1,
+                                "layout|margins": null,
+                                "overlapHeader": true,
+                                "rtl": false,
+                                "shrinkWrapDock": null,
+                                "store": "ContactDatabaseStore",
+                                "title": "Choose Contact",
+                                "titleAlign": "center",
+                                "width": null
+                            },
+                            "designerId": "79cdf1c0-fda6-4e96-86ac-63bdb2912204",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "align": "center",
+                                        "dataIndex": "contactColor",
+                                        "flex": 1,
+                                        "groupable": true,
+                                        "menuDisabled": true,
+                                        "text": "Color",
+                                        "width": 150
+                                    },
+                                    "designerId": "aafc9503-2fce-4b31-af87-8c96e9f77e17"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "align": "center",
+                                        "dataIndex": "contactSurname",
+                                        "flex": 2,
+                                        "groupable": true,
+                                        "text": "Surname",
+                                        "width": 150
+                                    },
+                                    "designerId": "8d4df0c5-80fd-4b4c-986c-e8b302763c02"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "align": "center",
+                                        "dataIndex": "contactName",
+                                        "flex": 2,
+                                        "groupable": true,
+                                        "text": "Name",
+                                        "width": 150
+                                    },
+                                    "designerId": "e2897d82-720c-45a0-a20e-93d3b86c25fe"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "GridView"
+                                    },
+                                    "designerId": "5a283ef5-735c-4062-924e-8f3d827b5552"
+                                },
+                                {
+                                    "type": "Ext.toolbar.Toolbar",
+                                    "reference": {
+                                        "name": "dockedItems",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "autoScroll": true,
+                                        "container|align": null,
+                                        "container|pack": null,
+                                        "designer|displayName": "DefaultToolbar",
+                                        "dock": "bottom",
+                                        "frame": false
+                                    },
+                                    "designerId": "eacdfa12-ed0e-45fd-a157-7418e94052f6",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "AddContactButton",
+                                                "itemId": "addContactButton",
+                                                "layout|flex": null,
+                                                "text": "Add Contact"
+                                            },
+                                            "designerId": "ebbcb385-e8fe-48a2-8bf6-8676cf29e64d"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "ModContactButton",
+                                                "itemId": "modContactButton",
+                                                "layout|flex": null,
+                                                "text": "Mod Contact"
+                                            },
+                                            "designerId": "a10fdf01-fe36-42b7-bccc-a5a34f07d57c"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "DeleteContactButton",
+                                                "itemId": "deleteContactButton",
+                                                "layout|flex": null,
+                                                "text": "Delete Contact"
+                                            },
+                                            "designerId": "3fe82e99-de42-4615-a231-8ac925c3220e"
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Spacer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "ToolbarSpacer",
+                                                "layout|flex": 1
+                                            },
+                                            "designerId": "6502523d-2130-4179-9e02-e8289a4dcf25"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "SyncContactButton",
+                                                "itemId": "syncContactButton",
+                                                "layout|flex": null,
+                                                "text": "Sync Contacts"
+                                            },
+                                            "designerId": "d8c5cf1f-3930-4516-88e1-9c61ca823352"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "OptionsContact",
+                                                "glyph": "xf013@FontAwesome",
+                                                "itemId": "optionsContact",
+                                                "layout|flex": null,
+                                                "text": null
+                                            },
+                                            "designerId": "c08fe1ac-1580-4802-be2f-2ede66bfac7d"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoScroll": true,
+                                "designer|snapToGrid": 10,
+                                "frame": true,
+                                "height": 400,
+                                "itemId": "singleContactForm",
+                                "layout": "absolute",
+                                "layout|flex": 2,
+                                "maxHeight": 400,
+                                "method": "POST",
+                                "title": "Contact Information",
+                                "titleAlign": "center",
+                                "waitTitle": "Loading..."
+                            },
+                            "designerId": "506f99f9-e943-431b-a539-0c64170cb64d",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Type",
+                                        "fieldStyle": null,
+                                        "itemId": "typeTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 20,
+                                        "layout|y": 40,
+                                        "name": "contactType",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "da5e029b-f0d2-494f-a39f-88941630efec"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Name",
+                                        "fieldStyle": null,
+                                        "itemId": "nameTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 210,
+                                        "layout|y": 40,
+                                        "name": "contactName",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "e8bc7881-f532-4980-9071-2b4813b13c8e"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Username",
+                                        "fieldStyle": null,
+                                        "itemId": "usernameTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 400,
+                                        "layout|y": 40,
+                                        "name": "contactUsername",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "eb74a083-a201-4126-9662-a8f9f889e17a"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Surname",
+                                        "fieldStyle": null,
+                                        "itemId": "surnameTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 590,
+                                        "layout|y": 40,
+                                        "name": "contactSurname",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "4259953f-d0f3-40c9-9d63-5d44ebebc347"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "E-Mail",
+                                        "fieldStyle": null,
+                                        "itemId": "eMailTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 780,
+                                        "layout|y": 40,
+                                        "name": "contactEMail",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "b19e0032-807b-44c5-b65d-1af5df4345d3"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Phone Number",
+                                        "fieldStyle": null,
+                                        "itemId": "phoneNumberTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 20,
+                                        "layout|y": 130,
+                                        "name": "contactPhoneNumber",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "9888844b-a17b-4bfe-9f2e-6effb8d58ec6"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Mobile Number",
+                                        "fieldStyle": null,
+                                        "itemId": "mobileNumberTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 210,
+                                        "layout|y": 130,
+                                        "name": "contactMobileNumber",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "316aa6ee-85f2-481f-ba9c-4ed019230332"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Fax",
+                                        "fieldStyle": null,
+                                        "itemId": "faxTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 400,
+                                        "layout|y": 130,
+                                        "name": "contactFax",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "45f8d6f0-e6d3-46e2-8b80-bf3dd9dbc3e1"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Address",
+                                        "fieldStyle": null,
+                                        "itemId": "addressTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 590,
+                                        "layout|y": 130,
+                                        "name": "contactAddress",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "e275cc04-d733-4d2e-a587-ff59a709957d"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Web Address",
+                                        "fieldStyle": null,
+                                        "itemId": "webAddressTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 780,
+                                        "layout|y": 130,
+                                        "name": "contactWeb",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "25fffc46-e602-40fb-ae3b-19821a281c4c"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Partita Iva",
+                                        "fieldStyle": null,
+                                        "itemId": "partitaIvaTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 20,
+                                        "layout|y": 220,
+                                        "name": "contactPartitaIva",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "9bcf100e-5f71-443a-b9af-7cd234def0db"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Codice Fiscale",
+                                        "fieldStyle": null,
+                                        "itemId": "codiceFiscaleTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 210,
+                                        "layout|y": 220,
+                                        "name": "contactCodiceFiscale",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "c8b220ce-3570-4573-8379-c89d0a924a68"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Facebook",
+                                        "fieldStyle": null,
+                                        "itemId": "facebookTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 20,
+                                        "layout|y": 310,
+                                        "name": "contactFacebook",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "a1b15f56-6d2d-4c8a-b523-09239ecded3a"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Twitter",
+                                        "fieldStyle": null,
+                                        "itemId": "twitterTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 210,
+                                        "layout|y": 310,
+                                        "name": "contactTwitter",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "473af520-9b93-41d5-a5fd-b852937ca2e8"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Instagram",
+                                        "fieldStyle": null,
+                                        "itemId": "instagramTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 400,
+                                        "layout|y": 310,
+                                        "name": "contactInstagram",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "5690ed8a-ef99-4657-a9f0-003e70bda37f"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Google+",
+                                        "fieldStyle": null,
+                                        "itemId": "googleTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 590,
+                                        "layout|y": 310,
+                                        "name": "contactGoogle",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "959515d7-c9f1-4aac-9433-e7ec58f3e3c7"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Linkedin",
+                                        "fieldStyle": null,
+                                        "itemId": "linkedinTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 780,
+                                        "layout|y": 310,
+                                        "name": "contactLinkedin",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "d5baf318-6a57-4caa-b154-f657b0f24d4a"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "emptyCls": "x-form-empty-field;",
+                                        "emptyText": "Choose a Contact",
+                                        "fieldCls": "x-form-field textFieldCSS",
+                                        "fieldLabel": "Skype",
+                                        "fieldStyle": null,
+                                        "itemId": "skypeTextField",
+                                        "labelAlign": "top",
+                                        "labelCls": "x-form-item-label, styleSincbook",
+                                        "labelSeparator": " ",
+                                        "labelStyle": null,
+                                        "layout|x": 970,
+                                        "layout|y": 310,
+                                        "name": "contactSkype",
+                                        "readOnly": true,
+                                        "readOnlyCls": null
+                                    },
+                                    "designerId": "b8c74d0e-215b-4bf2-ac87-d45e3e5e70d0"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "height": 10,
+                                        "layout|x": 10,
+                                        "layout|y": 10,
+                                        "text": "Contact Basic Information"
+                                    },
+                                    "designerId": "15980d45-9c50-4807-ad35-af17f649a43b"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "height": 10,
+                                        "layout|x": 10,
+                                        "layout|y": 100,
+                                        "text": "Contact Numbers and Addresses"
+                                    },
+                                    "designerId": "b4d04fc9-1911-43f3-84ed-1755d2aff483"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "height": 10,
+                                        "layout|x": 10,
+                                        "layout|y": 190,
+                                        "text": "Contact Advanced Information"
+                                    },
+                                    "designerId": "ccc9bd41-070f-4ddb-bd15-c8350383e646"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "textFieldCSS",
+                                        "height": 10,
+                                        "layout|x": 10,
+                                        "layout|y": 280,
+                                        "text": "Contact Social Information"
+                                    },
+                                    "designerId": "f3bb8b2f-8ff5-4a83-8b11-e9db12245d9c"
+                                },
+                                {
+                                    "type": "Ext.Img",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "Image",
+                                        "frame": false,
+                                        "height": 180,
+                                        "itemId": "contactImage",
+                                        "layout|x": 980,
+                                        "layout|y": 10,
+                                        "margin": null,
+                                        "maxHeight": 180,
+                                        "maxWidth": 180,
+                                        "minHeight": 180,
+                                        "minWidth": 180,
+                                        "src": "resources/localData/DefaultPlaceholder.jpg",
+                                        "width": 180
+                                    },
+                                    "designerId": "60658d9f-c805-4506-8ce4-d66d74e6aab9"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "container|align": "stretch",
+                "designer|displayName": "CalendarPanel",
+                "itemId": "calendarPanel",
+                "layout": "hbox",
+                "title": null
+            },
+            "designerId": "b66cf433-dd47-46c1-bcd3-34a32781b178",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "frame": true,
+                        "itemId": "chooseEventGrid",
+                        "layout|flex": 1,
+                        "store": "EventDatabaseStore",
+                        "title": "Choose Event",
+                        "titleAlign": "center"
+                    },
+                    "designerId": "f7b34357-f6e6-4607-bf3e-10a662706777",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Date",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "align": "center",
+                                "dataIndex": "eventDate",
+                                "flex": 1,
+                                "format": "d-m-Y",
+                                "text": "Event Date"
+                            },
+                            "designerId": "39ba0d3a-b31e-4ee6-a8c3-1a7d24ad14bb"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "align": "center",
+                                "dataIndex": "eventName",
+                                "flex": 1,
+                                "text": "Event Name"
+                            },
+                            "designerId": "ae671524-8a9d-474d-8c32-ef0bf046a857"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "GridView"
+                            },
+                            "designerId": "63f20ae2-e491-4030-9e32-b44953d22029"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoScroll": true,
+                                "designer|displayName": "DefaultToolbar",
+                                "dock": "bottom"
+                            },
+                            "designerId": "17300493-7b19-4e49-8c20-a8d699faa364",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "AddEventButton",
+                                        "itemId": "addEventButton",
+                                        "layout|flex": null,
+                                        "text": "Add Event"
+                                    },
+                                    "designerId": "f4a94694-384f-4544-a347-2c3922948fe1"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "ModEventButton",
+                                        "itemId": "modEventButton",
+                                        "layout|flex": null,
+                                        "text": "Mod Event"
+                                    },
+                                    "designerId": "b39e60ff-dddd-4d9b-8551-e3d7d169415b"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "DeleteEventButton",
+                                        "itemId": "deleteEventButton",
+                                        "layout|flex": null,
+                                        "text": "Delete Event"
+                                    },
+                                    "designerId": "5c3f9ccc-a8bf-48d8-91c5-8c97e102f169"
+                                },
+                                {
+                                    "type": "Ext.toolbar.Spacer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "ToolbarSpacer",
+                                        "layout|flex": 1
+                                    },
+                                    "designerId": "c8b91a24-5ad7-4f99-867b-ab850feffa08"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "SyncEventButton",
+                                        "itemId": "syncEventButton",
+                                        "layout|flex": null,
+                                        "text": "Sync Events"
+                                    },
+                                    "designerId": "25f7ff0c-bc4e-4833-952c-67db5b69d8c2"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "OptionsEvent",
+                                        "glyph": "xf013@FontAwesome",
+                                        "itemId": "optionsEvent",
+                                        "layout|flex": null,
+                                        "text": null
+                                    },
+                                    "designerId": "b1dbaea8-6a6b-403d-99e6-d8080d7a0824"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "bodyPadding": 10,
+                        "designer|snapToGrid": 10,
+                        "dock": null,
+                        "frame": true,
+                        "height": 310,
+                        "itemId": "singleEventForm",
+                        "layout": "absolute",
+                        "layout|flex": 2,
+                        "maxHeight": 310,
+                        "title": "Event Information",
+                        "titleAlign": "center"
+                    },
+                    "designerId": "829dc140-004c-4934-9c32-3d82d1edc82d",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "emptyCls": "x-form-empty-field;",
+                                "emptyText": "Choose an Event",
+                                "fieldCls": "x-form-field textFieldCSS",
+                                "fieldLabel": "Event",
+                                "fieldStyle": null,
+                                "grow": true,
+                                "itemId": "eventNameTF",
+                                "labelAlign": "top",
+                                "labelCls": "x-form-item-label, styleSincbook",
+                                "labelSeparator": " ",
+                                "labelStyle": null,
+                                "layout|x": 20,
+                                "layout|y": 40,
+                                "name": "eventName",
+                                "readOnly": true,
+                                "readOnlyCls": null
+                            },
+                            "designerId": "d2931f08-aaf9-444b-a69b-4593f8f8b8df"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "emptyCls": "x-form-empty-field;",
+                                "emptyText": "Choose an Event",
+                                "fieldCls": "x-form-field textFieldCSS",
+                                "fieldLabel": "Event Description",
+                                "fieldStyle": null,
+                                "grow": true,
+                                "itemId": "eventDescriptionTF",
+                                "labelAlign": "top",
+                                "labelCls": "x-form-item-label, styleSincbook",
+                                "labelSeparator": " ",
+                                "labelStyle": null,
+                                "layout|x": 20,
+                                "layout|y": 130,
+                                "name": "eventDescription",
+                                "readOnly": true,
+                                "readOnlyCls": null
+                            },
+                            "designerId": "32b29a26-9038-48e0-8c23-1e8d9f4a22b1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "emptyCls": "x-form-empty-field;",
+                                "emptyText": "Choose an Event",
+                                "fieldCls": "x-form-field textFieldCSS",
+                                "fieldLabel": "Event Type",
+                                "fieldStyle": null,
+                                "grow": true,
+                                "itemId": "eventTypeTF",
+                                "labelAlign": "top",
+                                "labelCls": "x-form-item-label, styleSincbook",
+                                "labelSeparator": " ",
+                                "labelStyle": null,
+                                "layout|x": 210,
+                                "layout|y": 130,
+                                "name": "eventType",
+                                "readOnly": true,
+                                "readOnlyCls": null
+                            },
+                            "designerId": "a8fe3ebb-7ffd-4ad2-ba17-c2ae5363984f"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "emptyCls": "x-form-empty-field;",
+                                "emptyText": "Choose an Event",
+                                "fieldCls": "x-form-field textFieldCSS",
+                                "fieldLabel": "Event Location",
+                                "fieldStyle": null,
+                                "grow": true,
+                                "itemId": "eventLocationTF",
+                                "labelAlign": "top",
+                                "labelCls": "x-form-item-label, styleSincbook",
+                                "labelSeparator": " ",
+                                "labelStyle": null,
+                                "layout|x": 20,
+                                "layout|y": 220,
+                                "name": "eventLocation",
+                                "readOnly": true,
+                                "readOnlyCls": null
+                            },
+                            "designerId": "1d2f3f84-2d13-42c8-9b6e-ef18daee44e7"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "emptyCls": "x-form-empty-field;",
+                                "emptyText": "Choose an Event",
+                                "fieldCls": "x-form-field textFieldCSS",
+                                "fieldLabel": "Event URL",
+                                "fieldStyle": null,
+                                "grow": true,
+                                "itemId": "eventUrlTF",
+                                "labelAlign": "top",
+                                "labelCls": "x-form-item-label, styleSincbook",
+                                "labelSeparator": " ",
+                                "labelStyle": null,
+                                "layout|x": 210,
+                                "layout|y": 220,
+                                "name": "eventUrl",
+                                "readOnly": true,
+                                "readOnlyCls": null
+                            },
+                            "designerId": "7bfd99bf-9791-4f8c-801c-6b873e51d76d"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "height": 10,
+                                "layout|x": 10,
+                                "layout|y": 10,
+                                "text": "Event Basic Information"
+                            },
+                            "designerId": "ab7743cf-2339-4011-ad0c-a65c23bae233"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "height": 10,
+                                "layout|x": 10,
+                                "layout|y": 100,
+                                "text": "Event Custom Information"
+                            },
+                            "designerId": "e6674637-be6c-40d7-895e-c12ce2c25da8"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "height": 10,
+                                "layout|x": 10,
+                                "layout|y": 190,
+                                "text": "Event Advanced Information"
+                            },
+                            "designerId": "aecaa914-2260-4a8e-b941-9f640f7e776b"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "dock": null,
+                                "editable": false,
+                                "emptyText": "Choose an Event",
+                                "fieldCls": "x-form-field textFieldCSS",
+                                "fieldLabel": "Event Start Date",
+                                "format": "d/m/Y - H:i",
+                                "itemId": "eventStartDF",
+                                "labelAlign": "top",
+                                "labelCls": "x-form-item-label, styleSincbook",
+                                "labelSeparator": " ",
+                                "layout|x": 210,
+                                "layout|y": 40,
+                                "name": "eventStart",
+                                "readOnly": true
+                            },
+                            "designerId": "fcc3e7ac-e06f-457c-a273-ea229ab44eec"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "textFieldCSS",
+                                "dock": null,
+                                "editable": false,
+                                "emptyText": "Choose an Event",
+                                "fieldCls": "x-form-field textFieldCSS",
+                                "fieldLabel": "Event End Date",
+                                "format": "d/m/Y - H:i",
+                                "itemId": "eventEndDF",
+                                "labelAlign": "top",
+                                "labelCls": "x-form-item-label, styleSincbook",
+                                "labelSeparator": " ",
+                                "layout|x": 410,
+                                "layout|y": 40,
+                                "name": "eventEnd",
+                                "readOnly": true
+                            },
+                            "designerId": "1b117db0-43c8-46b8-95eb-720586e11d8f"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

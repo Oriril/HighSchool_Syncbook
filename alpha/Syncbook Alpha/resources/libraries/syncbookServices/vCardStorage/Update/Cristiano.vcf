@@ -1,0 +1,33 @@
+---Old VCard---
+
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.9.3//EN
+N:Mercuri;Cristiano;;;
+FN:Cristiano Mercuri
+ORG:Mind@Ware;
+ITEM1.EMAIL;TYPE=INTERNET,pref:cristiano@mwmail.it
+ITEM1.X-ABLABEL:E-Mail
+TEL;TYPE=IPHONE,CELL,VOICE,pref:5555555555
+ITEM2.URL;TYPE=pref:http://www.mind-ware.it
+ITEM2.X-ABLABEL:_$!<HomePage>!$_
+UID:ad1d2e9c-b7c9-4fab-832e-aa0b7b34d6b4
+X-ABUID:AD1D2E9C-B7C9-4FAB-832E-AA0B7B34D6B4:ABPerson
+END:VCARD
+
+---New vCard---
+
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.9.3//EN
+N:Longhin;Federico;;;
+FN:Federico Longhin
+ORG:Mind@Ware;
+ITEM1.EMAIL;TYPE=INTERNET,pref:federico@mwmail.it
+ITEM1.X-ABLABEL:E-Mail
+TEL;TYPE=IPHONE,CELL,VOICE,pref:5555555555
+ITEM2.URL;TYPE=pref:http://www.mind-ware.it
+ITEM2.X-ABLABEL:_$!<HomePage>!$_
+UID:c2f543a4-dc18-4d85-9db5-d792998c1201
+X-ABUID:25ECEC6C-32CD-467F-AA84-01F56A001FEE:ABPerson
+END:VCARD

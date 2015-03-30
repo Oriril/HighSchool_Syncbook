@@ -1,0 +1,734 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "bodyPadding": null,
+        "designer|snapToGrid": 10,
+        "designer|userAlias": "AddContactWindow_ua",
+        "designer|userClassName": "AddContactWindow",
+        "height": 600,
+        "itemId": "addContactWindow",
+        "layout": "absolute",
+        "margin": null,
+        "modal": true,
+        "padding": null,
+        "title": "Add Contact Window",
+        "titleAlign": "center",
+        "width": 1030
+    },
+    "designerId": "797a12b4-a6de-4a80-9047-d0d0be5c75c7",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "border": false,
+                "designer|snapToGrid": 10,
+                "frameHeader": false,
+                "height": null,
+                "itemId": "addContactForm",
+                "layout": "absolute",
+                "method": "POST",
+                "minHeight": 50,
+                "minWidth": 50,
+                "title": null,
+                "titleAlign": "center",
+                "waitTitle": "Loading...",
+                "width": null
+            },
+            "designerId": "1e9f2142-dc65-4b64-896b-58c88f9b825d",
+            "cn": [
+                {
+                    "type": "Ext.menu.ColorPicker",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "animCollapse": true,
+                        "border": false,
+                        "collapsed": true,
+                        "collapsible": true,
+                        "designer|displayName": "ColorMenu",
+                        "enableKeyNav": false,
+                        "floating": false,
+                        "formBind": false,
+                        "height": 210,
+                        "hidden": false,
+                        "hideOnClick": false,
+                        "layout|x": 20,
+                        "layout|y": 20,
+                        "manageHeight": false,
+                        "minHeight": 210,
+                        "title": "Choose Contact Color",
+                        "titleAlign": "center",
+                        "titleCollapse": false,
+                        "width": 200
+                    },
+                    "designerId": "b93b07e7-5b88-4431-80ed-979a2d97f1b1"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "blankText": "Required Field",
+                        "designer|displayName": "TypeComboBox",
+                        "displayField": "label",
+                        "editable": false,
+                        "emptyText": "Choose Contact Type",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Type",
+                        "frame": false,
+                        "hideLabel": true,
+                        "itemId": "typeComboBox",
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 240,
+                        "layout|y": 10,
+                        "margin": 10,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactType",
+                        "padding": null,
+                        "size": null,
+                        "store": "ContactTypeStore",
+                        "valueField": "value"
+                    },
+                    "designerId": "42611866-4eb7-490b-8317-f0f362b6068e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "blankText": "Required Field",
+                        "designer|displayName": "NameTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Name",
+                        "frame": false,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 60,
+                        "layout|y": 110,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactName",
+                        "size": null
+                    },
+                    "designerId": "dfa91461-f39f-4186-ad8a-9ff22122e936"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "blankText": "Required Field",
+                        "designer|displayName": "SurnameTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Surname",
+                        "frame": false,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 380,
+                        "layout|y": 110,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactSurname",
+                        "size": null
+                    },
+                    "designerId": "aa423d2b-3d0e-4d37-8d8e-25c7a317de89"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "UsernameTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Username",
+                        "frame": false,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 700,
+                        "layout|y": 110,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactUsername",
+                        "size": null
+                    },
+                    "designerId": "5c60b68f-1576-44cd-90c2-7f1d4f54d7d9"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "blankText": "Required Field",
+                        "designer|displayName": "GroupTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Group",
+                        "frame": false,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 60,
+                        "layout|y": 150,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactGroup",
+                        "size": null
+                    },
+                    "designerId": "b1ecee04-80b6-4754-b992-de0bcd6fff4d"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "EMailTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "E-Mail",
+                        "frame": false,
+                        "inputType": "email",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 380,
+                        "layout|y": 150,
+                        "maxLength": 128,
+                        "maxLengthText": "The maximum length for this field is {128}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactEMail",
+                        "size": null,
+                        "vtype": "email"
+                    },
+                    "designerId": "34bd836b-12b8-4462-bf53-41d25b94de86"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "PhoneNumberTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Phone Number",
+                        "frame": false,
+                        "inputType": null,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 60,
+                        "layout|y": 230,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactPhoneNumber",
+                        "size": null
+                    },
+                    "designerId": "4d89990c-988c-4004-a920-ecc00f792322"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "MobileNumberTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Mobile Number",
+                        "frame": false,
+                        "inputType": null,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 380,
+                        "layout|y": 230,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactMobileNumber",
+                        "size": null
+                    },
+                    "designerId": "a7da1f56-02f1-4ed2-a493-b33a383ff14c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "FaxNumberTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Fax",
+                        "frame": false,
+                        "inputType": null,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 700,
+                        "layout|y": 230,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactFax",
+                        "size": null,
+                        "vtype": null
+                    },
+                    "designerId": "92dfda90-9f4f-4af7-94c3-8ce46fb6abb4"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "AddressTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Address",
+                        "frame": false,
+                        "inputType": null,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 60,
+                        "layout|y": 270,
+                        "maxLength": 128,
+                        "maxLengthText": "The maximum length for this field is {128}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactAddress",
+                        "size": null,
+                        "vtype": null
+                    },
+                    "designerId": "b2502c9b-f258-4377-9bf2-dd3b18c63894"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "WebAddressTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Web Address",
+                        "frame": false,
+                        "inputType": "url",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 380,
+                        "layout|y": 270,
+                        "maxLength": 128,
+                        "maxLengthText": "The maximum length for this field is {128}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactWeb",
+                        "size": null,
+                        "vtype": "url"
+                    },
+                    "designerId": "c5a9f779-c25c-40b5-be7b-b1928ccf9a11"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "PartitaIvaTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Partita Iva",
+                        "frame": false,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 60,
+                        "layout|y": 350,
+                        "maxLength": 32,
+                        "maxLengthText": "The maximum length for this field is {32}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactPartitaIva",
+                        "size": null
+                    },
+                    "designerId": "f59d4de1-dfce-45d2-9557-93692fe5346d"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "CodiceFiscaleTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Codice Fiscale",
+                        "frame": false,
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 380,
+                        "layout|y": 350,
+                        "maxLength": 16,
+                        "maxLengthText": "The maximum length for this field is {16}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactCodiceFiscale",
+                        "size": null
+                    },
+                    "designerId": "04c3ce08-1280-468f-99e2-960d4859e98e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "FacebookTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Facebook Profile",
+                        "frame": false,
+                        "inputType": "url",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 60,
+                        "layout|y": 430,
+                        "maxLength": 512,
+                        "maxLengthText": "The maximum length for this field is {512}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactFacebook",
+                        "size": null,
+                        "vtype": "url"
+                    },
+                    "designerId": "eda47749-dc6a-406b-b0fc-bf9fe612a17f"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "TwitterTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Twitter Profile",
+                        "frame": false,
+                        "inputType": "url",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 380,
+                        "layout|y": 430,
+                        "maxLength": 512,
+                        "maxLengthText": "The maximum length for this field is {512}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactTwitter",
+                        "size": null,
+                        "vtype": "url"
+                    },
+                    "designerId": "a7b56e06-f5f2-486d-989e-22027b11e731"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "InstagramTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Instagram Profile",
+                        "frame": false,
+                        "inputType": "url",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 700,
+                        "layout|y": 430,
+                        "maxLength": 512,
+                        "maxLengthText": "The maximum length for this field is {512}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactInstagram",
+                        "size": null,
+                        "vtype": "url"
+                    },
+                    "designerId": "69ec5601-5834-44e5-af77-7ce0b0181667"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "Google+TextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Google+ Profile",
+                        "frame": false,
+                        "inputType": "url",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 60,
+                        "layout|y": 470,
+                        "maxLength": 512,
+                        "maxLengthText": "The maximum length for this field is {512}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactGoogle",
+                        "size": null,
+                        "vtype": "url"
+                    },
+                    "designerId": "c84792c3-bfcd-4425-8451-f68a3bdd8b9d"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "LinkedinTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Linkedin Profile",
+                        "frame": false,
+                        "inputType": "url",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 380,
+                        "layout|y": 470,
+                        "maxLength": 512,
+                        "maxLengthText": "The maximum length for this field is {512}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactLinkedin",
+                        "size": null,
+                        "vtype": "url"
+                    },
+                    "designerId": "b37cd900-e9aa-4779-91de-184c69e3844c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "Required Field",
+                        "designer|displayName": "SkypeTextField",
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Skype Profile",
+                        "frame": false,
+                        "inputType": "url",
+                        "labelAlign": null,
+                        "labelSeparator": " :",
+                        "labelWidth": 115,
+                        "layout|x": 700,
+                        "layout|y": 470,
+                        "maxLength": 512,
+                        "maxLengthText": "The maximum length for this field is {512}",
+                        "minLength": 1,
+                        "minLengthText": "The minimum length for this field is {1}",
+                        "name": "contactSkype",
+                        "size": null,
+                        "vtype": "url"
+                    },
+                    "designerId": "1f7007c1-e039-45f3-9969-1ac49c3401a7"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frame": false,
+                        "layout|x": 40,
+                        "layout|y": 70,
+                        "text": "CONTACT BASIC INFORMATION",
+                        "weight": null
+                    },
+                    "designerId": "e140d170-afc8-4b7c-80f1-cc0ef6a6c401"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frame": false,
+                        "height": 20,
+                        "layout|x": 40,
+                        "layout|y": 190,
+                        "text": "CONTACT NUMBERS AND ADDRESSES",
+                        "weight": null
+                    },
+                    "designerId": "2a9f71d0-f9b2-4f33-9ebd-10ce5be2df1a"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frame": false,
+                        "height": 20,
+                        "layout|x": 40,
+                        "layout|y": 310,
+                        "text": "CONTACT ADVANCED INFORMATION",
+                        "weight": null
+                    },
+                    "designerId": "c9143aa8-e83e-407c-9d6a-0ad6d4a360e6"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frame": false,
+                        "height": 20,
+                        "layout|x": 40,
+                        "layout|y": 390,
+                        "text": "CONTACT SOCIAL INFORMATION",
+                        "weight": null
+                    },
+                    "designerId": "211f4ce1-be26-49e5-b1bb-5745f6a2144f"
+                },
+                {
+                    "type": "Ext.form.field.File",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "buttonText": "Browse",
+                        "designer|displayName": "ImageUpload",
+                        "fieldLabel": "Contact Image",
+                        "labelWidth": 115,
+                        "layout|x": 60,
+                        "layout|y": 520,
+                        "name": "contactImage"
+                    },
+                    "designerId": "6aaacf57-c559-4bab-8aed-99997151f24e"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "addContactSubmit",
+                        "layout|x": 930,
+                        "layout|y": 520,
+                        "text": "Submit"
+                    },
+                    "designerId": "9081e78a-a4dd-4391-ac9d-92464fc456bf"
+                }
+            ]
+        }
+    ]
+}

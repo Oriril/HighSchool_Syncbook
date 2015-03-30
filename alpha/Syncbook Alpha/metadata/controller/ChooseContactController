@@ -1,0 +1,88 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ChooseContactController"
+    },
+    "designerId": "b8ebe6d2-c036-4b9e-a739-c7e3c22e67d4",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#chooseContactGrid",
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "chooseContactGridBeforeRender",
+                "implHandler": [
+                    "// Before Render Choose Contact Grid",
+                    "",
+                    "// Building a reference for the ContactGrid",
+                    "var contactGrid = this.getInitialViewArea().getComponent('groupTabbedPane').getComponent('groupName').getComponent('chooseContactGrid');",
+                    "",
+                    "// Adding the ExtraParam for loading the vCards to the Store->Proxy, uncomment if needed",
+                    "//contactGrid.store.proxy.extraParams.loadingStoreContacts = true;",
+                    "",
+                    "// Loading the chooseContactGrid->Store",
+                    "contactGrid.store.load({",
+                    "    callback : function(records, operation, success) {",
+                    "        if(records !== null && records.length>0 && records[0].data.errorSuccess === false) {",
+                    "            console.error(\"An error with code : \"+records[0].data.errorCode+\" has occoured = \"+records[0].data.errorDescription);",
+                    "        }",
+                    "    }",
+                    "});"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "designerId": "2a916deb-6b2c-4557-a609-b53f2c166ea8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#chooseContactGrid",
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "contactSelection",
+                "implHandler": [
+                    "/*Select a Single Contact From Grid*/",
+                    "",
+                    "var contactForm = this.getInitialViewArea().getComponent('groupTabbedPane').getComponent('groupName').getComponent('singleContactForm');",
+                    "contactForm.getForm().loadRecord(record);",
+                    "if(record.data.contactUsername!==\"\") {",
+                    "    contactForm.setTitle(\"Contact : \"+record.data.contactName+\" - \"+record.data.contactUsername+\" - \"+record.data.contactSurname);",
+                    "} else {",
+                    "    contactForm.setTitle(\"Contact : \"+record.data.contactName+\" - \"+record.data.contactSurname);",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "f6e88003-e3cd-4d5c-98a9-e634fe124fae"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "InitialViewArea",
+                "selector": "InitialViewArea_ua"
+            },
+            "designerId": "688f63ae-43a1-40fb-bff7-4d22499b2e5a"
+        }
+    ]
+}

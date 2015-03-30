@@ -1,0 +1,150 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "bodyPadding": null,
+        "designer|snapToGrid": 10,
+        "designer|userAlias": "ModEventOptionWindow_ua",
+        "designer|userClassName": "ModEventOptionWindow",
+        "height": 180,
+        "itemId": "modEventOptionWindow",
+        "layout": "absolute",
+        "margin": null,
+        "modal": true,
+        "padding": null,
+        "title": "Mod Event Options Window",
+        "titleAlign": "center",
+        "width": 280
+    },
+    "designerId": "68f976a5-bbe7-4b9f-a42e-ecec82a096ea",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "border": false,
+                "designer|snapToGrid": 10,
+                "frameHeader": false,
+                "height": null,
+                "itemId": "modEventOptionForm",
+                "layout": "absolute",
+                "maxHeight": null,
+                "method": "POST",
+                "minHeight": 50,
+                "minWidth": 50,
+                "title": null,
+                "titleAlign": "center",
+                "waitTitle": "Loading...",
+                "width": null
+            },
+            "designerId": "7b620030-591b-4376-8d2e-4c7a9a5c692b",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "modEventOptionSubmit",
+                        "layout|x": 190,
+                        "layout|y": 100,
+                        "text": "Submit"
+                    },
+                    "designerId": "5ab4c784-8aae-47c0-a119-8bd0dac868db"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "boxLabel": "Automatic Synchronization",
+                        "boxLabelAlign": "before",
+                        "designer|displayName": "SyncCheckbox",
+                        "fieldLabel": null,
+                        "frame": false,
+                        "id": null,
+                        "inputValue": null,
+                        "itemId": "syncCheckbox",
+                        "labelAlign": null,
+                        "layout|x": 20,
+                        "layout|y": 10,
+                        "name": "syncflag",
+                        "uncheckedValue": null
+                    },
+                    "designerId": "b5ed6606-3adb-4e95-b841-8ee8b594bfef",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onSyncCheckboxChange",
+                                "implHandler": [
+                                    "if(newValue === true) {",
+                                    "    this.getComponent('modEventOptionForm').getForm().findField('synctime').setDisabled(false);",
+                                    "} else {",
+                                    "    this.getComponent('modEventOptionForm').getForm().findField('synctime').setDisabled(true);",
+                                    "}"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "designerId": "60c95870-419e-40fb-8ecc-217421fcbddf"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowDecimals": false,
+                        "allowExponential": false,
+                        "cls": "textFieldCSS",
+                        "designer|displayName": "syncTimeField",
+                        "emptyCls": "x-form-empty-field;",
+                        "emptyText": "Seconds",
+                        "fieldCls": "x-form-field textFieldCSS",
+                        "fieldLabel": "Synchronization Time",
+                        "fieldStyle": null,
+                        "itemId": "syncTimeField",
+                        "labelAlign": "top",
+                        "labelCls": "x-form-item-label, styleSincbook",
+                        "labelSeparator": " ",
+                        "labelStyle": null,
+                        "layout|x": 20,
+                        "layout|y": 50,
+                        "minValue": 10,
+                        "name": "synctime",
+                        "readOnlyCls": null,
+                        "step": 5
+                    },
+                    "designerId": "2078e53b-e657-476d-b36c-398a1fda8f71"
+                }
+            ]
+        }
+    ]
+}

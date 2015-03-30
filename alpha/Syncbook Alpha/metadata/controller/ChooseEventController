@@ -1,0 +1,84 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ChooseEventController"
+    },
+    "designerId": "48d0b33e-de54-40dd-881b-f3c86782d8d7",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "InitialViewArea",
+                "selector": "InitialViewArea_ua"
+            },
+            "designerId": "c19a9a10-e1f9-4d57-a277-29e1a80bf1b0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#chooseEventGrid",
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "chooseEventGridBeforeRender",
+                "implHandler": [
+                    "/*Before Render Choose Event Grid*/",
+                    "",
+                    "// Building a reference for the EventGrid",
+                    "var eventGrid = this.getInitialViewArea().getComponent('calendarPanel').getComponent('chooseEventGrid');",
+                    "",
+                    "// Adding the ExtraParam for loading the vCalendars to the Store->Proxy, uncomment if needed",
+                    "//eventGrid.store.proxy.extraParams.loadingStoreEvents = true;",
+                    "",
+                    "// Loading the chooseEventGrid->Store",
+                    "eventGrid.store.load({",
+                    "    callback : function(records, operation, success) {",
+                    "        if(records.length>0 && records[0].data.errorSuccess === false) {",
+                    "            console.error(\"An error with code : \"+records[0].data.errorCode+\" has occoured = \"+records[0].data.errorDescription);",
+                    "        }",
+                    "    }",
+                    "});"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "designerId": "bf69d93c-b76f-4333-bc57-c839cb7d6172"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#chooseEventGrid",
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "eventSelection",
+                "implHandler": [
+                    "/*Select a Single Event From Grid*/",
+                    "var eventForm = this.getInitialViewArea().getComponent('calendarPanel').getComponent('singleEventForm');",
+                    "eventForm.getForm().loadRecord(record);",
+                    "",
+                    "if(record.data.eventName!==\"\") {eventForm.setTitle(\"Event : \"+record.data.eventName);}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "66f457a3-f026-445a-a2af-218404d5c6d3"
+        }
+    ]
+}

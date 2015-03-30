@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js",
+        "url": "resources/javascript/jsTask.js"
+    },
+    "designerId": "6929ff55-56d6-47fe-a840-36b1b449e2b5"
+}

@@ -1,0 +1,48 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "autoSync": true,
+        "designer|userClassName": "EventDatabaseStore",
+        "model": "EventInformationModel",
+        "storeId": "EventDatabaseStore"
+    },
+    "designerId": "7dc1c907-ab58-467f-818e-5b6fc1e70989",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "DatabaseRestfulProxy",
+                "headers": null,
+                "idParam": "ID",
+                "url": "resources/libraries/syncbookServices/eventService.php/events"
+            },
+            "designerId": "3aa1cc1c-ade0-4ace-9220-f593103d6231",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "DatabaseRestfulReader",
+                        "root": "events"
+                    },
+                    "designerId": "320eafaf-136a-45d8-8fd1-7a9b6b64cd88"
+                }
+            ]
+        }
+    ]
+}

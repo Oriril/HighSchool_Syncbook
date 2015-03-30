@@ -1,0 +1,79 @@
+{
+    "name": "syncbook",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "4.0.4.84",
+            "frameworkVersion": "4.2.1.883"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "XL",
+                "builtIn": false,
+                "height": 1080,
+                "width": 1920
+            }
+        },
+        "urlPrefix": "http://localhost:8888/federico_htdocs/syncbook",
+        "exportPath": "/Applications/MAMP/htdocs/federico_htdocs/syncbook",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "displayfield-ExtBox1-1533-inputEl": "Not Installed",
+        "lastBuildSelection": {
+            "value": "webBuild",
+            "display": "Build web app"
+        }
+    },
+    "xdsVersion": "3.0.4",
+    "xdsBuild": 1386,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000004,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "b7fbc8c1-f171-4712-9214-3697a94685b9",
+            "797a12b4-a6de-4a80-9047-d0d0be5c75c7",
+            "5fb720a7-e445-46d4-97a3-ad1f987c8d56",
+            "7bc57f53-3ec5-4782-8b84-96879849a4f6",
+            "a1e3f4f6-c955-45c8-a1b4-be0dd1634b3f",
+            "0bb9d294-235a-4432-beda-48e1a847898d",
+            "68f976a5-bbe7-4b9f-a42e-ecec82a096ea"
+        ],
+        "store": [
+            "8d9f1bf7-5107-41d7-a09a-dd6d67368826",
+            "7dc1c907-ab58-467f-818e-5b6fc1e70989",
+            "804e6188-7dfa-497f-86e6-8a667b47f5a5",
+            "c4fe0606-5a6b-476f-aec2-4df4abfe0954"
+        ],
+        "controller": [
+            "4806a417-9492-4f74-9789-6748f314ef4b",
+            "b8ebe6d2-c036-4b9e-a739-c7e3c22e67d4",
+            "0b8dc1e4-aad3-4d47-be52-111e09bf8871",
+            "49463ce1-c387-43a7-80e3-b5e4ca537432",
+            "48d0b33e-de54-40dd-881b-f3c86782d8d7",
+            "04f38f0c-c5fe-4613-b6ad-5fb0367dc5e8"
+        ],
+        "model": [
+            "475aedc2-c4b0-4d04-94b1-8f367e5a4545",
+            "04809d84-f0f6-4bb7-a572-05e19c6815e6",
+            "ce6f533c-60e3-4677-b4dc-630431b5754d",
+            "3a5fadde-860a-41bb-a6df-63932660ac71",
+            "84f0493d-2534-471d-a1dd-3a8e15daae09",
+            "7ffe0213-8d4c-4774-b588-7350e9dc80e6"
+        ],
+        "resource": [
+            "21d39171-39d0-4171-bbaf-901980656599",
+            "afb1deb5-11e8-48ce-940b-86d11dad15c0",
+            "39e96857-3f30-4615-931a-3db3e74fe247",
+            "6929ff55-56d6-47fe-a840-36b1b449e2b5"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

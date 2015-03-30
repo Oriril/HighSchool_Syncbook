@@ -1,0 +1,14 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css",
+        "id": "styleSyncbook",
+        "url": "resources/css/styleSyncbook.css"
+    },
+    "designerId": "afb1deb5-11e8-48ce-940b-86d11dad15c0"
+}
