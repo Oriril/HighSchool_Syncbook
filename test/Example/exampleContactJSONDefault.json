@@ -1,0 +1,126 @@
+{
+    "contactDefault" :
+    {
+        "contactPrefix" : "",
+        "contactFirstName" : "",
+        "contactMiddleName" : "",
+        "contactLastName" : "",
+        "contactSuffix" : ""
+    },
+
+    "contactCompany" :
+    {
+        "contactIsCompany" : "",
+        "contactCompany" : "",
+        "contactJobTitle" : "",
+        "contactJobRole" : "",
+        "contactBirthDate" : ""
+    },
+
+    "contactPhone" :
+    {
+        "phoneContainer_1" :
+        {
+            "phoneType" : "",
+            "phoneNumber" : ""
+        },
+
+        "phoneContainer_2" :
+        {
+            "phoneType" : "",
+            "phoneNumber" : ""
+        }
+    },
+
+    "contactMail" :
+    {
+        "mailContainer_1" :
+        {
+            "mailType" : "",
+            "mailValue" : ""
+        },
+
+        "mailContainer_2" :
+        {
+            "mailType" : "",
+            "mailValue" : ""
+        }
+    },
+
+    "contactStreetAddress" :
+    {
+        "addressContainer_1" :
+        {
+            "addressHouseNumber" : "",
+            "addressCity" : "",
+            "addressPostalCode" : "",
+            "addressRegion" : "",
+            "addressCountry" : ""
+        },
+
+        "addressContainer_2" :
+        {
+            "addressHouseNumber" : "",
+            "addressCity" : "",
+            "addressPostalCode" : "",
+            "addressRegion" : "",
+            "addressCountry" : ""
+        }
+    },
+
+    "contactInternet" :
+    {
+        "internetContainer_1" :
+        {
+            "internetType" : "",
+            "internetURL" : ""
+        },
+
+        "internetContainer_2" :
+        {
+            "internetType" : "",
+            "internetURL" : ""
+        }
+    },
+
+    "contactChat" :
+    {
+        "chatContainer_1" :
+        {
+            "chatType" : "",
+            "chatValue" : ""
+        },
+
+        "chatContainer_2" :
+        {
+            "chatType" : "",
+            "chatValue" : ""
+        }
+    },
+
+    "contactRelatedPeople" :
+    {
+        "relatedContainer_1" :
+        {
+            "relatedType" : "",
+            "relatedValue" : ""
+        },
+
+        "relatedContainer_2" :
+        {
+            "relatedType" : "",
+            "relatedValue" : ""
+        }
+    },
+
+    "contactAnniversary" :
+    {
+        "anniversaryContainer_1" :
+        {
+            "anniversaryDate" : "",
+            "anniversaryValue" : ""
+        }
+    },
+
+    "contactNotes" : ""
+}
