@@ -1,0 +1,188 @@
+{
+  "contactDefault" :
+  {
+    "contactPrefix" : "Prefix",
+    "contactFirstName" : "First name",
+    "contactMiddleName" : "Middle name",
+    "contactLastName" : "Last name",
+    "contactSuffix" : "Suffix"
+  },
+
+  "contactCompany" :
+  {
+    "contactIsCompany" : "",
+    "contactCompany" : "Company name",
+    "contactDepartment" : "Company department",
+    "contactJobTitle" : "Company job title",
+    "contactJobRole" : "Company job role",
+    "contactBirthDate" : "Company birthdate"
+  },
+
+  "contactPhone" :
+  {
+    "phoneContainer_1" :
+    {
+      "phoneType" : "CELL",
+      "phoneIsCell" : "",
+      "phoneIsFax" : "",
+      "phoneIsVoice" : "TRUE",
+      "phoneValue" : "5555555555"
+    },
+
+    "phoneContainer_2" :
+    {
+      "phoneType" : "HOME",
+      "phoneIsCell" : "",
+      "phoneIsFax" : "",
+      "phoneIsVoice" : "TRUE",
+      "phoneValue" : "5555555555"
+    },
+
+    "phoneContainer_3" :
+    {
+      "phoneType" : "WORK",
+      "phoneIsCell" : "",
+      "phoneIsFax" : "",
+      "phoneIsVoice" : "TRUE",
+      "phoneValue" : "5555555555"
+    },
+
+    "phoneContainer_4" :
+    {
+      "phoneType" : "MAIN",
+      "phoneIsCell" : "",
+      "phoneIsFax" : "",
+      "phoneIsVoice" : "",
+      "phoneValue" : "5555555555"
+    },
+
+    "phoneContainer_5" :
+    {
+      "phoneType" : "HOME",
+      "phoneIsCell" : "",
+      "phoneIsFax" : "TRUE",
+      "phoneIsVoice" : "",
+      "phoneValue" : "5555555555"
+    },
+
+    "phoneContainer_6" :
+    {
+      "phoneType" : "WORK",
+      "phoneIsCell" : "",
+      "phoneIsFax" : "TRUE",
+      "phoneIsVoice" : "",
+      "phoneValue" : "5555555555"
+    },
+
+    "phoneContainer_7" :
+    {
+      "phoneType" : "PAGER",
+      "phoneIsCell" : "",
+      "phoneIsFax" : "",
+      "phoneIsVoice" : "",
+      "phoneValue" : "5555555555"
+    },
+
+    "phoneContainer_8" :
+    {
+      "phoneType" : "OTHER",
+      "phoneIsCell" : "",
+      "phoneIsFax" : "",
+      "phoneIsVoice" : "TRUE",
+      "phoneValue" : "5555555555"
+    },
+
+    "phoneContainer_9" :
+    {
+      "phoneType" : "IPHONE",
+      "phoneIsCell" : "TRUE",
+      "phoneIsFax" : "",
+      "phoneIsVoice" : "TRUE",
+      "phoneValue" : "5555555555"
+    }
+  },
+
+  "contactMail" :
+  {
+    "mailContainer_1" :
+    {
+      "mailType" : "WORK",
+      "mailValue" : "work@work.com"
+    },
+
+    "mailContainer_2" :
+    {
+      "mailType" : "HOME",
+      "mailValue" : "home@home.com"
+    }
+  },
+
+  "contactAddress" :
+  {
+    "addressContainer_1" :
+    {
+      "addressType" : "HOME",
+      "addressStreet" : "Address street",
+      "addressCity" : "Address city",
+      "addressRegion" : "Address region",
+      "addressPostalCode" : "Address postal code",
+      "addressCountry" : "Address country"
+    },
+
+    "addressContainer_2" :
+    {
+      "addressType" : "WORK",
+      "addressStreet" : "Address street",
+      "addressCity" : "Address city",
+      "addressRegion" : "Address region",
+      "addressPostalCode" : "Address postal code",
+      "addressCountry" : "Address country"
+    },
+
+    "addressContainer_3" :
+    {
+      "addressType" : "OTHER",
+      "addressStreet" : "Address street",
+      "addressCity" : "Address city",
+      "addressRegion" : "Address region",
+      "addressPostalCode" : "Address postal code",
+      "addressCountry" : "Address country"
+    }
+  },
+
+  "contactInternet" :
+  {
+    "internetContainer_1" :
+    {
+      "internetType" : "HOME",
+      "internetValue" : "http://home.com"
+    },
+
+    "internetContainer_2" :
+    {
+      "internetType" : "WORK",
+      "internetValue" : "http://work.com"
+    },
+
+    "internetContainer_3" :
+    {
+      "internetType" : "OTHER",
+      "internetValue" : "http://other.com"
+    }
+  },
+
+  "contactAnniversary" :
+  {
+    "anniversaryContainer_1" :
+    {
+      "anniversaryValue" : "2015-01-01"
+    },
+
+    "anniversaryContainer_2" :
+    {
+      "anniversaryValue" : "2015-01-02"
+    }
+  },
+
+  "contactNotes" : ""
+}
