@@ -1,9 +1,0 @@
-{
-   "name": "syncbook",
-   "requires": [],
-   "id": "0594d8d6-437e-4dc5-bb4d-b14e6f9de2a1",
-   "resources": [
-      "resources/css/styleSyncbook.css",
-      "resources/css/fonts.css"
-   ]
-}

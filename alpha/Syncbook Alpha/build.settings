@@ -1,7 +1,0 @@
-{
-    "webBuild": {
-        "environment": "testing",
-        "clean": "on",
-        "publishPath": "/Applications/MAMP/htdocs/federico_htdocs"
-    }
-}
