@@ -12,6 +12,7 @@
     {
         "contactIsCompany" : "",
         "contactCompany" : "",
+        "contactDepartment" : "",
         "contactJobTitle" : "",
         "contactJobRole" : "",
         "contactBirthDate" : ""
@@ -22,12 +23,8 @@
         "phoneContainer_1" :
         {
             "phoneType" : "",
-            "phoneNumber" : ""
-        },
-
-        "phoneContainer_2" :
-        {
-            "phoneType" : "",
+            "phoneVoice" : "",
+            "phoneFax" : "",
             "phoneNumber" : ""
         }
     },
@@ -38,32 +35,18 @@
         {
             "mailType" : "",
             "mailValue" : ""
-        },
-
-        "mailContainer_2" :
-        {
-            "mailType" : "",
-            "mailValue" : ""
         }
     },
 
-    "contactStreetAddress" :
+    "contactAddress" :
     {
         "addressContainer_1" :
         {
-            "addressHouseNumber" : "",
+            "addressType" : "",
+            "addressStreet" : "",
             "addressCity" : "",
-            "addressPostalCode" : "",
             "addressRegion" : "",
-            "addressCountry" : ""
-        },
-
-        "addressContainer_2" :
-        {
-            "addressHouseNumber" : "",
-            "addressCity" : "",
             "addressPostalCode" : "",
-            "addressRegion" : "",
             "addressCountry" : ""
         }
     },
@@ -71,12 +54,6 @@
     "contactInternet" :
     {
         "internetContainer_1" :
-        {
-            "internetType" : "",
-            "internetURL" : ""
-        },
-
-        "internetContainer_2" :
         {
             "internetType" : "",
             "internetURL" : ""
@@ -89,27 +66,6 @@
         {
             "chatType" : "",
             "chatValue" : ""
-        },
-
-        "chatContainer_2" :
-        {
-            "chatType" : "",
-            "chatValue" : ""
-        }
-    },
-
-    "contactRelatedPeople" :
-    {
-        "relatedContainer_1" :
-        {
-            "relatedType" : "",
-            "relatedValue" : ""
-        },
-
-        "relatedContainer_2" :
-        {
-            "relatedType" : "",
-            "relatedValue" : ""
         }
     },
 
