@@ -10,7 +10,7 @@ use Sabre\VObject;
  * @param $vCardObject
  * @return VObject\Component\VCard
  */
-function mapperObjectvCard($vCardObject) {
+function mapperObjectCard($vCardObject) {
     print_r($vCardObject);
 
     // @TODO Implement controls for possible NULL Parameters
@@ -103,7 +103,11 @@ function mapperObjectvCard($vCardObject) {
 return $vCard;
 }
 
+function mapperCardObject(Sabre\VObject\Component\VCard $vCardData) {
+
+}
+
 /*$vCardObject = json_decode(file_get_contents(TEST_PATH . "Example/exampleContactJSON.json"));
-$vCard = mapperObjectvCard($vCardObject);
+$vCard = mapperObjectCard($vCardObject);
 echo("\n===SPACER===\n\n");
 echo($vCard->serialize());*/
