@@ -38,28 +38,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                 <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
                     <a href="<?php echo Config::get('URL'); ?>index/index">Home</a>
                 </li>
-                <li <?php if (View::checkForActiveController($filename, "overview")) { echo ' class="active" '; } ?> >
-                    <a href="<?php echo Config::get('URL'); ?>profile/index">Profiles</a>
-                </li>
                 <?php if (Session::userIsLoggedIn()) { ?>
                     <li <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
                         <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
                     </li>
-                    <li <?php if (View::checkForActiveController($filename, "note")) { echo ' class="active" '; } ?> >
-                        <a href="<?php echo Config::get('URL'); ?>note/index">My Notes</a>
-                    </li>
-                <?php } else { ?>
-                    <!-- for not logged in users -->
-                    <li <?php if (View::checkForActiveControllerAndAction($filename, "login/index")) { echo ' class="active" '; } ?> >
-                        <a href="<?php echo Config::get('URL'); ?>login/index">Login</a>
-                    </li>
-                    <li <?php if (View::checkForActiveControllerAndAction($filename, "login/register")) { echo ' class="active" '; } ?> >
-                        <a href="<?php echo Config::get('URL'); ?>login/register">Register</a>
-                    </li>
                 <?php } ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <?php if (Session::userIsLoggedIn()) : ?>
+                <?php if (Session::userIsLoggedIn()) { ?>
                     <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="dropdown" '; } ?> >
                         <a href="<?php echo Config::get('URL'); ?>login/showprofile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -81,7 +67,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                             </li>
                         </ul>
                     </li>
-                <?php endif; ?>
+                <?php } else { ?>
+                    <form class="navbar-form navbar-right">
+                        <a href="<?php echo Config::get('URL'); ?>login/register" class="btn btn-success">Register</a>
+                        <a href="<?php echo Config::get('URL'); ?>login/index" class="btn btn-primary">Login</a></li>
+                    </form>
+                <?php } ?>
             </ul>
         </div>
     </div>

@@ -5,6 +5,8 @@ class ContactController extends Controller {
     public function __construct()
     {
         parent::__construct();
+
+        Auth::checkAuthentication();
     }
 
     public function index()
@@ -14,5 +16,17 @@ class ContactController extends Controller {
         } else {
             Redirect::home();
         }
+    }
+
+    public function addContact() {
+        if (LoginModel::isUserLoggedIn()) {
+            $this->View->render('contact/addcontact');
+        } else {
+            Redirect::home();
+        }
+    }
+
+    public function insertContact() {
+
     }
 } 
