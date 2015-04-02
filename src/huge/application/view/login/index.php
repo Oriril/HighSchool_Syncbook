@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10">
-                                <input type="submit" class="btn-primary" value="Log in"/>
+                                <input type="submit" class="btn btn-primary" value="Log in"/>
                             </div>
                         </div>
                     </fieldset>
