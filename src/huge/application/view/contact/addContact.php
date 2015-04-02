@@ -1,5 +1,5 @@
 <div class="well">
-    <form class="form-horizontal" action="" method="post">
+    <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>contact/insertcontact" method="post">
         <fieldset>
             <legend>Insert a new contact!</legend>
             <div class="col-sm-6">
@@ -46,7 +46,7 @@
                             <div class="col-lg-10">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="contactIsCompany">Show as Company
+                                        <input type="checkbox" name="contactIsCompany" value="true">Show as Company
                                     </label>
                                 </div>
                             </div>
@@ -157,8 +157,8 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-4">
-                    <a href="<?php echo Config::get('URL'); ?>contact/insertcontact" class="btn btn-success btn-lg">Save</a>
-                    <a href="<?php echo Config::get('URL'); ?>dashboard/index" class="btn btn-danger btn-lg">Cancel</a>
+                    <input type="submit" class="btn btn-success btn-lg" value="Save">
+                    <input type="submit" class="btn btn-danger btn-lg" value="Cancel">
                 </div>
             </div>
         </fieldset>
