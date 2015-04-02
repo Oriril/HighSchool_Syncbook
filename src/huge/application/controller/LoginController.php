@@ -43,7 +43,7 @@ class LoginController extends Controller
 
         // check login status: if true, then redirect user login/showProfile, if false, then to login form again
         if ($login_successful) {
-            Redirect::to('login/showProfile');
+            Redirect::to('dashboard/index');
         } else {
             Redirect::to('login/index');
         }
