@@ -76,7 +76,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-lg-2">
-                                <input type="submit" class="btn-primary" value="Register" />
+                                <input type="submit" class="btn btn-primary" value="Register" />
                             </div>
                         </div>
                 </form>
