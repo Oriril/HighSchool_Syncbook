@@ -12,12 +12,12 @@
 
   "contactCompany" :
   {
-    "contactIsCompany" : "",
+    "contactIsCompany" : "FALSE",
     "contactCompany" : "Company name",
     "contactDepartment" : "Company department",
     "contactJobTitle" : "Company job title",
     "contactJobRole" : "Company job role",
-    "contactBirthDate" : "Company birthdate"
+    "contactBirthDate" : "1996-08-21"
   },
 
   "contactPhone" :
@@ -25,8 +25,8 @@
     "phoneContainer_1" :
     {
       "phoneType" : "CELL",
-      "phoneIsCell" : "",
-      "phoneIsFax" : "",
+      "phoneIsCell" : "FALSE",
+      "phoneIsFax" : "FALSE",
       "phoneIsVoice" : "TRUE",
       "phoneValue" : "5555555555"
     },
@@ -34,8 +34,8 @@
     "phoneContainer_2" :
     {
       "phoneType" : "HOME",
-      "phoneIsCell" : "",
-      "phoneIsFax" : "",
+      "phoneIsCell" : "FALSE",
+      "phoneIsFax" : "FALSE",
       "phoneIsVoice" : "TRUE",
       "phoneValue" : "5555555555"
     },
@@ -43,8 +43,8 @@
     "phoneContainer_3" :
     {
       "phoneType" : "WORK",
-      "phoneIsCell" : "",
-      "phoneIsFax" : "",
+      "phoneIsCell" : "FALSE",
+      "phoneIsFax" : "FALSE",
       "phoneIsVoice" : "TRUE",
       "phoneValue" : "5555555555"
     },
@@ -52,44 +52,44 @@
     "phoneContainer_4" :
     {
       "phoneType" : "MAIN",
-      "phoneIsCell" : "",
-      "phoneIsFax" : "",
-      "phoneIsVoice" : "",
+      "phoneIsCell" : "FALSE",
+      "phoneIsFax" : "FALSE",
+      "phoneIsVoice" : "FALSE",
       "phoneValue" : "5555555555"
     },
 
     "phoneContainer_5" :
     {
       "phoneType" : "HOME",
-      "phoneIsCell" : "",
+      "phoneIsCell" : "FALSE",
       "phoneIsFax" : "TRUE",
-      "phoneIsVoice" : "",
+      "phoneIsVoice" : "FALSE",
       "phoneValue" : "5555555555"
     },
 
     "phoneContainer_6" :
     {
       "phoneType" : "WORK",
-      "phoneIsCell" : "",
+      "phoneIsCell" : "FALSE",
       "phoneIsFax" : "TRUE",
-      "phoneIsVoice" : "",
+      "phoneIsVoice" : "FALSE",
       "phoneValue" : "5555555555"
     },
 
     "phoneContainer_7" :
     {
       "phoneType" : "PAGER",
-      "phoneIsCell" : "",
-      "phoneIsFax" : "",
-      "phoneIsVoice" : "",
+      "phoneIsCell" : "FALSE",
+      "phoneIsFax" : "FALSE",
+      "phoneIsVoice" : "FALSE",
       "phoneValue" : "5555555555"
     },
 
     "phoneContainer_8" :
     {
       "phoneType" : "OTHER",
-      "phoneIsCell" : "",
-      "phoneIsFax" : "",
+      "phoneIsCell" : "FALSE",
+      "phoneIsFax" : "FALSE",
       "phoneIsVoice" : "TRUE",
       "phoneValue" : "5555555555"
     },
@@ -98,7 +98,7 @@
     {
       "phoneType" : "IPHONE",
       "phoneIsCell" : "TRUE",
-      "phoneIsFax" : "",
+      "phoneIsFax" : "FALSE",
       "phoneIsVoice" : "TRUE",
       "phoneValue" : "5555555555"
     }
@@ -186,5 +186,5 @@
     }
   },
 
-  "contactNotes" : ""
+  "contactNotes" : "Notes"
 }
