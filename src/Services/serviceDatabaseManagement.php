@@ -17,7 +17,7 @@ function databaseSabreDAVConnectRedBean($webDAVUsername, configurationClass $con
 
     try {
         // Connect to Database and Freeze that connection
-        R::setup('mysql:host=' . $config['DATABASE_HOST'] . ';dbname=sabredav_' . $webDAVUsername,
+        R::setup('mysql:host=' . $config['DATABASE_HOST'] . ';dbname=sabredav_' . $webDAVUsername . '_unactive',
             $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
         R::freeze(TRUE);
 
@@ -51,8 +51,8 @@ function databaseSabreDAVCreateRedBean($webDAVUsername, configurationClass $conf
             $config['DATABASE']['DATABASE_USER_SINGLE']['USERNAME'], $config['DATABASE']['DATABASE_USER_SINGLE']['PASSWORD']);
         R::selectDatabase('Root');
 
-        if (R::exec("CREATE DATABASE sabredav_" . $webDAVUsername . " DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-            USE sabredav_" . $webDAVUsername . ";" . require_once(SQL_PATH . "SabreDAV.php"))) {
+        if (R::exec("CREATE DATABASE sabredav_" . $webDAVUsername . "_unactive DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+            USE sabredav_" . $webDAVUsername . "_unactive;" . require_once(SQL_PATH . "SabreDAV.php"))) {
             // Back to Default Database
             R::selectDatabase('default');
             return TRUE;

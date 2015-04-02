@@ -2,9 +2,6 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
 require_once(SOURCE_PATH . "SabreDAV/WebDAV/webDAVUserManagement.php");
 
-//error_log("TEST");
-//webDAVUserPrincipalCreate("admin", "admin", "aa@aa.com", "adminAA" . " " . "adminBB");
-
 /**
  * Class RegistrationModel
  *
@@ -72,14 +69,10 @@ class RegistrationModel
 
 		// send verification email
 		if (RegistrationModel::sendVerificationEmail($user_id, $user_email, $user_activation_hash)) {
-            // error_log("User ID = " . $user_id . " - User PASSWORD = " . $user_password_new . " - User EMAIL = " . $user_email . " - User FIRSTNAME = " . $user_firstname . " - User LASTNAME = " . $user_lastname);
-
             if (webDAVUserPrincipalCreate($user_name, $user_password_new, $user_email, $user_firstname . " " . $user_lastname)) {
                 Session::add('feedback_positive', Text::get('FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED'));
                 return true;
             }
-            /*Session::add('feedback_positive', Text::get('FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED'));
-            return true;*/
 		}
 
 		// if verification email sending failed: instantly delete the user

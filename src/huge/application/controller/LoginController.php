@@ -228,7 +228,56 @@ class LoginController extends Controller
     {
         if (isset($user_id) && isset($user_activation_verification_code)) {
             RegistrationModel::verifyNewUser($user_id, $user_activation_verification_code);
-            /*@todo FUNCTION FOR SABREDAV CREATION WITH FLAG = 0 IF SOMETHING WENT WRONG*/
+
+            try {
+                $beanUser = UserModel::getPublicProfileOfUser($user_id);
+                $database = DatabaseFactory::getFactory()->getConnection();
+
+                $userName = strtolower($beanUser->user_name);
+                $querySQL = "
+                CREATE DATABASE IF NOT EXISTS sabredav_$userName;
+                RENAME TABLE sabredav_" . $userName . "_unactive.addressbookchanges TO sabredav_$userName.addressbookchanges;
+                RENAME TABLE sabredav_" . $userName . "_unactive.addressbooks TO sabredav_$userName.addressbooks;
+                RENAME TABLE sabredav_" . $userName . "_unactive.cards TO sabredav_$userName.cards;
+                RENAME TABLE sabredav_" . $userName . "_unactive.groupmembers TO sabredav_$userName.groupmembers;
+                RENAME TABLE sabredav_" . $userName . "_unactive.locks TO sabredav_$userName.locks;
+                RENAME TABLE sabredav_" . $userName . "_unactive.principals TO sabredav_$userName.principals;
+                RENAME TABLE sabredav_" . $userName . "_unactive.propertystorage TO sabredav_$userName.propertystorage;
+                RENAME TABLE sabredav_" . $userName . "_unactive.schedulingobjects TO sabredav_$userName.schedulingobjects;
+                RENAME TABLE sabredav_" . $userName . "_unactive.users TO sabredav_$userName.users;
+                DROP DATABASE sabredav_" . $userName . "_unactive;
+            ";
+
+                $prepareQuery = $database->prepare($querySQL);
+                $prepareQuery->execute();
+
+                // @TODO Query Failure status handler
+                /*if ($prepareQuery->execute() === FALSE) {
+                    error_log("TEST IF");
+
+                    $querySQL = <<<END
+                    UPDATE users
+                    SET user_active = 0
+                    WHERE user_id = :user_id;
+END;
+                    $prepareQuery = $database->prepare($querySQL);
+                    $prepareQuery->execute(array(':user_id' => $user_id));
+                }*/
+            } catch(Exception $exceptionError) {
+                $querySQL = <<<END
+                    UPDATE users
+                    SET user_active = 0
+                    WHERE user_id = :user_id;
+END;
+                $prepareQuery = $database->prepare($querySQL);
+                $prepareQuery->execute(array(':user_id' => $user_id));
+
+                Session::add('feedback_negative', Text::get('FEEDBACK_VERIFICATION_MAIL_SENDING_FAILED'));
+                Redirect::to('login/register');
+                die();
+            }
+
+
             $this->View->render('login/verify');
         } else {
             Redirect::to('login/index');
