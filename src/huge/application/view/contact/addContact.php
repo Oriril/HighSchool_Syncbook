@@ -8,7 +8,7 @@
                         <div class="form-group">
                             <label for="contactPrefix" class="col-lg-2 control-label">Prefix</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactPrefix" name="contactPrefix" placeholder="Prefix" required />
+                                <input type="text" class="form-control" id="contactPrefix" name="contactPrefix" placeholder="Prefix">
                             </div>
                         </div>
                         <div class="form-group">
@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <label for="contactMiddleName" class="col-lg-2 control-label">Middle Name</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactMiddleName" name="contactMiddleName" placeholder="Middle Name" required />
+                                <input type="text" class="form-control" id="contactMiddleName" name="contactMiddleName" placeholder="Middle Name">
                             </div>
                         </div>
                         <div class="form-group">
@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <label for="contactSuffix" class="col-lg-2 control-label">Suffix</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactSuffix" name="contactSuffix" placeholder="Suffix" required />
+                                <input type="text" class="form-control" id="contactSuffix" name="contactSuffix" placeholder="Suffix">
                             </div>
                         </div>
                     </div>
@@ -54,31 +54,31 @@
                         <div class="form-group">
                             <label for="contactCompany" class="col-lg-2 control-label">Company</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactCompany" name="contactCompany" placeholder="Company name" required />
+                                <input type="text" class="form-control" id="contactCompany" name="contactCompany" placeholder="Company name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="contactDepartment" class="col-lg-2 control-label">Department</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactDepartment" name="contactDepartment" placeholder="Department" required />
+                                <input type="text" class="form-control" id="contactDepartment" name="contactDepartment" placeholder="Department">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="contactJobTitle" class="col-lg-2 control-label">Job title</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactJobTitle" name="contactJobTitle" placeholder="Job title" required />
+                                <input type="text" class="form-control" id="contactJobTitle" name="contactJobTitle" placeholder="Job title">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="contactJobRole" class="col-lg-2 control-label">Job role</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactJobRole" name="contactJobRole" placeholder="Job role" required />
+                                <input type="text" class="form-control" id="contactJobRole" name="contactJobRole" placeholder="Job role">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="contactBirthDate" class="col-lg-2 control-label">Birthday</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactBirthDate" name="contactBirthDate" placeholder="(There will be a select and other stuff)" required />
+                                <input type="text" class="form-control" id="contactBirthDate" name="contactBirthDate" placeholder="(There will be a select and other stuff)">
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="phoneValue" name="phoneValue" placeholder="Phone number" required />
+                                <input type="text" class="form-control" id="phoneValue" name="phoneValue" placeholder="Phone number">
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="mailValue" name="mailValue" placeholder="Mail" required />
+                                <input type="text" class="form-control" id="mailValue" name="mailValue" placeholder="Mail">
                             </div>
                         </div>
                     </div>
@@ -115,31 +115,31 @@
                         <div class="form-group">
                             <label for="addressStreet" class="col-lg-2 control-label">Home</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="addressStreet" name="addressStreet" placeholder="Street" required />
+                                <input type="text" class="form-control" id="addressStreet" name="addressStreet" placeholder="Street">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-2"></div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="addressCity" name="addressCity" placeholder="City" required />
+                                <input type="text" class="form-control" id="addressCity" name="addressCity" placeholder="City">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-2"></div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="addressRegion" name="addressRegion" placeholder="Region" required />
+                                <input type="text" class="form-control" id="addressRegion" name="addressRegion" placeholder="Region">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-2"></div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="addressPostalCode" name="addressPostalCode" placeholder="Postal code" required />
+                                <input type="text" class="form-control" id="addressPostalCode" name="addressPostalCode" placeholder="Postal code">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-2"></div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="addressCountry" name="addressCountry" placeholder="Country" required />
+                                <input type="text" class="form-control" id="addressCountry" name="addressCountry" placeholder="Country">
                             </div>
                         </div>
                     </div>
