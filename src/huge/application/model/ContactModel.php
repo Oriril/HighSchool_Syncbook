@@ -93,11 +93,12 @@ class ContactModel {
            'contactNotes' => ''
         );
 
-        echo json_encode($arrayToJSon);
+        $contactJson = json_encode($arrayToJSon);
+        echo $contactJson;
 
         /* if (all done) {
             return TRUE;
         }
-        // return FALSE;
+        return FALSE;*/
     }
 }
