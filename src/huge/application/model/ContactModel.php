@@ -12,7 +12,7 @@ class ContactModel {
      *
      * @return boolean Gives back the success status of the insertion
      */
-    public static function insertNewContact() {
+    public static function buildNewContact() {
 
         $contactPrefix = Request::post('contactPrefix');
         $contactFirstName = Request::post('contactFirstName');

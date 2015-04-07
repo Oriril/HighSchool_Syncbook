@@ -26,8 +26,9 @@ class ContactController extends Controller {
         }
     }
 
-    public function insertContact() {
-        $insertion_successfull = ContactModel::insertNewContact();
+    public function insertNewContact() {
+        if (ContactModel::buildNewContact()) {
 
+        }
     }
 } 
