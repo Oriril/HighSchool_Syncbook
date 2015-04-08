@@ -41,6 +41,24 @@ return $beanUser;
 }
 
 /**
+ * Function for Building an AddressBook Bean
+ *
+ * @param $beanAddressBook
+ * @param string $webDAVUsername
+ * @param string $addressBookDisplayName
+ * @param string $addressBookUri
+ * @param string $addressBookDescription
+ * @return $beanAddressBook
+ */
+function webDAVAddressBookBuild($beanAddressBook, $webDAVUsername, $addressBookDisplayName = "Contacts", $addressBookUri = "Contacts", $addressBookDescription = "Address Book") {
+    $beanAddressBook->principaluri = "principals/" . $webDAVUsername;
+    $beanAddressBook->displayname = $addressBookDisplayName;
+    $beanAddressBook->uri = $addressBookUri;
+    $beanAddressBook->description = $addressBookDescription;
+return $beanAddressBook;
+}
+
+/**
  * Function to Create a webDAV User/Principal
  *
  * @param string $webDAVUsername
@@ -70,15 +88,20 @@ function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMai
             $beanPrincipal = webDAVPrincipalBuild($beanPrincipal, $webDAVUsername, $webDAVEMail, $webDAVDisplayname, $webDAVvCardUrl);
             $beanPrincipalID = R::store($beanPrincipal);
 
-            // Adding Instance to "principals" Table for Reading permission purpose
-            $beanPrincipalReading = R::dispense('principals');
+            // Adding Instance to "principals" Table for Reading permission purpose (CalDAV Only)
+            /* $beanPrincipalReading = R::dispense('principals');
             $beanPrincipalReading = webDAVPrincipalBuild($beanPrincipalReading, $webDAVUsername . "/calendar-proxy-read");
-            $beanPrincipalReadingID = R::store($beanPrincipalReading);
+            $beanPrincipalReadingID = R::store($beanPrincipalReading); */
 
-            // Adding Instance to "principals" Table for Writing permission purpose
-            $beanPrincipalWriting = R::dispense('principals');
+            // Adding Instance to "principals" Table for Writing permission purpose (CalDAV Only)
+            /* $beanPrincipalWriting = R::dispense('principals');
             $beanPrincipalWriting = webDAVPrincipalBuild($beanPrincipalWriting, $webDAVUsername . "/calendar-proxy-write");
-            $beanPrincipalWritingID = R::store($beanPrincipalWriting);
+            $beanPrincipalWritingID = R::store($beanPrincipalWriting); */
+
+            // Adding Instance to "addressbooks" Table for AddressBook creation purpose
+            $beanAddressBook = R::dispense('addressbooks');
+            $beanAddressBook = webDAVAddressBookBuild($beanAddressBook, $webDAVUsername);
+            $beanAddressBookID = R::store($beanAddressBook);
 
             /*if (!webDAVUserPrincipalSuccessfulCreation($webDAVUsername, $webDAVPassword)) {
                 // Closing Transaction (Failure)
@@ -88,7 +111,6 @@ function webDAVUserPrincipalCreate($webDAVUsername, $webDAVPassword, $webDAVEMai
 
             // Closing Transaction (Success)
             R::commit();
-            echo("Test True");
             return TRUE;
         } catch (Exception $exceptionError) {
             // Closing Transaction (Failure)
