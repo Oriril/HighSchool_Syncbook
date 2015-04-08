@@ -2,6 +2,10 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
 require_once(SOURCE_PATH . "SabreDAV/WebDAV/webDAVUserManagement.php");
 
+require(SOURCE_PATH . "SabreDAV/CardDAV/cardDAVManagement.php");
+require(SOURCE_PATH . "SabreDAV/CardDAV/contactMapper.php");
+require(SOURCE_PATH . "SabreDAV/CardDAV/vCardManagement.php");
+
 /**
  * LoginController
  * Controls everything that is authentication-related
@@ -251,7 +255,7 @@ class LoginController extends Controller
                 $prepareQuery = $database->prepare($querySQL);
                 $prepareQuery->execute();
 
-                // @TODO Query Failure status handler
+                // @TODO Query Failure status handler (Just First Query Return)
                 /*if ($prepareQuery->execute() === FALSE) {
                     error_log("TEST IF");
 
