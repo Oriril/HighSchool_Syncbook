@@ -16,7 +16,7 @@ require_once(SOURCE_PATH . "SabreDAV/CardDAV/cardDAVManagement.php");
 function vCardCreate(Sabre\CardDAV\AddressBook $addressBook, VObject\Component\VCard $vCardData) {
     try {
         // Checking if the vCard has an UID, if not assigning it
-        if ($vCardData->UID == "") {$vCardData->UID = Sabre\DAV\UUIDUtil::getUUID();}
+        if ($vCardData->UID === "") {$vCardData->UID = Sabre\DAV\UUIDUtil::getUUID();}
 
         // Uploading vCard to Server and checking if all went good
         if ($addressBook->createFile($vCardData->UID . ".vcf", $vCardData->serialize())) {return TRUE;}
