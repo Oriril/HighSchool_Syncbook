@@ -13,7 +13,6 @@ class ContactModel {
      * @return boolean Gives back the success status of the insertion
      */
     public static function buildNewContact() {
-
         $contactPrefix = Request::post('contactPrefix');
         $contactFirstName = Request::post('contactFirstName');
         $contactMiddleName = Request::post('contactMiddleName');
@@ -37,7 +36,7 @@ class ContactModel {
         $addressPostalCode = Request::post('addressPostalCode');
         $addressCountry = Request::post('addressCountry');
 
-        $arrayToJSon = array(
+        $arrayToJSON = array(
             'UID' => '',
             'contactDefault' => array(
                 'contactPrefix' => $contactPrefix,
@@ -93,12 +92,6 @@ class ContactModel {
            'contactNotes' => ''
         );
 
-        $contactJson = json_encode($arrayToJSon);
-        echo $contactJson;
-
-        /* if (all done) {
-            return TRUE;
-        }
-        return FALSE;*/
+    return json_encode($arrayToJSON);
     }
 }
