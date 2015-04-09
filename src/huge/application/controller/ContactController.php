@@ -15,18 +15,9 @@ class ContactController extends Controller {
         Auth::checkAuthentication();
     }
 
-    public function index()
-    {
-        if (LoginModel::isUserLoggedIn()) {
-            $this->View->render('contact/index');
-        } else {
-            Redirect::home();
-        }
-    }
-
     public function addContact() {
         if (LoginModel::isUserLoggedIn()) {
-            $this->View->render('contact/addcontact');
+            $this->View->renderWithoutHeaderAndFooter('contact/addcontact');
         } else {
             Redirect::home();
         }
