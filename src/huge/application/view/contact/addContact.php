@@ -2,7 +2,7 @@
     <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>contact/insertnewcontact" method="post">
         <fieldset>
             <legend>Insert a new contact!</legend>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="panel-default">
                     <div class="panel-body">
                         <div class="form-group">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="panel-default">
                     <div class="panel-body">
                         <div class="form-group">
@@ -84,19 +84,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Phone</div>
                     <div class="panel-body">
                         <div class="form-group">
-                            <div class="col-lg-12">
+                            <div class="col-lg-2">
+                                <select name="phone1Type">
+                                    <option value="home">Home</option>
+                                    <option value="work">Work</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-10">
                                 <input type="text" class="form-control" id="phoneValue" name="phoneValue" placeholder="Phone number">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Mail</div>
                     <div class="panel-body">
@@ -108,7 +114,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Street Address</div>
                     <div class="panel-body">
