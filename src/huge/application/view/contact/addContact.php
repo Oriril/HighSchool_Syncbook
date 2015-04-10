@@ -1,3 +1,4 @@
+<nav id="addContactPanel">
 <div class="well">
     <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>contact/insertnewcontact" method="post">
         <fieldset>
@@ -170,3 +171,4 @@
         </fieldset>
     </form>
 </div>
+</nav>
