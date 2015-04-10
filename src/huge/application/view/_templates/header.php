@@ -11,7 +11,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
     <title>Syncbook</title>
 
     <!-- Bootstrap -->
-    <link href="../../../lib/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../lib/bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
