@@ -118,7 +118,7 @@ function mapperObjectCard($vCardObject) {
 return $vCard;
 }
 
-function mapperCardObject($vCardData) {
+function mapperCardObject(Sabre\VObject\Component\VCard $vCardData) {
     // @TODO This could be written simpler and cleaner using functions
     // @TODO Implement controls for possible NULL Parameters
 
