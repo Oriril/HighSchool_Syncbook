@@ -247,7 +247,6 @@ class LoginController extends Controller
                 RENAME TABLE sabredav_" . $userName . "_unactive.locks TO sabredav_$userName.locks;
                 RENAME TABLE sabredav_" . $userName . "_unactive.principals TO sabredav_$userName.principals;
                 RENAME TABLE sabredav_" . $userName . "_unactive.propertystorage TO sabredav_$userName.propertystorage;
-                RENAME TABLE sabredav_" . $userName . "_unactive.schedulingobjects TO sabredav_$userName.schedulingobjects;
                 RENAME TABLE sabredav_" . $userName . "_unactive.users TO sabredav_$userName.users;
                 DROP DATABASE sabredav_" . $userName . "_unactive;
             ";
