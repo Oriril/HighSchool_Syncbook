@@ -4,7 +4,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");
 use Sabre\VObject;
 
-require_once(SOURCE_PATH . "SabreDAV/CardDAV/cardDAVManagement.php");
+require(SOURCE_PATH . "SabreDAV/CardDAV/cardDAVManagement.php");
+require(SOURCE_PATH . "SabreDAV/CardDAV/contactMapper.php");
 
 /**
  * Function for Creating a vCard in a specific AddressBook
@@ -56,6 +57,41 @@ function vCardUpdate(Sabre\CardDAV\AddressBook $addressBook, VObject\Component\V
             // Updating vCard in Server and checking if all went good
             if ($vCard->put($vCardData->serialize())) {return TRUE;}
         }
+    } catch (Exception $exceptionError) {}
+return FALSE;
+}
+
+/**
+ * Function to retrieve vCardList
+ *
+ * $returnArray = array(
+ *   'UID' => array(
+ *   'FirstName' => "",
+ *   'LastName' => ""
+ * )
+ *
+ * @param \Sabre\CardDAV\AddressBook $addressBook
+ * @param $arrayUID
+ * @return array|bool
+ */
+function vCardListRetrieve(Sabre\CardDAV\AddressBook $addressBook, $arrayUID) {
+    try {
+        // Building an empty Array
+        $returnArray = array();
+
+        foreach($arrayUID as $singleUID) {
+            // Getting vCardData for UID
+            $vCardData = $addressBook->getChild($singleUID);
+
+            $vCardObject = mapperCardObject($vCardData);
+
+            $returnArray[$vCardObject->UID] = array(
+                'contactFirstName' => $vCardObject->contactDefault->contactFirstName,
+                'contactLastName' => $vCardObject->contactDefault->contactLastName
+            );
+        }
+
+        return $returnArray;
     } catch (Exception $exceptionError) {}
 return FALSE;
 }
