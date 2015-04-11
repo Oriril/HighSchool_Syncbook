@@ -62,7 +62,7 @@ return FALSE;
 }
 
 /**
- * Function to retrieve vCardList
+ * Function to retrieve vCardList for an AddressBook from Array
  *
  * $returnArray = array(
  *   'UID' => array(
@@ -82,8 +82,9 @@ function vCardListRetrieve(Sabre\CardDAV\AddressBook $addressBook, $arrayUID) {
         foreach($arrayUID as $singleUID) {
             // Getting vCardData for UID
             $vCardData = $addressBook->getChild($singleUID);
+            $vCardData = \Sabre\VObject\Reader::read($vCardData->get());
 
-            $vCardObject = mapperCardObject($vCardData->serialize());
+            $vCardObject = mapperCardObject($vCardData);
 
             $returnArray[$vCardObject->UID] = array(
                 'contactFirstName' => $vCardObject->contactDefault->contactFirstName,
