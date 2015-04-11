@@ -4,8 +4,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");
 use Sabre\VObject;
 
-require(SOURCE_PATH . "SabreDAV/CardDAV/cardDAVManagement.php");
-require(SOURCE_PATH . "SabreDAV/CardDAV/contactMapper.php");
+require_once(SOURCE_PATH . "SabreDAV/CardDAV/cardDAVManagement.php");
+require_once(SOURCE_PATH . "SabreDAV/CardDAV/contactMapper.php");
 
 /**
  * Function for Creating a vCard in a specific AddressBook
@@ -83,7 +83,7 @@ function vCardListRetrieve(Sabre\CardDAV\AddressBook $addressBook, $arrayUID) {
             // Getting vCardData for UID
             $vCardData = $addressBook->getChild($singleUID);
 
-            $vCardObject = mapperCardObject($vCardData);
+            $vCardObject = mapperCardObject($vCardData->serialize());
 
             $returnArray[$vCardObject->UID] = array(
                 'contactFirstName' => $vCardObject->contactDefault->contactFirstName,
