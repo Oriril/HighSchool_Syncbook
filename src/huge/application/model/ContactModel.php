@@ -1,5 +1,8 @@
 <?php
 
+/*require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");*/
+
 /**
  * Class ContactModel
  *
@@ -93,5 +96,26 @@ class ContactModel {
         );
 
     return json_encode($arrayToJSON);
+    }
+
+    public static function getCardsUID() {
+        try {
+            $database = DatabaseFactory::getFactory()->getConnection();
+
+            $database->exec("USE sabredav_" . strtolower(Session::get('user_name')) . ";");
+            $querySQL = "SELECT cards.uri
+                         FROM cards;";
+            $foundCards = $database->query($querySQL);
+
+            $returnCards = array();
+
+            foreach($foundCards as $singleCard) {
+                $returnCards[] = $singleCard->uri;
+            }
+
+            return $returnCards;
+        } catch (Exception $exceptionError) {}
+
+        return FALSE;
     }
 }
