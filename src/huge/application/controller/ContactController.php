@@ -15,6 +15,9 @@ class ContactController extends Controller {
         Auth::checkAuthentication();
     }
 
+    /**
+     * Function that render the add contact form.
+     */
     public function addContact() {
         if (LoginModel::isUserLoggedIn()) {
             $this->View->renderWithoutHeaderAndFooter('contact/addcontact');
@@ -39,20 +42,6 @@ class ContactController extends Controller {
     }
 
     public function displayContactList() {
-        $uriList = ContactModel::getCardsUID();
-
-        if ($uriList !== FALSE) {
-            // Getting PDO Connection for User
-            $connectionPDO = databaseSabreDAVConnectPDO(Session::get('user_name'), new configurationClass());
-
-            // Retrieving AddressBook "Contacts" for User
-            $addressBook = cardDAVAddressBookRetrieve($connectionPDO, Session::get('user_name'), "Contacts");
-
-            if ($addressBook !== FALSE) {
-                $vCardList = vCardListRetrieve($addressBook, $uriList);
-                error_log(print_r($vCardList, TRUE));
-            }
-        }
-
+        ContactModel::getContactListForAddressBook();
     }
 } 
