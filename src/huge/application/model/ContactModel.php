@@ -1,7 +1,11 @@
 <?php
 
-/*require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");*/
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationClass.php");
+
+require_once(SOURCE_PATH . "SabreDAV/CardDAV/cardDAVManagement.php");
+require_once(SOURCE_PATH . "SabreDAV/CardDAV/contactMapper.php");
+require_once(SOURCE_PATH . "SabreDAV/CardDAV/vCardManagement.php");
 
 /**
  * Class ContactModel
@@ -117,5 +121,54 @@ class ContactModel {
         } catch (Exception $exceptionError) {}
 
         return FALSE;
+    }
+
+    public static function printContactList($vCardList) {
+        foreach ($vCardList as $UID => $val) {
+            echo("<li class=\"list-group-item\" data-uid=\"UID\">
+                            <div class=\"col-xs-12 col-sm-3\">
+                                <img src=\"http://api.randomuser.me/portraits/men/97.jpg\" alt=\"Seth Frazier\" class=\"img-responsive img-circle\" />
+                            </div>
+                            <div class=\"col-xs-12 col-sm-9\">
+                                <span class=\"name\">Enrico Basso</span><br/>
+                            </div>
+                            <div class=\"clearfix\"></div>
+                        </li>");
+        }
+    }
+
+    public static function getContactListForAddressBook() {
+        $uriList = ContactModel::getCardsUID();
+
+        if ($uriList !== FALSE) {
+            // Getting PDO Connection for User
+            $connectionPDO = databaseSabreDAVConnectPDO(Session::get('user_name'), new configurationClass());
+
+            // Retrieving AddressBook "Contacts" for User
+            $addressBook = cardDAVAddressBookRetrieve($connectionPDO, Session::get('user_name'), "Contacts");
+
+            if ($addressBook !== FALSE) {
+                // $vCardList = vCardListRetrieve($addressBook, $uriList);
+                // error_log(print_r($vCardList, TRUE));
+
+                $vCardList = array(
+                    '345' => array(
+                        'FirstName' => '',
+                        'LastName' => ''
+                    ),
+                    '346' => array(
+                        'FirstName' => '',
+                        'LastName' => ''
+                    ),
+                    '347' => array(
+                        'FirstName' => '',
+                        'LastName' => ''
+                    )
+                );
+
+                ContactModel::printContactList($vCardList);
+            }
+        }
+
     }
 }
