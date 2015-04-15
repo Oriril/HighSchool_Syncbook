@@ -66,8 +66,8 @@ return FALSE;
  *
  * $returnArray = array(
  *   'UID' => array(
- *   'FirstName' => "",
- *   'LastName' => ""
+ *   'contactFirstName' => "",
+ *   'contactLastName' => ""
  * )
  *
  * @param \Sabre\CardDAV\AddressBook $addressBook
