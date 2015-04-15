@@ -6872,12 +6872,12 @@ input[type="checkbox"] {
 body { padding-top: 70px; }
 
 /* Panel contact list */
-#contactList {height:200px; width:100%;}
-#contactList {overflow:hidden; overflow-y:scroll;}
+#contactList {height:auto; width:100%;}
+#contactList {overflow:hidden; overflow-y:auto;}
 
 /* Insert contact panel */
 #addContactPanel {
     height:400px;
     width:100%;
 }
-#addContactPanel {overflow:hidden; overflow-y:scroll;}
+#addContactPanel {overflow:hidden; overflow-y:auto;}
