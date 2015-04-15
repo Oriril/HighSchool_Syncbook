@@ -124,13 +124,18 @@ class ContactModel {
     }
 
     public static function printContactList($vCardList) {
-        foreach ($vCardList as $UID => $val) {
-            echo("<li class=\"list-group-item\" data-uid=\"UID\">
+        error_log(print_r($vCardList, TRUE));
+
+        foreach ($vCardList as $UID => $arrayInfo) {
+            $firstName = $arrayInfo['contactFirstName'];
+            $lastName = $arrayInfo['contactLastName'];
+
+            echo("<li class=\"list-group-item\" data-uid=\"$UID\">
                             <div class=\"col-xs-12 col-sm-3\">
                                 <img src=\"http://api.randomuser.me/portraits/men/97.jpg\" alt=\"Seth Frazier\" class=\"img-responsive img-circle\" />
                             </div>
                             <div class=\"col-xs-12 col-sm-9\">
-                                <span class=\"name\">Enrico Basso</span><br/>
+                                <span class=\"name\">$firstName $lastName</span><br/>
                             </div>
                             <div class=\"clearfix\"></div>
                         </li>");
@@ -148,10 +153,10 @@ class ContactModel {
             $addressBook = cardDAVAddressBookRetrieve($connectionPDO, Session::get('user_name'), "Contacts");
 
             if ($addressBook !== FALSE) {
-                // $vCardList = vCardListRetrieve($addressBook, $uriList);
+                $vCardList = vCardListRetrieve($addressBook, $uriList);
                 // error_log(print_r($vCardList, TRUE));
 
-                $vCardList = array(
+                /*$vCardList = array(
                     '345' => array(
                         'FirstName' => '',
                         'LastName' => ''
@@ -164,7 +169,7 @@ class ContactModel {
                         'FirstName' => '',
                         'LastName' => ''
                     )
-                );
+                );*/
 
                 ContactModel::printContactList($vCardList);
             }
