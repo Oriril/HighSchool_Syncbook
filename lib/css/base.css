@@ -1,0 +1,39 @@
+#contactListContainer {
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+
+footer {
+    text-align: center;
+    height: 30px;
+}
+
+html, body {
+    height: 100%;
+}
+
+.containerPage {
+    margin-bottom: -80px;
+    min-height: 100%;
+    height: auto;
+}
+
+.panel-no-margin-bottom {
+    margin-bottom: 0px;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.align-middle {
+    vertical-align: middle;
+}
