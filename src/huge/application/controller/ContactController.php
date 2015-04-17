@@ -38,10 +38,18 @@ class ContactController extends Controller {
             $vCardData = mapperObjectCard(json_decode(ContactModel::buildNewContact()));
             // Inserting vCard into Database
             vCardCreate($addressBook, $vCardData);
+
+            Redirect::to('dashboard/index');
         }
     }
 
     public function displayContactList() {
         ContactModel::getContactListForAddressBook();
+    }
+
+    public function displayContact(){
+        $UID = Request::post('UID');
+
+        echo $UID;
     }
 } 
