@@ -164,7 +164,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-4">
-                    <input type="submit" class="btn btn-success btn-lg" value="Save">
+                    <input type="submit" class="btn btn-success btn-lg" id="btn_save" value="Save">
                     <a href="<?php echo Config::get('URL'); ?>dashboard/index" class="btn btn-danger btn-lg">Cancel</a>
                 </div>
             </div>
