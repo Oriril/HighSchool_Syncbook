@@ -36,20 +36,5 @@
         </div>
     </div>
 </div>
-<script>
-    var URL = "http://localhost/Syncbook/src/huge/";
 
-    $('#contactListContainer').load(URL + "contact/displaycontactlist");
-
-    $(document).ready(function() {
-
-        $(document).on('click', '#displayAddContactForm', function() {
-            $('#mainContainer').load(URL + "contact/addcontact");
-        });
-
-        $(document).on('click', 'li[data-uid]', function() {
-            $('#mainContainer').html($(this).attr('data-uid'));
-        });
-    });
-
-</script>
+<script src="../../../lib/js/app.js"></script>
