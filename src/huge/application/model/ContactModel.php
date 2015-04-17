@@ -154,22 +154,6 @@ class ContactModel {
 
             if ($addressBook !== FALSE) {
                 $vCardList = vCardListRetrieve($addressBook, $uriList);
-                // error_log(print_r($vCardList, TRUE));
-
-                /*$vCardList = array(
-                    '345' => array(
-                        'FirstName' => '',
-                        'LastName' => ''
-                    ),
-                    '346' => array(
-                        'FirstName' => '',
-                        'LastName' => ''
-                    ),
-                    '347' => array(
-                        'FirstName' => '',
-                        'LastName' => ''
-                    )
-                );*/
 
                 ContactModel::printContactList($vCardList);
             }
