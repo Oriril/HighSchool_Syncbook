@@ -23,7 +23,7 @@ function cardDAVAddressBookCreate(PDO $connectionPDO, $webDAVUsername, $addressB
         // Creating CardDAV AddressBook and checking if all went good
         if ($cardDAVBackend->createAddressBook("principals/" . $webDAVUsername, $addressBookUri,
             array('{DAV:}displayname' => $addressBookDisplayName,
-                  '{' . Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => $addressBookDescription))) {error_log("TRUE"); return TRUE;}
+                  '{' . Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => $addressBookDescription))) {return TRUE;}
     } catch (Exception $exceptionError) {}
 return FALSE;
 }
