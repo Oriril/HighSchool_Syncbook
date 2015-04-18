@@ -6868,16 +6868,3 @@ input[type="checkbox"] {
     color: #222222;
 }
 
-/* Body for statit fixed top navbar */
-body { padding-top: 70px; }
-
-/* Panel contact list */
-#contactList {height:auto; width:100%;}
-#contactList {overflow:hidden; overflow-y:auto;}
-
-/* Insert contact panel */
-#addContactPanel {
-    height:400px;
-    width:100%;
-}
-#addContactPanel {overflow:hidden; overflow-y:auto;}
