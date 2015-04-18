@@ -57,7 +57,7 @@ function databaseSabreDAVCreateRedBean($webDAVUsername, configurationClass $conf
             R::selectDatabase('default');
             return TRUE;
         }
-    } catch (Exception $exceptionError) {error_log($exceptionError);}
+    } catch (Exception $exceptionError) {}
 
     // Closing Database connection before finishing
     R::close();
