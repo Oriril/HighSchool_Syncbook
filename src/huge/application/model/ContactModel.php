@@ -169,6 +169,9 @@ class ContactModel {
      */
     public static function vCardRetrieve($toGetUID) {
         try {
+            // Appending .vcf for identification purposes
+            $toGetUID = $toGetUID . ".vcf";
+
             // Getting PDO Connection for User
             $connectionPDO = databaseSabreDAVConnectPDO(Session::get('user_name'), new configurationClass());
 
