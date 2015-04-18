@@ -174,6 +174,32 @@ class ContactModel {
                 ContactModel::printContactList($vCardList);
             }
         }
-
     }
+
+
+    /**
+     * Function to Retrieve vCard, UID given
+     *
+     * @param $toGetUID
+     * @return bool|stdClass
+     */
+    public static function vCardRetrieve($toGetUID) {
+        try {
+            // Getting PDO Connection for User
+            $connectionPDO = databaseSabreDAVConnectPDO(Session::get('user_name'), new configurationClass());
+
+            // Retrieving AddressBook "Contacts" for User
+            $addressBook = cardDAVAddressBookRetrieve($connectionPDO, Session::get('user_name'), "Contacts");
+
+            if ($addressBook !== FALSE) {
+                $vCardData = $addressBook->getChild($toGetUID);
+                $vCardData = \Sabre\VObject\Reader::read($vCardData->get());
+                return mapperCardObject($vCardData);
+            } else {throw new Exception();}
+        } catch (Exception $exceptionError) {}
+        return FALSE;
+    }
+
+    // Example of Usage with error_log, for testing purpose.
+    //error_log(print_r(ContactModel::vCardRetrieve("ff2ba66e-f2a5-4ac0-897c-f322a9f2ede4.vcf"), TRUE));
 }
