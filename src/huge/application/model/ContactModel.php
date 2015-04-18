@@ -124,8 +124,6 @@ class ContactModel {
     }
 
     public static function printContactList($vCardList) {
-        error_log(print_r($vCardList, TRUE));
-
         foreach ($vCardList as $UID => $arrayInfo) {
             $firstName = $arrayInfo['contactFirstName'];
             $lastName = $arrayInfo['contactLastName'];
@@ -143,9 +141,28 @@ class ContactModel {
     }
 
     public static function getContactListForAddressBook() {
-        $uriList = ContactModel::getCardsUID();
+        try {
+            $uriList = ContactModel::getCardsUID();
 
-        if ($uriList !== FALSE) {
+            if ($uriList !== FALSE) {
+                // Getting PDO Connection for User
+                $connectionPDO = databaseSabreDAVConnectPDO(Session::get('user_name'), new configurationClass());
+
+                // Retrieving AddressBook "Contacts" for User
+                $addressBook = cardDAVAddressBookRetrieve($connectionPDO, Session::get('user_name'), "Contacts");
+
+                if ($addressBook !== FALSE) {
+                    // Retrieving vCard List
+                    $vCardList = vCardListRetrieve($addressBook, $uriList);
+                    // Rendering vCard List
+                    ContactModel::printContactList($vCardList);
+                } else {throw new Exception();}
+            } else {throw new PDOException();}
+        } catch (Exception $exceptionError) {}
+    }
+
+    public static function vCardRetrieve($toGetUID) {
+        try {
             // Getting PDO Connection for User
             $connectionPDO = databaseSabreDAVConnectPDO(Session::get('user_name'), new configurationClass());
 
@@ -153,27 +170,14 @@ class ContactModel {
             $addressBook = cardDAVAddressBookRetrieve($connectionPDO, Session::get('user_name'), "Contacts");
 
             if ($addressBook !== FALSE) {
-                $vCardList = vCardListRetrieve($addressBook, $uriList);
-                // error_log(print_r($vCardList, TRUE));
-
-                /*$vCardList = array(
-                    '345' => array(
-                        'FirstName' => '',
-                        'LastName' => ''
-                    ),
-                    '346' => array(
-                        'FirstName' => '',
-                        'LastName' => ''
-                    ),
-                    '347' => array(
-                        'FirstName' => '',
-                        'LastName' => ''
-                    )
-                );*/
-
-                ContactModel::printContactList($vCardList);
-            }
-        }
-
+                $vCardData = $addressBook->getChild($toGetUID);
+                $vCardData = \Sabre\VObject\Reader::read($vCardData->get());
+                return mapperCardObject($vCardData);
+            } else {throw new Exception();}
+        } catch (Exception $exceptionError) {}
+    return FALSE;
     }
 }
+
+// Example of Usage with error_log, for testing purpose.
+//error_log(print_r(ContactModel::vCardRetrieve("ff2ba66e-f2a5-4ac0-897c-f322a9f2ede4.vcf"), TRUE));
