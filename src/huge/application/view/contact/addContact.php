@@ -1,4 +1,4 @@
-<nav id="addContactPanel">
+<nav id="mainContainerPanel">
 <div class="well">
     <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>contact/insertnewcontact" method="post">
         <fieldset>
