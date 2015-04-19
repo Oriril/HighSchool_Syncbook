@@ -50,6 +50,26 @@ class ContactController extends Controller {
     public function displayContact(){
         $UID = Request::post('UID');
 
-        echo $UID;
+        $vCard = ContactModel::vCardRetrieve($UID);
+
+        ContactModel::printVCard($vCard);
+    }
+
+    public function deleteContact() {
+        $UID = Request::post('UID');
+
+        // sabredav functions
+    }
+
+    public function loadEditForm() {
+        $UID = Request::post('UID');
+
+        $vCard = ContactModel::vCardRetrieve($UID);
+
+        ContactModel::printEditForm($vCard);
+    }
+
+    public function saveChangesToContact() {
+
     }
 } 
