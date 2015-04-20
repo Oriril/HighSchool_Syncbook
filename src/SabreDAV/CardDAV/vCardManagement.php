@@ -29,13 +29,13 @@ return FALSE;
  * Function for Deleting a vCard in a specific AddressBook
  *
  * @param \Sabre\CardDAV\AddressBook $addressBook
- * @param VObject\Component\VCard $vCardData
+ * @param $UID
  * @return bool
  */
-function vCardDelete(Sabre\CardDAV\AddressBook $addressBook, VObject\Component\VCard $vCardData) {
+function vCardDelete(Sabre\CardDAV\AddressBook $addressBook, $UID) {
     try {
         // Retrieving vCard UID from vCardData
-        if ($vCard = $addressBook->getChild($vCardData->UID . ".vcf")) {
+        if ($vCard = $addressBook->getChild($UID . ".vcf")) {
             // Deleting vCard from Server and checking if all went good
             if ($vCard->delete()) {return TRUE;}
         }
