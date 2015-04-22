@@ -25,8 +25,7 @@ TODO: Write history
 - [RedBeanPHP](http://www.redbeanphp.com/) - ORM Framework
   - [Source Code](https://github.com/gabordemooij/redbean)
 
-- Huge - Login and Registration Framework
-  - [Creator](https://github.com/panique) 
+- [Huge](http://www.php-login.net/) - Login and Registration Framework
   - [Source Code](https://github.com/panique/huge)
 
 - [SabreDAV](http://sabre.io/) - CardDAV, CalDAV and WebDAV Framework
