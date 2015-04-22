@@ -14,36 +14,32 @@ TODO: Write history
 
 TODO: Finish credits
 
-- [GitHub Education](https://education.github.com/) fro Giving all the instruments needed to make this Project happen
+- [GitHub Education](https://education.github.com/) for Giving all the instruments needed to make this Project happen
   - [Student Pack](https://education.github.com/pack)
-    - Cloud Hosting - [DigitalOcean](https://www.digitalocean.com) 
-    - DNS Management - [dnsimple](https://dnsimple.com/)
-    - Code Management - [GitHub](https://github.com/)
-    - Domain Management - [namecheap](https://www.namecheap.com/)
+    - [DigitalOcean](https://www.digitalocean.com) - Cloud Hosting
+    - [dnsimple](https://dnsimple.com/) - DNS Management 
+    - [GitHub](https://github.com/) - Code Management 
+    - [namecheap](https://www.namecheap.com/) - Domain Management 
 
-- jQuery, Javascript Library
-  - [Library Website](https://jquery.com/)
-  - [Library](https://github.com/jquery/jquery)
+- [jQuery](https://jquery.com/) - Javascript Library
+  - [Source Code](https://github.com/jquery/jquery)
 
-- ORM Framework
-  - [Framework Website](http://www.redbeanphp.com/) 
-  - [Framework](https://github.com/gabordemooij/redbean)
+- [RedBeanPHP](http://www.redbeanphp.com/) - ORM Framework
+  - [Source Code](https://github.com/gabordemooij/redbean)
 
-- Login and Registration Framework
-  - [Framework Creator](https://github.com/panique) 
-  - [Framework](https://github.com/panique/huge)
+- Huge - Login and Registration Framework
+  - [Creator](https://github.com/panique) 
+  - [Source Code](https://github.com/panique/huge)
 
-- CardDAV, CalDAV and WebDAV Framework
-  - [Framework Website](http://sabre.io/)
-  - [Framework](https://github.com/fruux/sabre-dav)
+- [SabreDAV](http://sabre.io/) - CardDAV, CalDAV and WebDAV Framework
+  - [Source Code](https://github.com/fruux/sabre-dav)
 
-- vCard and vCalendar Framework
-  - [Framework Website](http://sabre.io/)
-  - [Framework](https://github.com/fruux/sabre-vobject)
+- [SabreDAV](http://sabre.io/) - vCard and vCalendar Framework
+  - [Source Code](https://github.com/fruux/sabre-vobject)
 
-- HTML, CSS and JS Framework
-  - [Framework Website](http://getbootstrap.com/)
-  - [Framework](https://github.com/twbs/bootstrap)
+- [Bootstrap](http://getbootstrap.com/) - HTML, CSS and JS Framework
+  - [Source Code](https://github.com/twbs/bootstrap)
     - [Components](http://getbootstrap.com/components/) 
   - [Material Design Extension](https://fezvrasta.github.io/bootstrap-material-design/)
+    - [Source Code](https://github.com/FezVrasta/bootstrap-material-design) 
     - [Components](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html)   
