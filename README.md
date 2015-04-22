@@ -12,8 +12,6 @@ TODO: Write history
 
 ## Credits
 
-TODO: Finish credits
-
 - [GitHub Education](https://education.github.com/) for Giving all the instruments needed to make this Project happen
   - [Student Pack](https://education.github.com/pack)
     - [DigitalOcean](https://www.digitalocean.com) - Cloud Hosting
