@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="containerDashboard">
     <div class="row">
         <div class="container">
             <div class="panel">
