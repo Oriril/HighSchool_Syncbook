@@ -14,6 +14,14 @@ TODO: Write history
 
 TODO: Finish credits
 
+- [GitHub Education](https://education.github.com/) fro Giving all the instruments needed to make this Project happen
+  - [Student Pack](https://education.github.com/pack)
+    - [Cloud Hosting](https://www.digitalocean.com) 
+    - [DNS Management](https://dnsimple.com/)
+    - [Code Management](https://github.com/)
+    - [Domain Registration and Hosting Management](https://www.namecheap.com/)
+    - 
+
 - jQuery, Javascript Library
   - [Library Website](https://jquery.com/)
   - [Library](https://github.com/jquery/jquery)
