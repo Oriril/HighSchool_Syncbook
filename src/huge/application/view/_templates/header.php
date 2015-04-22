@@ -24,7 +24,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../../lib/js/jquery-1.11.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../../lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
 </head>
@@ -85,5 +85,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
         </div>
     </div>
 </nav>
-<div class="container containerPage">
+<div class="container containerPage" id="containerPage">
     <?php $this->renderFeedbackMessages(); ?>
