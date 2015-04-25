@@ -20,7 +20,12 @@ class ContactModel {
      * @return boolean Gives back the success status of the insertion
      */
     public static function buildNewContact() {
-        $UID = Request::post('UID');
+
+        // If $_POST['UID'] is not NULL this is an edit action.
+        if (Request::post('UID') != "") {
+            $UID = Request::post('UID');
+        }
+
         $contactPrefix = Request::post('contactPrefix');
         $contactFirstName = Request::post('contactFirstName');
         $contactMiddleName = Request::post('contactMiddleName');
@@ -197,6 +202,17 @@ class ContactModel {
                      </button>";
         echo "<nav id=\"mainContainerPanel\"><div class=\"well\"><fieldset><legend>" . $vCard->contactDefault->contactFirstName . " " . $vCard->contactDefault->contactLastName .
                 " " . $buttons . "</legend>";
+
+        echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">Birthday</span></div>";
+        echo "<div class=\"col-sm-10\">" . $vCard->contactCompany->contactBirthDate . "</div>";
+
+        if ($vCard->contactPhone->phoneContainer_1->phoneValue != NULL) {
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\"><h4>Phone</h4></div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $vCard->contactPhone->phoneContainer_1->phoneType . "</span></div>";
+            echo "<div class=\"col-sm-10\">" . $vCard->contactPhone->phoneContainer_1->phoneValue . "</div>";
+        }
+
         echo "</fieldset></div></nav>";
     }
 
