@@ -152,22 +152,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="panel panel-warning">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Attention pls!</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p>Many fields are not included and they will set to default values or null when inserting.</p>
-                    </div>
-                </div>
-            </div>
             <div class="form-group">
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <input type="submit" class="btn btn-success btn-lg" id="btn_save" value="Save">
+                </div>
+                <div class="col-sm-2">
+
                     <a href="<?php echo Config::get('URL'); ?>dashboard/index" class="btn btn-danger btn-lg">Cancel</a>
                 </div>
             </div>
+
         </fieldset>
     </form>
 </div>
