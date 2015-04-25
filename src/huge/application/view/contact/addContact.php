@@ -1,6 +1,6 @@
 <nav id="mainContainerPanel">
 <div class="well">
-    <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>contact/insertnewcontact" method="post">
+    <form class="form-horizontal" action="javascript:void(0);" method="post">
         <fieldset>
             <legend>Insert a new contact!</legend>
             <div class="col-sm-12">
