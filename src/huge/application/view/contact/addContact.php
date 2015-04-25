@@ -79,7 +79,7 @@
                         <div class="form-group">
                             <label for="contactBirthDate" class="col-lg-2 control-label">Birthday</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="contactBirthDate" name="contactBirthDate" placeholder="(There will be a select and other stuff)">
+                                <input type="date" class="form-control" id="contactBirthDate" name="contactBirthDate">
                             </div>
                         </div>
                     </div>
