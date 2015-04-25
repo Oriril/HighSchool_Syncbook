@@ -38,8 +38,6 @@ class ContactController extends Controller {
             $vCardData = mapperObjectCard(json_decode(ContactModel::buildNewContact()));
             // Inserting vCard into Database
             vCardCreate($addressBook, $vCardData);
-
-            Redirect::to('dashboard/index');
         }
     }
 
@@ -78,7 +76,7 @@ class ContactController extends Controller {
         ContactModel::printEditForm($vCard);
     }
 
-    public function saveChangesToContact() {
+    public function applyChangesToContact() {
 
     }
 } 
