@@ -20,6 +20,7 @@ class ContactModel {
      * @return boolean Gives back the success status of the insertion
      */
     public static function buildNewContact() {
+        $UID = Request::post('UID');
         $contactPrefix = Request::post('contactPrefix');
         $contactFirstName = Request::post('contactFirstName');
         $contactMiddleName = Request::post('contactMiddleName');
@@ -44,7 +45,7 @@ class ContactModel {
         $addressCountry = Request::post('addressCountry');
 
         $arrayToJSON = array(
-            'UID' => '',
+            'UID' => $UID,
             'contactDefault' => array(
                 'contactPrefix' => $contactPrefix,
                 'contactFirstName' => $contactFirstName,
@@ -200,8 +201,8 @@ class ContactModel {
     }
 
     public static function printEditForm($vCard) {
-        $action = Config::get('URL') . "contact/savechangestocontact";
-        echo "<nav id=\"mainContainerPanel\"><div class=\"well\"><form class=\"form-horizontal\" action=\"$action\" method=\"post\"><fieldset><legend>Modify</legend>";
+        //$action = Config::get('URL') . "contact/savechangestocontact";
+        echo "<nav id=\"mainContainerPanel\"><div class=\"well\"><form class=\"form-horizontal\" action=\"javascript:void(0);\" method=\"post\"><fieldset><legend>Modify</legend>";
 
         // first panel
         echo "<div class=\"col-sm-12\">
@@ -282,7 +283,7 @@ class ContactModel {
                         <div class=\"form-group\">
                             <label for=\"contactBirthDate\" class=\"col-lg-2 control-label\">Birthday</label>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactBirthDate\" name=\"contactBirthDate\" placeholder=\"(There will be a select and other stuff)\" value=" . $vCard->contactCompany->contactBirthDate . ">
+                                <input type=\"date\" class=\"form-control\" id=\"contactBirthDate\" name=\"contactBirthDate\" value=" . $vCard->contactCompany->contactBirthDate . ">
                             </div>
                         </div>
                     </div>
@@ -367,7 +368,7 @@ class ContactModel {
 
         echo "<div class=\"form-group\">
                 <div class=\"col-sm-4\">
-                    <input type=\"submit\" class=\"btn btn-success btn-lg\" id=\"btn_save\" value=\"Save\">
+                    <input type=\"submit\" class=\"btn btn-success btn-lg\" id=\"btn_save_changes\" data-uid=" . $vCard->UID . " value=\"Save\">
                     <a href=\"$index\" class=\"btn btn-danger btn-lg\">Cancel</a>
             </div>
             </div>";
