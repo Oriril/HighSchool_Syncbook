@@ -77,6 +77,17 @@ class ContactController extends Controller {
     }
 
     public function applyChangesToContact() {
+        // Getting PDO Connection for User
+        $connectionPDO = databaseSabreDAVConnectPDO(Session::get('user_name'), new configurationClass());
 
+        // Retrieving AddressBook "Contacts" for User
+        $addressBook = cardDAVAddressBookRetrieve($connectionPDO, Session::get('user_name'), "Contacts");
+        // Checking if all went well
+        if ($addressBook !== FALSE) {
+            // Mapping vCardData from Form
+            $vCardData = mapperObjectCard(json_decode(ContactModel::buildNewContact()));
+            // Updating vCard into Database
+            vCardUpdate($addressBook, $vCardData);
+        }
     }
 } 
