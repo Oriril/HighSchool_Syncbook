@@ -22,7 +22,7 @@ class ContactModel {
     public static function buildNewContact() {
 
         // If $_POST['UID'] is not NULL this is an edit action.
-        if (Request::post('UID') != "") {
+        if (!empty(Request::post('UID'))) {
             $UID = Request::post('UID');
         }
 
@@ -40,9 +40,12 @@ class ContactModel {
         $contactBirthDate = Request::post('contactBirthDate');
 
         $phoneValue = Request::post('phoneValue');
+        $phoneType = Request::post('phoneType');
 
         $mailValue = Request::post('mailValue');
+        $mailType = Request::post('mailType');
 
+        $addressType = Request::post('addressType');
         $addressStreet = Request::post('addressStreet');
         $addressCity = Request::post('addressCity');
         $addressRegion = Request::post('addressRegion');
@@ -68,7 +71,7 @@ class ContactModel {
             ),
             'contactPhone' => array(
                 'phoneContainer_1' => array(
-                    'phoneType' => '',
+                    'phoneType' => $phoneType,
                     'phoneIsCell' => '',
                     'phoneIsFax' => '',
                     'phoneIsVoice' => '',
@@ -77,13 +80,13 @@ class ContactModel {
             ),
             'contactMail' => array(
                 'mailContainer_1' => array(
-                    'mailType' => '',
+                    'mailType' => $mailType,
                     'mailValue' => $mailValue
                 )
             ),
             'contactAddress' => array(
                 'addressContainer_1' => array(
-                    'addressType' => '',
+                    'addressType' => $addressType,
                     'addressStreet' => $addressStreet,
                     'addressCity' => $addressCity,
                     'addressRegion' => $addressRegion,
@@ -200,11 +203,23 @@ class ContactModel {
                     <button type=\"button\" class=\"btn btn-danger btn-xs\" id=\"deleteVCard\" data-uid=\"$vCard->UID\">
                         <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete
                      </button>";
-        echo "<nav id=\"mainContainerPanel\"><div class=\"well\"><fieldset><legend>" . $vCard->contactDefault->contactFirstName . " " . $vCard->contactDefault->contactLastName .
+        echo "<nav id=\"mainContainerPanel\"><div class=\"well\"><fieldset><legend>" . " " .
+                $vCard->contactDefault->contactPrefix . " " .
+                $vCard->contactDefault->contactFirstName . " " .
+                $vCard->contactDefault->contactMiddleName . " " .
+                $vCard->contactDefault->contactLastName . " " .
+                $vCard->contactDefault->contactSuffix .
                 " " . $buttons . "</legend>";
 
         echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">Birthday</span></div>";
         echo "<div class=\"col-sm-10\">" . $vCard->contactCompany->contactBirthDate . "</div>";
+
+        if ($vCard->contactMail->mailContainer_1->mailValue != NULL) {
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\"><h4>Mail</h4></div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $vCard->contactMail->mailContainer_1->mailType . "</span></div>";
+            echo "<div class=\"col-sm-10\">" . $vCard->contactMail->mailContainer_1->mailValue . "</div>";
+        }
 
         if ($vCard->contactPhone->phoneContainer_1->phoneValue != NULL) {
             echo "<div class=\"col-sm-2\"></div>";
@@ -212,6 +227,24 @@ class ContactModel {
             echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $vCard->contactPhone->phoneContainer_1->phoneType . "</span></div>";
             echo "<div class=\"col-sm-10\">" . $vCard->contactPhone->phoneContainer_1->phoneValue . "</div>";
         }
+
+        if ($vCard->contactAddress->addressContainer_1->addressStreet != NULL) {
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\"><h4>Address</h4></div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $vCard->contactAddress->addressContainer_1->addressType . "</span></div>";
+            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressStreet . "</div>";
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressCity . "</div>";
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressRegion . "</div>";
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressPostalCode . "</div>";
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressCountry . "</div>";
+        }
+
+
+
 
         echo "</fieldset></div></nav>";
     }
@@ -313,10 +346,16 @@ class ContactModel {
                     <div class=\"panel-body\">
                         <div class=\"form-group\">
                             <div class=\"col-lg-2\">
-                                <select name=\"phone1Type\">
-                                    <option value=\"home\">Home</option>
-                                    <option value=\"work\">Work</option>
-                                </select>
+                                <select name=\"phoneType\" id=\"phoneType\">";
+        if ($vCard->contactPhone->phoneContainer_1->phoneType == "HOME") {
+            echo "<option value=\"HOME\" selected>Home</option>
+                  <option value=\"WORK\">Work</option>";
+        } else {
+            echo "<option value=\"HOME\">Home</option>
+                  <option value=\"WORK\" selected>Work</option>";
+        }
+
+        echo "</select>
                             </div>
                             <div class=\"col-lg-10\">
                                 <input type=\"text\" class=\"form-control\" id=\"phoneValue\" name=\"phoneValue\" placeholder=\"Phone number\" value=" . $vCard->contactPhone->phoneContainer_1->phoneValue . ">
@@ -332,7 +371,17 @@ class ContactModel {
                     <div class=\"panel-heading\">Mail</div>
                     <div class=\"panel-body\">
                         <div class=\"form-group\">
-                            <div class=\"col-lg-12\">
+                            <div class='col-lg-2'>
+                                <select name=\"mailType\" id=\"mailType\">";
+        if ($vCard->contactMail->mailContainer_1->mailType == "HOME") {
+            echo "<option value=\"HOME\" selected>Home</option>
+                  <option value=\"WORK\">Work</option>";
+        } else {
+            echo "<option value=\"HOME\">Home</option>
+                  <option value=\"WORK\" selected>Work</option>";
+        }
+
+        echo "</select></div><div class=\"col-lg-10\">
                                 <input type=\"text\" class=\"form-control\" id=\"mailValue\" name=\"mailValue\" placeholder=\"Mail\" value=" . $vCard->contactMail->mailContainer_1->mailValue . ">
                             </div>
                         </div>
@@ -346,7 +395,19 @@ class ContactModel {
                     <div class=\"panel-heading\">Street Address</div>
                     <div class=\"panel-body\">
                         <div class=\"form-group\">
-                            <label for=\"addressStreet\" class=\"col-lg-2 control-label\">Home</label>
+                            <div class='col-lg-2'>
+                                <select name=\"addressType\" id=\"addressType\">";
+
+        if ($vCard->contactAddress->addressContainer_1->addressType == "HOME") {
+            echo "<option value=\"HOME\" selected>Home</option>
+                  <option value=\"WORK\">Work</option>";
+        } else {
+            echo "<option value=\"HOME\">Home</option>
+                  <option value=\"WORK\" selected>Work</option>";
+        }
+        echo "</select>
+                            </div>
+
                             <div class=\"col-lg-10\">
                                 <input type=\"text\" class=\"form-control\" id=\"addressStreet\" name=\"addressStreet\" placeholder=\"Street\" value=" . $vCard->contactAddress->addressContainer_1->addressStreet . ">
                             </div>
