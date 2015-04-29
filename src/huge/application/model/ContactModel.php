@@ -20,6 +20,7 @@ class ContactModel {
      * @return boolean Gives back the success status of the insertion
      */
     public static function buildNewContact() {
+        $UID = '';
 
         // If $_POST['UID'] is not NULL this is an edit action.
         if (!empty(Request::post('UID'))) {
