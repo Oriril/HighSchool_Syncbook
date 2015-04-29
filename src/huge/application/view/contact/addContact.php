@@ -91,9 +91,9 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="col-lg-2">
-                                <select name="phone1Type">
-                                    <option value="home">Home</option>
-                                    <option value="work">Work</option>
+                                <select name="phoneType" id="phoneType">
+                                    <option value="HOME">Home</option>
+                                    <option value="WORK">Work</option>
                                 </select>
                             </div>
                             <div class="col-lg-10">
@@ -108,7 +108,13 @@
                     <div class="panel-heading">Mail</div>
                     <div class="panel-body">
                         <div class="form-group">
-                            <div class="col-lg-12">
+                            <div class="col-lg-2">
+                                <select name="mailType" id="mailType">
+                                    <option value="HOME">Home</option>
+                                    <option value="WORK">Work</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-10">
                                 <input type="text" class="form-control" id="mailValue" name="mailValue" placeholder="Mail">
                             </div>
                         </div>
@@ -120,7 +126,12 @@
                     <div class="panel-heading">Street Address</div>
                     <div class="panel-body">
                         <div class="form-group">
-                            <label for="addressStreet" class="col-lg-2 control-label">Home</label>
+                            <div class="col-lg-2">
+                                <select name="addressType" id="addressType">
+                                    <option value="HOME">Home</option>
+                                    <option value="WORK">Work</option>
+                                </select>
+                            </div>
                             <div class="col-lg-10">
                                 <input type="text" class="form-control" id="addressStreet" name="addressStreet" placeholder="Street">
                             </div>
