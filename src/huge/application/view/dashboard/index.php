@@ -19,9 +19,9 @@
                     <div class="clear"></div>
                 </div>
                 <nav id="contactList">
-                    <ul class="list-group" id="contactListContainer">
+                    <div class="list-group" id="contactListContainer">
                         <?php ContactModel::getContactListForAddressBook(); ?>
-                    </ul>
+                    </div>
                 </nav>
 
             </div>
@@ -37,4 +37,4 @@
     </div>
 </div>
 
-<script src="../../../lib/js/app.js"></script>
+
