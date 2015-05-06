@@ -134,12 +134,22 @@ class ContactModel {
     }
 
     public static function printContactList($vCardList) {
-        error_log(print_r($vCardList, TRUE));
 
         foreach ($vCardList as $UID => $arrayInfo) {
             $firstName = $arrayInfo['contactFirstName'];
             $lastName = $arrayInfo['contactLastName'];
 
+            echo "<div class='list-group-item' data-uid='$UID'>
+                    <div class='row-picture'>
+                        <img class='circle' src='http://api.randomuser.me/portraits/men/97.jpg' alt='icon'>
+                    </div>
+                    <div class='row-content'>
+                        <h4 class='list-group-item-heading'>$firstName $lastName</h4>
+                    </div>
+                </div>
+                <div class='list-group-separator'></div>";
+
+            /*
             echo("<li class=\"list-group-item\" data-uid=\"$UID\">
                             <div class=\"col-xs-12 col-sm-3\">
                                 <img src=\"http://api.randomuser.me/portraits/men/97.jpg\" alt=\"Seth Frazier\" class=\"img-responsive img-circle\" />
@@ -148,7 +158,7 @@ class ContactModel {
                                 <span class=\"name\">$firstName $lastName</span><br/>
                             </div>
                             <div class=\"clearfix\"></div>
-                        </li>");
+                        </li>");*/
         }
     }
 
