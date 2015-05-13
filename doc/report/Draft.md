@@ -41,5 +41,3 @@
   * Bibliografia
  	 * [Articolo](http://alessandrorossini.org/2012/11/15/the-sad-story-of-the-vcard-format-and-its-lack-of-interoperability/)
    * ...
-
-=============================================================================================================================
