@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
         <div class="well center">
             <form class="form-horizontal" method="post" action="<?php echo Config::get('URL'); ?>login/register_action">
                 <fieldset>
@@ -9,39 +9,39 @@
 
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input type="text" class="form-control floating-label" data-hint="Letters" pattern="[a-zA-Z]{1,16}" id="user_firstname" name="user_firstname" placeholder="First name" required/>
+                            <input type="text" class="form-control floating-label" data-hint="Only Letters are allowed. Max 16 Characters long." pattern="[a-zA-Z]{1,16}" id="user_firstname" name="user_firstname" placeholder="First name" required/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input type="text" class="form-control floating-label" data-hint="Letters" pattern="[a-zA-Z]{1,16}" id="user_lastname" name="user_lastname" placeholder="Last name" required/>
+                            <input type="text" class="form-control floating-label" data-hint="Only Letters are allowed. Max 16 Characters long." pattern="[a-zA-Z]{1,16}" id="user_lastname" name="user_lastname" placeholder="Last name" required/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input type="text" class="form-control floating-label" data-hint="Letters and numbers, 2-64 chars." pattern="[a-zA-Z0-9]{2,64}" id="user_name" name="user_name" placeholder="Username" required />
+                            <input type="text" class="form-control floating-label" data-hint="Only Letters and Numbers are allowed. Max 16 Characters long." pattern="[a-zA-Z0-9]{1,16}" id="user_name" name="user_name" placeholder="Username" required />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input type="email" class="form-control floating-label" data-hint="A real address." id="user_email" name="user_email" placeholder="Email" required />
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-lg-12">
-                            <input type="password" class="form-control floating-label" data-hint="6+ characters." id="user_password_new" name="user_password_new" pattern=".{6,}" placeholder="Password" required autocomplete="off" />
+                            <input type="email" class="form-control floating-label" data-hint="A Valid E-Mail address." id="user_email" name="user_email" placeholder="Email" required />
                         </div>
                     </div>
 
 
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input type="password" class="form-control floating-label" data-hint="Repeat your password." id="user_password_repeat" name="user_password_repeat" pattern=".{6,}" required placeholder="Repeat your password." autocomplete="off" />
+                            <input type="password" class="form-control floating-label" data-hint="Min 6 Characters long." id="user_password_new" name="user_password_new" pattern=".{6,}" placeholder="Password" required autocomplete="off" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="password" class="form-control floating-label" data-hint="Repeat your Password." id="user_password_repeat" name="user_password_repeat" pattern=".{6,}" required placeholder="Repeat your password." autocomplete="off" />
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@
 
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input type="text" class="form-control floating-label" data-hint="Please enter above characters" name="captcha" placeholder="Captcha" required />
+                            <input type="text" class="form-control floating-label" data-hint="Please enter above Characters" name="captcha" placeholder="Captcha" required />
                         </div>
                     </div>
 
@@ -74,5 +74,5 @@
             </form>
         </div>
     </div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-2"></div>
 </div>
