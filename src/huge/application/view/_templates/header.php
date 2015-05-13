@@ -11,11 +11,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
         <title>Syncbook</title>
 
         <!-- Bootstrap -->
-        <link href="../../../lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../lib/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design -->
         <link href="../../../lib/material-design/css/roboto.min.css" rel="stylesheet">
-        <link href="../../../lib/material-design/css/material-fullpalette.min.css" rel="stylesheet">
-        <link href="../../../lib/material-design/css/ripples.min.css" rel="stylesheet">
+        <link href="../../../lib/material-design/css/material-fullpalette.css" rel="stylesheet">
+        <link href="../../../lib/material-design/css/ripples.css" rel="stylesheet">
         <!-- Base CSS -->
         <link href="../../../lib/css/base.css" rel="stylesheet">
         <!-- Font Awesome -->
