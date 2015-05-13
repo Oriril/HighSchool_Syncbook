@@ -4,7 +4,7 @@
     <?php //$this->renderFeedbackMessages(); ?>
 
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div class="well">
                 <!-- login box on left side -->
                 <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>login/login" method="post">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div class="well">
                 <form class="form-horizontal">
                     <fieldset>
