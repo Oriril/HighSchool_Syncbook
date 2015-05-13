@@ -134,12 +134,18 @@ class ContactModel {
     }
 
     public static function printContactList($vCardList) {
+        if ($vCardList == NULL) {
+            echo "<div class='list-group-item'>
+                    <div class='row-content'>
+                        <h4 class='list-group-item-text'>Add a contact!</h4>
+                    </div>
+                </div>";
+        } else {
+            foreach ($vCardList as $UID => $arrayInfo) {
+                $firstName = $arrayInfo['contactFirstName'];
+                $lastName = $arrayInfo['contactLastName'];
 
-        foreach ($vCardList as $UID => $arrayInfo) {
-            $firstName = $arrayInfo['contactFirstName'];
-            $lastName = $arrayInfo['contactLastName'];
-
-            echo "<div class='list-group-item' data-uid='$UID'>
+                echo "<div class='list-group-item' data-uid='$UID'>
                     <div class='row-picture'>
                         <img class='circle' src='http://api.randomuser.me/portraits/men/97.jpg' alt='icon'>
                     </div>
@@ -148,18 +154,9 @@ class ContactModel {
                     </div>
                 </div>
                 <div class='list-group-separator'></div>";
-
-            /*
-            echo("<li class=\"list-group-item\" data-uid=\"$UID\">
-                            <div class=\"col-xs-12 col-sm-3\">
-                                <img src=\"http://api.randomuser.me/portraits/men/97.jpg\" alt=\"Seth Frazier\" class=\"img-responsive img-circle\" />
-                            </div>
-                            <div class=\"col-xs-12 col-sm-9\">
-                                <span class=\"name\">$firstName $lastName</span><br/>
-                            </div>
-                            <div class=\"clearfix\"></div>
-                        </li>");*/
+            }
         }
+
     }
 
     public static function getContactListForAddressBook() {
