@@ -69,7 +69,7 @@ class LoginController extends Controller
     public function loginWithCookie()
     {
         // run the loginWithCookie() method in the login-model, put the result in $login_successful (true or false)
-         $login_successful = LoginModel::loginWithCookie(Request::cookie('remember_me'));
+        $login_successful = LoginModel::loginWithCookie(Request::cookie('remember_me'));
 
         // if login successful, redirect to dashboard/index ...
         if ($login_successful) {
@@ -253,19 +253,6 @@ class LoginController extends Controller
 
                 $prepareQuery = $database->prepare($querySQL);
                 $prepareQuery->execute();
-
-                // @TODO Query Failure status handler (Just First Query Return)
-                /*if ($prepareQuery->execute() === FALSE) {
-                    error_log("TEST IF");
-
-                    $querySQL = <<<END
-                    UPDATE users
-                    SET user_active = 0
-                    WHERE user_id = :user_id;
-END;
-                    $prepareQuery = $database->prepare($querySQL);
-                    $prepareQuery->execute(array(':user_id' => $user_id));
-                }*/
             } catch(Exception $exceptionError) {
                 $querySQL = <<<END
                     UPDATE users
