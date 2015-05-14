@@ -1,15 +1,14 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <div class="container">
-        <h1>You there!</h1>
-        <p>Welcome to this new platform where all it's easier!
-            We know, for some people to keep their contacts constantly updated it's an hard work: try our Syncbook!
-            See ya Outlook & co.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-    </div>
-</div>
-
 <div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>You there!</h1>
+            <p>Welcome to this new platform where all it's easier!
+                We know, for some people to keep their contacts constantly updated it's an hard work: try our Syncbook!
+                See ya Outlook & co.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-4">
@@ -28,3 +27,4 @@
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
+</div>
