@@ -81,7 +81,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                                 </ul>
                             </li>
                         <?php } else { ?>
-                            <li><a href="<?php echo Config::get('URL'); ?>login/index">Log in</a></li>
+                            <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="active" '; } ?>>
+                                <a href="<?php echo Config::get('URL'); ?>login/index">Log in</a>
+                            </li>
                         <?php } ?>
                     </ul>
                 </div>
