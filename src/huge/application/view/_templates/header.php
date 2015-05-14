@@ -16,6 +16,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
         <link href="../../../lib/material-design/css/roboto.min.css" rel="stylesheet">
         <link href="../../../lib/material-design/css/material-fullpalette.css" rel="stylesheet">
         <link href="../../../lib/material-design/css/ripples.css" rel="stylesheet">
+        <!-- Scrolling nav -->
+        <link href="../../../lib/css/scrolling-nav.css" rel="stylesheet">
         <!-- Base CSS -->
         <link href="../../../lib/css/base.css" rel="stylesheet">
         <!-- Font Awesome -->
@@ -29,27 +31,40 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
         <![endif]-->
 
     </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-ex1-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo Config::get('URL') . "index/index"; ?>">Syncbook</a>
+                    <a class="navbar-brand page-scroll" href="#page-top">Syncbook</a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <div class="collapse navbar-collapse navbar-ex1-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
+                        <li class="hidden">
+                            <a class="page-scroll" href="#page-top"></a>
+                        </li>
                         <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
                             <a href="<?php echo Config::get('URL'); ?>index/index">Home</a>
                         </li>
                         <?php if (Session::userIsLoggedIn()) { ?>
-                            <li <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
+                            <li id="page-dashboard" <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
                                 <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
+                            </li>
+                        <?php } else { ?>
+                            <li>
+                                <a class="page-scroll" href="#about">About</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#services">Services</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#contact">Contact</a>
                             </li>
                         <?php } ?>
                     </ul>
@@ -81,13 +96,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                                 </ul>
                             </li>
                         <?php } else { ?>
-                            <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="active" '; } ?>>
-                                <a href="<?php echo Config::get('URL'); ?>login/index">Log in</a>
-                            </li>
+                            <?php if (!View::checkForActiveController($filename, "login")) { ?>
+                                <li >
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#log-in-dialog">Log in</button>
+                                </li>
+                            <?php } ?>
+
                         <?php } ?>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container-fluid containerPage" id="containerPage">
-            <?php $this->renderFeedbackMessages(); ?>
