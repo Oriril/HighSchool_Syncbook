@@ -56,8 +56,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (Session::userIsLoggedIn()) { ?>
                             <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="dropdown" '; } ?> >
-                                <a href="<?php echo Config::get('URL'); ?>login/showprofile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
+                                <a href="<?php echo Config::get('URL'); ?>login/showprofile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="<?php echo Session::get('user_gravatar_image_url') ?>" class="img-circle"><span class="caret"></span></a>
+
+                <ul class="dropdown-menu" role="menu">
+                                    <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
+                                        <a href="<?php echo Config::get('URL'); ?>login/showprofile">Show profile</a>
+                                    </li>
                                     <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
                                         <a href="<?php echo Config::get('URL'); ?>login/changeaccounttype">Change account type</a>
                                     </li>
