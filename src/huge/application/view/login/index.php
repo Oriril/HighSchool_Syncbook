@@ -4,22 +4,21 @@
     <?php //$this->renderFeedbackMessages(); ?>
 
     <div class="row">
+        <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="well">
                 <!-- login box on left side -->
                 <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>login/login" method="post">
                     <fieldset>
-                        <legend>Login here</legend>
+                        <legend>Login</legend>
 
                         <div class="form-group">
-                            <label for="user_name" class="col-lg-2 control-label">Username or email</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Username or email" required />
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control floating-label" id="user_name" name="user_name" placeholder="Username or email" required />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="user_password" class="col-lg-2 control-label">Password</label>
-                            <div class="col-lg-10">
+                            <div class="col-lg-12">
                                 <input type="password" class="form-control" id="user_password" name="user_password" placeholder="Password" required />
                                 <div class="checkbox">
                                     <label>
@@ -29,8 +28,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-lg-10">
+                            <div class="col-lg-12">
                                 <input type="submit" class="btn btn-primary" value="Log in"/>
+                                No account Yet? <a href="<?php echo Config::get('URL'); ?>login/register">Register!</a>
                             </div>
                         </div>
                     </fieldset>
@@ -40,18 +40,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="well">
-                <form class="form-horizontal">
-                    <fieldset>
-                        <legend>No account yet ?</legend>
-                        <div class="col-lg-10">
-                            <a href="<?php echo Config::get('URL'); ?>login/register">Register!</a>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-
-        </div>
+        <div class="col-md-3"></div>
     </div>
 </div>
