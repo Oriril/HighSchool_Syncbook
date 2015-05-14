@@ -2,7 +2,7 @@
     <h1>LoginController/editUsername</h1>
 
     <!-- echo out the system feedback (error and success messages) -->
-    <?php //$this->renderFeedbackMessages(); ?>
+    <?php $this->renderFeedbackMessages(); ?>
 
     <div class="box">
         <h2>Change your username</h2>
