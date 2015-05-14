@@ -1,7 +1,7 @@
 <div class="container">
 
     <!-- echo out the system feedback (error and success messages) -->
-    <?php //$this->renderFeedbackMessages(); ?>
+    <?php $this->renderFeedbackMessages(); ?>
 
     <div class="row">
         <div class="col-md-3"></div>
