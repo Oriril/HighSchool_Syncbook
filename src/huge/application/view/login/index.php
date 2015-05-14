@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <input type="password" class="form-control" id="user_password" name="user_password" placeholder="Password" required />
+                                <input type="password" class="form-control floating-label" id="user_password" name="user_password" placeholder="Password" required />
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="set_remember_me_cookie"> Remember me for 2 weeks
