@@ -1,30 +1,89 @@
-<div class="container">
-    <div class="jumbotron">
-        <div class="container">
-            <h1>You there!</h1>
-            <p>Welcome to this new platform where all it's easier!
-                We know, for some people to keep their contacts constantly updated it's an hard work: try our Syncbook!
-                See ya Outlook & co.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+<!-- Intro Section -->
+<section id="intro" class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Enjoy</h1>
+                <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Features</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Technologies</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>About us</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>About Section</h1>
+            </div>
         </div>
     </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Services Section</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Contact Section</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="log-in-dialog" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Log in</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>login/login" method="post">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control floating-label" id="user_name" name="user_name" placeholder="Username or email" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="password" class="form-control floating-label" id="user_password" name="user_password" placeholder="Password" required />
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="set_remember_me_cookie"> Remember me for 2 weeks
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="submit" class="btn btn-primary" value="Log in"/>
+                                No account Yet? <a href="<?php echo Config::get('URL'); ?>login/register">Register!</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="link-forgot-my-password">
+                    <a href="<?php echo Config::get('URL'); ?>login/requestPasswordReset">I forgot my password</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
 </div>
