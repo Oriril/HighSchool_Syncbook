@@ -81,9 +81,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                                 </ul>
                             </li>
                         <?php } else { ?>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="<?php echo Config::get('URL'); ?>login/index">Log in</a></li>
-                            </ul>
+                            <li><a href="<?php echo Config::get('URL'); ?>login/index">Log in</a></li>
                         <?php } ?>
                     </ul>
                 </div>
