@@ -89,5 +89,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                 </div>
             </div>
         </nav>
-        <div class="container containerPage" id="containerPage">
+        <div class="container-fluid containerPage" id="containerPage">
             <?php $this->renderFeedbackMessages(); ?>
