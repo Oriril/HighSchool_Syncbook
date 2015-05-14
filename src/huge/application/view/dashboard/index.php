@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container containerPage" id="containerPage">
     <div class="row">
         <div class="col-sm-1">
             <button class="btn btn-fab btn-raised btn-primary btn-xs" id="displayAddContactForm"><i class="mdi-content-add-circle"></i></button>
