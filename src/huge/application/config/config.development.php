@@ -92,7 +92,7 @@ return array(
 	 * AVATAR_SIZE set the pixel size of avatars/gravatars (will be 44x44 by default). Avatars are always squares.
 	 * AVATAR_DEFAULT_IMAGE is the default image in public/avatars/
 	 */
-	'USE_GRAVATAR' => false,
+	'USE_GRAVATAR' => true,
 	'GRAVATAR_DEFAULT_IMAGESET' => 'mm',
 	'GRAVATAR_RATING' => 'pg',
 	'AVATAR_SIZE' => 44,
