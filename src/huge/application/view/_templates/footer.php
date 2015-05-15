@@ -1,5 +1,7 @@
         </div> <!-- /container -->
 
+<?php
+    /*
         <hr>
         <footer>
             <p>&copy; Syncbook 2015</p>
@@ -23,5 +25,7 @@
             });
         </script>
         <script src="../../../lib/js/app.js"></script>
+    */
+?>
     </body>
 </html>
