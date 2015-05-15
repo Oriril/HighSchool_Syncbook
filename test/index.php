@@ -12,18 +12,15 @@
     <title>Scrolling Nav - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <!-- Material Design CSS -->
+    <link href="../lib/material-design/css/roboto.min.css" rel="stylesheet">
+    <link href="../lib/material-design/css/material-fullpalette.css" rel="stylesheet">
+    <link href="../lib/material-design/css/ripples.css" rel="stylesheet">
 </head>
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
@@ -72,8 +69,6 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>Scrolling Nav</h1>
-                <p><strong>Usage Instructions:</strong> Make sure to include the <code>scrolling-nav.js</code>, <code>jquery.easing.min.js</code>, and <code>scrolling-nav.css</code> files. To make a link smooth scroll to another section on the page, give the link the <code>.page-scroll</code> class and set the link target to a corresponding ID on the page.</p>
-                <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
             </div>
         </div>
     </div>
@@ -113,14 +108,17 @@
 </section>
 
 <!-- jQuery -->
-<script src="../lib/js/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../lib/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <!-- Scrolling Nav JavaScript -->
 <script src="../lib/js/jquery.easing.min.js"></script>
 <script src="../lib/js/scrolling-nav.js"></script>
+
+<!-- Material Design JavaScript -->
+<script> $(document).ready(function() {$.material.init();}); </script>
 
 </body>
 
