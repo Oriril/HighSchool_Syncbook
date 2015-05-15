@@ -6,6 +6,8 @@
         <footer>
             <p>&copy; Syncbook 2015</p>
         </footer>
+    */
+?>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="../../../lib/js/jquery-1.11.2.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -25,7 +27,5 @@
             });
         </script>
         <script src="../../../lib/js/app.js"></script>
-    */
-?>
     </body>
 </html>
