@@ -50,9 +50,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                             <a class="page-scroll" href="#page-top"></a>
                         </li>
                         <?php if (Session::userIsLoggedIn()) { ?>
-                            <li id="page-dashboard" <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
+                            <!-- <li id="page-dashboard" <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
                                 <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
-                            </li>
+                            </li> -->
                         <?php } else { ?>
                             <!--<li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
                                 <a href="<?php echo Config::get('URL'); ?>index/index">Home</a>
@@ -70,9 +70,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (Session::userIsLoggedIn()) { ?>
-                            <li>
-                                <button class="btn btn-primary btn-sm" id="displayAddContactForm">Add contact</button>
-                            </li>
+                            <?php
+                                /*
+                                    <li>
+                                        <button class="btn btn-primary btn-sm" id="displayAddContactForm">Add contact</button>
+                                    </li>
+                                */
+                            ?>
                             <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="dropdown" '; } ?> >
                                 <a href="<?php echo Config::get('URL'); ?>login/showprofile" class="dropdown-toggle" style="padding-bottom: 8px;padding-top: 8px;" data-toggle="dropdown" role="button" aria-expanded="false"><img src="<?php echo Session::get('user_gravatar_image_url') ?>" class="img-circle"><span class="caret"></span></a>
 
