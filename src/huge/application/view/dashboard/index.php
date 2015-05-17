@@ -1,7 +1,7 @@
 <div class="container containerPage" id="containerPage">
     <div class="row">
         <div class="col-sm-4">
-            <div class="panel panel-primary panel-no-margin-bottom">
+            <div class="panel panel-warning panel-no-margin-bottom">
                 <div class="panel-heading">
                     <div class="float-left">
                         <h3 class="panel-title">Contacts</h3>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-sm-8" id="mainContainer">
-            <div class="panel panel-success">
+            <div class="panel panel-danger">
                 <div class="panel-heading">News</div>
                 <div class="panel-body">
                     Panel content
