@@ -135,25 +135,36 @@ class ContactModel {
 
     public static function printContactList($vCardList) {
         if ($vCardList == NULL) {
-            echo "<div class='list-group-item'>
+            /*
+                echo "<div class='list-group-item'>
                     <div class='row-content'>
-                        <h4 class='list-group-item-text'>Add a contact!</h4>
+                        <h4 class='list-group-item-text'>No contacts yet</h4>
                     </div>
                 </div>";
+            */
         } else {
             foreach ($vCardList as $UID => $arrayInfo) {
                 $firstName = $arrayInfo['contactFirstName'];
                 $lastName = $arrayInfo['contactLastName'];
 
-                echo "<div class='list-group-item' data-uid='$UID'>
-                    <div class='row-picture'>
-                        <img class='circle' src='http://api.randomuser.me/portraits/men/97.jpg' alt='icon'>
+                /*
+                    echo "<div class='list-group-item' data-uid='$UID'>
+                        <div class='row-picture'>
+                            <img class='circle' src='http://api.randomuser.me/portraits/men/97.jpg' alt='icon'>
+                        </div>
+                        <div class='row-content'>
+                            <h4 class='list-group-item-heading'>$firstName $lastName</h4>
+                        </div>
                     </div>
-                    <div class='row-content'>
-                        <h4 class='list-group-item-heading'>$firstName $lastName</h4>
+                    <div class='list-group-separator'></div>";
+                */
+                echo "
+                    <div class='list-group-item' data-uid='$UID'>
+                        <div class='row-content'>
+                            <h4 class='list-group-item-heading'>$firstName $lastName</h4>
+                        </div>
                     </div>
-                </div>
-                <div class='list-group-separator'></div>";
+                    <div class='list-group-separator'></div>";
             }
         }
 
