@@ -1,4 +1,3 @@
-<!-- Intro Section -->
 <section id="intro" class="intro-section">
     <div class="container">
         <div class="row">
@@ -9,8 +8,6 @@
         </div>
     </div>
 </section>
-
-<!-- About Section -->
 <section id="about" class="about-section">
     <div class="container">
         <div class="row">
@@ -20,8 +17,6 @@
         </div>
     </div>
 </section>
-
-<!-- Services Section -->
 <section id="services" class="services-section">
     <div class="container">
         <div class="row">
@@ -31,8 +26,6 @@
         </div>
     </div>
 </section>
-
-<!-- Contact Section -->
 <section id="contact" class="contact-section">
     <div class="container">
         <div class="row">
@@ -42,13 +35,12 @@
         </div>
     </div>
 </section>
-
 <div id="log-in-dialog" class="modal fade" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Log in</h4>
+                <!--<h4 class="modal-title">Log in</h4>-->
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>login/login" method="post">
