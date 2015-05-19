@@ -54,18 +54,20 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                                 <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
                             </li>
                         <?php } else { ?>
-                            <!--<li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
+                            <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
                                 <a href="<?php echo Config::get('URL'); ?>index/index">Home</a>
-                            </li>-->
-                            <li>
-                                <a class="page-scroll" href="#about">About</a>
                             </li>
-                            <li>
-                                <a class="page-scroll" href="#services">Services</a>
-                            </li>
-                            <li>
-                                <a class="page-scroll" href="#contact">Contact</a>
-                            </li>
+                            <?php if (View::checkForActiveController($filename, "index")) { ?>
+                                <li>
+                                    <a class="page-scroll" href="#about">About</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" href="#services">Services</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" href="#contact">Contact</a>
+                                </li>
+                            <?php } ?>
                         <?php } ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
