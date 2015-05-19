@@ -33,12 +33,11 @@ class ContactModel {
         $contactLastName = Request::post('contactLastName');
         $contactSuffix = Request::post('contactSuffix');
 
-        $contactIsCompany = isset($_POST['contactIsCompany']) ? 'TRUE' : 'FALSE';
-        $contactCompany = Request::post('contactCompany');
+        /*$contactCompany = Request::post('contactCompany');
         $contactDepartment = Request::post('contactDepartment');
         $contactJobTitle = Request::post('contactJobTitle');
         $contactJobRole = Request::post('contactJobRole');
-        $contactBirthDate = Request::post('contactBirthDate');
+        $contactBirthDate = Request::post('contactBirthDate');*/
 
         $phoneValue = Request::post('phoneValue');
         $phoneType = Request::post('phoneType');
@@ -62,14 +61,14 @@ class ContactModel {
                 'contactLastName' => $contactLastName,
                 'contactSuffix' => $contactSuffix
             ),
-            'contactCompany' => array(
-                'contactIsCompany' => $contactIsCompany,
+            /*'contactCompany' => array(
+                'contactIsCompany' => FALSE,
                 'contactCompany' => $contactCompany,
                 'contactDepartment' => $contactDepartment,
                 'contactJobTitle' => $contactJobTitle,
                 'contactJobRole' => $contactJobRole,
                 'contactBirthDate' => $contactBirthDate
-            ),
+            ),*/
             'contactPhone' => array(
                 'phoneContainer_1' => array(
                     'phoneType' => $phoneType,
@@ -135,13 +134,11 @@ class ContactModel {
 
     public static function printContactList($vCardList) {
         if ($vCardList == NULL) {
-            /*
                 echo "<div class='list-group-item'>
                     <div class='row-content'>
                         <h4 class='list-group-item-text'>No contacts yet</h4>
                     </div>
                 </div>";
-            */
         } else {
             foreach ($vCardList as $UID => $arrayInfo) {
                 $firstName = $arrayInfo['contactFirstName'];
@@ -160,6 +157,9 @@ class ContactModel {
                 */
                 echo "
                     <div class='list-group-item' data-uid='$UID'>
+                     <div class='row-picture'>
+                            <img class='circle' src='../public/avatars/default.jpg' alt='icon'>
+                        </div>
                         <div class='row-content'>
                             <h4 class='list-group-item-heading'>$firstName $lastName</h4>
                         </div>
@@ -311,7 +311,7 @@ class ContactModel {
             </div>";
 
         // company panel
-        echo "<div class=\"col-sm-12\">
+        /*echo "<div class=\"col-sm-12\">
                 <div class=\"panel-default\">
                     <div class=\"panel-body\">
                         <div class=\"form-group\">
@@ -357,7 +357,7 @@ class ContactModel {
                     </div>
                 </div>
             </div>";
-
+        */
         // phone
         echo "<div class=\"col-sm-12\">
                 <div class=\"panel panel-primary\">
@@ -463,9 +463,9 @@ class ContactModel {
         $index = Config::get('URL') . "dashboard/index";
 
         echo "<div class=\"form-group\">
-                <div class=\"col-sm-4\">
+                <div class=\"col-sm-12\">
                     <input type=\"submit\" class=\"btn btn-success btn-lg\" id=\"btn_save_changes\" data-uid=" . $vCard->UID . " value=\"Save\">
-                    <a href=\"$index\" class=\"btn btn-danger btn-lg\">Cancel</a>
+                    <a href=\"$index\" class=\"btn btn-danger btn-lg float-right\">Cancel</a>
             </div>
             </div>";
 
