@@ -12,6 +12,7 @@
                     </div>-->
                     <div class="clear"></div>
                 </div>
+                <br>
                 <nav id="contactList">
                     <div class="list-group" id="contactListContainer">
                         <?php ContactModel::getContactListForAddressBook(); ?>
@@ -21,12 +22,7 @@
             </div>
         </div>
         <div class="col-sm-8" id="mainContainer">
-            <div class="panel panel-danger">
-                <div class="panel-heading">News</div>
-                <div class="panel-body">
-                    Panel content
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
