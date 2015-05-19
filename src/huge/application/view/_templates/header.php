@@ -85,15 +85,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                                         <a href="<?php echo Config::get('URL'); ?>login/showprofile">Show profile</a>
                                     </li>
                                     <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                                        <a href="<?php echo Config::get('URL'); ?>login/changeaccounttype">Change account type</a>
-                                    </li>
-                                    <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                                        <a href="<?php echo Config::get('URL'); ?>login/uploadavatar">Upload an avatar</a>
-                                    </li>
-                                    <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                                        <a href="<?php echo Config::get('URL'); ?>login/editusername">Edit my username</a>
-                                    </li>
-                                    <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
                                         <a href="<?php echo Config::get('URL'); ?>login/edituseremail">Edit my email</a>
                                     </li>
                                     <li class="divider"></li>
