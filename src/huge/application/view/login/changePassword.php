@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container fix-navbar">
     <h1>LoginController/changePassword</h1>
 
     <!-- echo out the system feedback (error and success messages) -->
