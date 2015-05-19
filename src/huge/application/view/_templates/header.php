@@ -23,6 +23,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
         <!-- Font Awesome -->
         <link rel="stylesheet" href="../../../lib/font-awesome-4.3.0/css/font-awesome.min.css">
 
+        <link rel="stylesheet" href="../../../lib/css/about-card.css">
+
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -59,13 +61,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                             </li>
                             <?php if (View::checkForActiveController($filename, "index")) { ?>
                                 <li>
-                                    <a class="page-scroll" href="#about">About</a>
-                                </li>
-                                <li>
                                     <a class="page-scroll" href="#services">Services</a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="#contact">Contact</a>
+                                    <a class="page-scroll" href="#powered-by">Powered by</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" href="#about">About us</a>
                                 </li>
                             <?php } ?>
                         <?php } ?>
