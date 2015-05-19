@@ -42,7 +42,7 @@
                 <div class="col-sm-12">
                     <div class="panel-default">
                         <div class="panel-body">
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <div class="col-lg-2"></div>
                                 <div class="col-lg-10">
                                     <div class="checkbox">
@@ -75,7 +75,7 @@
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" id="contactJobRole" name="contactJobRole" placeholder="Job role">
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="form-group">
                                 <label for="contactBirthDate" class="col-lg-2 control-label">Birthday</label>
                                 <div class="col-lg-10">
@@ -164,15 +164,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-2">
+                    <div class="col-sm-12">
                         <input type="submit" class="btn btn-success btn-lg" id="btn_save" value="Save">
-                    </div>
-                    <div class="col-sm-2">
-
-                        <a href="<?php echo Config::get('URL'); ?>dashboard/index" class="btn btn-danger btn-lg">Cancel</a>
+                        <a href="<?php echo Config::get('URL'); ?>dashboard/index" class="btn btn-danger btn-lg float-right">Cancel</a>
                     </div>
                 </div>
-
             </fieldset>
         </form>
     </nav>
