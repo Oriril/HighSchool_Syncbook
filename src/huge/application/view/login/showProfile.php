@@ -1,21 +1,20 @@
-<div class="container">
-    <h1>LoginController/showProfile</h1>
+<div class="container fix-navbar">
+    <!-- echo out the system feedback (error and success messages) -->
+    <?php $this->renderFeedbackMessages(); ?>
 
-    <div class="box">
-        <h2>Your profile</h2>
+    <div class="col-sm-8">
+        <div class="panel-warning">
+            <div class="panel-heading"><?= $this->user_name; ?></div>
+            <div class="panel-body">
+                <div class="col-sm-6">Your email:</div>
+                <div class="col-sm-6"><?= $this->user_email; ?></div>
+                <div class="col-sm-6">Your avatar image (on gravatar.com):</div>
+                <div class="col-sm-6">
+                         <img src='<?= $this->user_gravatar_image_url; ?>' />
 
-        <!-- echo out the system feedback (error and success messages) -->
-        <?php $this->renderFeedbackMessages(); ?>
-        
-        <div>Your username: <?= $this->user_name; ?></div>
-        <div>Your email: <?= $this->user_email; ?></div>
-        <div>Your avatar image:
-            <?php if (Config::get('USE_GRAVATAR')) { ?>
-                Your gravatar pic (on gravatar.com): <img src='<?= $this->user_gravatar_image_url; ?>' />
-            <?php } else { ?>
-                Your avatar pic (saved locally): <img src='<?= $this->user_avatar_file; ?>' />
-            <?php } ?>
+                </div>
+            </div>
+
         </div>
-        <div>Your account type is: <?= $this->user_account_type; ?></div>
     </div>
 </div>
