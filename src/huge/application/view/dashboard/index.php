@@ -1,4 +1,4 @@
-<div class="container containerPage" id="containerPage">
+<div class="container containerPage fix-navbar" id="containerPage">
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-warning panel-no-margin-bottom">
