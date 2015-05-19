@@ -217,10 +217,10 @@ class ContactModel {
 
     public static function printVCard($vCard) {
         $buttons = "<div class='float-right'><button class=\"btn btn-fab btn-fab-mini btn-sm btn-raised btn-primary\" id=\"editVCard\" data-uid=\"$vCard->UID\">
-                        <i class='mdi-image-edit'></i>
+                        <i class='fa fa-pencil fa-lg'></i>
                     </button>
                     <button type=\"button\" class=\"btn btn-fab btn-fab-mini btn-sm btn-raised btn-danger\" id=\"deleteVCard\" data-uid=\"$vCard->UID\">
-                        <i class='mdi-content-clear'></i>
+                        <i class='fa fa-trash fa-lg'></i>
                      </button></div>";
         echo "<nav id=\"mainContainerPanel\"><div class=\"well\"><fieldset><legend>" . " " .
                 $vCard->contactDefault->contactPrefix . " " .
