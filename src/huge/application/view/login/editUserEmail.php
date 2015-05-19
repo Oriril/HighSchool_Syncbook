@@ -11,7 +11,7 @@
                         <label>
                             New email address: <input type="text" name="user_email" required />
                         </label>
-                        <input type="submit" value="Submit" />
+                        <input class="btn btn-primary btn-raised" type="submit" value="Submit" />
                     </form>
             </div>
         </div>
