@@ -72,7 +72,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (Session::userIsLoggedIn()) { ?>
-                            <li>
+                            <li class="add-button">
                                 <button class="btn btn-fab btn-fab-mini btn-raised btn-material-deep-purple-200 btn-sm" id="displayAddContactForm">
                                     <i class='fa fa-plus'></i>
                                 </button>
