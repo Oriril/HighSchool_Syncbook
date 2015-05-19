@@ -1,6 +1,6 @@
 /* Body for static fixed top navbar */
 body {
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
 /* Panel contact list */
@@ -62,4 +62,8 @@ html, body {
 
 .align-bottom {
     vertical-align: text-bottom;
+}
+
+.fix-navbar {
+    padding-top: 10px;
 }
