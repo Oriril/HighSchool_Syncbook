@@ -1,17 +1,19 @@
 <div class="container fix-navbar">
-    <h1>LoginController/editUserEmail</h1>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-    <div class="box">
-        <h2>Change your email address</h2>
-
-        <form action="<?php echo Config::get('URL'); ?>login/editUserEmail_action" method="post">
-            <label>
-                New email address: <input type="text" name="user_email" required />
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
+    <div class="col-sm-6">
+        <div class="panel-warning">
+            <div class="panel-heading">Change your email address</div>
+            <div class="panel-body">
+                    <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>login/editUserEmail_action" method="post">
+                        <label>
+                            New email address: <input type="text" name="user_email" required />
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
+            </div>
+        </div>
     </div>
 </div>
