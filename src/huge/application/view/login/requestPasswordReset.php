@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container  fix-navbar">
     <h1>Request a password reset</h1>
     <div class="box">
 
