@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container fix-navbar">
     <h1>ProfileController/index</h1>
     <div class="box">
 
