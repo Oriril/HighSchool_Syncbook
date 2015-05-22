@@ -56,9 +56,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                                 <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
                             </li>
                         <?php } else { ?>
-                            <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
-                                <a href="<?php echo Config::get('URL'); ?>index/index">Home</a>
-                            </li>
                             <?php if (View::checkForActiveController($filename, "index")) { ?>
                                 <li>
                                     <a class="page-scroll" href="#services">Services</a>
@@ -68,6 +65,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                                 </li>
                                 <li>
                                     <a class="page-scroll" href="#about">About us</a>
+                                </li>
+                            <?php } else { ?>
+                                <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
+                                    <a href="<?php echo Config::get('URL'); ?>index/index">Home</a>
                                 </li>
                             <?php } ?>
                         <?php } ?>
