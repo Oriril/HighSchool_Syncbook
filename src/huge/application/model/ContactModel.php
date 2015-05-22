@@ -144,7 +144,7 @@ class ContactModel {
             "
                 <div class = 'list-group-item' style='text-align: center;'>
                     <div class='row-content'>
-                        <button class='btn btn-fab btn-fab-mini btn-raised btn-material-deep-purple-200 btn-sm' id='displayAddContactForm'>
+                        <button class='btn btn-fab btn-fab-mini btn-raised btn-material-deep-purple-300 btn-sm' id='displayAddContactForm'>
                             <i class='fa fa-plus'></i>
                         </button>
                     </div>
