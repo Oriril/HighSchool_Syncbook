@@ -1,7 +1,7 @@
 <div class="container containerPage fix-navbar" id="containerPage">
     <div class="row">
         <div class="col-sm-4">
-            <div class="panel panel-warning panel-no-margin-bottom">
+            <div class="panel panel-material-indigo-500 panel-no-margin-bottom">
                 <div class="panel-heading">
                     <div class="float-left">
                         <h3 class="panel-title">Contacts</h3>
