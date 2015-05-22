@@ -53,6 +53,11 @@
 <section id="team" class="team-section">
     <div class="container">
         <div class="row">
+            <div class="col-lg-12">
+                <h1>Our Team</h1>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-3">
                 <div class="well no-padding" style="padding: 0px">
@@ -72,14 +77,14 @@
                             <div class="desc">Tech geek</div>
                         </div>
                         <div class="bottom">
-                            <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                            <a class="btn btn-material-blue-400 btn-twitter btn-sm" href="https://twitter.com/webmaniac">
                                 <i class="fa fa-twitter"></i>
                             </a>
                             <a class="btn btn-danger btn-sm" rel="publisher"
                                href="https://plus.google.com/+ahmshahnuralam">
                                 <i class="fa fa-google-plus"></i>
                             </a>
-                            <a class="btn btn-primary btn-sm" rel="publisher"
+                            <a class="btn btn-material-indigo-600 btn-sm" rel="publisher"
                                href="https://plus.google.com/shahnuralam">
                                 <i class="fa fa-facebook"></i>
                             </a>
@@ -105,14 +110,14 @@
                             <div class="desc">Tech geek</div>
                         </div>
                         <div class="bottom">
-                            <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/enrixubi">
+                            <a class="btn btn-material-blue-400 btn-twitter btn-sm" href="https://twitter.com/enrixubi">
                                 <i class="fa fa-twitter"></i>
                             </a>
                             <a class="btn btn-danger btn-sm" rel="publisher"
                                href="https://plus.google.com/+ahmshahnuralam">
                                 <i class="fa fa-google-plus"></i>
                             </a>
-                            <a class="btn btn-primary btn-sm" rel="publisher"
+                            <a class="btn btn-material-indigo-600 btn-sm" rel="publisher"
                                href="https://plus.google.com/shahnuralam">
                                 <i class="fa fa-facebook"></i>
                             </a>
