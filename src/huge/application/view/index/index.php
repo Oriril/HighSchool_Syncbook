@@ -13,19 +13,57 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1>What can I do with Syncbook?</h1>
+                <div class="section-heading">
+                    <h1>Services</h1>
+                </div>
             </div>
         </div>
-        <div class="row" style="text-align: left;">
-            <div class="col-sm-6">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-responsive center" src="../public/avatars/bootstrap.png">
             </div>
-            <div class="col-sm-6">Random image of a syncing process.</div>
+            <div class="col-sm-4">
+                <img class="img-responsive center" src="../public/avatars/responsive.png">
+            </div>
+            <div class="col-sm-4">
+                <img class="img-responsive center" src="../public/avatars/lock.png">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Responsive & Material</h3>
+                <p>
+                    Using one of the most complete CSS Frameworks,topped with a marvelously developed Google's Material Design extension was surely very hard. But the hard work paid off when we finally finished a Website that's 100% ready for the future of Web-Development.
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <h3>Cross Platform</h3>
+                    <p>
+                        Syncbook was built in this project uses the latest standard in vCards storing and formatting, letting the users manage their AddressBooks from every device, breaking the barriers that are right now imposed by the majority of manufacturers.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <h3>Web Security</h3>
+                    <p>
+                        Thanks to one of the most advanced SSL certificates that can be found in the market, the website is completly covered by the HTTPS protocol so users don't have to worry about that their datas are beign stored in a unsafe place.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 <section id="powered-by" class="powered-by-section">
     <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h1>Powered by</h1>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-4">
                 <div class="well">
@@ -54,7 +92,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Our Team</h1>
+                <div class="section-heading">
+                    <h1>Our team</h1>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -96,7 +136,6 @@
                 <div class="well no-padding" style="padding: 0px;">
                     <div class="card hovercard" style="display: block;">
                         <div class="cardheader">
-
                         </div>
                         <div class="avatar">
                             <img alt="" src="https://www.gravatar.com/avatar/8d669acbd39ba16bb05a92e2937b2c70.png">
