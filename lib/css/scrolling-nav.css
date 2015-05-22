@@ -40,18 +40,18 @@ of those sections to manage the look and feel of the site. */
 
 .team-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 50px;
     text-align: center;
 }
 
 .services-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 100px;
     text-align: center;
 }
 
 .powered-by-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 100px;
     text-align: center;
 }
