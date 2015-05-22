@@ -97,7 +97,7 @@
 
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <input type="text" class="form-control floating-label" id="user_name" name="user_name" placeholder="Username or email" required />
+                                <input type="text" class="form-control floating-label" id="user_name" name="user_name" placeholder="Username or E-Mail" required />
                             </div>
                         </div>
                         <div class="form-group">
