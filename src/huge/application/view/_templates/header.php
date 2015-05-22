@@ -64,7 +64,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                                     <a class="page-scroll" href="#powered-by">Powered by</a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="#about">About us</a>
+                                    <a class="page-scroll" href="#team">Team</a>
                                 </li>
                             <?php } else { ?>
                                 <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
