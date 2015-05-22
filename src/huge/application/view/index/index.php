@@ -58,7 +58,7 @@
                 <div class="card">
                     <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     <div class="avatar">
-                        <img src="" alt="" />
+                        <img src="https://gravatar.com/avatar/8345625bf8f31967f3faba078126d0d9" alt="" />
                     </div>
                     <div class="content">
                         <p>Web Developer <br>
