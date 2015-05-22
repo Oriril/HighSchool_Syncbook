@@ -1,4 +1,8 @@
 <div class="container fix-navbar">
+
+    <!-- echo out the system feedback (error and success messages) -->
+    <?php $this->renderFeedbackMessages(); ?>
+
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
@@ -6,7 +10,6 @@
                 <form class="form-horizontal" method="post" action="<?php echo Config::get('URL'); ?>login/register_action">
                     <fieldset>
                         <legend>Register a new account</legend>
-
 
                         <div class="form-group">
                             <div class="col-lg-12">
