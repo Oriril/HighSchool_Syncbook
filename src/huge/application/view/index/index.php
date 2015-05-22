@@ -50,33 +50,73 @@
         </div>
     </div>
 </section>
-<section id="about" class="about-section">
+<section id="team" class="team-section">
     <div class="container">
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-3">
-                <div class="card">
-                    <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
-                    <div class="avatar">
-                        <img src="https://gravatar.com/avatar/8345625bf8f31967f3faba078126d0d9" alt="" />
-                    </div>
-                    <div class="content">
-                        <p>Web Developer <br>
-                            More description here</p>
-                        <p><button type="button" class="btn btn-default">Contact</button></p>
+                <div class="well no-padding" style="padding: 0px">
+                    <div class="card hovercard">
+                        <div class="cardheader">
+
+                        </div>
+                        <div class="avatar">
+                            <img alt="" src="https://gravatar.com/avatar/8345625bf8f31967f3faba078126d0d9">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a target="_blank" href="http://scripteden.com/">Federico Longhin</a>
+                            </div>
+                            <div class="desc">Passionate designer</div>
+                            <div class="desc">Curious developer</div>
+                            <div class="desc">Tech geek</div>
+                        </div>
+                        <div class="bottom">
+                            <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a class="btn btn-danger btn-sm" rel="publisher"
+                               href="https://plus.google.com/+ahmshahnuralam">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a class="btn btn-primary btn-sm" rel="publisher"
+                               href="https://plus.google.com/shahnuralam">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="card">
-                    <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
-                    <div class="avatar">
-                        <img src="https://www.gravatar.com/avatar/8d669acbd39ba16bb05a92e2937b2c70.png" alt="" />
-                    </div>
-                    <div class="content">
-                        <p>Web Developer <br>
-                            More description here</p>
-                        <p><button type="button" class="btn btn-default">Contact</button></p>
+                <div class="well no-padding" style="padding: 0px">
+                    <div class="card hovercard">
+                        <div class="cardheader">
+
+                        </div>
+                        <div class="avatar">
+                            <img alt="" src="https://www.gravatar.com/avatar/8d669acbd39ba16bb05a92e2937b2c70.png">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a target="_blank" href="https://twitter.com/enrixubi">Enrico Basso</a>
+                            </div>
+                            <div class="desc">Passionate designer</div>
+                            <div class="desc">Curious developer</div>
+                            <div class="desc">Tech geek</div>
+                        </div>
+                        <div class="bottom">
+                            <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/enrixubi">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a class="btn btn-danger btn-sm" rel="publisher"
+                               href="https://plus.google.com/+ahmshahnuralam">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a class="btn btn-primary btn-sm" rel="publisher"
+                               href="https://plus.google.com/shahnuralam">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
