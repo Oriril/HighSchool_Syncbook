@@ -134,11 +134,23 @@ class ContactModel {
 
     public static function printContactList($vCardList) {
         if ($vCardList == NULL) {
-                echo "<div class='list-group-item'>
+                /*echo "<div class='list-group-item'>
                     <div class='row-content'>
                         <h4 class='list-group-item-text'>No contacts yet</h4>
                     </div>
-                </div>";
+                </div>";*/
+
+            echo
+            "
+                <div class = 'list-group-item' style='text-align: center;'>
+                    <div class='row-content'>
+                        <button class='btn btn-fab btn-fab-mini btn-raised btn-material-deep-purple-200 btn-sm' id='displayAddContactForm'>
+                            <i class='fa fa-plus'></i>
+                        </button>
+                    </div>
+                    <h4 style='margin-top: -10px; margin-bottom: 15px'>Add a Contact</h4>
+                </div>
+            ";
         } else {
             foreach ($vCardList as $UID => $arrayInfo) {
                 $firstName = $arrayInfo['contactFirstName'];
