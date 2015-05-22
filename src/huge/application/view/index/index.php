@@ -7,6 +7,17 @@
                 <a class="btn btn-raised page-scroll" href="#services">See more</a>
             </div>
         </div>
+        <div class="row">
+            <div class="container-balls">
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+            </div>
+        </div>
     </div>
 </section>
 <section id="services" class="services-section">
@@ -209,6 +220,4 @@
         </div>
 
     </div>
-</div>
-</div>
 </div>
