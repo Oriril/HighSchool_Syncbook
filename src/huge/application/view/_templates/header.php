@@ -99,7 +99,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                         <?php } else { ?>
                             <?php if (!View::checkForActiveController($filename, "login")) { ?>
                                 <li >
-                                    <button class="btn btn-material-deep-purple-200" data-toggle="modal" data-target="#log-in-dialog">Log in</button>
+                                    <button class="btn btn-material-deep-purple-300" data-toggle="modal" data-target="#log-in-dialog">Log in</button>
                                 </li>
                             <?php } ?>
 
