@@ -35,27 +35,23 @@ of those sections to manage the look and feel of the site. */
     height: 100%;
     padding-top: 150px;
     background-size:100% auto;
-    background-color: #607D8B;
     text-align: center;
 }
 
-.about-section {
+.team-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background-color: #607D8B;
 }
 
 .services-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background-color: #607D8B;
 }
 
 .powered-by-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background-color: #607D8B;
 }
