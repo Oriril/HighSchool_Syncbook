@@ -24,7 +24,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
         <link rel="stylesheet" href="../../../lib/font-awesome-4.3.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="../../../lib/css/about-card.css">
-        <link rel="stylesheet" href="../../../lib/css/balls.css">
+        <!--<link rel="stylesheet" href="../../../lib/css/balls.css">-->
+        <link rel="stylesheet" href="../../../lib/css/hoja.css">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
