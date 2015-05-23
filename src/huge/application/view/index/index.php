@@ -54,11 +54,7 @@
             </div>
         </div>
         <div class="row">
-            <img class="img-responsive center" src="../public/avatars/html5.png">
-            <img class="img-responsive center" src="../public/avatars/css3.png">
-            <img class="img-responsive center" src="../public/avatars/jquery.png">
-            <img class="img-responsive center" src="../public/avatars/php5.png">
-            <img class="img-responsive center" src="../public/avatars/sabre_logo.png">
+            <!-- powered by pictures -->
         </div>
     </div>
 </section>
