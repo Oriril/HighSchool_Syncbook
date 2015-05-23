@@ -38,7 +38,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
         <nav class="navbar navbar-inverse navbar-default navbar-fixed-top top-nav-collapse" role="navigation">
             <div class="container">
                 <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-ex1-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -47,7 +47,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                     <a class="navbar-brand page-scroll" href="#page-top">Syncbook</a>
                 </div>
 
-                <div class="collapse navbar-collapse navbar-ex1-collapse" id="navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="hidden">
                             <a class="page-scroll" href="#page-top"></a>
@@ -99,7 +99,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                             </li>
                         <?php } else { ?>
                             <?php if (!View::checkForActiveController($filename, "login")) { ?>
-                                <li >
+                                <li>
                                     <button class="btn btn-material-deep-purple-300" data-toggle="modal" data-target="#log-in-dialog">Log in</button>
                                 </li>
                             <?php } ?>
