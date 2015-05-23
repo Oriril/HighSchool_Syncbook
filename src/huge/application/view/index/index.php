@@ -31,17 +31,7 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <img class="img-responsive center" src="../public/avatars/bootstrap.png">
-            </div>
-            <div class="col-sm-4">
-                <img class="img-responsive center" src="../public/avatars/responsive.png">
-            </div>
-            <div class="col-sm-4">
-                <img class="img-responsive center" src="../public/avatars/lock.png">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
+                <img class="center" src="../public/avatars/bootstrap.png">
                 <h3>Responsive & Material</h3>
                 <p>
                     Using one of the most complete CSS Frameworks,topped with a marvelously developed Google's Material Design extension was surely very hard. But the hard work paid off when we finally finished a Website that's 100% ready for the future of Web-Development.
@@ -49,6 +39,7 @@
             </div>
             <div class="col-sm-4">
                 <div>
+                    <img class="center" src="../public/avatars/responsive.png">
                     <h3>Cross Platform</h3>
                     <p>
                         Syncbook was built in this project uses the latest standard in vCards storing and formatting, letting the users manage their AddressBooks from every device, breaking the barriers that are right now imposed by the majority of manufacturers.
@@ -57,6 +48,7 @@
             </div>
             <div class="col-sm-4">
                 <div>
+                    <img class="center" src="../public/avatars/lock.png">
                     <h3>Web Security</h3>
                     <p>
                         Thanks to one of the most advanced SSL certificates that can be found in the market, the website is completly covered by the HTTPS protocol so users don't have to worry about that their datas are beign stored in a unsafe place.
@@ -114,14 +106,13 @@
                 <div class="well no-padding" style="padding: 0px;">
                     <div class="card hovercard" style="display: block;">
                         <div class="cardheader">
-
                         </div>
                         <div class="avatar">
                             <img alt="" src="https://gravatar.com/avatar/8345625bf8f31967f3faba078126d0d9">
                         </div>
                         <div class="info">
                             <div class="title">
-                                <a target="_blank" href="http://scripteden.com/">Federico Longhin</a>
+                                <a target="_blank" href="https://twitter.com/LonghinFederico">Federico Longhin</a>
                             </div>
                             <div class="desc">Passionate designer</div>
                             <div class="desc">Curious developer</div>
