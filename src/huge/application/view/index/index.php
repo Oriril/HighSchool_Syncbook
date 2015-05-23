@@ -1,22 +1,8 @@
 <section id="intro" class="intro-section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Welcome to Syncbook</h1>
-                <p>Some text here</p>
-                <a class="btn btn-raised page-scroll" href="#services">See more</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="container-balls">
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-            </div>
+        <div class="hoja">Syncbook</div>
+        <div class="col-lg-12 see-more">
+            <a class="btn btn-raised page-scroll" href="#services">See more</a>
         </div>
     </div>
 </section>
@@ -68,26 +54,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="well">
-                    <h1>PHP</h1>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="well">
-                    <h1>CSS3 & Bootstrap</h1>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="well">
-                    <h1>jQuery</h1>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="well">
-                    <h1>Sabre</h1>
-                </div>
-            </div>
+            <img class="img-responsive center" src="../public/avatars/html5.png">
+            <img class="img-responsive center" src="../public/avatars/css3.png">
+            <img class="img-responsive center" src="../public/avatars/jquery.png">
+            <img class="img-responsive center" src="../public/avatars/php5.png">
+            <img class="img-responsive center" src="../public/avatars/sabre_logo.png">
         </div>
     </div>
 </section>
@@ -150,16 +121,15 @@
                             <div class="desc">Tech geek</div>
                         </div>
                         <div class="bottom">
-                            <a class="btn btn-material-blue-400 btn-twitter btn-sm" href="https://twitter.com/enrixubi">
-                                <i class="fa fa-twitter"></i>
+                            <a class="btn btn-material-blue-grey-100 btn-sm" href="https://github.com/Xooline">
+                                <i class="fa fa-github"></i>
                             </a>
                             <a class="btn btn-danger btn-sm" rel="publisher"
-                               href="https://plus.google.com/+ahmshahnuralam">
+                               href="https://plus.google.com/+EnricoBasso01">
                                 <i class="fa fa-google-plus"></i>
                             </a>
-                            <a class="btn btn-material-indigo-600 btn-sm" rel="publisher"
-                               href="https://plus.google.com/shahnuralam">
-                                <i class="fa fa-facebook"></i>
+                            <a class="btn btn-material-blue-400 btn-twitter btn-sm" href="https://twitter.com/enrixubi">
+                                <i class="fa fa-twitter"></i>
                             </a>
                         </div>
                     </div>
