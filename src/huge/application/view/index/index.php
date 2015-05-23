@@ -104,7 +104,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
-                    <h1>Our team</h1>
+                    <h1>Our Team</h1>
                 </div>
             </div>
         </div>
@@ -128,16 +128,15 @@
                             <div class="desc">Tech geek</div>
                         </div>
                         <div class="bottom">
-                            <a class="btn btn-material-blue-400 btn-twitter btn-sm" href="https://twitter.com/webmaniac">
-                                <i class="fa fa-twitter"></i>
+                            <a class="btn btn-material-blue-grey-100 btn-sm" href="https://github.com/Nildric">
+                                <i class="fa fa-github"></i>
                             </a>
                             <a class="btn btn-danger btn-sm" rel="publisher"
-                               href="https://plus.google.com/+ahmshahnuralam">
-                                <i class="fa fa-google-plus"></i>
+                               href="mailto:longhin.federico.nildric@gmail.com">
+                                <i class="fa fa-inbox"></i>
                             </a>
-                            <a class="btn btn-material-indigo-600 btn-sm" rel="publisher"
-                               href="https://plus.google.com/shahnuralam">
-                                <i class="fa fa-facebook"></i>
+                            <a class="btn btn-material-blue-400 btn-sm" href="https://twitter.com/LonghinFederico">
+                                <i class="fa fa-twitter"></i>
                             </a>
                         </div>
                     </div>
