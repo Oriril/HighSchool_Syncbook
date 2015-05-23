@@ -4,7 +4,7 @@ body {
     height: 100%;
 }
 body {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .hoja {
     /*color: #dcdce2; the original*/
