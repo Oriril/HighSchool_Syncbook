@@ -53,35 +53,36 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                         <li class="hidden">
                             <a class="page-scroll" href="#page-top"></a>
                         </li>
-                        <?php if (Session::userIsLoggedIn()) { ?>
-                            <li id="page-dashboard" <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
-                                <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
+                        <?php if (View::checkForActiveController($filename, "index")) { ?>
+                            <li>
+                                <a class="page-scroll" href="#services">Services</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#powered-by">Powered by</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#team">Team</a>
                             </li>
                         <?php } else { ?>
-                            <?php if (View::checkForActiveController($filename, "index")) { ?>
-                                <li>
-                                    <a class="page-scroll" href="#services">Services</a>
-                                </li>
-                                <li>
-                                    <a class="page-scroll" href="#powered-by">Powered by</a>
-                                </li>
-                                <li>
-                                    <a class="page-scroll" href="#team">Team</a>
-                                </li>
-                            <?php } else { ?>
-                                <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
-                                    <a href="<?php echo Config::get('URL'); ?>index/index">Home</a>
-                                </li>
-                            <?php } ?>
+                            <li>
+                                <a href="<?php echo Config::get('URL'); ?>index/index">Home</a>
+                            </li>
+                        <?php } ?>
+                        <?php if (Session::userIsLoggedIn()) { ?>
+                            <li id="page-dashboard">
+                                <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
+                            </li>
                         <?php } ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (Session::userIsLoggedIn()) { ?>
+                            <?php if (View::checkForActiveController($filename, "dashboard")) { ?>
                             <li class="add-button">
                                 <button class="btn btn-fab btn-fab-mini btn-raised btn-material-deep-purple-200 btn-sm" id="displayAddContactForm">
                                     <i class='fa fa-plus'></i>
                                 </button>
                             </li>
+                            <?php } ?>
                             <li <?php if (View::checkForActiveController($filename, "login")) { echo ' class="dropdown" '; } ?> >
                                 <a href="<?php echo Config::get('URL'); ?>login/showprofile" class="dropdown-toggle" style="padding-bottom: 8px;padding-top: 8px;" data-toggle="dropdown" role="button" aria-expanded="false"><img src="<?php echo Session::get('user_gravatar_image_url') ?>" class="img-circle"><span class="caret"></span></a>
 
