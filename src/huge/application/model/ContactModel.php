@@ -52,6 +52,9 @@ class ContactModel {
         $addressPostalCode = Request::post('addressPostalCode');
         $addressCountry = Request::post('addressCountry');
 
+        $internetType = Request::post('internetType');
+        $internetValue = Request::post('internetValue');
+
         $arrayToJSON = array(
             'UID' => $UID,
             'contactDefault' => array(
@@ -61,14 +64,14 @@ class ContactModel {
                 'contactLastName' => $contactLastName,
                 'contactSuffix' => $contactSuffix
             ),
-            'contactCompany' => array(
-                'contactIsCompany' => FALSE,/*
+            'contactCompany' => (!empty($contactBirthDate)) ? array(
+                /* 'contactIsCompany' => FALSE,
                 'contactCompany' => $contactCompany,
                 'contactDepartment' => $contactDepartment,
                 'contactJobTitle' => $contactJobTitle,
-                'contactJobRole' => $contactJobRole,*/
+                'contactJobRole' => $contactJobRole, */
                 'contactBirthDate' => $contactBirthDate
-            ),
+            ) : NULL,
             'contactPhone' => (!empty($phoneValue)) ? array(
                 'phoneContainer_1' => array(
                     'phoneType' => $phoneType,
@@ -78,13 +81,13 @@ class ContactModel {
                     'phoneValue' => $phoneValue
                 )
             ) : NULL,
-            'contactMail' => array(
+            'contactMail' => (!empty($mailValue)) ? array(
                 'mailContainer_1' => array(
                     'mailType' => $mailType,
                     'mailValue' => $mailValue
                 )
-            ),
-            'contactAddress' => array(
+            ) : NULL,
+            'contactAddress' => (!empty($addressStreet)) ? array(
                 'addressContainer_1' => array(
                     'addressType' => $addressType,
                     'addressStreet' => $addressStreet,
@@ -93,19 +96,13 @@ class ContactModel {
                     'addressPostalCode' => $addressPostalCode,
                     'addressCountry' => $addressCountry
                 )
-            ),
-           'contactInternet' => array(
+            ) : NULL,
+           'contactInternet' => (!empty($internetValue)) ? array(
                'internetContainer_1' => array(
-                   'internetType' => '',
-                   'internetValue' => ''
+                   'internetType' => $internetType,
+                   'internetValue' => $internetValue
                )
-           ),
-           'contactAnniversary' => array(
-               'anniversaryContainer_1' => array(
-                   'anniversaryValue' => ''
-               )
-           ),
-           'contactNotes' => ''
+           ) : NULL
         );
 
     return json_encode($arrayToJSON);
@@ -245,39 +242,49 @@ class ContactModel {
         echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">Birthday</span></div>";
         echo "<div class=\"col-sm-10\">" . $vCard->contactCompany->contactBirthDate . "</div>";
 
-        if ($vCard->contactMail->mailContainer_1->mailValue != NULL) {
+        if ($vCard->contactMail != NULL) {
+            $mailContainer = $vCard->contactMail;
+
             echo "<div class=\"col-sm-2\"></div>";
             echo "<div class=\"col-sm-10\"><h4>Mail</h4></div>";
-            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $vCard->contactMail->mailContainer_1->mailType . "</span></div>";
-            echo "<div class=\"col-sm-10\">" . $vCard->contactMail->mailContainer_1->mailValue . "</div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $mailContainer->mailContainer_1->mailType . "</span></div>";
+            echo "<div class=\"col-sm-10\">" . $mailContainer->mailContainer_1->mailValue . "</div>";
         }
 
         if ($vCard->contactPhone != NULL) {
-            $phoneContainerFull = $vCard->contactPhone;
+            $phoneContainer = $vCard->contactPhone;
 
             echo "<div class=\"col-sm-2\"></div>";
             echo "<div class=\"col-sm-10\"><h4>Phone</h4></div>";
-            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $phoneContainerFull->phoneContainer_1->phoneType . "</span></div>";
-            echo "<div class=\"col-sm-10\">" . $phoneContainerFull->phoneContainer_1->phoneValue . "</div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $phoneContainer->phoneContainer_1->phoneType . "</span></div>";
+            echo "<div class=\"col-sm-10\">" . $phoneContainer->phoneContainer_1->phoneValue . "</div>";
         }
 
-        if ($vCard->contactAddress->addressContainer_1->addressStreet != NULL) {
+        if ($vCard->contactAddress != NULL) {
+            $addressContainer = $vCard->contactAddress;
+
             echo "<div class=\"col-sm-2\"></div>";
             echo "<div class=\"col-sm-10\"><h4>Address</h4></div>";
-            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $vCard->contactAddress->addressContainer_1->addressType . "</span></div>";
-            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressStreet . "</div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $addressContainer->addressContainer_1->addressType . "</span></div>";
+            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressStreet . "</div>";
             echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressCity . "</div>";
+            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressCity . "</div>";
             echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressRegion . "</div>";
+            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressRegion . "</div>";
             echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressPostalCode . "</div>";
+            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressPostalCode . "</div>";
             echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\">" . $vCard->contactAddress->addressContainer_1->addressCountry . "</div>";
+            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressCountry . "</div>";
         }
 
+        if ($vCard->contactInternet != NULL) {
+            $internetContainer = $vCard->contactInternet;
 
-
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\"><h4>Internet</h4></div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $internetContainer->internetContainer_1->internetType . "</span></div>";
+            echo "<div class=\"col-sm-10\">" . $internetContainer->internetContainer_1->internetValue . "</div>";
+        }
 
         echo "</fieldset></div></nav>";
     }
