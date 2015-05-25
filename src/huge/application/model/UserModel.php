@@ -156,7 +156,7 @@ class UserModel
      *
      * @return bool
      */
-    public static function saveNewEmailAddress($user_id, $new_user_email)
+    /* public static function saveNewEmailAddress($user_id, $new_user_email)
     {
         //@TODO SabreDAV Mail to UPDATE
 
@@ -169,8 +169,33 @@ class UserModel
             return true;
         }
         return false;
-    }
+    } */
 
+    public static function saveNewEmailAddress($user_id, $new_user_email)
+    {
+
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $database->beginTransaction();
+        $query = $database->prepare("UPDATE users SET user_email = :user_email WHERE user_id = :user_id LIMIT 1");
+        $query->execute(array(':user_email' => $new_user_email, ':user_id' => $user_id));
+        $count =  $query->rowCount();
+        if ($count == 1) {
+            $db_name = "sabredav_" . Session::get('user_name');
+            $database->query("USE " . $db_name);
+
+            $query = $database->prepare("UPDATE principals SET email = :user_email WHERE id = :user_id LIMIT 1");
+            $query->execute(array(':user_email' => $new_user_email, ':user_id' => $user_id));
+
+            $count =  $query->rowCount();
+            if ($count == 1) {
+                $database->commit();
+                return true;
+            }
+        }
+        $database->rollBack();
+        return false;
+    }
     /**
      * Edit the user's name, provided in the editing form
      *
