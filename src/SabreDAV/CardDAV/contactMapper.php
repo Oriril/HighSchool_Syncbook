@@ -22,13 +22,21 @@ function mapperObjectCard($vCardObject) {
     // Mapping contactDefault Parameters
     $contactDefault = $vCardObject->contactDefault;
 
-    $vCard->add('FN',
-        $contactDefault->contactPrefix . " " .
-        $contactDefault->contactFirstName . " " .
-        $contactDefault->contactMiddleName . " " .
-        $contactDefault->contactLastName . " " .
-        $contactDefault->contactSuffix
-    );
+    $string = NULL;
+
+    if (!empty($contactDefault->contactPrefix)) {
+        $string = $contactDefault->contactPrefix . " ";
+    } else {$string = "";}
+
+    if (!empty($contactDefault->contactMiddleName)) {
+        $string = $string . $contactDefault->contactFirstName . " " . $contactDefault->contactMiddleName . " ";
+    } else {$string = $string . $contactDefault->contactFirstName . " ";}
+
+    if (!empty($contactDefault->contactSuffiz)) {
+        $string = $string . $contactDefault->contactLastName . " " . $contactDefault->contactSuffix;
+    } else {$string = $string . $contactDefault->contactLastName;}
+
+    $vCard->add('FN', $string);
     $vCard->add('N', [
         $contactDefault->contactLastName,
         $contactDefault->contactFirstName,
@@ -43,18 +51,18 @@ function mapperObjectCard($vCardObject) {
     if ($contactCompany->contactIsCompany === "TRUE") {
         $vCard->FN = $contactCompany->contactCompany;
     }
-    $vCard->add('ORG', [
+    /* $vCard->add('ORG', [
         $contactCompany->contactCompany,
         $contactCompany->contactDepartment
     ]);
     $vCard->add('TITLE', $contactCompany->contactJobTitle);
-    $vCard->add('ROLE', $contactCompany->contactJobRole);
+    $vCard->add('ROLE', $contactCompany->contactJobRole); */
 
     $dateTime = new \DateTime($contactCompany->contactBirthDate);
     $dateTime = $dateTime->format('Y-m-d\TH:i:s\Z');
     $vCard->add('BDAY', $dateTime);
 
-    $vCard->add('X-ISCOMPANY', $contactCompany->contactIsCompany);
+    // $vCard->add('X-ISCOMPANY', $contactCompany->contactIsCompany);
 
     // Mapping contactPhone Parameters
     $contactPhone = $vCardObject->contactPhone;
@@ -140,14 +148,14 @@ function mapperCardObject(Sabre\VObject\Component\VCard $vCardData) {
 
     // Mapping contactCompany Parameters
     $contactCompany = new stdClass();
-    $contactCompany->contactIsCompany = "" . $vCardData->{'X-ISCOMPANY'};
+    /* $contactCompany->contactIsCompany = "" . $vCardData->{'X-ISCOMPANY'};
 
     $contactCompanyParts = $vCardData->ORG->getParts();
     $contactCompany->contactCompany = "" . $contactCompanyParts[0];
     $contactCompany->contactDepartment = "" . $contactCompanyParts[1];
 
     $contactCompany->contactJobTitle = "" . $vCardData->TITLE;
-    $contactCompany->contactJobRole = "" . $vCardData->ROLE;
+    $contactCompany->contactJobRole = "" . $vCardData->ROLE; */
     $contactCompany->contactBirthDate = "" . $vCardData->BDAY->getDateTime()->format('Y-m-d');
 
     $vCardObject->contactCompany = $contactCompany;
@@ -176,58 +184,71 @@ function mapperCardObject(Sabre\VObject\Component\VCard $vCardData) {
     }
 
     // Mapping contactMail Parameters
-    $mailContainerArray = array();
+    if (isset($vCardData->EMAIL)) {
+        $mailContainerArray = array();
 
-    $mailContainerCounter = 0;
-    foreach($vCardData->EMAIL as $mailContainer) {
-        $mailContainerCounter++;
+        $mailContainerCounter = 0;
+        foreach($vCardData->EMAIL as $mailContainer) {
+            $mailContainerCounter++;
 
-        $mailContainerTypeParts = $mailContainer['TYPE']->getParts();
-        $mailContainerArray['mailContainer_' . $mailContainerCounter] = (object)array(
-            'mailType' => "" . $mailContainerTypeParts[1],
-            'mailValue' => "" . $mailContainer
-        );
+            $mailContainerTypeParts = $mailContainer['TYPE']->getParts();
+            $mailContainerArray['mailContainer_' . $mailContainerCounter] = (object)array(
+                'mailType' => "" . $mailContainerTypeParts[1],
+                'mailValue' => "" . $mailContainer
+            );
+        }
+
+        $vCardObject->contactMail = (object)$mailContainerArray;
+    } else {
+        $vCardObject->contactMail = NULL;
     }
 
-    $vCardObject->contactMail = (object)$mailContainerArray;
 
     // Mapping contactAddress Parameters
-    $addressContainerArray = array();
+    if (isset($vCardData->ADR)) {
+        $addressContainerArray = array();
 
-    $addressContainerCounter = 0;
-    foreach($vCardData->ADR as $addressContainer) {
-        $addressContainerCounter++;
+        $addressContainerCounter = 0;
+        foreach($vCardData->ADR as $addressContainer) {
+            $addressContainerCounter++;
 
-        $addressContainerParts = $addressContainer->getParts();
-        $addressContainerArray['addressContainer_' . $addressContainerCounter] = (object)array(
-            'addressType' => "" . $addressContainer['TYPE'],
-            'addressStreet' => "" . $addressContainerParts[2],
-            'addressCity' => "" . $addressContainerParts[3],
-            'addressRegion' => "" . $addressContainerParts[4],
-            'addressPostalCode' => "" . $addressContainerParts[5],
-            'addressCountry' => "" . $addressContainerParts[6],
-        );
+            $addressContainerParts = $addressContainer->getParts();
+            $addressContainerArray['addressContainer_' . $addressContainerCounter] = (object)array(
+                'addressType' => "" . $addressContainer['TYPE'],
+                'addressStreet' => "" . $addressContainerParts[2],
+                'addressCity' => "" . $addressContainerParts[3],
+                'addressRegion' => "" . $addressContainerParts[4],
+                'addressPostalCode' => "" . $addressContainerParts[5],
+                'addressCountry' => "" . $addressContainerParts[6],
+            );
+        }
+
+        $vCardObject->contactAddress = (object)$addressContainerArray;
+    } else {
+        $vCardObject->contactAddress = NULL;
     }
-
-    $vCardObject->contactAddress = (object)$addressContainerArray;
 
     // Mapping contactInternet Parameters
-    $internetContainerArray = array();
+    if (isset($vCardData->URL)) {
+        $internetContainerArray = array();
 
-    $internetContainerCounter = 0;
-    foreach($vCardData->URL as $internetContainer) {
-        $internetContainerCounter++;
+        $internetContainerCounter = 0;
+        foreach($vCardData->URL as $internetContainer) {
+            $internetContainerCounter++;
 
-        $internetContainerArray['internetContainer_' . $internetContainerCounter] = (object)array(
-            'internetType' => "" . $internetContainer['TYPE'],
-            'internetValue' => "" . $internetContainer
-        );
+            $internetContainerArray['internetContainer_' . $internetContainerCounter] = (object)array(
+                'internetType' => "" . $internetContainer['TYPE'],
+                'internetValue' => "" . $internetContainer
+            );
+        }
+
+        $vCardObject->contactInternet = (object)$internetContainerArray;
+    } else {
+        $vCardObject->contactInternet = NULL;
     }
 
-    $vCardObject->contactInternet = (object)$internetContainerArray;
-
     // Mapping contactAnniversary Parameters
-    $anniversaryContainerArray = array();
+    /* $anniversaryContainerArray = array();
 
     $anniversaryContainerCounter = 0;
     foreach($vCardData->ANNIVERSARY as $anniversaryContainer) {
@@ -239,28 +260,13 @@ function mapperCardObject(Sabre\VObject\Component\VCard $vCardData) {
         );
     }
 
-    $vCardObject->contactAnniversary = (object)$anniversaryContainerArray;
+    $vCardObject->contactAnniversary = (object)$anniversaryContainerArray; */
 
     // Mapping contactNotes Parameter
-    $vCardObject->contactNotes = "" . $vCardData->NOTE;
+    if (isset($vCardData->NOTE)) {
+        $vCardObject->contactNotes = "" . $vCardData->NOTE;
+    } else {
+        $vCardObject->contactNotes = NULL;
+    }
 return $vCardObject;
 }
-
-/*$jsonContents = file_get_contents(TEST_PATH . "Example/exampleContactJSON.json");
-echo($jsonContents);
-echo("\n===SPACER===\n\n");
-
-$vCardObject = json_decode($jsonContents);
-print_r($vCardObject);
-echo("\n===SPACER===\n\n");
-
-$vCard = mapperObjectCard($vCardObject);
-echo($vCard->serialize());
-echo("\n===SPACER===\n\n");
-
-$vCardObject = mapperCardObject($vCard);
-print_r($vCardObject);
-echo("\n===SPACER===\n\n");
-
-$jsonContents = json_encode($vCardObject);
-echo($jsonContents);*/
