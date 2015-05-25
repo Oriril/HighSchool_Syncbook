@@ -153,23 +153,27 @@ function mapperCardObject(Sabre\VObject\Component\VCard $vCardData) {
     $vCardObject->contactCompany = $contactCompany;
 
     // Mapping contactPhone Parameters
-    $phoneContainerArray = array();
+    if (isset($vCardData->TEL)) {
+        $phoneContainerArray = array();
 
-    $phoneContainerCounter = 0;
-    foreach($vCardData->TEL as $phoneContainer) {
-        $phoneContainerCounter++;
+        $phoneContainerCounter = 0;
+        foreach($vCardData->TEL as $phoneContainer) {
+            $phoneContainerCounter++;
 
-        $phoneContainerTypeParts = $phoneContainer['TYPE']->getParts();
-        $phoneContainerArray['phoneContainer_' . $phoneContainerCounter] = (object)array(
-            'phoneType' => "" . $phoneContainerTypeParts[0],
-            'phoneIsCell' => (isset($phoneContainerTypeParts[1])) ? "TRUE" : "FALSE",
-            'phoneIsFax' => (isset($phoneContainerTypeParts[2])) ? "TRUE" : "FALSE",
-            'phoneIsVoice' => (isset($phoneContainerTypeParts[3])) ? "TRUE" : "FALSE",
-            'phoneValue' => "" . $phoneContainer
-        );
+            $phoneContainerTypeParts = $phoneContainer['TYPE']->getParts();
+            $phoneContainerArray['phoneContainer_' . $phoneContainerCounter] = (object)array(
+                'phoneType' => "" . $phoneContainerTypeParts[0],
+                'phoneIsCell' => (isset($phoneContainerTypeParts[1])) ? "TRUE" : "FALSE",
+                'phoneIsFax' => (isset($phoneContainerTypeParts[2])) ? "TRUE" : "FALSE",
+                'phoneIsVoice' => (isset($phoneContainerTypeParts[3])) ? "TRUE" : "FALSE",
+                'phoneValue' => "" . $phoneContainer
+            );
+        }
+
+        $vCardObject->contactPhone = (object)$phoneContainerArray;
+    } else {
+        $vCardObject->contactPhone = NULL;
     }
-
-    $vCardObject->contactPhone = (object)$phoneContainerArray;
 
     // Mapping contactMail Parameters
     $mailContainerArray = array();

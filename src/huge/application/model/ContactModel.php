@@ -36,8 +36,8 @@ class ContactModel {
         /*$contactCompany = Request::post('contactCompany');
         $contactDepartment = Request::post('contactDepartment');
         $contactJobTitle = Request::post('contactJobTitle');
-        $contactJobRole = Request::post('contactJobRole');
-        $contactBirthDate = Request::post('contactBirthDate');*/
+        $contactJobRole = Request::post('contactJobRole');*/
+        $contactBirthDate = Request::post('contactBirthDate');
 
         $phoneValue = Request::post('phoneValue');
         $phoneType = Request::post('phoneType');
@@ -61,15 +61,15 @@ class ContactModel {
                 'contactLastName' => $contactLastName,
                 'contactSuffix' => $contactSuffix
             ),
-            /*'contactCompany' => array(
-                'contactIsCompany' => FALSE,
+            'contactCompany' => array(
+                'contactIsCompany' => FALSE,/*
                 'contactCompany' => $contactCompany,
                 'contactDepartment' => $contactDepartment,
                 'contactJobTitle' => $contactJobTitle,
-                'contactJobRole' => $contactJobRole,
+                'contactJobRole' => $contactJobRole,*/
                 'contactBirthDate' => $contactBirthDate
-            ),*/
-            'contactPhone' => array(
+            ),
+            'contactPhone' => (!empty($phoneValue)) ? array(
                 'phoneContainer_1' => array(
                     'phoneType' => $phoneType,
                     'phoneIsCell' => '',
@@ -77,7 +77,7 @@ class ContactModel {
                     'phoneIsVoice' => '',
                     'phoneValue' => $phoneValue
                 )
-            ),
+            ) : NULL,
             'contactMail' => array(
                 'mailContainer_1' => array(
                     'mailType' => $mailType,
@@ -252,11 +252,13 @@ class ContactModel {
             echo "<div class=\"col-sm-10\">" . $vCard->contactMail->mailContainer_1->mailValue . "</div>";
         }
 
-        if ($vCard->contactPhone->phoneContainer_1->phoneValue != NULL) {
+        if ($vCard->contactPhone != NULL) {
+            $phoneContainerFull = $vCard->contactPhone;
+
             echo "<div class=\"col-sm-2\"></div>";
             echo "<div class=\"col-sm-10\"><h4>Phone</h4></div>";
-            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $vCard->contactPhone->phoneContainer_1->phoneType . "</span></div>";
-            echo "<div class=\"col-sm-10\">" . $vCard->contactPhone->phoneContainer_1->phoneValue . "</div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $phoneContainerFull->phoneContainer_1->phoneType . "</span></div>";
+            echo "<div class=\"col-sm-10\">" . $phoneContainerFull->phoneContainer_1->phoneValue . "</div>";
         }
 
         if ($vCard->contactAddress->addressContainer_1->addressStreet != NULL) {

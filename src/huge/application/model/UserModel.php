@@ -158,6 +158,8 @@ class UserModel
      */
     public static function saveNewEmailAddress($user_id, $new_user_email)
     {
+        //@TODO SabreDAV Mail to UPDATE
+
         $database = DatabaseFactory::getFactory()->getConnection();
 
         $query = $database->prepare("UPDATE users SET user_email = :user_email WHERE user_id = :user_id LIMIT 1");
