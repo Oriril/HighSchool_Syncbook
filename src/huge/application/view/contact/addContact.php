@@ -163,6 +163,36 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Internet</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-lg-2">
+                                    <select name="internetType" id="internetType">
+                                        <option value="HOME">Home</option>
+                                        <option value="WORK">Work</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="internetValue" name="internetValue" placeholder="Internet">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Notes</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <input type="text" class="form-control" id="contactNotes" name="contactNotes" placeholder="Notes">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-12">
                         <input type="submit" class="btn btn-success btn-lg" id="btn_save" value="Save">
