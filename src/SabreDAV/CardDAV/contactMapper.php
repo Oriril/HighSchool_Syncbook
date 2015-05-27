@@ -48,81 +48,95 @@ function mapperObjectCard($vCardObject) {
     // Mapping contactCompany Parameters
     $contactCompany = $vCardObject->contactCompany;
 
-    if ($contactCompany->contactIsCompany === "TRUE") {
+    /* if ($contactCompany->contactIsCompany === "TRUE") {
         $vCard->FN = $contactCompany->contactCompany;
     }
-    /* $vCard->add('ORG', [
+    $vCard->add('ORG', [
         $contactCompany->contactCompany,
         $contactCompany->contactDepartment
     ]);
     $vCard->add('TITLE', $contactCompany->contactJobTitle);
     $vCard->add('ROLE', $contactCompany->contactJobRole); */
 
-    $dateTime = new \DateTime($contactCompany->contactBirthDate);
-    $dateTime = $dateTime->format('Y-m-d\TH:i:s\Z');
-    $vCard->add('BDAY', $dateTime);
+    if ($contactCompany !== NULL) {
+        $dateTime = new \DateTime($contactCompany->contactBirthDate);
+        $dateTime = $dateTime->format('Y-m-d\TH:i:s\Z');
+        $vCard->add('BDAY', $dateTime);
+    }
 
     // $vCard->add('X-ISCOMPANY', $contactCompany->contactIsCompany);
 
     // Mapping contactPhone Parameters
     $contactPhone = $vCardObject->contactPhone;
 
-    foreach($contactPhone as $phoneContainer) {
-        $vCard->add('TEL', $phoneContainer->phoneValue, [
-            'TYPE' => [
-                $phoneContainer->phoneType,
-                ($phoneContainer->phoneIsCell === "TRUE") ? 'CELL' : NULL,
-                ($phoneContainer->phoneIsFax === "TRUE") ?  'FAX' : NULL,
-                ($phoneContainer->phoneIsVoice === "TRUE") ? 'VOICE' : NULL
-            ]
-        ]);
+    if ($contactPhone !== NULL) {
+        foreach($contactPhone as $phoneContainer) {
+            $vCard->add('TEL', $phoneContainer->phoneValue, [
+                'TYPE' => [
+                    $phoneContainer->phoneType,
+                    ($phoneContainer->phoneIsCell === "TRUE") ? 'CELL' : NULL,
+                    ($phoneContainer->phoneIsFax === "TRUE") ?  'FAX' : NULL,
+                    ($phoneContainer->phoneIsVoice === "TRUE") ? 'VOICE' : NULL
+                ]
+            ]);
+        }
     }
 
     // Mapping contactMail Parameters
     $contactMail = $vCardObject->contactMail;
 
-    foreach($contactMail as $mailContainer) {
-        $vCard->add('EMAIL', $mailContainer->mailValue, [
-            'TYPE' => [
-                'INTERNET',
-                $mailContainer->mailType
-            ]
-        ]);
+    if ($contactMail !== NULL) {
+        foreach($contactMail as $mailContainer) {
+            $vCard->add('EMAIL', $mailContainer->mailValue, [
+                'TYPE' => [
+                    'INTERNET',
+                    $mailContainer->mailType
+                ]
+            ]);
+        }
     }
 
     // Mapping contactAddress Parameters
     $contactAddress = $vCardObject->contactAddress;
 
-    foreach($contactAddress as $addressContainer) {
-        $vCard->add('ADR', [
-            "",
-            "",
-            $addressContainer->addressStreet,
-            $addressContainer->addressCity,
-            $addressContainer->addressRegion,
-            $addressContainer->addressPostalCode,
-            $addressContainer->addressCountry,
-        ], ['TYPE' => $addressContainer->addressType]);
+    if($contactAddress !== NULL) {
+        foreach($contactAddress as $addressContainer) {
+            $vCard->add('ADR', [
+                "",
+                "",
+                $addressContainer->addressStreet,
+                $addressContainer->addressCity,
+                $addressContainer->addressRegion,
+                $addressContainer->addressPostalCode,
+                $addressContainer->addressCountry,
+            ], ['TYPE' => $addressContainer->addressType]);
+        }
     }
 
     // Mapping contactInternet Parameters
     $contactInternet = $vCardObject->contactInternet;
 
-    foreach($contactInternet as $internetContainer) {
-        $vCard->add('URL', $internetContainer->internetValue, ['TYPE' => $internetContainer->internetType]);
+    if ($contactInternet !== NULL) {
+        foreach($contactInternet as $internetContainer) {
+            $vCard->add('URL', $internetContainer->internetValue, ['TYPE' => $internetContainer->internetType]);
+        }
     }
 
     // Mapping contactAnniversary Parameters
-    $contactAnniversary = $vCardObject->contactAnniversary;
+    /* $contactAnniversary = $vCardObject->contactAnniversary;
 
-    foreach($contactAnniversary as $anniversaryContainer) {
-        $dateTime = new \DateTime($anniversaryContainer->anniversaryValue);
-        $dateTime = $dateTime->format('Y-m-d\TH:i:s\Z');
-        $vCard->add('ANNIVERSARY', $dateTime, ['VALUE' => "DATE"]);
-    }
+    if ($contactInternet !== NULL) {
+        foreach($contactAnniversary as $anniversaryContainer) {
+            $dateTime = new \DateTime($anniversaryContainer->anniversaryValue);
+            $dateTime = $dateTime->format('Y-m-d\TH:i:s\Z');
+            $vCard->add('ANNIVERSARY', $dateTime, ['VALUE' => "DATE"]);
+        }
+    } */
 
     // Mapping contactNotes Parameter
-    $vCard->add('NOTE', $vCardObject->contactNotes);
+    if ($vCardObject->contactNotes !== NULL) {
+        $vCard->add('NOTE', $vCardObject->contactNotes);
+    }
 return $vCard;
 }
 
@@ -156,9 +170,13 @@ function mapperCardObject(Sabre\VObject\Component\VCard $vCardData) {
 
     $contactCompany->contactJobTitle = "" . $vCardData->TITLE;
     $contactCompany->contactJobRole = "" . $vCardData->ROLE; */
-    $contactCompany->contactBirthDate = "" . $vCardData->BDAY->getDateTime()->format('Y-m-d');
+    if (isset($vCardData->BDAY)) {
+        $contactCompany->contactBirthDate = "" . $vCardData->BDAY->getDateTime()->format('Y-m-d');
 
-    $vCardObject->contactCompany = $contactCompany;
+        $vCardObject->contactCompany = $contactCompany;
+    } else {
+        $vCardObject->contactCompany = NULL;
+    }
 
     // Mapping contactPhone Parameters
     if (isset($vCardData->TEL)) {
