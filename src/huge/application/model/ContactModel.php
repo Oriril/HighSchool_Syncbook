@@ -105,7 +105,7 @@ class ContactModel {
                    'internetValue' => $internetValue
                )
            ) : NULL,
-            'contactNotes' => (!empty($internetValue)) ? $contactNotes : NULL
+            'contactNotes' => (!empty($contactNotes)) ? $contactNotes : NULL
         );
 
     return json_encode($arrayToJSON);
@@ -241,8 +241,10 @@ class ContactModel {
                 $vCard->contactDefault->contactSuffix .
                 " " . $buttons . "</legend>";
 
-        echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">Birthday</span></div>";
-        echo "<div class=\"col-sm-10\">" . $vCard->contactCompany->contactBirthDate . "</div>";
+        if ($vCard->contactMail != NULL) {
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">Birthday</span></div>";
+            echo "<div class=\"col-sm-10\">" . $vCard->contactCompany->contactBirthDate . "</div>";
+        }
 
         if ($vCard->contactMail != NULL) {
             $mailContainer = $vCard->contactMail;
