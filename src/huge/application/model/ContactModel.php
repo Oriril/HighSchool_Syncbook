@@ -55,6 +55,8 @@ class ContactModel {
         $internetType = Request::post('internetType');
         $internetValue = Request::post('internetValue');
 
+        $contactNotes = Request::post('contactNotes');
+
         $arrayToJSON = array(
             'UID' => $UID,
             'contactDefault' => array(
@@ -102,7 +104,8 @@ class ContactModel {
                    'internetType' => $internetType,
                    'internetValue' => $internetValue
                )
-           ) : NULL
+           ) : NULL,
+            'contactNotes' => (!empty($internetValue)) ? $contactNotes : NULL
         );
 
     return json_encode($arrayToJSON);
@@ -191,7 +194,6 @@ class ContactModel {
 
             if ($addressBook !== FALSE) {
                 $vCardList = vCardListRetrieve($addressBook, $uriList);
-
                 ContactModel::printContactList($vCardList);
             }
         }
@@ -284,6 +286,15 @@ class ContactModel {
             echo "<div class=\"col-sm-10\"><h4>Internet</h4></div>";
             echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $internetContainer->internetContainer_1->internetType . "</span></div>";
             echo "<div class=\"col-sm-10\">" . $internetContainer->internetContainer_1->internetValue . "</div>";
+        }
+
+        if ($vCard->contactNotes != NULL) {
+            $contactNotes = $vCard->contactNotes;
+
+            echo "<div class=\"col-sm-2\"></div>";
+            echo "<div class=\"col-sm-10\"><h4>Notes</h4></div>";
+            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">Notes</span></div>";
+            echo "<div class=\"col-sm-10\">" . $contactNotes . "</div>";
         }
 
         echo "</fieldset></div></nav>";
@@ -479,7 +490,39 @@ class ContactModel {
                     </div>
                 </div>
             </div>";
+        // internet form
+        echo "<div class=\"col-sm-12\">
+                    <div class=\"panel panel-primary\">
+                        <div class=\"panel-heading\">Internet</div>
+                        <div class=\"panel-body\">
+                            <div class=\"form-group\">
+                                <div class=\"col-lg-2\">
+                                    <select name=\"internetType\" id=\"internetType\">
+                                        <option value=\"HOME\">Home</option>
+                                        <option value=\"WORK\">Work</option>
+                                    </select>
+                                </div>
+                                <div class=\"col-lg-10\">
+                                    <input type=\"text\" class=\"form-control\" id=\"internetValue\" name=\"internetValue\" placeholder=\"Internet\" value=" . $vCard->contactInternet->internetContainer_1->internetValue . ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
 
+        // notes form
+        echo "<div class=\"col-sm-12\">
+                    <div class=\"panel panel-primary\">
+                        <div class=\"panel-heading\">Notes</div>
+                        <div class=\"panel-body\">
+                            <div class=\"form-group\">
+                                <div class=\"col-lg-12\">
+                                    <input type=\"text\" class=\"form-control\" id=\"contactNotes\" name=\"contactNotes\" placeholder=\"Notes\" value=" . $vCard->contactNotes . ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
         // confirm buttons
         $index = Config::get('URL') . "dashboard/index";
 
