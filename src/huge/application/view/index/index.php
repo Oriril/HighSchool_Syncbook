@@ -1,14 +1,13 @@
-<section id="intro" class="intro-section">
-    <div class="container">
+<div class="container" style="height: 100%;">
+    <div class="row intro-section" id="intro">
         <div class="hoja"><img class="center" src="../public/avatars/logo.png"/></div>
 
         <div class="col-lg-12 see-more">
             <a class="page-scroll" href="#services" style="color: #3f51b5"><h1>Syncbook</h1></a>
         </div>
     </div>
-</section>
-<section id="services" class="services-section">
-    <div class="container">
+
+    <div class="row services-section" id="services">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
@@ -44,9 +43,7 @@
             </div>
         </div>
     </div>
-</section>
-<section id="powered-by" class="powered-by-section">
-    <div class="container">
+    <div class="row powered-by-section" id="powered-by">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
@@ -57,45 +54,43 @@
         <div class="row">
             <div class="col-lg-3">
                 <a href="http://www.php.net" target="_blank">
-                    <img class="center" src="../public/avatars/php5.png">
+                    <img class="img-responsive center" src="../public/avatars/php5.png">
                 </a>
             </div>
 
             <div class="col-lg-3">
                 <a href="http://www.w3schools.com/html/html5_intro.asp" target="_blank">
-                    <img class="center" src="../public/avatars/html5.png">
+                    <img class="img-responsive center" src="../public/avatars/html5.png">
                 </a>
             </div>
 
             <div class="col-lg-3">
                 <a href="http://www.w3schools.com/css/css3_intro.asp" target="_blank">
-                    <img class="center" src="../public/avatars/css3.png">
+                    <img class="img-responsive center" src="../public/avatars/css3.png">
                 </a>
             </div>
 
             <div class="col-lg-3">
                 <a href="https://jquery.com/" target="_blank">
-                    <img class="center" src="../public/avatars/jquery.png">
+                    <img class="img-responsive center" src="../public/avatars/jquery.png">
                 </a>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6">
                 <a href="http://sabre.io/" target="_blank">
-                    <img class="float-left" src="../public/avatars/sabredav.png">
+                    <img class="img-responsive float-left" src="../public/avatars/sabredav.png">
                 </a>
             </div>
 
             <div class="col-lg-6">
                 <a href="https://www.github.com" target="_blank">
-                    <img class="float-right" src="../public/avatars/github.png">
+                    <img class="img-responsive float-right" src="../public/avatars/github.png">
                 </a>
             </div>
         </div>
     </div>
-</section>
-<section id="team" class="team-section">
-    <div class="container">
+    <div class="row team-section" id="team">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
@@ -170,7 +165,7 @@
             <div class="col-sm-2"></div>
         </div>
     </div>
-</section>
+</div>
 <div id="log-in-dialog" class="modal fade" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -210,6 +205,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
