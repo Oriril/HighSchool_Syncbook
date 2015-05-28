@@ -177,6 +177,8 @@ class PasswordResetModel
 	{
 		$database = DatabaseFactory::getFactory()->getConnection();
 
+        $database->beginTransaction();
+
 		$sql = "UPDATE users
                    SET user_password_hash = :user_password_hash,
                        user_password_reset_hash = NULL,
@@ -193,8 +195,22 @@ class PasswordResetModel
 
 		// if successful
 		if ($query->rowCount() == 1) {
-			return true;
+            $db_name = "sabredav_" . Session::get('user_name');
+            $database->query("USE " . $db_name);
+
+            $digesta1 = md5(Session::get('user_name') . ":SabreDAV:" . $user_password_hash);
+
+            $query = $database->prepare("UPDATE users SET digesta1 = :digesta1 WHERE id = :user_id LIMIT 1");
+            $query->execute(array(':digesta1' => $digesta1, ':user_id' => UserModel::getUserIdByUsername(Session::get('username'))));
+
+            $count =  $query->rowCount();
+            if ($count == 1) {
+                $database->commit();
+                return true;
+            }
 		}
+
+        $database->rollBack();
 		return false;
 	}
 
