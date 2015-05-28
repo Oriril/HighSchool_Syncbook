@@ -113,3 +113,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
         </div>
     </div>
 </nav>
+
+<!-- Header -->
