@@ -99,16 +99,16 @@ class ContactModel {
                     'addressCountry' => $addressCountry
                 )
             ) : NULL,
-           'contactInternet' => (!empty($internetValue)) ? array(
-               'internetContainer_1' => array(
-                   'internetType' => $internetType,
-                   'internetValue' => $internetValue
-               )
-           ) : NULL,
+            'contactInternet' => (!empty($internetValue)) ? array(
+                'internetContainer_1' => array(
+                    'internetType' => $internetType,
+                    'internetValue' => $internetValue
+                )
+            ) : NULL,
             'contactNotes' => (!empty($contactNotes)) ? $contactNotes : NULL
         );
 
-    return json_encode($arrayToJSON);
+        return json_encode($arrayToJSON);
     }
 
     public static function getCardsUID() {
@@ -134,11 +134,11 @@ class ContactModel {
 
     public static function printContactList($vCardList) {
         if ($vCardList == NULL) {
-                /*echo "<div class='list-group-item'>
-                    <div class='row-content'>
-                        <h4 class='list-group-item-text'>No contacts yet</h4>
-                    </div>
-                </div>";*/
+            /*echo "<div class='list-group-item'>
+                <div class='row-content'>
+                    <h4 class='list-group-item-text'>No contacts yet</h4>
+                </div>
+            </div>";*/
 
             echo
             "
@@ -234,14 +234,15 @@ class ContactModel {
                         <i class='fa fa-trash fa-lg'></i>
                      </button></div>";
         echo "<nav id=\"mainContainerPanel\"><div class=\"well\"><fieldset><legend>" . " " .
-                $vCard->contactDefault->contactPrefix . " " .
-                $vCard->contactDefault->contactFirstName . " " .
-                $vCard->contactDefault->contactMiddleName . " " .
-                $vCard->contactDefault->contactLastName . " " .
-                $vCard->contactDefault->contactSuffix .
-                " " . $buttons . "</legend>";
+            $vCard->contactDefault->contactPrefix . " " .
+            $vCard->contactDefault->contactFirstName . " " .
+            $vCard->contactDefault->contactMiddleName . " " .
+            $vCard->contactDefault->contactLastName . " " .
+            $vCard->contactDefault->contactSuffix .
+            " " . $buttons . "</legend>";
 
-        if ($vCard->contactMail != NULL) {
+        if ($vCard->contactCompany != NULL) {
+
             echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">Birthday</span></div>";
             echo "<div class=\"col-sm-10\">" . $vCard->contactCompany->contactBirthDate . "</div>";
         }
@@ -249,10 +250,15 @@ class ContactModel {
         if ($vCard->contactMail != NULL) {
             $mailContainer = $vCard->contactMail;
 
-            echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\"><h4>Mail</h4></div>";
-            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $mailContainer->mailContainer_1->mailType . "</span></div>";
-            echo "<div class=\"col-sm-10\">" . $mailContainer->mailContainer_1->mailValue . "</div>";
+            foreach ($mailContainer as $singleContainer) {
+                error_log(print_r($singleContainer, TRUE));
+
+                echo "<div class=\"col-sm-2\"></div>";
+                echo "<div class=\"col-sm-10\"><h4>Mail</h4></div>";
+                echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $singleContainer->mailType . "</span></div>";
+                echo "<div class=\"col-sm-10\">" . $singleContainer->mailValue . "</div>";
+            }
+
         }
 
         if ($vCard->contactPhone != NULL) {
@@ -313,7 +319,9 @@ class ContactModel {
                         <div class=\"form-group\">
                             <label for=\"contactPrefix\" class=\"col-lg-2 control-label\">Prefix</label>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactPrefix\" name=\"contactPrefix\" placeholder=\"Prefix\" value=". $vCard->contactDefault->contactPrefix . ">
+                                <input type=\"text\" class=\"form-control\" id=\"contactPrefix\" name=\"contactPrefix\" placeholder=\"Prefix\" value="
+        . ($vCard->contactDefault->contactPrefix != NULL) ? $vCard->contactDefault->contactPrefix : "" .
+            ">
                             </div>
                         </div>
                         <div class=\"form-group\">

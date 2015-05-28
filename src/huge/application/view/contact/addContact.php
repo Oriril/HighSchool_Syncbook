@@ -79,7 +79,7 @@
                             <div class="form-group">
                                 <label for="contactBirthDate" class="col-lg-2 control-label">Birthday</label>
                                 <div class="col-lg-10">
-                                    <input type="date" class="form-control" id="contactBirthDate" name="contactBirthDate">
+                                    <input type="text"class="form-control" id="contactBirthDate" name="contactBirthDate">
                                 </div>
                             </div>
                         </div>
@@ -187,16 +187,23 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-lg-12">
-                                    <input type="text" class="form-control" id="contactNotes" name="contactNotes" placeholder="Notes">
+                                    <input type="textarea" class="form-control" id="contactNotes" name="contactNotes" placeholder="Notes">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-12">
-                        <input type="submit" class="btn btn-success btn-lg" id="btn_save" value="Save">
-                        <a href="<?php echo Config::get('URL'); ?>dashboard/index" class="btn btn-danger btn-lg float-right">Cancel</a>
+                    <div class="col-sm-12" style="text-align: center;">
+                        <!--<input type="submit" class="btn btn-success btn-lg" id="btn_save" value="Save">-->
+                        <button class="btn btn-fab btn-fab btn-lg btn-raised btn-primary" id="btn_save" style="margin-right: 10px;">
+                            <i class="fa fa-check fa-lg"></i>
+                        </button>
+                        <a class="btn btn-fab btn-fab btn-lg btn-raised btn-danger" href="<?php echo Config::get('URL'); ?>dashboard/index" style="margin-left: 10px;">
+                            <i class="fa fa-times fa-lg"></i>
+                        </a>
+
+
                     </div>
                 </div>
             </fieldset>
