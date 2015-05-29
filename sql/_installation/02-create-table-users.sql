@@ -1,7 +1,3 @@
-/*
-  Inclued attributes 'user_firstname' and 'user_lastname'
-*/
-
 CREATE TABLE IF NOT EXISTS `syncbook_users`.`users` (
  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index',
  `user_firstname` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s first name, unique',
@@ -25,10 +21,3 @@ CREATE TABLE IF NOT EXISTS `syncbook_users`.`users` (
  UNIQUE KEY `user_name` (`user_name`),
  UNIQUE KEY `user_email` (`user_email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='user data';
-
-INSERT INTO `syncbook_users`.`users` (`user_id`, `user_firstname`, `user_lastname`, `user_name`, `user_password_hash`, `user_email`, `user_active`, `user_account_type`,
-`user_has_avatar`, `user_remember_me_token`, `user_creation_timestamp`, `user_last_login_timestamp`,
-`user_failed_logins`, `user_last_failed_login`, `user_activation_hash`, `user_password_reset_hash`,
-`user_password_reset_timestamp`, `user_provider_type`) VALUES
-(1, 'Demo', 'Demino', 'demo', '$2y$10$OvprunjvKOOhM1h9bzMPs.vuwGIsOqZbw88rzSyGCTJTcE61g5WXi', 'demo@demo.com', 1, 1, 0, NULL, 1422205178,
-1422209189, 0, NULL, NULL, NULL, NULL, 'DEFAULT');
