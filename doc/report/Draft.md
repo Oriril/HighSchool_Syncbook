@@ -10,13 +10,13 @@
   * Strumenti utilizzati (con spiegazione e motivazioni)
     * Applicazione
       * huge
-        * anche segmenti significativi del codice (es.: classe Application.php, htacces)
+        * anche segmenti significativi del codice (es.: classe Application.php, htaccess)
       * sabre
       * bootstrap (e material...)
       * jQuery
       * RedBean
     * Server
-      * server mail(postfix, roudcube, ...)
+      * server mail (postfix, roudcube, ...)
       * stack lamp (apache, php, ...)
       * SSL
       * dnsSimple
