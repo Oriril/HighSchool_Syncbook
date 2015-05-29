@@ -1,21 +1,21 @@
 <div class="container" style="height: 100%;">
-    <div class="row intro-section" id="intro">
+    <div class="section margin-15" id="intro">
         <div class="hoja"><img class="center" src="../public/avatars/logo.png"/></div>
 
-        <div class="col-lg-12 see-more">
+        <!--<div class="col-lg-12 see-more">
             <a class="page-scroll" href="#services" style="color: #3f51b5"><h1>Syncbook</h1></a>
-        </div>
+        </div>-->
     </div>
 
-    <div class="row services-section" id="services">
-        <div class="row">
+    <div class="section margin-15" id="services">
+        <div class="row margin-15">
             <div class="col-lg-12">
-                <div class="section-heading">
+                <div>
                     <h1>Services</h1>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-15">
             <div class="col-sm-4">
                 <img class="center" src="../public/avatars/bootstrap.png">
                 <h3>Responsive & Material</h3>
@@ -43,15 +43,15 @@
             </div>
         </div>
     </div>
-    <div class="row powered-by-section" id="powered-by">
-        <div class="row">
+    <div class="section margin-15" id="powered-by">
+        <div class="row margin-15">
             <div class="col-lg-12">
-                <div class="section-heading">
+                <div>
                     <h1>Powered by</h1>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-15">
             <div class="col-lg-3">
                 <a href="http://www.php.net" target="_blank">
                     <img class="img-responsive center" src="../public/avatars/php5.png">
@@ -76,7 +76,7 @@
                 </a>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-15">
             <div class="col-lg-6">
                 <a href="http://sabre.io/" target="_blank">
                     <img class="img-responsive float-left" src="../public/avatars/sabredav.png">
@@ -90,15 +90,15 @@
             </div>
         </div>
     </div>
-    <div class="row team-section" id="team">
-        <div class="row">
+    <div class="section margin-15" id="team">
+        <div class="row margin-15">
             <div class="col-lg-12">
-                <div class="section-heading">
+                <div>
                     <h1>Our Team</h1>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-15">
             <div class="col-sm-2"></div>
             <div class="col-sm-4">
                 <div class="well no-padding" style="padding: 0px;">
