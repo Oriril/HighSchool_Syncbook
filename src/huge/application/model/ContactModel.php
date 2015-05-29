@@ -251,7 +251,7 @@ class ContactModel {
             $mailContainer = $vCard->contactMail;
 
             foreach ($mailContainer as $singleContainer) {
-                error_log(print_r($singleContainer, TRUE));
+                //error_log(print_r($singleContainer, TRUE));
 
                 echo "<div class=\"col-sm-2\"></div>";
                 echo "<div class=\"col-sm-10\"><h4>Mail</h4></div>";
@@ -264,36 +264,42 @@ class ContactModel {
         if ($vCard->contactPhone != NULL) {
             $phoneContainer = $vCard->contactPhone;
 
-            echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\"><h4>Phone</h4></div>";
-            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $phoneContainer->phoneContainer_1->phoneType . "</span></div>";
-            echo "<div class=\"col-sm-10\">" . $phoneContainer->phoneContainer_1->phoneValue . "</div>";
+            foreach ($phoneContainer as $singleContainer) {
+                echo "<div class=\"col-sm-2\"></div>";
+                echo "<div class=\"col-sm-10\"><h4>Phone</h4></div>";
+                echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $singleContainer->phoneType . "</span></div>";
+                echo "<div class=\"col-sm-10\">" . $singleContainer->phoneValue . "</div>";
+            }
         }
 
         if ($vCard->contactAddress != NULL) {
             $addressContainer = $vCard->contactAddress;
 
-            echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\"><h4>Address</h4></div>";
-            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $addressContainer->addressContainer_1->addressType . "</span></div>";
-            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressStreet . "</div>";
-            echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressCity . "</div>";
-            echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressRegion . "</div>";
-            echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressPostalCode . "</div>";
-            echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\">" . $addressContainer->addressContainer_1->addressCountry . "</div>";
+            foreach ($addressContainer as $singleContainer) {
+                echo "<div class=\"col-sm-2\"></div>";
+                echo "<div class=\"col-sm-10\"><h4>Address</h4></div>";
+                echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $singleContainer->addressType . "</span></div>";
+                echo "<div class=\"col-sm-10\">" . $singleContainer->addressStreet . "</div>";
+                echo "<div class=\"col-sm-2\"></div>";
+                echo "<div class=\"col-sm-10\">" . $singleContainer->addressCity . "</div>";
+                echo "<div class=\"col-sm-2\"></div>";
+                echo "<div class=\"col-sm-10\">" . $singleContainer->addressRegion . "</div>";
+                echo "<div class=\"col-sm-2\"></div>";
+                echo "<div class=\"col-sm-10\">" . $singleContainer->addressPostalCode . "</div>";
+                echo "<div class=\"col-sm-2\"></div>";
+                echo "<div class=\"col-sm-10\">" . $singleContainer->addressCountry . "</div>";
+            }
         }
 
         if ($vCard->contactInternet != NULL) {
             $internetContainer = $vCard->contactInternet;
 
-            echo "<div class=\"col-sm-2\"></div>";
-            echo "<div class=\"col-sm-10\"><h4>Internet</h4></div>";
-            echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $internetContainer->internetContainer_1->internetType . "</span></div>";
-            echo "<div class=\"col-sm-10\">" . $internetContainer->internetContainer_1->internetValue . "</div>";
+            foreach ($internetContainer as $singleContainer) {
+                echo "<div class=\"col-sm-2\"></div>";
+                echo "<div class=\"col-sm-10\"><h4>Internet</h4></div>";
+                echo "<div class=\"col-sm-2\"><span class=\"label label-primary\">" . $singleContainer->internetType . "</span></div>";
+                echo "<div class=\"col-sm-10\">" . $singleContainer->internetValue . "</div>";
+            }
         }
 
         if ($vCard->contactNotes != NULL) {
@@ -308,9 +314,36 @@ class ContactModel {
         echo "</fieldset></div></nav>";
     }
 
-    public static function printEditForm($vCard) {
+    public static function printEditForm($vCard)
+    {
         //$action = Config::get('URL') . "contact/savechangestocontact";
         echo "<nav id=\"mainContainerPanel\"><div class=\"well\"><form class=\"form-horizontal\" action=\"javascript:void(0);\" method=\"post\"><fieldset><legend>Modify</legend>";
+
+        if ($vCard->contactDefault->contactPrefix == NULL) {
+            $contactPrefix = "";
+        } else {
+            $contactPrefix = $vCard->contactDefault->contactPrefix;
+        }
+        if ($vCard->contactDefault->contactFirstName == NULL) {
+            $contactFirstName = "";
+        } else {
+            $contactFirstName = $vCard->contactDefault->contactFirstName;
+        }
+        if ($vCard->contactDefault->contactMiddleName == NULL) {
+            $contactMiddleName = "";
+        } else {
+            $contactMiddleName = $vCard->contactDefault->contactMiddleName;
+        }
+        if ($vCard->contactDefault->contactLastName == NULL) {
+            $contactLastName = "";
+        } else {
+            $contactLastName = $vCard->contactDefault->contactLastName;
+        }
+        if ($vCard->contactDefault->contactSuffix == NULL) {
+            $contactSuffix = "";
+        } else {
+            $contactSuffix = $vCard->contactDefault->contactSuffix;
+        }
 
         // first panel
         echo "<div class=\"col-sm-12\">
@@ -319,87 +352,44 @@ class ContactModel {
                         <div class=\"form-group\">
                             <label for=\"contactPrefix\" class=\"col-lg-2 control-label\">Prefix</label>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactPrefix\" name=\"contactPrefix\" placeholder=\"Prefix\" value="
-        . ($vCard->contactDefault->contactPrefix != NULL) ? $vCard->contactDefault->contactPrefix : "" .
-            ">
+                                <input type=\"text\" class=\"form-control\" id=\"contactPrefix\" name=\"contactPrefix\" placeholder=\"Prefix\" value=\""
+            . $contactPrefix .
+            "\">
                             </div>
                         </div>
                         <div class=\"form-group\">
                             <label for=\"contactFirstName\" class=\"col-lg-2 control-label\">First Name</label>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactFirstName\" name=\"contactFirstName\" placeholder=\"First Name\" value=" . $vCard->contactDefault->contactFirstName ." required />
+                                <input type=\"text\" class=\"form-control\" id=\"contactFirstName\" name=\"contactFirstName\" placeholder=\"First Name\" value=\""
+            . $contactFirstName .
+            "\" required />
                             </div>
                         </div>
                         <div class=\"form-group\">
                             <label for=\"contactMiddleName\" class=\"col-lg-2 control-label\">Middle Name</label>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactMiddleName\" name=\"contactMiddleName\" placeholder=\"Middle Name\" value=" . $vCard->contactDefault->contactMiddleName . ">
+                                <input type=\"text\" class=\"form-control\" id=\"contactMiddleName\" name=\"contactMiddleName\" placeholder=\"Middle Name\" value=\""
+            . $contactMiddleName . "\">
                             </div>
                         </div>
                         <div class=\"form-group\">
                             <label for=\"contactLastName\" class=\"col-lg-2 control-label\">Last Name</label>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactLastName\" name=\"contactLastName\" placeholder=\"Last Name\" value=" . $vCard->contactDefault->contactLastName . " required />
+                                <input type=\"text\" class=\"form-control\" id=\"contactLastName\" name=\"contactLastName\" placeholder=\"Last Name\" value=\""
+            . $contactLastName . "\" required />
                             </div>
                         </div>
                         <div class=\"form-group\">
                             <label for=\"contactSuffix\" class=\"col-lg-2 control-label\">Suffix</label>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactSuffix\" name=\"contactSuffix\" placeholder=\"Suffix\" value=". $vCard->contactDefault->contactSuffix .">
+                                <input type=\"text\" class=\"form-control\" id=\"contactSuffix\" name=\"contactSuffix\" placeholder=\"Suffix\" value=\""
+            . $contactSuffix . "\">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>";
 
-        // company panel
-        /*echo "<div class=\"col-sm-12\">
-                <div class=\"panel-default\">
-                    <div class=\"panel-body\">
-                        <div class=\"form-group\">
-                            <div class=\"col-lg-2\"></div>
-                            <div class=\"col-lg-10\">
-                                <div class=\"checkbox\">
-                                    <label>
-                                        <input type=\"checkbox\" name=\"contactIsCompany\" value=\"true\">Show as Company
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"contactCompany\" class=\"col-lg-2 control-label\">Company</label>
-                            <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactCompany\" name=\"contactCompany\" placeholder=\"Company name\" value=" . $vCard->contactCompany->contactCompany .">
-                            </div>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"contactDepartment\" class=\"col-lg-2 control-label\">Department</label>
-                            <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactDepartment\" name=\"contactDepartment\" placeholder=\"Department\" value=" . $vCard->contactCompany->contactDepartment . ">
-                            </div>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"contactJobTitle\" class=\"col-lg-2 control-label\">Job title</label>
-                            <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactJobTitle\" name=\"contactJobTitle\" placeholder=\"Job title\" value=" . $vCard->contactCompany->contactJobTitle .">
-                            </div>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"contactJobRole\" class=\"col-lg-2 control-label\">Job role</label>
-                            <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"contactJobRole\" name=\"contactJobRole\" placeholder=\"Job role\" value=" . $vCard->contactCompany->contactJobRole . ">
-                            </div>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"contactBirthDate\" class=\"col-lg-2 control-label\">Birthday</label>
-                            <div class=\"col-lg-10\">
-                                <input type=\"date\" class=\"form-control\" id=\"contactBirthDate\" name=\"contactBirthDate\" value=" . $vCard->contactCompany->contactBirthDate . ">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>";
-        */
         // phone
         echo "<div class=\"col-sm-12\">
                 <div class=\"panel panel-primary\">
@@ -408,18 +398,30 @@ class ContactModel {
                         <div class=\"form-group\">
                             <div class=\"col-lg-2\">
                                 <select name=\"phoneType\" id=\"phoneType\">";
-        if ($vCard->contactPhone->phoneContainer_1->phoneType == "HOME") {
+        if ($vCard->contactPhone != NULL) {
+            if ($vCard->contactPhone->phoneContainer_1->phoneType == "HOME") {
+                echo "<option value=\"HOME\" selected>Home</option>
+                <option value=\"WORK\">Work</option>";
+            } else {
+                echo "<option value=\"HOME\">Home</option>
+                  <option value=\"WORK\" selected>Work</option>";
+            }
+        } else {
             echo "<option value=\"HOME\" selected>Home</option>
                   <option value=\"WORK\">Work</option>";
-        } else {
-            echo "<option value=\"HOME\">Home</option>
-                  <option value=\"WORK\" selected>Work</option>";
         }
 
+        if ($vCard->contactPhone == NULL)
+        {
+            $phoneValue = "";
+        } else {
+            $phoneValue = $vCard->contactPhone->phoneContainer_1->phoneValue;
+        }
         echo "</select>
                             </div>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"phoneValue\" name=\"phoneValue\" placeholder=\"Phone number\" value=" . $vCard->contactPhone->phoneContainer_1->phoneValue . ">
+                                <input type=\"text\" class=\"form-control\" id=\"phoneValue\" name=\"phoneValue\" placeholder=\"Phone number\" value=\""
+            . $phoneValue . "\">
                             </div>
                         </div>
                     </div>
@@ -434,16 +436,28 @@ class ContactModel {
                         <div class=\"form-group\">
                             <div class='col-lg-2'>
                                 <select name=\"mailType\" id=\"mailType\">";
-        if ($vCard->contactMail->mailContainer_1->mailType == "HOME") {
-            echo "<option value=\"HOME\" selected>Home</option>
-                  <option value=\"WORK\">Work</option>";
+        if ($vCard->contactMail != NULL) {
+            if ($vCard->contactMail->mailContainer_1->mailType == "HOME") {
+                echo "<option value=\"HOME\" selected>Home</option>
+            <option value=\"WORK\">Work</option>";
+            } else {
+                echo "<option value=\"HOME\">Home</option>
+            <option value=\"WORK\" selected>Work</option>";
+            }
         } else {
-            echo "<option value=\"HOME\">Home</option>
-                  <option value=\"WORK\" selected>Work</option>";
+            echo "<option value=\"HOME\" selected>Home</option>
+          <option value=\"WORK\">Work</option>";
+        }
+
+        if ($vCard->contactMail == NULL) {
+            $mailValue = "";
+        } else {
+            $mailValue = $vCard->contactMail->mailContainer_1->mailValue;
         }
 
         echo "</select></div><div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"mailValue\" name=\"mailValue\" placeholder=\"Mail\" value=" . $vCard->contactMail->mailContainer_1->mailValue . ">
+                                <input type=\"text\" class=\"form-control\" id=\"mailValue\" name=\"mailValue\" placeholder=\"Mail\" value=\""
+            . $mailValue . "\">
                             </div>
                         </div>
                     </div>
@@ -458,43 +472,67 @@ class ContactModel {
                         <div class=\"form-group\">
                             <div class='col-lg-2'>
                                 <select name=\"addressType\" id=\"addressType\">";
-
-        if ($vCard->contactAddress->addressContainer_1->addressType == "HOME") {
+        if ($vCard->contactAddress != NULL) {
+            if ($vCard->contactAddress->addressContainer_1->addressType == "HOME") {
+                echo "<option value=\"HOME\" selected>Home</option>
+                  <option value=\"WORK\">Work</option>";
+            } else {
+                echo "<option value=\"HOME\">Home</option>
+                  <option value=\"WORK\" selected>Work</option>";
+            }
+        } else {
             echo "<option value=\"HOME\" selected>Home</option>
                   <option value=\"WORK\">Work</option>";
-        } else {
-            echo "<option value=\"HOME\">Home</option>
-                  <option value=\"WORK\" selected>Work</option>";
         }
+
+        if ($vCard->contactAddress == NULL) {
+            $addressStreet = "";
+            $addressCity = "";
+            $addressRegion = "";
+            $addressPostalCode = "";
+            $addressCountry = "";
+        } else {
+            $addressStreet = $vCard->contactAddress->addressContainer_1->addressStreet;
+            $addressCity = $vCard->contactAddress->addressContainer_1->addressCity;
+            $addressRegion = $vCard->contactAddress->addressContainer_1->addressRegion;
+            $addressPostalCode = $vCard->contactAddress->addressContainer_1->addressPostalCode;
+            $addressCountry = $vCard->contactAddress->addressContainer_1->addressCountry;
+        }
+
         echo "</select>
                             </div>
 
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"addressStreet\" name=\"addressStreet\" placeholder=\"Street\" value=" . $vCard->contactAddress->addressContainer_1->addressStreet . ">
+                                <input type=\"text\" class=\"form-control\" id=\"addressStreet\" name=\"addressStreet\" placeholder=\"Street\" value=\""
+            . $addressStreet . "\">
                             </div>
                         </div>
                         <div class=\"form-group\">
                             <div class=\"col-lg-2\"></div>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"addressCity\" name=\"addressCity\" placeholder=\"City\" value=" . $vCard->contactAddress->addressContainer_1->addressCity . ">
+                                <input type=\"text\" class=\"form-control\" id=\"addressCity\" name=\"addressCity\" placeholder=\"City\" value=\""
+            . $addressCity . "\">
                             </div>
                         </div>
                         <div class=\"form-group\">
                             <div class=\"col-lg-2\"></div>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"addressRegion\" name=\"addressRegion\" placeholder=\"Region\" value=" . $vCard->contactAddress->addressContainer_1->addressRegion .">
+                                <input type=\"text\" class=\"form-control\" id=\"addressRegion\" name=\"addressRegion\" placeholder=\"Region\" value=\""
+            . $addressRegion . "\">
                             </div>
                         </div>
                         <div class=\"form-group\">
                             <div class=\"col-lg-2\"></div>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"addressPostalCode\" name=\"addressPostalCode\" placeholder=\"Postal code\" value=" . $vCard->contactAddress->addressContainer_1->addressPostalCode . ">
+                                <input type=\"text\" class=\"form-control\" id=\"addressPostalCode\" name=\"addressPostalCode\" placeholder=\"Postal code\" value=\""
+            . $addressPostalCode . "\">
                             </div>
                         </div>
                         <div class=\"form-group\">
                             <div class=\"col-lg-2\"></div>
                             <div class=\"col-lg-10\">
-                                <input type=\"text\" class=\"form-control\" id=\"addressCountry\" name=\"addressCountry\" placeholder=\"Country\" value=" . $vCard->contactAddress->addressContainer_1->addressCountry . ">
+                                <input type=\"text\" class=\"form-control\" id=\"addressCountry\" name=\"addressCountry\" placeholder=\"Country\" value=\""
+            . $addressCountry . "\">
                             </div>
                         </div>
                     </div>
@@ -507,13 +545,31 @@ class ContactModel {
                         <div class=\"panel-body\">
                             <div class=\"form-group\">
                                 <div class=\"col-lg-2\">
-                                    <select name=\"internetType\" id=\"internetType\">
-                                        <option value=\"HOME\">Home</option>
-                                        <option value=\"WORK\">Work</option>
-                                    </select>
+                                    <select name=\"internetType\" id=\"internetType\">";
+        if ($vCard->contactInternet != NULL) {
+            if ($vCard->contactInternet->internetContainer_1->internetType == "HOME") {
+                echo "<option value=\"HOME\" selected>Home</option>
+                  <option value=\"WORK\">Work</option>";
+            } else {
+                echo "<option value=\"HOME\">Home</option>
+                  <option value=\"WORK\" selected>Work</option>";
+            }
+        } else {
+            echo "<option value=\"HOME\" selected>Home</option>
+                  <option value=\"WORK\">Work</option>";
+        }
+
+        if ($vCard->contactInternet == NULL) {
+            $internetValue = "";
+        } else {
+            $internetValue = $vCard->contactInternet->internetContainer_1->internetValue;
+        }
+
+        echo "      </select>
                                 </div>
                                 <div class=\"col-lg-10\">
-                                    <input type=\"text\" class=\"form-control\" id=\"internetValue\" name=\"internetValue\" placeholder=\"Internet\" value=" . $vCard->contactInternet->internetContainer_1->internetValue . ">
+                                    <input type=\"text\" class=\"form-control\" id=\"internetValue\" name=\"internetValue\" placeholder=\"Internet\" value=\""
+            . $internetValue . "\">
                                 </div>
                             </div>
                         </div>
@@ -521,13 +577,20 @@ class ContactModel {
                 </div>";
 
         // notes form
+        if ($vCard->contactNotes == NULL) {
+            $contactNotes = "";
+        } else {
+            $contactNotes = $vCard->contactNotes;
+        }
+
         echo "<div class=\"col-sm-12\">
                     <div class=\"panel panel-primary\">
                         <div class=\"panel-heading\">Notes</div>
                         <div class=\"panel-body\">
                             <div class=\"form-group\">
                                 <div class=\"col-lg-12\">
-                                    <input type=\"text\" class=\"form-control\" id=\"contactNotes\" name=\"contactNotes\" placeholder=\"Notes\" value=" . $vCard->contactNotes . ">
+                                    <input type=\"text\" class=\"form-control\" id=\"contactNotes\" name=\"contactNotes\" placeholder=\"Notes\" value=\""
+            . $contactNotes . "\">
                                 </div>
                             </div>
                         </div>
@@ -537,15 +600,16 @@ class ContactModel {
         $index = Config::get('URL') . "dashboard/index";
 
         echo "<div class=\"form-group\">
-                <div class=\"col-sm-12\">
-                    <input type=\"submit\" class=\"btn btn-success btn-lg\" id=\"btn_save_changes\" data-uid=" . $vCard->UID . " value=\"Save\">
-                    <a href=\"$index\" class=\"btn btn-danger btn-lg float-right\">Cancel</a>
+                <div class=\"col-sm-12\" style=\"text-align: center;\">
+                    <button class=\"btn btn-fab btn-fab btn-lg btn-raised btn-primary\" id=\"btn_save_changes\" style=\"margin-right: 10px;\" data-uid=" . $vCard->UID . ">
+                            <i class=\"fa fa-check fa-lg\"></i>
+                    </button>
+                    <a class=\"btn btn-fab btn-fab btn-lg btn-raised btn-danger\" href=\"$index\" style=\"margin-left: 10px;\">
+                        <i class=\"fa fa-times fa-lg\"></i>
+                    </a>
             </div>
             </div>";
 
         echo "</fieldset></form></div></nav>";
     }
-
-    // Example of Usage with error_log, for testing purpose.
-    //error_log(print_r(ContactModel::vCardRetrieve("ff2ba66e-f2a5-4ac0-897c-f322a9f2ede4.vcf"), TRUE));
 }
