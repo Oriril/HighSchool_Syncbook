@@ -5,7 +5,7 @@ use Sabre\VObject;
 
 require_once(SOURCE_PATH . "Services/serviceDatabaseManagement.php");
 
-const SABREDAV_REALM = ":SabreDAV:";
+const SABREDAV_REALM = ":SabreDAV:"; // if you change this, change also PasswordResetModel::setNewUserPassord();
 const WEBDAV_BASE_URI = "/Syncbook/lib/SabreDAV/groupwareserver.php/";
 
 /**
