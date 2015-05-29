@@ -75,3 +75,9 @@ html, body {
 .see-more {
     padding-top: 300px;
 }
+
+.margin-15
+{
+    margin-left: 15px;
+    margin-right: 15px;
+}
