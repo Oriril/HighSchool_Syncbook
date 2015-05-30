@@ -87,3 +87,8 @@ Dato il fatto che Google Contacts non da la possibilità all'utente di salvare a
 
 ## Finalità di progetto
 Dato il risultato di questo studio approfondito sui vari esempi di vCard diventa evidente che il motivo per il quale quando si importa un contatto da una tipologia di dispositivo ad un'altra il prodotto finito risulta spesso incompleto o corrotto.
+
+Entra quindi in gioco il frutto di ore e ore passate a programmare per poter presentare un progetto che vuole dimostrare come è possibile utilizzare gli Standard per la formattazione di una vCard e trarne vantaggio durante il processo di gestione di una rubrica.
+
+Syncbook è orientato principalmente a persone il quale uso di una rubrica va fuori dell'ordinario e a cui è necessario condividere i propri contatti frequentamente attraverso persone il quale dispositivo di visualizzazione principale è differente dal proprio.
+Questo per il semplice motivo che tutte le informazioni basilari riguardanti un contatto vengono rappresentate dai vari gestori in modo molto simile permettendo l'interoperabilità tra dispositivi.
