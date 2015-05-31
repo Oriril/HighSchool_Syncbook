@@ -11,10 +11,10 @@ Alcune delle funzioni più importanti sono:
 * supporto nativo all'invio delle email (tramite PHP Mailer e altre librerie);
 * URL rewriting.
 
-HUGE presenta una struttura MCV, ma i metodi utilizzati sono per lo più statici. La struttura MCV viene sfruttata appieno dalla configurazione del file .htcaccess.
+HUGE presenta una struttura MCV, ma i metodi utilizzati sono per lo più statici. La struttura MCV viene sfruttata appieno dalla configurazione del file .htaccess.
 
 
-# Il file .htcaccess
+# Il file .htaccess
 ```
 Options -MultiViews
 
