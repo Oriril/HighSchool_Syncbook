@@ -91,15 +91,17 @@ END:VCARD
 Dato il fatto che Google Contacts non da la possibilità all'utente di salvare all'interno delle informazioni di un contatto quelle riguardanti i Social Network è necessario utilizzare la proprietà `URL` per gestire gli stessi. L'utilizzo di questo metodo di formattazione, unita a degli inutili caratteri di *escape* per rappresentare gli indirizzi *http*, rende impossibile mantenere i medesimi dati in fase di importazione della vCard in un dispositivo che non possieda un sistema operativo Android.
 
 ## Finalità di progetto
-Dato il risultato di questo studio approfondito sui vari esempi di vCard diventa evidente che il motivo per il quale quando si importa un contatto da una tipologia di dispositivo ad un'altra il prodotto finito risulta spesso incompleto o corrotto.
+In seguito a un'analisi approfondita della situazione attuale del non utilizzo degli standard vCard, appare evidente che l'importazione ed esportazione di contatti tra dispositivi diversi non può avvenire, se non in modo incompleto.
+(Dato il risultato di questo studio approfondito sui vari esempi di vCard diventa evidente che il motivo per il quale quando si importa un contatto da una tipologia di dispositivo ad un'altra il prodotto finito risulta spesso incompleto o corrotto.)
 
-Entra quindi in gioco il frutto di ore e ore passate a programmare per poter presentare un progetto che vuole dimostrare come è possibile utilizzare gli Standard per la formattazione di una vCard e trarne vantaggio durante il processo di gestione di una rubrica.
+Per questo motivo si ha deciso di sviluppare un progetto per dimostrare come è possibile utilizzare gli Standard per la formattazione di una vCard e trarne vantaggio durante il processo di gestione di una rubrica.
+(Entra quindi in gioco il frutto di ore e ore passate a programmare per poter presentare un progetto che vuole dimostrare come è possibile utilizzare gli Standard per la formattazione di una vCard e trarne vantaggio durante il processo di gestione di una rubrica.)
 
 Syncbook è orientato principalmente a persone il quale uso di una rubrica va fuori dell'ordinario e a cui è necessario condividere i propri contatti frequentamente attraverso persone il quale dispositivo di visualizzazione principale è differente dal proprio.
 Questo per il semplice motivo che tutte le informazioni basilari riguardanti un contatto vengono rappresentate dai vari gestori in modo molto simile permettendo l'interoperabilità tra dispositivi.
 
 ## Perchè un'applicazione Web?
-
+La scelta di sviluppare un'applicazione web è stata effettuata per diversi motivi. Il primo è legato alla natura della libreria sabre.io: essa infatti è sviluppata totalmente in linguaggio PHP e per questa ragione è sembrato ovvio continuare con questa tecnologia a integrare nuovi servizi e funzionalità. Il secondo motivo ha come centralità la portabilità dell'applicazione: se da un lato sarebbe stato possibile progettare un'applicazione più rivolta al funzionamento lato client, come una applet Java o una app Android, dall'altro si ha riconosciuto che un'applicazione web avrebbe avuto un maggior bacino di utenza rispetto alle altre alternative. Questo perché un'applicazione web non ha bisogno di essere installata fisicamente nel dispositivo (e quindi essere anche vincolata al software del sistema operativo ospitante), in più gli ultimi layout grafici responsive permettono la visualizzazione delle stessa pagina in modo efficiente su un range di dispositivi molto più ampio rispetto agli anni passati.
 ==@TO-DO==
 
 ## Strumenti
