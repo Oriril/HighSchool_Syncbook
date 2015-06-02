@@ -134,4 +134,6 @@ class Application
 ?>
 
 ```
-
+La classe Application.php sta alla base di tutto il funzionamento dell'applicazione. Tutte le richieste al server vengono effettuate con lo schema "dominio.com/controller/metodo" e il protocollo http aggiunge gli eventuali parametri provenienti da form. In questo modo il file .htaccess può effettuare *url rewriting* mostrando appunto la stringa "dominio.com/controller/metodo" e non il il file che viene eseguito (in questo caso index.php).
+La prima operazione effettuata nel costruttore della classe Application è l'esecuzione del metodo *splitUrl()* che setta a dei valori iniziali gli attributi della classe *controller_name*, *action_name* e *parameters*, che rispettivamente sono il controller e il metodo (più i parametri) che andranno poi eseguiti.
+In seguito si effettuano dei controlli se esistono o meno il controller e il metodo selezionati, nel caso contrario vengono settati a valori di default (ad esempio un configurazione di default potrebbe essere *index/index*, cioè effettuare il redirect alla pagina iniziale). Una volta effettuata la convalida si procede con la creazione dell'instanza del controller selezionato e si richiama il metodo associato passando i parametri ricavati (se ce ne sono).
