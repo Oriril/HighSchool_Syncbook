@@ -2,14 +2,6 @@
 
 TODO: Write a project description
 
-## Usage
-
-TODO: Write usage instructions
-
-## History
-
-TODO: Write history
-
 ## Credits
 
 - [GitHub Education](https://education.github.com/) for Giving all the instruments needed to make this Project happen
