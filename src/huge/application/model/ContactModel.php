@@ -390,6 +390,21 @@ class ContactModel {
                 </div>
             </div>";
 
+        if ($vCard->contactCompany == NULL)
+        {
+            $contactBirthDate = "";
+        } else {
+            $contactBirthDate = $vCard->contactCompany->contactBirthDate;
+        }
+        echo "<div class=\"col-sm-12\">
+                <div class=\"form-group\">
+                                <label for=\"contactBirthDate\" class=\"col-lg-2 control-label\">Birthday</label>
+                                <div class=\"col-lg-10\">
+                                    <input type=\"date\" class=\"form-control\" id=\"contactBirthDate\" name=\"contactBirthDate\" value=\""
+                                    . $contactBirthDate . "\">
+                                </div>
+                            </div>
+                </div>";
         // phone
         echo "<div class=\"col-sm-12\">
                 <div class=\"panel panel-primary\">
@@ -589,8 +604,8 @@ class ContactModel {
                         <div class=\"panel-body\">
                             <div class=\"form-group\">
                                 <div class=\"col-lg-12\">
-                                    <input type=\"text\" class=\"form-control\" id=\"contactNotes\" name=\"contactNotes\" placeholder=\"Notes\" value=\""
-            . $contactNotes . "\">
+                                    <textarea class=\"form-control\" id=\"contactNotes\" name=\"contactNotes\" placeholder=\"Notes\" rows=\"4\">"
+        . $contactNotes . "</textarea>
                                 </div>
                             </div>
                         </div>
