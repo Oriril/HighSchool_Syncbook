@@ -42,7 +42,7 @@ if (!isset($databaseUsername)) {
         $databaseUsername = '';
     }
 
-    if ($databaseUsername === '') {$databaseUsername = 'admin';}
+    if ($databaseUsername === '') {die();}
 }
 
 /**

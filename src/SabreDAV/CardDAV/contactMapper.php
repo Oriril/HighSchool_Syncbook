@@ -12,7 +12,6 @@ use Sabre\VObject;
  */
 function mapperObjectCard($vCardObject) {
     // @TODO This could be written simpler and cleaner using functions
-    // @TODO Implement controls for possible NULL Parameters
 
     // Mapping UID Parameter
     $vCard = new Sabre\VObject\Component\VCard([
@@ -142,7 +141,6 @@ return $vCard;
 
 function mapperCardObject(Sabre\VObject\Component\VCard $vCardData) {
     // @TODO This could be written simpler and cleaner using functions
-    // @TODO Implement controls for possible NULL Parameters
 
     // Mapping UID Parameter
     $vCardObject = new stdClass();
