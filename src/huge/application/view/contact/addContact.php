@@ -79,7 +79,7 @@
                             <div class="form-group">
                                 <label for="contactBirthDate" class="col-lg-2 control-label">Birthday</label>
                                 <div class="col-lg-10">
-                                    <input type="text"class="form-control" id="contactBirthDate" name="contactBirthDate">
+                                    <input type="date"class="form-control" id="contactBirthDate" name="contactBirthDate">
                                 </div>
                             </div>
                         </div>
@@ -187,7 +187,7 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-lg-12">
-                                    <input type="textarea" class="form-control" id="contactNotes" name="contactNotes" placeholder="Notes">
+                                    <textarea class="form-control" id="contactNotes" name="contactNotes" placeholder="Notes" rows="4" />
                                 </div>
                             </div>
                         </div>
