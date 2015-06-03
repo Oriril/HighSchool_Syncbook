@@ -12,6 +12,7 @@
       * huge
         * anche segmenti significativi del codice (es.: classe Application.php, htaccess)
       * sabre
+        * vCardListRetrieve() 
       * bootstrap (e material...)
       * jQuery
       * RedBean
