@@ -447,11 +447,52 @@ return FALSE;
 
 ### ![Bootstrap Logo](http://i.imgur.com/pGBc45r.png "Bootstrap Logo") Bootstrap
 
-==@TO-DO==
+Per quel che riguarda l'interfaccia grafica dell'applicazione è stato scelto Boostrap, uno dei più famosi "front-end framework". Al di là della sua fama, Boostrap è stato scelto soprattutto per la sua vocazione "mobile first" e il numero di risorse di ogni genere disponibili online.
+Le principali caratteristiche di questo framework sono il layout a griglie e la serie di classi css "preconfezionate" che permettono una rapida implementazione nell'applicazione, dando subito un risultato funzionale. La struttura a colonne di Bootstrap permette di creare layout grafici in grado di adattarsi dinamicamente a un cambio di display realizzando quello che viene definito "responsive design".
 
-#### Material Design
+Proprio per la sua natura di framework da utilizzarsi solo nelle prime fasi di un progetto (da qui il nome), Bootstrap non fornisce un'ampia gamma di componenti aggiuntivi ed ha uno stile grafico in sè povero. Per questo motivo si ha deciso di implementare dei css in stile [material design](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html): la quale, oltre a fornire una formattazione molto simile allo stile di Google, offre anche alcuni componenti aggiuntive come le *floating labels* e finestre di dialogo.
 
-==@TO-DO==
+###### Esempio di utilizzo di Bootstrap: finestra di dialogo di loghin.
+```html
+<div id="log-in-dialog" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="form-horizontal" action="<?php echo Config::get('URL'); ?>login/login" method="post">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control floating-label" id="user_name" name="user_name" placeholder="Username or E-Mail" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="password" class="form-control floating-label" id="user_password" name="user_password" placeholder="Password" required />
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="set_remember_me_cookie"> Remember me for 2 weeks
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="submit" class="btn btn-primary" value="Log in"/>
+                                No account Yet? <a href="<?php echo Config::get('URL'); ?>login/register">Register!</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="link-forgot-my-password">
+                    <a href="<?php echo Config::get('URL'); ?>login/requestPasswordReset">I forgot my password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+```
 
 ### ![jQuery Logo](http://i.imgur.com/iyMmW9C.png "jQuery Logo") jQuery
 
