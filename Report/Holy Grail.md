@@ -455,7 +455,7 @@ Le principali caratteristiche di questo framework sono il layout a griglie e la 
 
 Proprio per la sua natura di framework da utilizzarsi solo nelle prime fasi di un progetto (da qui il nome), Bootstrap non fornisce un'ampia gamma di componenti aggiuntivi ed ha uno stile grafico in sè povero. Per questo motivo si ha deciso di implementare una libreria css e javascript in stile [material design](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html): la quale, oltre a fornire una formattazione molto simile allo stile di Google, offre anche alcuni componenti aggiuntive come le *floating labels* e finestre di dialogo.
 
-###### Esempio di utilizzo di Bootstrap: finestra di dialogo di loghin.
+###### Esempio di utilizzo di Bootstrap: finestra di dialogo di log-in.
 Qui di seguito una parte di codice HTML utilizzata per realizzare la finestra di login della pagina iniziale dell'applicazione.
 ```html
 <div id="log-in-dialog" class="modal fade">
