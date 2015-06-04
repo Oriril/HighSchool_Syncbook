@@ -4,15 +4,20 @@ body {
 }
 
 /* Panel contact list */
-#contactList {height:auto; width:100%;}
-#contactList {overflow:hidden; overflow-y:auto;}
+#contactList {
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+#contactList {}
 
 /* Main container panel */
 #mainContainerPanel {
-    height:500px;
-    width:100%;
+    height: 80vh;
+    overflow: hidden;
+    overflow-y: auto;
 }
-#mainContainerPanel {overflow:hidden; overflow-y:auto;}
 
 #contactListContainer {
     cursor: pointer;
