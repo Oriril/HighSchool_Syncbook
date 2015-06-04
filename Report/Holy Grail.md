@@ -501,7 +501,52 @@ Il risultato:
 
 ### ![jQuery Logo](http://i.imgur.com/iyMmW9C.png "jQuery Logo") jQuery
 
-==@TO-DO==
+jQuery è un framwork javascript che ha come intento quello di snellire la programmazione semplificando la selezione, la manipolazione degli elementi HTML e la gestione degli eventi del DOM (Document Object Model). Per un'applicazione che nasce in quello che viene definito "web 2.0", non è pensabile il non utilizzo di javascript: sia dal punto di vista grafico, che dal punto di vista delle funzionalità (ad esempio le richieste asincrone).
+Oltre alla semplificazione del codice, un'altra importante carattaristica di jQuery è che è testato per funzionare allo stesso modo su più browser possibili: quindi il programmatore può concentrarsi di più sull'effettivo sviluppo dell'applicazione che sul funzionamento multi-piattaforma.
+Come accennato in precedenza, se si vuole rendere un'applicazione più dinamica e veloce, dal punto di vista dell'utilizzo, è necessaria l'implementazione delle richieste asincrone. Questa tecnologia è implementata in jQuery con il nome AJAX e il metodo $.ajax() relativo. Questo metodo permette l'esecuzione di uno script sul server (nel nostro caso un metodo specifico di HUGE) per poter fornire dei all'utente all'utente senza eseguire il refresh della pagina.
+In Syncbook tutte le interazioni tra utente e il database di SabreDav sono state eseguite con chiamate AJAX, qui di seguito viene riportata la parte di codice che viene eseguita nel momento in cui l'utente salva delle modifiche a un contatto.
+
+```javascript
+// gestione dell'evento 'click' sul bottone 'Salva'
+$(document).on('click', '#btn_save_changes', function () {
+	// recupero dei dati dal form e costruzione dell'oggeto vCard
+	var vCard = getFormFields();
+	vCard['UID'] = $(this).attr('data-uid');
+
+	// controllo sugli input
+	var control = inputControl(vCard);
+	switch(control) {
+		// tutti i controlli sono stati rispettati, si procede con il saltaggio dei dati
+		case 0:
+			$.ajax({
+				url : URL + 'contact/applychangestocontact',
+				data : vCard,
+				method : 'POST',
+				dataType: 'html',
+				success: function () {
+					$('#mainContainer').html("");
+					// si mostra un feedback positivo che indica che l'operazione è andata a buon fine
+					addSuccessFeedback("Contact modified.");
+
+					// viene aggiornata la lista contatti
+					loadContactList();
+				}
+			});
+			break;
+
+		case 1:
+			// non sono stati inseriti 'nome' e 'cognome'
+			alert("First name and last name fields are required!");
+			break;
+
+		case 2:
+			// tutti i campi 'address' devono essere riempiti.
+			alert("Complete all the address fields!");
+			break;
+	}
+});
+
+```
 
 ### RedBean PHP
 
