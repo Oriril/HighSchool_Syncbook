@@ -13,7 +13,7 @@
 
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <input type="text" class="form-control floating-label" data-hint="Only Letters are allowed. Max 16 Characters long." pattern="[a-zA-Z]{1,16}" id="user_firstname" name="user_firstname" placeholder="First name" required/>
+                                <input type="text" class="form-control floating-label" data-hint="Only Letters are allowed. Max 16 Characters long." pattern="[a-zA-Z]{1,16}" id="user_firstname" data-focus="focus" name="user_firstname" placeholder="First name" required/>
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <div class="col-lg-12">
-                            <!-- show the captcha by calling the login/showCaptcha-method in the src attribute of the img tag -->
+                                <!-- show the captcha by calling the login/showCaptcha-method in the src attribute of the img tag -->
                                 <img id="captcha" class="img-responsive center" src="<?php echo Config::get('URL'); ?>login/showCaptcha" />
                             </div>
                         </div>
@@ -64,9 +64,9 @@
 
                         <div class="form-group">
                             <div class="col-lg-12">
-                        <!-- quick & dirty captcha reloader -->
-                            <a href="#" style="display: block; font-size: 11px; margin: 5px 0 15px 0; text-align: center"
-                               onclick="document.getElementById('captcha').src = '<?php echo Config::get('URL'); ?>login/showCaptcha?' + Math.random(); return false">Reload Captcha</a>
+                                <!-- quick & dirty captcha reloader -->
+                                <a href="#" style="display: block; font-size: 11px; margin: 5px 0 15px 0; text-align: center"
+                                   onclick="document.getElementById('captcha').src = '<?php echo Config::get('URL'); ?>login/showCaptcha?' + Math.random(); return false">Reload Captcha</a>
                             </div>
                         </div>
 
