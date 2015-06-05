@@ -5,12 +5,11 @@ body {
 
 /* Panel contact list */
 #contactList {
-    height: 70vh;
+    height: 77.5vh;
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
 }
-#contactList {}
 
 /* Main container panel */
 #mainContainerPanel {
