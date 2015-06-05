@@ -1,6 +1,6 @@
 <div class="container" style="height: 100%;">
     <div class="section margin-15" id="intro">
-        <div class="hoja"><img class="center" src="../public/avatars/logo.png"/></div>
+        <div class="hoja"><img class="center" src="../public/images/logo.png"/></div>
 
         <!--<div class="col-lg-12 see-more">
             <a class="page-scroll" href="#services" style="color: #3f51b5"><h1>Syncbook</h1></a>
@@ -17,7 +17,7 @@
         </div>
         <div class="row margin-15">
             <div class="col-sm-4">
-                <img class="center" src="../public/avatars/bootstrap.png">
+                <img class="center" src="../public/images/bootstrap.png">
                 <h3>Responsive & Material</h3>
                 <p>
                     Using one of the most complete CSS Frameworks,topped with a marvelously developed Google's Material Design extension was surely very hard. But the hard work paid off when we finally finished a Website that's 100% ready for the future of Web-Development.
@@ -25,7 +25,7 @@
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img class="center" src="../public/avatars/responsive.png">
+                    <img class="center" src="../public/images/responsive.png">
                     <h3>Cross Platform</h3>
                     <p>
                         Syncbook was built in this project uses the latest standard in vCards storing and formatting, letting the users manage their AddressBooks from every device, breaking the barriers that are right now imposed by the majority of manufacturers.
@@ -34,7 +34,7 @@
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img class="center" src="../public/avatars/lock.png">
+                    <img class="center" src="../public/images/lock.png">
                     <h3>Web Security</h3>
                     <p>
                         Thanks to one of the most advanced SSL certificates that can be found in the market, the website is completly covered by the HTTPS protocol so users don't have to worry about that their datas are beign stored in a unsafe place.
@@ -54,38 +54,38 @@
         <div class="row margin-15">
             <div class="col-lg-3">
                 <a href="http://www.php.net" target="_blank">
-                    <img class="img-responsive center" src="../public/avatars/php5.png">
+                    <img class="img-responsive center" src="../public/images/php5.png">
                 </a>
             </div>
 
             <div class="col-lg-3">
                 <a href="http://www.w3schools.com/html/html5_intro.asp" target="_blank">
-                    <img class="img-responsive center" src="../public/avatars/html5.png">
+                    <img class="img-responsive center" src="../public/images/html5.png">
                 </a>
             </div>
 
             <div class="col-lg-3">
                 <a href="http://www.w3schools.com/css/css3_intro.asp" target="_blank">
-                    <img class="img-responsive center" src="../public/avatars/css3.png">
+                    <img class="img-responsive center" src="../public/images/css3.png">
                 </a>
             </div>
 
             <div class="col-lg-3">
                 <a href="https://jquery.com/" target="_blank">
-                    <img class="img-responsive center" src="../public/avatars/jquery.png">
+                    <img class="img-responsive center" src="../public/images/jquery.png">
                 </a>
             </div>
         </div>
         <div class="row margin-15">
             <div class="col-lg-6">
                 <a href="http://sabre.io/" target="_blank">
-                    <img class="img-responsive float-left" src="../public/avatars/sabredav.png">
+                    <img class="img-responsive float-left" src="../public/images/sabredav.png">
                 </a>
             </div>
 
             <div class="col-lg-6">
                 <a href="https://www.github.com" target="_blank">
-                    <img class="img-responsive float-right" src="../public/avatars/github.png">
+                    <img class="img-responsive float-right" src="../public/images/github.png">
                 </a>
             </div>
         </div>

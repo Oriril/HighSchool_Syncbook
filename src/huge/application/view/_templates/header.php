@@ -9,7 +9,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="../public/avatars/favicon.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="../public/images/favicon.png" sizes="16x16" type="image/png">
     <title>Syncbook</title>
 
     <!-- Bootstrap -->
