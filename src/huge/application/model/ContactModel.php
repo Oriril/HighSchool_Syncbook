@@ -132,14 +132,13 @@ class ContactModel {
         return FALSE;
     }
 
+    private static function vCardListCMP($array1, $array2)
+    {
+        return strcasecmp(($array1['contactLastName'] . $array1['contactFirstName']), ($array2['contactLastName'] . $array2['contactFirstName']));
+    }
+
     public static function printContactList($vCardList) {
         if ($vCardList == NULL) {
-            /*echo "<div class='list-group-item'>
-                <div class='row-content'>
-                    <h4 class='list-group-item-text'>No contacts yet</h4>
-                </div>
-            </div>";*/
-
             echo
             "
                 <div class = 'list-group-item' style='text-align: center;'>
@@ -152,28 +151,18 @@ class ContactModel {
                 </div>
             ";
         } else {
+            uasort($vCardList, array('ContactModel', 'vCardListCMP'));
             foreach ($vCardList as $UID => $arrayInfo) {
                 $firstName = $arrayInfo['contactFirstName'];
                 $lastName = $arrayInfo['contactLastName'];
 
-                /*
-                    echo "<div class='list-group-item' data-uid='$UID'>
-                        <div class='row-picture'>
-                            <img class='circle' src='http://api.randomuser.me/portraits/men/97.jpg' alt='icon'>
-                        </div>
-                        <div class='row-content'>
-                            <h4 class='list-group-item-heading'>$firstName $lastName</h4>
-                        </div>
-                    </div>
-                    <div class='list-group-separator'></div>";
-                */
                 echo "
                     <div class='list-group-item' data-uid='$UID'>
                      <div class='row-picture'>
                             <img class='circle' src='../public/avatars/default.jpg' alt='icon'>
                         </div>
                         <div class='row-content'>
-                            <h4 class='list-group-item-heading'>$firstName $lastName</h4>
+                            <h4 class='list-group-item-heading'>$lastName $firstName</h4>
                         </div>
                     </div>
                     <div class='list-group-separator'></div>";
@@ -401,7 +390,7 @@ class ContactModel {
                                 <label for=\"contactBirthDate\" class=\"col-lg-2 control-label\">Birthday</label>
                                 <div class=\"col-lg-10\">
                                     <input type=\"date\" class=\"form-control\" id=\"contactBirthDate\" name=\"contactBirthDate\" value=\""
-                                    . $contactBirthDate . "\">
+            . $contactBirthDate . "\">
                                 </div>
                             </div>
                 </div>";
@@ -605,7 +594,7 @@ class ContactModel {
                             <div class=\"form-group\">
                                 <div class=\"col-lg-12\">
                                     <textarea class=\"form-control\" id=\"contactNotes\" name=\"contactNotes\" placeholder=\"Notes\" rows=\"4\">"
-        . $contactNotes . "</textarea>
+            . $contactNotes . "</textarea>
                                 </div>
                             </div>
                         </div>
