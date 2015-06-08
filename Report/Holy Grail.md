@@ -3,23 +3,25 @@
 
 ## Indice
 
+[TOC]
+
 ## Introduzione
 
 Per molti anni le persone che utilizzano le Rubriche per scopi che vanno al di fuori del comune uso quotidiano si sono chieste se fosse possibile avere un mezzo attraverso il quale poter gestire la propria lista di contatti attraverso qualunque piattaforma.
 
 Fino ad ora la risposta a questa domanda è sempre stata negativa a causa del desiderio delle grandi aziende che, con lo scopo di fare sempre più soldi, rendono quasi impossibile la sincronizzazione dei contatti tra dispositivi diversi tra loro.
 
-###### vCard
+### vCard
 Il formato più utilizzato per rappresentare un contatto sotto forma digitale è tuttora la vCard.
 Giunta alla sua quarta versione lo Standard di rappresentazione dei dati presenti all'interno di questo mezzo elettronico è descritto all'interno dell'[RFC 6350](http://tools.ietf.org/html/rfc6350) è per quasi impossibile trovare online un file che rispetti le regole che vengono descritte.
 
-###### CardDAV
+### CardDAV
 Il protocollo più utilizzato per sincronizzare i contatti all'interno del Web è tuttora il CardDAV.
 Essendo basato sulla sintassi specifica delle vCard, CardDAV permette un semplice scambio di informazioni tra Server e Client durante tutte le operazioni di creazione, modifica ed eliminazione di un file vCard.
 
 ## Problema
 
-###### Dati da salvare
+### Dati da salvare
 ```
 Jhon Smith
 smith.jhon@gmail.com
@@ -30,7 +32,7 @@ Skype: jhon.smith
 Twitter: @jhonsmith
 ```
 
-###### Dati salvati secondo Standard
+### Dati salvati secondo standard
 ```
 BEGIN:VCARD
 VERSION:4.0
@@ -49,7 +51,7 @@ Per quanto strano possa sembrare, nonostante la loro quarta versione, le vCard n
 
 Questi campi sono vengono quindi descritti come non-standard e vanno rappresentati da una lettera `X`, seguita dal simbolo `-` e dal nome del campo. I campi così definiti possono non essere supportati da tutte le applicazioni attraverso le quali viene poi data la possibilità all'utente di gestire la propria rubrica.
 
-###### Dati salvati in Apple Contacts
+### Dati salvati in Apple Contacts
 ```
 BEGIN:VCARD
 VERSION:3.0
@@ -69,7 +71,7 @@ Utilizzando un formato non più supportato nel mondo delle vCard, la Apple riesc
 
 Le differenze più evidenti si possono notare nella rappresentazione del campo `URL` che viene ora raggrupato con la proprietà non-standard `X-ABLabel`. Questo metodo viene utilizzato per risolvere il problema di mostrare all'utente un sito web come proprio del contatto che egli sta visualizzando.
 
-###### Dati salvati in Google Contacts
+### Dati salvati in Google Contacts
 ```
 BEGIN:VCARD
 VERSION:3.0
@@ -89,13 +91,15 @@ END:VCARD
 Dato il fatto che Google Contacts non da la possibilità all'utente di salvare all'interno delle informazioni di un contatto quelle riguardanti i Social Network è necessario utilizzare la proprietà `URL` per gestire gli stessi. L'utilizzo di questo metodo di formattazione, unita a degli inutili caratteri di *escape* per rappresentare gli indirizzi *http*, rende impossibile mantenere i medesimi dati in fase di importazione della vCard in un dispositivo che non possieda un sistema operativo Android.
 
 ## Finalità del progetto
+
 In seguito a un'analisi approfondita della situazione attuale del non utilizzo degli standard vCard, appare evidente che l'importazione ed esportazione di contatti tra dispositivi diversi non può avvenire, se non in modo incompleto.
 (Dato il risultato di questo studio approfondito sui vari esempi di vCard diventa evidente che il motivo per il quale quando si importa un contatto da una tipologia di dispositivo ad un'altra il prodotto finito risulta spesso incompleto o corrotto.)
 
 Per questo motivo si è deciso di sviluppare un progetto per dimostrare come sia possibile utilizzare gli Standard per la formattazione di una vCard e trarne vantaggio durante il processo di gestione di una rubrica.
 (Entra quindi in gioco il frutto di ore e ore passate a programmare per poter presentare un progetto che vuole dimostrare come è possibile utilizzare gli Standard per la formattazione di una vCard e trarne vantaggio durante il processo di gestione di una rubrica.)
 
-## Obbiettivi del progetto
+## Obiettivi del progetto
+
 Realizzare un'applicazione web che permetta all'utente registrato di creare delle rubriche secondo gli standard delle vCard. L'applicazione dovrà essere in grado di salvare i dati inseriti dall'utente e di metterli a disposizione anche ad altri dispositivi che si interfacciano tramite il protocollo WebDAV. Sarà dunque necessaria la configurazione di un server per sostenere tutte le tipologie di richieste: dal salvataggio dei dati tramite database, alla sicurezza delle comunicazioni client-server.
 
 ## Perchè un'applicazione Web?
@@ -108,13 +112,14 @@ La scelta di sviluppare un'applicazione web è stata effettuata per diversi moti
 Per realizzare le funzionalità di "log-in" e gestione degli utenti è stato necessario scegliere un framework PHP che implementasse già queste funzioni in modo da concentrare lo sviluppo su quello che effettivamente veniva richiesto dagli obbiettivi del progetto. Per questo motivo la scelta è ricaduta su "HUGE".
 A differenza di altri famosi framework PHP, come ad esempio Symfony, HUGE è una soluzione più semplice: sia a livello di comprensione del codice, che a livello di struttura e usabilità. 
 HUGE è l'ultima versione di una serie di progetti PHP sviluppati da *panique* che hanno come finalità quella di fornire un container per la fase di avvio di nuove applicazioni, cioè preparare degli strumenti funzionanti "out of the box" in grado di assolvere i compiti essenziali di un'applicazione web: quindi gestione degli utenti (registrazione, log-in, gestione dei dati utente) e motore grafico.
+
 Alcune delle funzioni più importanti sono:
-* gli utenti possono registrarsi, effettuare log-in e log-out;
-* salvataggio password secondo gli standard ufficiali PHP (algoritmo *bcrypt*);
-* password dimenticata e reset password;
+* Gli utenti possono registrarsi, effettuare log-in e log-out;
+* Salvataggio password secondo gli standard ufficiali PHP (algoritmo *bcrypt*);
+* Password dimenticata e reset password;
 * "ricordami" (login via cookies);
-* verificazione account via email;
-* supporto nativo all'invio delle email (tramite PHP Mailer e altre librerie);
+* Verificazione account via email;
+* Supporto nativo all'invio delle email (tramite PHP Mailer e altre librerie);
 * URL rewriting.
 
 #### Struttura e funzionamento
@@ -237,8 +242,8 @@ class Application
     }
 }
 ?>
-
 ```
+
 La classe Application.php sta alla base di tutto il funzionamento dell'applicazione. Tutte le richieste al server vengono effettuate con lo schema "dominio.com/controller/metodo" e il protocollo http aggiunge gli eventuali parametri provenienti da form. In questo modo il file .htaccess può effettuare *url rewriting* mostrando appunto la stringa "dominio.com/controller/metodo" e non il il file che viene eseguito (in questo caso index.php).
 La prima operazione effettuata nel costruttore della classe Application è l'esecuzione del metodo *splitUrl()* che setta a dei valori iniziali gli attributi della classe *controller_name*, *action_name* e *parameters*, che rispettivamente sono il controller e il metodo (più i parametri) che andranno poi eseguiti.
 In seguito si effettuano dei controlli se esistono o meno il controller e il metodo selezionati, nel caso contrario vengono settati a valori di default (ad esempio un configurazione di default potrebbe essere *index/index*, cioè effettuare il redirect alla pagina iniziale). Una volta effettuata la convalida si procede con la creazione dell'instanza del controller selezionato e si richiama il metodo associato passando i parametri ricavati (se ce ne sono).
@@ -246,7 +251,40 @@ In seguito si effettuano dei controlli se esistono o meno il controller e il met
 #### Il database
 Per la memorizzazione dei dati degli utenti HUGE ha un database con una tabella *users* e una tabella *notes*. La prima contiene tutte le informazioni degli utenti registrati, mentre la seconda serve solo per eseguire delle dimostrazioni di utilizzo per HUGE e non verrà utilizzata in Syncbook. La tabella users è stata modificata inserendo anche i campi "first_name" e "last_name", necessari al completamento delle credenziali per il database relativo all'utente in sabre.
 
-!!!!!!!!!!! codice sql della tabella e spiegazione campi !!!!!!!!!!!!!!!!!!
+```sql
+CREATE DATABASE IF NOT EXISTS `syncbook_users`;
+
+CREATE TABLE IF NOT EXISTS `syncbook_users`.`users` (
+ `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index',
+ `user_firstname` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s first name, unique',
+ `user_lastname` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s last name',
+ `user_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s name',
+ `user_password_hash` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'user''s password in salted and hashed format',
+ `user_email` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s email, unique',
+ `user_active` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'user''s activation status',
+ `user_account_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'user''s account type (basic, premium, etc)',
+ `user_has_avatar` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1 if user has a local avatar, 0 if not',
+ `user_remember_me_token` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'user''s remember-me cookie token',
+ `user_creation_timestamp` bigint(20) DEFAULT NULL COMMENT 'timestamp of the creation of user''s account',
+ `user_last_login_timestamp` bigint(20) DEFAULT NULL COMMENT 'timestamp of user''s last login',
+ `user_failed_logins` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'user''s failed login attempts',
+ `user_last_failed_login` int(10) DEFAULT NULL COMMENT 'unix timestamp of last failed login attempt',
+ `user_activation_hash` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'user''s email verification hash string',
+ `user_password_reset_hash` char(40) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'user''s password reset code',
+ `user_password_reset_timestamp` bigint(20) DEFAULT NULL COMMENT 'timestamp of the password reset request',
+ `user_provider_type` text COLLATE utf8_unicode_ci,
+ PRIMARY KEY (`user_id`),
+ UNIQUE KEY `user_name` (`user_name`),
+ UNIQUE KEY `user_email` (`user_email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='user data';
+
+CREATE TABLE IF NOT EXISTS `syncbook_users`.`notes` (
+ `note_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+ `note_text` text NOT NULL,
+ `user_id` int(11) unsigned NOT NULL,
+ PRIMARY KEY (`note_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='user notes';
+```
 
 #### Da HUGE a Syncbook
 Per la realizzazione del progetto HUGE é stato riadattato a quelle che erano le esigenze del progetto:
@@ -257,16 +295,16 @@ Per la realizzazione del progetto HUGE é stato riadattato a quelle che erano le
 - al momento della registrazione è stato reso obbligatorio l'inserimento di nome e cognome da parte dell'utente (prima bastava immettere soltanto lo username);
 - eliminazione della tabella "notes" dal database.
 
-####### Come si mostra l'app
+##### Come si mostra l'app
 ![Dashboard](http://i.imgur.com/1kwNcVa.png)
 
-####### Inserimento contatto
+##### Inserimento contatto
 ![Inserimento](http://i.imgur.com/4PtPTUk.png)
 
-####### Visualizzazione contatto
+##### Visualizzazione contatto
 ![Visualizzazione](http://i.imgur.com/OZoYLT2.png)
 
-####### Modifica contatto
+##### Modifica contatto
 ![Modifica](http://i.imgur.com/WIV6h4R.png)
 
 ### ![Sabre Logo](http://i.imgur.com/tSCEawe.png "Sabre Logo") Sabre.io
@@ -283,7 +321,7 @@ Se l'applicazione fosse gestita in questo modo sarebbe impossibile per gli utent
 
 Entra quindi in gioco il frammento di codice PHP che si può leggere sotto, utilizzato all'interno del file che si occupa della gestione degli accessi da dispositivi mobili per reindirizzare l'utente all'interno della base di dati corretta durante il login.
 
-###### Gestione della multiplicità dei Database
+#### Gestione della multiplicità dei Database
 
 ```php
 <?php
@@ -326,7 +364,7 @@ if (!isset($databaseUsername)) {
 ?>
 ```
 
-###### Creazione di una vCard
+#### Creazione di una vCard
 ```php
 <?php
 
@@ -447,7 +485,7 @@ return $vCard;
 ?>
 ```
 
-###### Esempio di interfacciamento tra SabreDAV e HUGE
+#### Esempio di interfacciamento tra SabreDAV e HUGE
 
 ```php
 <?php
@@ -504,7 +542,7 @@ Le principali caratteristiche di questo framework sono il layout a griglie e la 
 
 Proprio per la sua natura di framework da utilizzarsi solo nelle prime fasi di un progetto (da qui il nome), Bootstrap non fornisce un'ampia gamma di componenti aggiuntivi ed ha uno stile grafico in sè povero. Per questo motivo si ha deciso di implementare una libreria css e javascript in stile [material design](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html): la quale, oltre a fornire una formattazione molto simile allo stile di Google, offre anche alcuni componenti aggiuntive come le *floating labels* e finestre di dialogo.
 
-###### Esempio di utilizzo di Bootstrap: finestra di dialogo di log-in.
+#### Esempio di utilizzo di Bootstrap: finestra di dialogo di log-in.
 Qui di seguito una parte di codice HTML utilizzata per realizzare la finestra di login della pagina iniziale dell'applicazione.
 
 ```html
@@ -545,7 +583,7 @@ Qui di seguito una parte di codice HTML utilizzata per realizzare la finestra di
     </div>
 </div>
 ```
-###### Il risultato
+##### Il risultato
 ![Imgur](http://i.imgur.com/YMwCKiQ.png)
 
 ### ![jQuery Logo](http://i.imgur.com/iyMmW9C.png "jQuery Logo") jQuery
@@ -555,7 +593,7 @@ Oltre alla semplificazione del codice, un'altra importante carattaristica di jQu
 Come accennato in precedenza, se si vuole rendere un'applicazione più dinamica e veloce, dal punto di vista dell'utilizzo, è necessaria l'implementazione delle richieste asincrone. Questa tecnologia è implementata in jQuery con il nome AJAX e il metodo $.ajax() relativo. Questo metodo permette l'esecuzione di uno script sul server (nel nostro caso un metodo specifico di HUGE) per poter fornire dei all'utente all'utente senza eseguire il refresh della pagina.
 In Syncbook tutte le interazioni tra utente e il database di SabreDav sono state eseguite con chiamate AJAX, qui di seguito viene riportata la parte di codice che viene eseguita nel momento in cui l'utente salva delle modifiche a un contatto.
 
-###### Esempio di utilizzo della funzione $.ajax()
+#### Esempio di utilizzo della funzione $.ajax()
 ```javascript
 // Gestione dell'evento 'click' sul bottone 'Salva'.
 $(document).on('click', '#btn_save_changes', function () {
@@ -615,16 +653,16 @@ Frmework PHP utilizzato per implementare il paradigma di programmazione ORM (Obj
 Si è presa la decisione di aggiungere questa funzionalità al progetto in modo tale da diminuire la quantità di codice scritto in fase di programmazione rendendo più semplici e lineari operazioni che sarebbero state molto complesse utilizzando mero linguaggio PHP.
 Il paradigma ORM risulta fondamentale nelle fasi di sviluppo
 
-##### ORM
+#### ORM
 
 L'Object-relation mapping è una tecnica di pragrammazione ampiamente utilizzata all'interno dei linguaggi di programmazione orientati all'utilizzo di strutture dati come gli oggetti. L'utilizzo di framework che implementano questo paradigma è spesso presente nel momento in cui è necessario interfacciare l'applicativo con uno specifico DBMS.
 
 Nel caso del linguaggio PHP vengono implementati una serie di algoritmi con lo scopo di ampliare le funzionalità dell'estensione PDO rendendo più semplice per il programmatore la realizzazione di algoritmi che si appoggiano su Database altamente complessi e ramificati. Utilizzare l'ORM permette anche di risparmiare al programmatore molti controlli dovuti alla struttura di una base di dati.
 
-###### Tabella "persona"
+##### Tabella "persona"
 ![Table persona](http://i.imgur.com/NnAE4p1.png?2 "Table persona")
 
-###### Interfacciamento attraverso ORM
+##### Interfacciamento attraverso ORM
 
 ```php
 <?php
@@ -685,6 +723,15 @@ Sistema software di controllo di versione distribuito, creato da Linus Torvalds 
 Diventato il leader nella sua categoria con il passare del tempo questa piattaforma è incentrata sulla velocità e sull'integrità dei dati.
 Ogni directory di lavoro creata attraverso Git identifica un Repository cioè una struttura dati che contiene dei metadati che permettono di tracciare tutte le azioni che sono compiute in fase di progettazione.
 
+##### Commit
+
+All'interno di un Repository ogni modifica al codice sorgente è possibile soltanto attraverso un Commit, un insieme di metadati a cui è possibile dare una descrizione. Attraverso questa metodologia, ogni membro del Repository ha la possibilità di conoscere le differenze che sono state apportate all'interno dei File a cui un Commit fa riferimento.
+
+##### Branch
+
+Attraverso una particolare tipologia di Commit è possibile creare un Branch all'interno di un Repository, differente dal "Master Branch" che identifica la root directory e che viene creato attraverso il processo di creazione di un Repository.
+Un Branch è un insieme di metadati che permette l'identificazione di un insieme di file/cartelle all'interno di un Repository. I Branch vengono, molto spesso, utilizzati per differenziare le varie aree di lavoro dei membri del Repository o, più semplicemente, per separare vari componenti non collegati tra loro di un progetto.
+
 #### ![GitHub Logo](http://i.imgur.com/TRmTY2v.png "GitHub Logo") GitHub
 
 Dato il fatto che Git nasce, principalmente, come una piattaforma per lavorare in gruppi di progetto composti da più persone, che molte volte vivono in luoghi distanti tra loro, è necessaria una piattaforma Server dove tutti possano accedere per apportare delle modifiche al Repository.
@@ -695,16 +742,7 @@ Viene fondato, quindi, nel 2008 GitHub. Sito web pubblico con lo scopo di fornir
 
 Queste due versioni presentano uguali capacità di gestione del codice, complete di statistiche e informazioni in tempo reale riguardanti il proprio lavoro.
 
-##### Commit
-
-All'interno di un Repository ogni modifica al codice sorgente è possibile soltanto attraverso un Commit, un insieme di metadati a cui è possibile dare una descrizione. Attraverso questa metodologia, ogni membro del Repository ha la possibilità di conoscere le differenze che sono state apportate all'interno dei File a cui un Commit fa riferimento.
-
-##### Branch
-
-Attraverso una particolare tipologia di Commit è possibile creare un Branch all'interno di un Repository, differente dal "Master Branch" che identifica la root directory e che viene creato attraverso il processo di creazione di un Repository.
-Un Branch è un insieme di metadati che permette l'identificazione di un insieme di file/cartelle all'interno di un Repository. I Branch vengono, molto spesso, utilizzati per differenziare le varie aree di lavoro dei membri del Repository o, più semplicemente, per separare vari componenti non collegati tra loro di un progetto.
-
-###### Repository "Home"
+##### Repository "Home"
 
 ![Repository Home](http://i.imgur.com/x2jxGiF.png "Repository Home")
 
@@ -721,7 +759,7 @@ L'immagine mostra la struttura della pagina iniziale di un repository all'intern
 * Link alle statistiche di pulse del Repository (==@TO-DO Description or Screen?==);
 * Link ai grafici del Repository, descritti nella sezione sottostante.
 
-###### Repository "Graphs"
+##### Repository "Graphs"
 
 ![Repository Graphs](http://i.imgur.com/UEQmwmy.png "Repository Graphs")
 
@@ -731,7 +769,7 @@ L'immagine mostra il portale attraverso il quale è possibile vedere:
 * La frequenza dei Commit di ogni membro del Repository nel tempo;
 * Il numero di righe di codice aggiunte e rimosse da ogni membro nel tempo.
 
-###### Repository "Commits"
+##### Repository "Commits"
 
 ![Repository Commits](http://i.imgur.com/uCVUzD5.png "Repository Commits")
 
@@ -743,7 +781,7 @@ Per ogni Commit è possibile vedere:
 * Quanto tempo è trascorso tra la data di creazione e la data corrente (7 days ago);
 * Il codice identificativo (2cfc22a).
 
-###### Esempio di "Commit"
+##### Esempio di "Commit"
 
 ![Esempio di Commit](http://i.imgur.com/fenzXku.png "Esempio di Commit")
 
@@ -758,7 +796,108 @@ Il server monta Ubuntu 14.04 LTS, per i servizi HTTP è stato installato Apache 
 ![mail-tester.com](http://i.imgur.com/ARUvWfV.png)
 
 ## Conclusioni
+
 Allo stato attuale del progetto possiamo dire di aver raggiunto in modo soddisfacente gli obbiettivi prefissati: Syncbook permette di organizzare una rubrica di contatti rispettando le regole dettate dagli standard vCard e mette a disposizione i dati inseriti dall'utente anche su altri dispositivi sincronizzati tramite webDav (longhin boh). Allo stesso tempo non sono state ancora implementate delle funzioni che potrebbero allargare l'utilizzo di Syncbook anche a gruppi di lavoro, oltre che al singolo utilizzatore: ad esempio la possibilità di creare più rubriche e di condividerle con delle persone selezionate. In ogni caso, grazie ai vari framework utilizzati, il progetto è stato sviluppato in modo tale da accogliere nuove modifiche senza però dover stravolgere tutto il lavoro fatto in precedenza.
+
+### Problematiche
+
+#### Utilizzo di Syncbook, dal dispositivo desiderato, prima di aver confermato l'indirizzo e-mail
+L'unica problematica degna di nota, per la quale sono stati necessari alcuni giorni per trovare l'algoritmo risolutivo, riguarda la creazione di un Database inattivo fino alla conferma dell'indirizzo e-mail dell'utente. Dato il fatto che una base di dati viene creata in corrispondenza con la registrazione di un nuovo utente, voleva essere trovata una modalità, attraverso la quale, l'utente non potesse utilizzare le credenziali immesse durante la registrazione, dal dispositivo mobile, senza aver confermato il proprio indirizzo e-mail.
+
+```sql
+-- Creazione di un Database inattivo, non gestito dagli algoritmi dell'applicazione.
+CREATE DATABASE IF NOT EXISTS sabredav_<username>_unactive;
+
+-- Creazione delle varie tabelle del Database.
+
+CREATE TABLE IF NOT EXISTS addressbooks (
+    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    principaluri VARCHAR(255),
+    displayname VARCHAR(255),
+    uri VARCHAR(200),
+    description TEXT,
+    synctoken INT(11) UNSIGNED NOT NULL DEFAULT '1',
+    UNIQUE(principaluri(100), uri(100))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS cards (
+    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    addressbookid INT(11) UNSIGNED NOT NULL,
+    carddata MEDIUMBLOB,
+    uri VARCHAR(200),
+    lastmodified INT(11) UNSIGNED,
+    etag VARBINARY(32),
+    size INT(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS addressbookchanges (
+    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    uri VARCHAR(200) NOT NULL,
+    synctoken INT(11) UNSIGNED NOT NULL,
+    addressbookid INT(11) UNSIGNED NOT NULL,
+    operation TINYINT(1) NOT NULL,
+    INDEX addressbookid_synctoken (addressbookid, synctoken)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS locks (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    owner VARCHAR(100),
+    timeout INTEGER UNSIGNED,
+    created INTEGER,
+    token VARBINARY(100),
+    scope TINYINT,
+    depth TINYINT,
+    uri VARBINARY(1000),
+    INDEX(token),
+    INDEX(uri(100))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS principals (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    uri VARCHAR(200) NOT NULL,
+    email VARCHAR(80),
+    displayname VARCHAR(80),
+    vcardurl VARCHAR(255),
+    UNIQUE(uri)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS groupmembers (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    principal_id INTEGER UNSIGNED NOT NULL,
+    member_id INTEGER UNSIGNED NOT NULL,
+    UNIQUE(principal_id, member_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS propertystorage (
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    path VARBINARY(1024) NOT NULL,
+    name VARBINARY(100) NOT NULL,
+    value MEDIUMBLOB
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE UNIQUE INDEX path_property ON propertystorage (path(600), name(100));
+
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    digesta1 VARCHAR(32),
+    UNIQUE(username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Nel caso in cui l'indirizzo mail venga confermato dall'utente, viene eseguito la seguente serie di istruzioni.
+-- Creazione di un Database gestito dall'applicazione
+CREATE DATABASE IF NOT EXISTS sabredav_<username>;
+-- Spostamento delle tabelle e del loro contenuto dal Database inattivo a quello attivo.
+RENAME TABLE sabredav_<username>_unactive.addressbookchanges TO sabredav_<username>.addressbookchanges;
+RENAME TABLE sabredav_<username>_unactive.addressbooks TO sabredav_<username>.addressbooks;
+RENAME TABLE sabredav_<username>_unactive.cards TO sabredav_<username>.cards;
+RENAME TABLE sabredav_<username>_unactive.groupmembers TO sabredav_<username>.groupmembers;
+RENAME TABLE sabredav_<username>_unactive.locks TO sabredav_<username>.locks;
+RENAME TABLE sabredav_<username>_unactive.principals TO sabredav_<username>.principals;
+RENAME TABLE sabredav_<username>_unactive.propertystorage TO sabredav_<username>.propertystorage;
+RENAME TABLE sabredav_<username>_unactive.users TO sabredav_<username>.users;
+-- Cancellazione del Database inattivo.
+DROP DATABASE sabredav_<username>_unactive;
+```
 
 ### Implementazioni future
 
