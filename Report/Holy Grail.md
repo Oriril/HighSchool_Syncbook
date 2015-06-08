@@ -3,20 +3,17 @@
 
 ## Indice
 
-[TOC]
-
 ## Introduzione
 
-Per molti anni le persone che utilizzano le Rubriche per scopi che vanno al di fuori del comune uso quotidiano si sono chieste se fosse possibile avere un mezzo attraverso il quale poter gestire la propria lista di contatti attraverso qualunque piattaforma.
-
+Per molti anni le persone che utilizzano le Rubriche per scopi che vanno al di fuori del comune uso quotidiano si sono chieste se fosse possibile avere un mezzo attraverso il quale poter gestire la propria lista di contatti attraverso qualunque piattaforma non dovendosi preoccupare di possibili corruzioni durante il processo di esportazione.
 Fino ad ora la risposta a questa domanda è sempre stata negativa a causa del desiderio delle grandi aziende che, con lo scopo di fare sempre più soldi, rendono quasi impossibile la sincronizzazione dei contatti tra dispositivi diversi tra loro.
 
 ### vCard
-Il formato più utilizzato per rappresentare un contatto sotto forma digitale è tuttora la vCard.
-Giunta alla sua quarta versione lo Standard di rappresentazione dei dati presenti all'interno di questo mezzo elettronico è descritto all'interno dell'[RFC 6350](http://tools.ietf.org/html/rfc6350) è per quasi impossibile trovare online un file che rispetti le regole che vengono descritte.
+Il formato più utilizzato per rappresentare un contatto sotto forma digitale è tuttora la vCard, giunta alla sua quarta versione.
+Lo standard di rappresentazione dei dati presenti all'interno di questo file di testo è descritto nell'[RFC 6350](http://tools.ietf.org/html/rfc6350). Resta, però, quasi impossibile, trovare online un servizio che rispetti le regole che vengono definite.
 
 ### CardDAV
-Il protocollo più utilizzato per sincronizzare i contatti all'interno del Web è tuttora il CardDAV.
+Il protocollo più utilizzato per la gestione di contatti all'interno del Web è tuttora il CardDAV.
 Essendo basato sulla sintassi specifica delle vCard, CardDAV permette un semplice scambio di informazioni tra Server e Client durante tutte le operazioni di creazione, modifica ed eliminazione di un file vCard.
 
 ## Problema
@@ -47,9 +44,9 @@ X-SOCIALPROFILE;TYPE=HOME;PREF=1:TWITTER:http://twitter.com/jhonsmith
 END:VCARD
 ```
 
-Per quanto strano possa sembrare, nonostante la loro quarta versione, le vCard non supportano quelli che sono oramai diventati degli strumenti alla base delle società moderna: i Social Network.
+Per quanto strano possa sembrare, nonostante la loro quarta versione, le vCard non supportano quelli che sono oramai diventati degli strumenti alla base delle società moderna, i Social Network.
 
-Questi campi sono vengono quindi descritti come non-standard e vanno rappresentati da una lettera `X`, seguita dal simbolo `-` e dal nome del campo. I campi così definiti possono non essere supportati da tutte le applicazioni attraverso le quali viene poi data la possibilità all'utente di gestire la propria rubrica.
+Questi campi vengono quindi definiti come *non-standard* e vanno rappresentati da una lettera `X`, seguita dal simbolo `-` e dal nome del campo stesso. I campi così descritti possono non essere supportati da tutte le applicazioni client attraverso le quali viene poi data la possibilità all'utente di gestire la propria rubrica.
 
 ### Dati salvati in Apple Contacts
 ```
@@ -67,7 +64,7 @@ X-SOCIALPROFILE;type=twitter:http://twitter.com/jhonsmith
 END:VCARD
 ```
 
-Utilizzando un formato non più supportato nel mondo delle vCard, la Apple riesce a rappresentare una serie di dati in un modo molto differente rispetto al precedente rendendo complessa e laboriosa l'esportazione di questa vCard in un dispositivo non appartenente alla famosa azienda della mela.
+Utilizzando un formato non più supportato nel mondo delle vCard, la Apple riesce a rappresentare una serie di semplici dati in un modo molto differente rispetto al precedente rendendo complessa e laboriosa l'esportazione di questa vCard in un dispositivo non appartenente alla famosa azienda statunitense.
 
 Le differenze più evidenti si possono notare nella rappresentazione del campo `URL` che viene ora raggrupato con la proprietà non-standard `X-ABLabel`. Questo metodo viene utilizzato per risolvere il problema di mostrare all'utente un sito web come proprio del contatto che egli sta visualizzando.
 
@@ -88,42 +85,43 @@ item2.X-ABLabel:Twitter
 END:VCARD
 ```
 
-Dato il fatto che Google Contacts non da la possibilità all'utente di salvare all'interno delle informazioni di un contatto quelle riguardanti i Social Network è necessario utilizzare la proprietà `URL` per gestire gli stessi. L'utilizzo di questo metodo di formattazione, unita a degli inutili caratteri di *escape* per rappresentare gli indirizzi *http*, rende impossibile mantenere i medesimi dati in fase di importazione della vCard in un dispositivo che non possieda un sistema operativo Android.
+Google Contacts non da la possibilità all'utente di salvare all'interno delle informazioni di un contatto quelle riguardanti i Social Network, è necessario utilizzare la proprietà `URL` per gestire gli stessi. L'utilizzo di questa peculiare formattazione, unita a degli inutili caratteri di *escape* usati per rappresentare gli indirizzi *http*, rende impossibile mantenere i medesimi dati in fase di importazione della vCard in un dispositivo che non possieda un sistema operativo Android.
 
 ## Finalità del progetto
 
 In seguito a un'analisi approfondita della situazione attuale del non utilizzo degli standard vCard, appare evidente che l'importazione ed esportazione di contatti tra dispositivi diversi non può avvenire, se non in modo incompleto.
-(Dato il risultato di questo studio approfondito sui vari esempi di vCard diventa evidente che il motivo per il quale quando si importa un contatto da una tipologia di dispositivo ad un'altra il prodotto finito risulta spesso incompleto o corrotto.)
+(Dato il risultato di questo studio approfondito sui vari esempi di vCard diventa evidente che il motivo per il quale, all'importazione di un contatto, da una tipologia di dispositivo ad un'altra il prodotto finito risulta spesso incompleto o corrotto.)
 
-Per questo motivo si è deciso di sviluppare un progetto per dimostrare come sia possibile utilizzare gli Standard per la formattazione di una vCard e trarne vantaggio durante il processo di gestione di una rubrica.
-(Entra quindi in gioco il frutto di ore e ore passate a programmare per poter presentare un progetto che vuole dimostrare come è possibile utilizzare gli Standard per la formattazione di una vCard e trarne vantaggio durante il processo di gestione di una rubrica.)
+Per questo motivo si è deciso di sviluppare un progetto per dimostrare come sia possibile utilizzare gli Standard per la formattazione di una vCard traendone vantaggio durante il processo di gestione di una rubrica.
 
-## Obiettivi del progetto
+## Obiettivo del progetto
 
-Realizzare un'applicazione web che permetta all'utente registrato di creare delle rubriche secondo gli standard delle vCard. L'applicazione dovrà essere in grado di salvare i dati inseriti dall'utente e di metterli a disposizione anche ad altri dispositivi che si interfacciano tramite il protocollo WebDAV. Sarà dunque necessaria la configurazione di un server per sostenere tutte le tipologie di richieste: dal salvataggio dei dati tramite database, alla sicurezza delle comunicazioni client-server.
+Realizzare un'applicazione web che permetta, all'utente correttamente registrato, di creare delle rubriche secondo gli standard vCard. L'applicativo dovrà essere in grado di salvare i dati inseriti dall'utente e di metterli a disposizione anche ad altri dispositivi che si interfacciano tramite il protocollo CardDAV. Sarà dunque necessaria la configurazione di un server per sostenere tutte le tipologie di richieste: dal salvataggio dei dati tramite database, alla sicurezza delle comunicazioni con il client.
 
 ## Perchè un'applicazione Web?
 
-La scelta di sviluppare un'applicazione web è stata effettuata per diversi motivi. Il primo è legato alla natura della libreria sabre.io: essa infatti è sviluppata totalmente in linguaggio PHP e per questa ragione è sembrato ovvio continuare con questa tecnologia a integrare nuovi servizi e funzionalità. Il secondo motivo ha come centralità la portabilità dell'applicazione: se da un lato sarebbe stato possibile progettare un'applicazione più rivolta al funzionamento lato client, come una applet Java o una app Android, dall'altro si ha riconosciuto che un'applicazione web avrebbe avuto un maggior bacino di utenza rispetto alle altre alternative. Questo perché un'applicazione web non ha bisogno di essere installata fisicamente nel dispositivo (e quindi essere anche vincolata al software del sistema operativo ospitante), in più gli ultimi layout grafici responsive permettono la visualizzazione delle stessa pagina in modo efficiente su un range di dispositivi molto più ampio rispetto agli anni passati.
+La scelta di sviluppare un'applicazione web è stata effettuata per diversi motivi.
+Il primo è legato alla natura della libreria Sabre.io: essa infatti è sviluppata totalmente in linguaggio PHP e per questa ragione è sembrato ovvio continuare con questa tecnologia integrando nuovi servizi e funzionalità.
+Il secondo motivo si bassa sulla portabilità dell'applicazione, se da un lato sarebbe stato possibile progettare un'applicazione rivolta alle funzionalità lato client, come un'applet Java od un'app Android, dall'altro si è capito che un'applicazione web avrebbe avuto un maggior bacino di utenza rispetto alle altre alternative. Questo perché una piattaforma web non ha bisogno di essere installata fisicamente nel dispositivo essendo, quindi, vincolata al software del sistema operativo ospitante. (In più gli ultimi layout grafici responsive permettono la visualizzazione delle stessa pagina in modo efficiente su un range di dispositivi molto più ampio rispetto agli anni passati.)
 
 ## Strumenti
 
 ### HUGE
-Per realizzare le funzionalità di "log-in" e gestione degli utenti è stato necessario scegliere un framework PHP che implementasse già queste funzioni in modo da concentrare lo sviluppo su quello che effettivamente veniva richiesto dagli obbiettivi del progetto. Per questo motivo la scelta è ricaduta su "HUGE".
-A differenza di altri famosi framework PHP, come ad esempio Symfony, HUGE è una soluzione più semplice: sia a livello di comprensione del codice, che a livello di struttura e usabilità. 
-HUGE è l'ultima versione di una serie di progetti PHP sviluppati da *panique* che hanno come finalità quella di fornire un container per la fase di avvio di nuove applicazioni, cioè preparare degli strumenti funzionanti "out of the box" in grado di assolvere i compiti essenziali di un'applicazione web: quindi gestione degli utenti (registrazione, log-in, gestione dei dati utente) e motore grafico.
+Per realizzare le funzionalità di *log-in* e gestione degli utenti è stato necessario scegliere un framework PHP che implementasse già questi algoritmi in modo da concentrare lo sviluppo su quello che effettivamente veniva richiesto dagli obiettivi del progetto. Per questo motivo la scelta è ricaduta su *HUGE*.
+A differenza di altri famosi framework, come ad esempio Symfony, HUGE è una soluzione più semplice, sia a livello di comprensione del codice, che a livello di struttura e usabilità.
+HUGE è l'ultima versione di una serie di progetti PHP sviluppati da *Panique* che hanno come finalità quella di fornire un container per la fase di avvio di nuove applicazioni, cioè preparare degli strumenti funzionanti "out of the box" in grado di assolvere i compiti essenziali di un'applicazione web: la gestione degli utenti (registrazione, log-in, gestione dei dati utente) e il motore grafico.
 
 Alcune delle funzioni più importanti sono:
-* Gli utenti possono registrarsi, effettuare log-in e log-out;
+* Gli utenti possono registrarsi ed effettuare log-in e log-out;
 * Salvataggio password secondo gli standard ufficiali PHP (algoritmo *bcrypt*);
-* Password dimenticata e reset password;
-* "ricordami" (login via cookies);
-* Verificazione account via email;
-* Supporto nativo all'invio delle email (tramite PHP Mailer e altre librerie);
+* Password dimenticata e conseguente possibilità del reset della stessa;
+* ==ricordami== (login via cookies);
+* Verifica dell'account via e-mail;
+* Supporto nativo all'invio delle e-mail (tramite PHP Mailer e altre librerie);
 * URL rewriting.
 
 #### Struttura e funzionamento
-HUGE presenta una struttura MCV, ma i metodi utilizzati sono per lo più statici. La struttura MCV viene sfruttata appieno dalla configurazione di un file .htaccess e dal file Application.php. Tutte le richieste http vengono dirottate da apache nella cartella public in cui è presente il file index.php che non fa altro che creare una nuova istanza della classe Application.
+HUGE presenta una struttura MVC, anche se i metodi utilizzati sono per lo più statici. La strutturazione Model-View-Controller viene sfruttata appieno dalla configurazione di un file .htaccess e dal file Application.php. Risultando che tutte le richieste http vengono dirottate da apache nella cartella public in cui è presente il file index.php che non fa altro che creare una nuova istanza della classe Application. ==Meh==
 
 ##### Il file .htaccess della cartella *public*
 ```apache
@@ -147,12 +145,12 @@ RewriteCond %{REQUEST_FILENAME} !-l
 # allora riscrivi la URL nel modo seguente:
 # Prende l'intero nome del file richiesto e lo ritorna come valore di
 # parametro "url" a index.php. Aggiunge in coda le rimanenti query string
-# dell'URL orginale come parametri successivi (QSA), ferma l'esecuzione di 
+# dell'URL orginale come parametri successivi (QSA), ferma l'esecuzione di
 # questo file .htaccess (L).
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 ```
 
-Il file .htacces appena descritto è presente nella cartella public i HUGE, allo stesso livello del file index.php. Questo file permette il funzionamento dello "url rewriting" e dell'esecuzione di controller/metodi tramite determinati parametri presenti nelle richieste http.
+Il file .htacces appena descritto è presente nella cartella public di HUGE, allo stesso livello del file index.php. Questo file permette il funzionamento dello "url rewriting" e dell'esecuzione di controller/metodi tramite determinati parametri presenti nelle richieste http.
 
 ##### La classe *Application.php*
 ```php
@@ -244,12 +242,12 @@ class Application
 ?>
 ```
 
-La classe Application.php sta alla base di tutto il funzionamento dell'applicazione. Tutte le richieste al server vengono effettuate con lo schema "dominio.com/controller/metodo" e il protocollo http aggiunge gli eventuali parametri provenienti da form. In questo modo il file .htaccess può effettuare *url rewriting* mostrando appunto la stringa "dominio.com/controller/metodo" e non il il file che viene eseguito (in questo caso index.php).
+La classe Application.php sta alla base di tutto il funzionamento dell'applicazione. Tutte le richieste al server vengono effettuate con lo schema "dominio.com/controller/metodo"("<dominiuo>/controller/metodo") e il protocollo http aggiunge gli eventuali parametri provenienti dal form. In questo modo il file .htaccess può effettuare l'operazione di *url rewriting* mostrando la stringa sopra citata e non il il file che viene eseguito (in questo caso index.php).
 La prima operazione effettuata nel costruttore della classe Application è l'esecuzione del metodo *splitUrl()* che setta a dei valori iniziali gli attributi della classe *controller_name*, *action_name* e *parameters*, che rispettivamente sono il controller e il metodo (più i parametri) che andranno poi eseguiti.
 In seguito si effettuano dei controlli se esistono o meno il controller e il metodo selezionati, nel caso contrario vengono settati a valori di default (ad esempio un configurazione di default potrebbe essere *index/index*, cioè effettuare il redirect alla pagina iniziale). Una volta effettuata la convalida si procede con la creazione dell'instanza del controller selezionato e si richiama il metodo associato passando i parametri ricavati (se ce ne sono).
 
 #### Il database
-Per la memorizzazione dei dati degli utenti HUGE ha un database con una tabella *users* e una tabella *notes*. La prima contiene tutte le informazioni degli utenti registrati, mentre la seconda serve solo per eseguire delle dimostrazioni di utilizzo per HUGE e non verrà utilizzata in Syncbook. La tabella users è stata modificata inserendo anche i campi "first_name" e "last_name", necessari al completamento delle credenziali per il database relativo all'utente in sabre.
+Per la memorizzazione dei dati degli utenti HUGE presenta una base di dati con una tabella *users* e una tabella *notes*. La prima contiene tutte le informazioni degli utenti registrati, mentre la seconda serve solo per eseguire delle dimostrazioni di utilizzo per HUGE e non verrà utilizzata in Syncbook. La tabella users è stata modificata inserendo anche i campi "first_name" e "last_name" ==(Rendendoli obbligatori durante la registrazione?)==, necessari al completamento delle credenziali per il database relativo all'utente in Sabre.
 
 ```sql
 CREATE DATABASE IF NOT EXISTS `syncbook_users`;
@@ -287,13 +285,13 @@ CREATE TABLE IF NOT EXISTS `syncbook_users`.`notes` (
 ```
 
 #### Da HUGE a Syncbook
-Per la realizzazione del progetto HUGE é stato riadattato a quelle che erano le esigenze del progetto:
-- tutta la parte grafica è stata affidata a Bootstrap;
-- la navigazione è stata organizzata in modo tale da avere una homepage (index) che fa da pagina introduttiva al progetto e una dashboard, ovvero il pannello di controllo delle funzionalità di Syncbook;
-- sono state create due classi (ContactController e ContactModel) per la raccogliere i metodi atti alla manipolazione dei contatti e della rubrica;
-- sono state tolte delle funzionalità come il cambio dello username perché avrebbe causato problemi tra la corrispondenza tra database di HUGE e quello personale dell'utente;
-- al momento della registrazione è stato reso obbligatorio l'inserimento di nome e cognome da parte dell'utente (prima bastava immettere soltanto lo username);
-- eliminazione della tabella "notes" dal database.
+Per la realizzazione del progetto, HUGE é stato riadattato a quelle che erano le esigenze dello stesso:
+- Tutta la parte grafica è stata affidata a Bootstrap;
+- La navigazione è stata organizzata in modo tale da avere una homepage (index) che fa da pagina introduttiva al progetto e una dashboard, ovvero il pannello di controllo delle funzionalità di Syncbook; ==Meh==
+- Sono state create due classi (ContactController e ContactModel) per la raccogliere i metodi atti alla manipolazione dei contatti e della rubrica;
+- Sono state tolte delle funzionalità come il cambio dell'username perché avrebbe causato problemi tra la corrispondenza tra database di HUGE e quello personale dell'utente, utilizzato in Sabre;
+- Al momento della registrazione è stato reso obbligatorio l'inserimento di nome e cognome da parte dell'utente (prima bastava immettere soltanto lo username);
+- Eliminazione della tabella "notes" dal database.
 
 ##### Come si mostra l'app
 ![Dashboard](http://i.imgur.com/1kwNcVa.png)
@@ -309,17 +307,14 @@ Per la realizzazione del progetto HUGE é stato riadattato a quelle che erano le
 
 ### ![Sabre Logo](http://i.imgur.com/tSCEawe.png "Sabre Logo") Sabre.io
 
-Framework PHP, creato con lo scopo di dare la possibilità ai programmatori di sviluppare applicazioni Web completamente basate sui più recenti RFC di vCard e vCalendar nel modo più veloce e semplice possibile.
-
-==@TO-DO More description needed?==
+Framework PHP, creato con lo scopo di dare la possibilità ai programmatori di sviluppare applicazioni Web completamente basate sui più recenti RFC di vCard e vCalendar nel modo più veloce e semplice possibile. Gestendo, inoltre, complessi protocolli come CardDAV e WebDAV attraverso il solo uso di istruzioni in linguaggio PHP.
 
 Data la peculiare strutturazione della base di dati che viene utilizzata all'interno di Sabre/DAV è necessario creare un nuovo Database per ogni utente che desidera creare un account all'interno di Syncbook.
+Alla base di questo problema sta il fatto che, secondo i creatori del Framework ogni utente dovrebbe essere gestito da un utente di livello più alto rispetto al proprio rendendo così più semplici, per gli amministratori d'azienda, le operazioni riguardanti la gestione dei Server.
 
-Alla base di questo problema sta il fatto che, secondo i creatori del Framework ogni utente dovrebbe essere gestito da un utente di livello più alto rispetto al proprio rendendo così più semplici per gli amministratori d'azienda le operazioni riguardanti la gestione dei Server.
+Se l'applicazione fosse gestita in questo modo sarebbe impossibile per i singoli utenti svolgere alcune fondamentali operazioni sulle loro rubriche, rendendo il servizio offerto, da alcuni punti di vista, peggiore rispetto a molte altre alternative che si possono trovare sul Web.
 
-Se l'applicazione fosse gestita in questo modo sarebbe impossibile per gli utenti svolgere alcune fondamentali operazioni sulle loro rubriche, rendendo il servizio offerto, da alcuni punti di vista, peggiore rispetto a molte altre alternative che si possono trovare sul Web.
-
-Entra quindi in gioco il frammento di codice PHP che si può leggere sotto, utilizzato all'interno del file che si occupa della gestione degli accessi da dispositivi mobili per reindirizzare l'utente all'interno della base di dati corretta durante il login.
+Entra quindi in gioco il codice PHP che si può leggere sotto, utilizzato all'interno del file che si occupa della gestione degli accessi da dispositivi mobili, per reindirizzare l'utente all'interno della base di dati corretta durante il login.
 
 #### Gestione della multiplicità dei Database
 
@@ -543,7 +538,7 @@ Le principali caratteristiche di questo framework sono il layout a griglie e la 
 Proprio per la sua natura di framework da utilizzarsi solo nelle prime fasi di un progetto (da qui il nome), Bootstrap non fornisce un'ampia gamma di componenti aggiuntivi ed ha uno stile grafico in sè povero. Per questo motivo si ha deciso di implementare una libreria css e javascript in stile [material design](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html): la quale, oltre a fornire una formattazione molto simile allo stile di Google, offre anche alcuni componenti aggiuntive come le *floating labels* e finestre di dialogo.
 
 #### Esempio di utilizzo di Bootstrap: finestra di dialogo di log-in.
-Qui di seguito una parte di codice HTML utilizzata per realizzare la finestra di login della pagina iniziale dell'applicazione.
+Una parte di codice HTML utilizzata per realizzare la finestra di login dell'applicazione.
 
 ```html
 <div id="log-in-dialog" class="modal fade">
@@ -588,8 +583,9 @@ Qui di seguito una parte di codice HTML utilizzata per realizzare la finestra di
 
 ### ![jQuery Logo](http://i.imgur.com/iyMmW9C.png "jQuery Logo") jQuery
 
-jQuery è un framework javascript che ha come intento quello di snellire la programmazione semplificando la selezione, la manipolazione degli elementi HTML e la gestione degli eventi del DOM (Document Object Model). Per un'applicazione che nasce in quello che viene definito "web 2.0", non è pensabile il non utilizzo di javascript: sia dal punto di vista grafico, che dal punto di vista delle funzionalità (ad esempio le richieste asincrone).
-Oltre alla semplificazione del codice, un'altra importante carattaristica di jQuery è che è testato per funzionare allo stesso modo su più browser possibili: quindi il programmatore può concentrarsi di più sull'effettivo sviluppo dell'applicazione che sul funzionamento multi-piattaforma.
+jQuery è un framework javascript che ha come intento quello di snellire la programmazione javascript semplificando la manipolazione degli elementi HTML e la gestione degli eventi del DOM (Document Object Model). Per un'applicazione che nasce in quello che viene definito "web 2.0", non è pensabile il non utilizzo di JS, sia dal punto di vista grafico, che dal punto di vista delle funzionalità (ad esempio le richieste asincrone ==Meh==).
+Oltre alla semplificazione del codice, un'altra importante carattaristica di jQuery è che è testato per funzionare allo stesso modo su più browser possibili, quindi il programmatore può concentrarsi di più sull'effettivo sviluppo dell'applicazione che sul funzionamento multi-piattaforma.
+
 Come accennato in precedenza, se si vuole rendere un'applicazione più dinamica e veloce, dal punto di vista dell'utilizzo, è necessaria l'implementazione delle richieste asincrone. Questa tecnologia è implementata in jQuery con il nome AJAX e il metodo $.ajax() relativo. Questo metodo permette l'esecuzione di uno script sul server (nel nostro caso un metodo specifico di HUGE) per poter fornire dei all'utente all'utente senza eseguire il refresh della pagina.
 In Syncbook tutte le interazioni tra utente e il database di SabreDav sono state eseguite con chiamate AJAX, qui di seguito viene riportata la parte di codice che viene eseguita nel momento in cui l'utente salva delle modifiche a un contatto.
 
@@ -651,7 +647,6 @@ $(document).on('click', '#btn_save_changes', function () {
 Frmework PHP utilizzato per implementare il paradigma di programmazione ORM (Object-relational mapping) all'interno dei sorgenti di SabreDAV.
 
 Si è presa la decisione di aggiungere questa funzionalità al progetto in modo tale da diminuire la quantità di codice scritto in fase di programmazione rendendo più semplici e lineari operazioni che sarebbero state molto complesse utilizzando mero linguaggio PHP.
-Il paradigma ORM risulta fondamentale nelle fasi di sviluppo
 
 #### ORM
 
