@@ -1,23 +1,73 @@
 # Syncbook
-![Syncbook Logo](http://i.imgur.com/oONGOVT.png "Syncbook Logo")
+[Syncbook Logo](http://i.imgur.com/oONGOVT.png "Syncbook Logo")
 
 ## Indice
 
 + [Introduzione](#introduzione)
-	- [vCard](#vCard)
-	- [CardDAV](#CardDAV)
-+ [Problema](#Problema)
+	- [vCard](#vcard)
+	- [CardDAV](#carddav)
++ [Problema](#problema)
+	- [Dati da salvare](#dati-da-salvare)
+	- [Dati salvati secondo standard](#dati-salvati-secondo-standard)
+	- [Dati salvati in Apple Contacts](#sati-salvati-in-apple-contacts)
+	- [Dati salvati in Google Contacts](#dati-salvati-in-google-contacts)
++ [Finalità del progetto](#finalità-di-progetto)
++ [Obiettivo del progetto](#obiettivo-del-progetto)
++ [Perchè un'applicazione web?](#perchè-unapplicazione-web)
++ [Strumenti](#strumenti)
+	- [HUGE](#huge)
+		+ [Struttura e funzionamento](#struttura-e-funzionamento)
+			- [Il file .htaccess della cartella public](#il-file-htaccess-della-cartella-public)
+			- [La classe Application.php](#la-classe-applicationphp)
+        + [Il database](#il-database)
+        + [Da HUGE a Syncbook](#da-huge-a-syncbook)
+        	- [Come si mostra l'app](#come-si-mostra-lapp)
+        	- [Inserimento di un contatto](#inserimento-di-un-contatto)
+        	- [Visualizzazione di un contatto](#visualizzazione-di-un-contatto)
+        	- [Modifica di un contatto](#modifica-di-un-contatto)
+    - [Sabre.io](#-sabreio)
+    	+ [Gestione della multiplicità dei Database](#gestione-della-multiplicità-dei-database)
+    	+ [Creazione di una vCard](#creazione-di-una-vcard)
+    	+ [Esempio di interfacciamento tra SabreDAV e HUGE](#esempio-di-interfacciamento-tra-sabredav-e-huge)
+    - [Bootstrap](#-bootstrap)
+    	+ [Esempio di utilizzo di Bootstrap: finestra di dialogo di log-in](#esempio-di-utilizzo-di-bootstrap-finestra-di-dialogo-di-log-in)
+    		- [Il risultato](#il-risultato)
+    - [jQuery](#-jquery)
+    	+ [Esempio di utilizzo della funzione $.ajax()](#esempio-di-utilizzo-della-funzione-ajax)
+    - [RedBean PHP](#redbean-php)
+    	+ [ORM](#orm)
+    		- [Tabella "persona"](#tabella-persona)
+    		- [Interfacciamento attraverso ORM](#interfacciamento-attraverso-orm)
+    - [Git](#-git)
+    	+ [Commit](#commit)
+    	+ [Branch](#branch)
+    	+ [GitHub](#-github)
+    		- [Repository "Home"](#repository-home)
+    		- [Repository "Graphs"](#repository-graphs)
+    		- [Repository "Commits"](#repository-commits)
+    		- [Esempio di "Commit"](#esempio-di-commit)
+    - [Server](#server)
++ [Conclusioni](#conclusioni)
+	- [Problematiche](#problematiche)
+		+ [Utilizzo di Syncbook, dal dispositivo desiderato, prima di aver confermato l'indirizzo e-mail](#utilizzo-di-syncbook-dal-dispositivo-desiderato-prima-di-aver-confermato-lindirizzo-e-mail)
+    - [Implementazioni future](#implementazioni-future)
+    	+ [Gestione di più rubriche](#gestione-di-più-rubriche)
+    	+ [Importazione ed esportazione di vCard](#importazione-ed-esportazione-di-vcard)
++ [Bibliografia](#bibliografia)
+	- [Documentazione tecnica](#documentazione-tecnica)
+	- [Siti di riferimento](#siti-di-riferimento)
++ [Ringraziamenti](#ringraziamenti)
 
 ## Introduzione
 
 Da sempre il grande problema delle rubriche in formato digitale è la loro condivisione ed esportazione tra dispositivi diversi tra loro, questo perchè le grandi aziende non si sono mai preoccupate di utilizzare uno standard comune durante il salvataggio dei contatti pensando solo ai propri interessi. In realtà degli standard per la formattazione dei dati esistono ma non sono implementati nei più comuni applicativi.
 
 ### vCard
-Il formato più utilizzato per rappresentare un contatto sotto forma digitale è tuttora la vCard, giunta alla sua quarta versione.
+Il formato più utilizzato per rappresentare un contatto sotto forma digitale è  la vCard, giunta alla sua quarta versione.
 Lo standard di rappresentazione dei dati presenti all'interno di questo file di testo è descritto nell'[RFC 6350](http://tools.ietf.org/html/rfc6350). Resta, però, quasi impossibile, trovare online un servizio che rispetti le regole che vengono definite.
 
 ### CardDAV
-Il protocollo più utilizzato per la gestione di contatti all'interno del web è tuttora il CardDAV. Essendo basato sulla sintassi specifica delle vCard, CardDAV permette un semplice scambio di informazioni tra server e client durante tutte le operazioni di creazione, modifica ed eliminazione di un file vCard.
+Il protocollo più utilizzato per la gestione di contatti all'interno del web è  il CardDAV. Essendo basato sulla sintassi specifica delle vCard, CardDAV permette un semplice scambio di informazioni tra server e client durante tutte le operazioni di creazione, modifica ed eliminazione di un file vCard.
 
 ## Problema
 
@@ -98,11 +148,11 @@ In seguito a un'analisi approfondita della situazione attuale del non utilizzo d
 
 Realizzare un'applicazione web che permetta, all'utente correttamente registrato, di creare delle rubriche secondo gli standard vCard. L'applicativo dovrà essere in grado di salvare i dati inseriti dall'utente e di metterli a disposizione anche ad altri dispositivi che si interfacciano tramite il protocollo WebDAV. Risulta dunque necessaria la configurazione di un server per sostenere tutte le tipologie di richieste: dal salvataggio dei dati tramite database, alla sicurezza delle comunicazioni con il client.
 
-## Perchè un'applicazione Web?
+## Perchè un'applicazione web?
 
 La scelta di sviluppare un'applicazione web è stata effettuata per diversi motivi.
 Il primo è legato alla natura della libreria Sabre.io: essa infatti è sviluppata totalmente in linguaggio PHP e per questa ragione è sembrato ovvio continuare con questa tecnologia integrando nuovi servizi e funzionalità.
-Il secondo motivo si bassa sulla portabilità dell'applicazione: se da un lato sarebbe stato possibile progettare un'applicazione rivolta alle funzionalità lato client, come un'applet Java od un'app Android, dall'altro si è capito che un'applicazione web avrebbe avuto un maggior bacino di utenza rispetto alle altre alternative. Questo perché una piattaforma web non ha bisogno di essere installata fisicamente nel dispositivo essendo, quindi, vincolata al software del sistema operativo ospitante.
+Il secondo motivo si basa sulla portabilità dell'applicazione: se da un lato sarebbe stato possibile progettare un'applicazione rivolta alle funzionalità lato client, come un'applet Java od un'app Android, dall'altro si è capito che un'applicazione web avrebbe avuto un maggior bacino di utenza rispetto alle altre alternative. Questo perché una piattaforma web non ha bisogno di essere installata fisicamente nel dispositivo essendo, quindi, vincolata al software del sistema operativo ospitante.
 
 ## Strumenti
 
@@ -304,8 +354,6 @@ Data la peculiare strutturazione della base di dati che viene utilizzata all'int
 Alla base di questo problema sta il fatto che, secondo i creatori del framework ogni utente dovrebbe essere gestito da un utente di livello più alto rispetto al proprio rendendo così più semplici, per gli amministratori d'azienda, le operazioni riguardanti la gestione dei server.
 Se l'applicazione fosse gestita in questo modo sarebbe impossibile per i singoli utenti svolgere alcune fondamentali operazioni sulle loro rubriche, rendendo il servizio offerto, da alcuni punti di vista, peggiore rispetto a molte altre alternative che si possono trovare sul web.
 Entra quindi in gioco il codice PHP che si può leggere sotto, utilizzato all'interno del file che si occupa della gestione degli accessi da dispositivi mobili, per reindirizzare l'utente all'interno della base di dati corretta durante il login.
-
-#### Gestione della multiplicità dei Database
 
 ```php
 <?php
@@ -528,7 +576,7 @@ Le principali caratteristiche di questo framework sono: il layout a griglie e la
 La struttura a colonne di Bootstrap permette di creare layout grafici in grado di adattarsi dinamicamente a qualunque display realizzando quello che viene definito *responsive design*.
 Proprio per la sua natura esso è un framework da utilizzarsi solo nelle prime fasi di un progetto (da qui il nome), Bootstrap non fornisce un'ampia gamma di componenti aggiuntivi avendo uno stile grafico in sè povero. Per questo motivo si ha deciso di implementare una libreria CSS e JS in stile [material design](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html): la quale, oltre a fornire una formattazione molto simile allo stile di Google, offre anche alcune componenti aggiuntive come le *floating labels* e finestre di dialogo.
 
-#### Esempio di utilizzo di Bootstrap: finestra di dialogo di log-in.
+#### Esempio di utilizzo di Bootstrap: finestra di dialogo di log-in
 Una parte di codice HTML utilizzata per realizzare la finestra di login dell'applicazione.
 
 ```html
@@ -705,14 +753,14 @@ try {
 ### ![Git Logo](http://i.imgur.com/FqHRvKB.png "Git Logo") Git
 
 Sistema software di controllo di versione distribuito, creato da Linus Torvalds nel 2005.
-Diventato il leader nella sua categoria con il passare del tempo questa piattaforma è incentrata sulla velocità e sull'integrità dei dati.
+Diventata il leader nella sua categoria con il passare del tempo, questa piattaforma ha fatto della velocità e dell'integrità dei dati i suoi punti di forza.
 Ogni directory di lavoro creata attraverso Git identifica un repository cioè una struttura dati che contiene dei metadati che permettono di tracciare tutte le azioni che sono compiute in fase di progettazione.
 
-##### Commit
+#### Commit
 
 All'interno di un repository ogni modifica al codice sorgente è possibile soltanto attraverso un'operazione di commit: un insieme di metadati a cui è possibile dare una descrizione. Attraverso questa metodologia, ogni membro del repository ha la possibilità di conoscere le differenze che sono state apportate all'interno dei file a cui un commit fa riferimento.
 
-##### Branch
+#### Branch
 
 Attraverso una particolare tipologia di commit è possibile creare un branch all'interno di un repository, differente dal *master branch* che identifica la root directory e che viene creato attraverso il processo di inizializzazione di un repository.
 Un branch è un insieme di metadati che permette l'identificazione di un insieme di file/cartelle all'interno di un repository. I branch vengono, molto spesso, utilizzati per differenziare le varie aree di lavoro dei membri del repo o, più semplicemente, per separare vari componenti di un progetto non collegati tra loro.
@@ -780,6 +828,7 @@ Il server si basa su Ubuntu 14.04 LTS, per i servizi HTTP è stato installato Ap
 ## Conclusioni
 
 Allo stato attuale del progetto possiamo dire di aver raggiunto in modo soddisfacente gli obbiettivi prefissati: Syncbook permette di organizzare una rubrica di contatti rispettando le regole dettate dagli standard vCard e mette a disposizione i dati inseriti dall'utente anche su altri dispositivi sincronizzati tramite WebDAV. Allo stesso tempo non sono state ancora implementate delle funzioni che potrebbero allargare l'utilizzo di Syncbook anche a gruppi di lavoro, oltre che al singolo utente: ad esempio la possibilità di creare più rubriche e di condividerle con delle persone selezionate. In ogni caso, grazie ai vari framework utilizzati, il progetto è stato sviluppato in modo tale da poter accogliere nuove modifiche senza dover stravolgere tutto il lavoro fatto in precedenza.
+Per la realizzazione del progetto, abbiamo avuto modo di conoscere ed utilizzare strumenti che stanno alla base dello sviluppo di applicazioni, in questo caso web, all'interno del mondo del lavoro. Lo studio di questi applicativi, svolto da autodidatti ci ha permesso di sviluppare l'applicazione obiettivo del progetto in modo professionale e spendibile nel mondo reale.
 
 ### Problematiche
 
@@ -895,3 +944,30 @@ Si è deciso di non implementare questa funzionalità principalmente per due mot
 Per quanto riguarda l'esportazione della vCard sotto la forma di file questa funzione non è stata implementata a causa di problemi dovuti dalle modifiche fatte alla base di dati utilizzata da SabreDAV.
 2. Il fattore importazione, data la politica delle grandi aziende a riguardo l'uso degli RFC, sarebbe stato molto complesso da implementare perchè avere un algoritmo di mappatura per ogni tipologia di servizio offerto per la gestione dei propri contatti è quasi impossibile.
 Un team di programmatori avrebbe dovuto essere incaricato solo di occuparsi delle varie sfaccettature di questo problema.
+
+## Bibliografia
+
+* [Articolo](http://alessandrorossini.org/2012/11/15/the-sad-story-of-the-vcard-format-and-its-lack-of-interoperability/) sulle problematiche riguardanti l'interoperabilità del formato vCard.
+
+### Documentazione tecnica
+* [HUGE](https://github.com/panique/huge);
+* [Sabre.io](http://sabre.io/dav/);
+* [Bootstrap](http://getbootstrap.com/);
+* [Material Design](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html)
+* [jQuery](http://api.jquery.com/);
+* [RedBean PHP](http://www.redbeanphp.com/);
+* [Git](https://git-scm.com/doc);
+* [GitHub](https://help.github.com/).
+
+### Siti di riferimento
+* [DigitalOcean](https://www.digitalocean.com/);
+* [DNSimple](https://dnsimple.com/);
+* [Namecheap](https://www.namecheap.com/);
+* [StackOverflow](http://stackoverflow.com/);
+* [BootSnip](http://bootsnipp.com/);
+
+## Ringraziamenti
+
+Si ringraziano:
+* Callegari Filippo, per l'aiuto dato nella gestione della parte server del progetto;
+* Sponchiado Francesco, per l'aiuto dato durante alcune fasi dello sviluppo di Syncbook.
