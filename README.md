@@ -97,7 +97,6 @@ END:VCARD
 ```
 
 Per quanto strano possa sembrare, nonostante la loro quarta versione, le vCard non supportano quelli che sono oramai diventati degli strumenti alla base delle società moderna, i social network.
-
 Questi campi vengono quindi definiti come *non-standard* e vanno rappresentati da una lettera `X`, seguita dal simbolo `-` e dal nome del campo stesso. I campi così descritti possono non essere supportati da tutte le applicazioni client attraverso le quali viene poi data la possibilità all'utente di gestire la propria rubrica.
 
 ### Dati salvati in Apple Contacts
@@ -117,7 +116,6 @@ END:VCARD
 ```
 
 Utilizzando un formato non più supportato nel mondo delle vCard, la Apple riesce a rappresentare una serie di semplici dati in un modo molto differente rispetto al precedente rendendo complessa e laboriosa l'esportazione di questa vCard in un dispositivo non appartenente alla famosa azienda statunitense.
-
 Le differenze più evidenti si possono notare nella rappresentazione del campo `URL` che viene ora raggrupato con la proprietà non-standard `X-ABLabel`. Questo metodo viene utilizzato per risolvere il problema di mostrare all'utente un sito web come proprio del contatto che egli sta visualizzando.
 
 ### Dati salvati in Google Contacts
@@ -688,7 +686,6 @@ Si è presa la decisione di aggiungere questa funzionalità al progetto in modo 
 #### ORM
 
 L'Object-relation mapping è una tecnica di pragrammazione ampiamente utilizzata all'interno dei linguaggi di programmazione orientati all'utilizzo di strutture dati come gli oggetti. L'utilizzo di framework che implementano questo paradigma è spesso presente nel momento in cui è necessario interfacciare l'applicativo con uno specifico DBMS.
-
 Nel caso del linguaggio PHP vengono implementati una serie di algoritmi con lo scopo di ampliare le funzionalità dell'estensione PDO rendendo più semplice per il programmatore la realizzazione di algoritmi che si appoggiano su Database altamente complessi e ramificati. Utilizzare l'ORM permette anche di risparmiare al programmatore molti controlli dovuti alla struttura di una base di dati.
 
 ##### Tabella "persona"
