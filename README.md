@@ -3,6 +3,11 @@
 
 ## Indice
 
++ [Introduzione](#Introduzione)
+	- [vCard](#vCard)
+	- [CardDAV](#CardDAV)
++ [Problema](#Problema)
+
 ## Introduzione
 
 Da sempre il grande problema delle rubriche in formato digitale è la loro condivisione ed esportazione tra dispositivi diversi tra loro, questo perchè le grandi aziende non si sono mai preoccupate di utilizzare uno standard comune durante il salvataggio dei contatti pensando solo ai propri interessi. In realtà degli standard per la formattazione dei dati esistono ma non sono implementati nei più comuni applicativi.
