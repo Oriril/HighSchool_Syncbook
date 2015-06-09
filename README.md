@@ -1,5 +1,5 @@
 # Syncbook
-[Syncbook Logo](http://i.imgur.com/oONGOVT.png "Syncbook Logo")
+![Syncbook Logo](http://i.imgur.com/oONGOVT.png "Syncbook Logo")
 
 ## Indice
 
