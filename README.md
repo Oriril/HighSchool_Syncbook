@@ -11,7 +11,7 @@
 	- [Dati salvati secondo standard](#dati-salvati-secondo-standard)
 	- [Dati salvati in Apple Contacts](#dati-salvati-in-apple-contacts)
 	- [Dati salvati in Google Contacts](#dati-salvati-in-google-contacts)
-+ [Finalità del progetto](#finalità-di-progetto)
++ [Finalità del progetto](#finalità-del-progetto)
 + [Obiettivo del progetto](#obiettivo-del-progetto)
 + [Perchè un'applicazione web?](#perchè-unapplicazione-web)
 + [Strumenti](#strumenti)
