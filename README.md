@@ -26,7 +26,6 @@
         	- [Visualizzazione di un contatto](#visualizzazione-di-un-contatto)
         	- [Modifica di un contatto](#modifica-di-un-contatto)
     - [Sabre.io](#-sabreio)
-    	+ [Gestione della multiplicità dei database](#gestione-della-multiplicità-dei-database)
     	+ [Creazione di una vCard](#creazione-di-una-vcard)
     	+ [Esempio di interfacciamento tra SabreDAV e HUGE](#esempio-di-interfacciamento-tra-sabredav-e-huge)
     - [Bootstrap](#-bootstrap)
