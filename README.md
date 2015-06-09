@@ -3,7 +3,7 @@
 
 ## Indice
 
-+ [Introduzione](#Introduzione)
++ [Introduzione](#introduzione)
 	- [vCard](#vCard)
 	- [CardDAV](#CardDAV)
 + [Problema](#Problema)
