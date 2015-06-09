@@ -968,5 +968,5 @@ Un team di programmatori avrebbe dovuto essere incaricato solo di occuparsi dell
 ## Ringraziamenti
 
 Si ringraziano:
-* Callegari Filippo, per l'aiuto dato nella gestione della parte server del progetto;
-* Sponchiado Francesco, per l'aiuto dato durante alcune fasi dello sviluppo di Syncbook.
+* Callegari Filippo, per il lavoro svolto nella gestione della parte server del progetto;
+* Sponchiado Francesco, peril lavoro svolto durante alcune fasi dello sviluppo di Syncbook.
