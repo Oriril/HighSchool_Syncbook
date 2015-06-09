@@ -9,7 +9,7 @@
 + [Problema](#problema)
 	- [Dati da salvare](#dati-da-salvare)
 	- [Dati salvati secondo standard](#dati-salvati-secondo-standard)
-	- [Dati salvati in Apple Contacts](#sati-salvati-in-apple-contacts)
+	- [Dati salvati in Apple Contacts](#dati-salvati-in-apple-contacts)
 	- [Dati salvati in Google Contacts](#dati-salvati-in-google-contacts)
 + [Finalità del progetto](#finalità-di-progetto)
 + [Obiettivo del progetto](#obiettivo-del-progetto)
