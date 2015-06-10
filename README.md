@@ -727,8 +727,9 @@ try {
     $beanPersona = R::dispense('persona');
 
 	// Fase di popolzione dell'oggetto $beanPersona con i dati desiderati.
-    // Nel caso in cui qualunque di questi dati non rispetti i vincoli descritti nella definizione degli attributi,
-    // verrà generata un'eccezione. Opportunamente catturata attraverso il costrutto "try-catch".
+    // Nel caso in cui qualunque di questi dati non rispetti i vincoli descritti nella definizione
+    // degli attributi, verrà generata un'eccezione. Opportunamente catturata attraverso 
+    // il costrutto "try-catch".
 	$beanPersona->nome = "Pippo";
     $beanPersona->cognome = "Pluto";
     $beanPersona->dataNascita = 21/05/1953;
