@@ -253,7 +253,8 @@ class Application
                     // Chiama il metodo e gli passa i parametri.
                     call_user_func_array(array($this->controller, $this->action_name), $this->parameters);
                 } else {
-                    // Se non ci sono parametri, richiama il metodo senza parametri, ad esempio $this->index->index().
+                    // Se non ci sono parametri, richiama il metodo senza parametri, 
+                    // ad esempio $this->index->index().
                     $this->controller->{$this->action_name}();
                 }
             } else {
