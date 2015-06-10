@@ -204,7 +204,7 @@ Il file .htaccess appena descritto è presente nella cartella *public* di HUGE, 
 
 class Application
 {
-    /** @var mixed Instanza del controller. */
+    /** @var mixed Istanza del controller. */
     private $controller;
 
     private $parameters = array();
@@ -243,7 +243,7 @@ class Application
         if (file_exists(Config::get('PATH_CONTROLLER') . $this->controller_name . '.php')) {
 
             // Carica questo file e crea il controller.
-            // Esempo: se il controlelr fosse "car", allora si tradurrebbe in: $this->car = new car();
+            // Esempio: se il controlelr fosse "car", allora si tradurrebbe in: $this->car = new car();
             require Config::get('PATH_CONTROLLER') . $this->controller_name . '.php';
             $this->controller = new $this->controller_name();
 
