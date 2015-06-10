@@ -469,7 +469,7 @@ function mapperObjectCard($vCardObject) {
         }
     }
 
-    // Mappatura dei dati rellativi agli indirizzi di posta elettronica.
+    // Mappatura dei dati relativi agli indirizzi di posta elettronica.
     $contactMail = $vCardObject->contactMail;
 
     if ($contactMail !== NULL) {
