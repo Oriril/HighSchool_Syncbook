@@ -404,7 +404,8 @@ if (!isset($databaseUsername)) {
 <?php
 
 /**
- * Funzione utilizzata per creare una vCard dai dati forniti dall'utente durante il processo di creazione di un contatto.
+ * Funzione utilizzata per creare una vCard dai dati forniti dall'utente durante il processo 
+ * di creazione di un contatto.
  *
  * @param $vCardObject
  * @return VObject\Component\VCard
