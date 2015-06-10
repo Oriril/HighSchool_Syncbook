@@ -216,19 +216,22 @@ class Application
     private $action_name;
 
     /**
-     * Esegue lo start dell'applicazione, analizza gli elementi della URL, esegue il controller e metodo corrispondenti o reindirizza a index.
+     * Esegue lo start dell'applicazione, analizza gli elementi della URL, 
+     * esegue il controller e metodo corrispondenti o reindirizza a index.
      */
     public function __construct()
     {
         // Crea array con i parametri in URL in $url.
         $this->splitUrl();
 
-        // Esegue controllo sul controller: non è stato dato un controller ? allora setta ontroller = default controller (dalla configurazione).
+        // Esegue controllo sul controller: non è stato dato un controller ? 
+        // allora setta ontroller = default controller (dalla configurazione).
         if (!$this->controller_name) {
             $this->controller_name = Config::get('DEFAULT_CONTROLLER');
         }
 
-        // Controllo per action (metodo): non è stato dato una action? allora setta action = default action (dalla configurazione).
+        // Controllo per action (metodo): non è stato dato una action ? 
+        // allora setta action = default action (dalla configurazione).
         if (!$this->action_name OR (strlen($this->action_name) == 0)) {
             $this->action_name = Config::get('DEFAULT_ACTION');
         }
@@ -244,7 +247,7 @@ class Application
             require Config::get('PATH_CONTROLLER') . $this->controller_name . '.php';
             $this->controller = new $this->controller_name();
 
-            // controllo per il metodo: esiste all'interno del controller?
+            // Controllo per il metodo: esiste all'interno del controller?
             if (method_exists($this->controller, $this->action_name)) {
                 if (!empty($this->parameters)) {
                     // Chiama il metodo e gli passa i parametri.
