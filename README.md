@@ -369,7 +369,8 @@ if (!isset($databaseUsername)) {
     $serverName = $_SERVER["SCRIPT_NAME"];
 
 	/*
-    	Algoritmo utilizzato per ricavare l'username della persona che sta effettuando l'operazione di Login.
+    	Algoritmo utilizzato per ricavare l'username della persona che sta effettuando 
+    	l'operazione di Login.
         Il nome utente viene poi salvato all'interno della variabile $databaseUsername.
         La variabile $databaseUsername sarà usata per indirizzare la persona al proprio database.
 
@@ -387,7 +388,8 @@ if (!isset($databaseUsername)) {
         $databaseUsername = '';
     }
 
-	// Nel caso in cui un Username non venga individuato per il Login è necessario chiudere la connessione.
+	// Nel caso in cui un Username non venga individuato per il Login è necessario 
+	// chiudere la connessione.
     if ($databaseUsername == '') {
     	error_log("Error in SabreDAV Login Algorithm");
     	die("Unknown Error");
