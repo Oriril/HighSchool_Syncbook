@@ -361,38 +361,45 @@ Entra quindi in gioco il codice PHP che si può leggere sotto, utilizzato all'in
 
 // Controllo che il nome utente non sia già stato individuato in precedenza.
 if (!isset($databaseUsername)) {
-
-	// Viene ricavato l'URI utilizzato per accedere alla pagina Web corrente.
+    // Viene ricavato l'URI utilizzato per accedere alla pagina Web corrente.
     $serverUri = $_SERVER["REQUEST_URI"];
-
     // Viene ricavato il path assoluto dello Script corrente all'interno del Server.
     $serverName = $_SERVER["SCRIPT_NAME"];
 
-	/*
+    /*
     	Algoritmo utilizzato per ricavare l'username della persona che sta effettuando 
     	l'operazione di Login.
         Il nome utente viene poi salvato all'interno della variabile $databaseUsername.
-        La variabile $databaseUsername sarà usata per indirizzare la persona al proprio database.
+        La variabile $databaseUsername sarà usata per connettere la persona al proprio database.
 
         Identificatore di un Database :
         sabredav_<username>
     */
-
-    if (strpos($serverUri, '/principals/') != false) {
+    if (strpos($serverUri, '/principals/') !== false) {
         $databaseUsername = str_replace($serverName . "/principals/", "", $serverUri);
-    } else if (strpos($serverUri, '/calendars/') != false) {
+    } else if (strpos($serverUri, '/calendars/') !== false) {
         $databaseUsername = str_replace($serverName . "/calendars/", "", $serverUri);
-    } else if (strpos($serverUri, '/addressbooks/') != false) {
+    } else if (strpos($serverUri, '/addressbooks/') !== false) {
         $databaseUsername = str_replace($serverName . "/addressbooks/", "", $serverUri);
     } else {
         $databaseUsername = '';
     }
 
-	// Nel caso in cui un Username non venga individuato per il Login è necessario 
-	// chiudere la connessione.
-    if ($databaseUsername == '') {
-    	error_log("Error in SabreDAV Login Algorithm");
-    	die("Unknown Error");
+    if ($databaseUsername === '') {die();}
+
+    // Necessario l'Username in minuscolo per la corretta connessione
+    $databaseUsername = strtolower($databaseUsername);
+
+    // Algoritmo di pulizia dell'Username da caratteri indesiderati immessi dalle applicazioni Client
+    if (strpos($databaseUsername, "contacts") == false) {
+        $databaseUsername = str_replace(' ', '-', $databaseUsername);
+        $databaseUsername = preg_replace('/[^A-Za-z0-9\.-]/', '', $databaseUsername);
+    } else {
+        if (strpos($databaseUsername, "vcf") == false) {
+            $databaseUsername = str_replace('/contacts/', '', $databaseUsername);
+        } else {
+            $databaseUsername = substr($databaseUsername, 0, strpos($databaseUsername, '/'));
+        }
     }
 }
 
