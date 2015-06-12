@@ -23,4 +23,9 @@ class DashboardController extends Controller
     {
         $this->View->render('dashboard/index');
     }
+
+    public function help()
+    {
+        $this->View->render('dashboard/help');
+    }
 }
