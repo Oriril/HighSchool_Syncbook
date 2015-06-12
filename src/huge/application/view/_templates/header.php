@@ -78,6 +78,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/Syncbook/cfg/configurationInclude.php
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (Session::userIsLoggedIn()) { ?>
+                        <li>
+                            <a href="<?php echo Config::get('URL'); ?>dashboard/help">Help</a>
+                        </li>
                         <?php if (View::checkForActiveController($filename, "dashboard")) { ?>
                             <li class="add-button">
                                 <button class="btn btn-fab btn-fab-mini btn-raised btn-material-deep-purple-200 btn-sm" id="displayAddContactForm">
