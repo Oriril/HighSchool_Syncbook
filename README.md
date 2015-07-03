@@ -29,6 +29,7 @@ dav.syncbook.me. 3600 IN CNAME syncbook.me.
 ![Imgur](http://i.imgur.com/0vArduv.png)
 
 ## digitalOcean
+![Imgur](http://i.imgur.com/AL6JHNg.png)
 
 ## .htaccess 
 ### https://www.syncbook.me
