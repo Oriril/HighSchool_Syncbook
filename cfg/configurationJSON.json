@@ -5,14 +5,14 @@
 		"DATABASE_USER_LIST":
 		{
     		"DB_NAME": "syncbook_users",
-    		"USERNAME": "syncbook",
-    		"PASSWORD": "vp5DVksnqtVYYrW4Uyjwca8WXZyRDhsD"
+    		"USERNAME": "",
+    		"PASSWORD": ""
     	},
     	
     	"DATABASE_USER_SINGLE":
 		{
-            "USERNAME": "syncbook",
-            "PASSWORD": "vp5DVksnqtVYYrW4Uyjwca8WXZyRDhsD"
+            "USERNAME": "",
+            "PASSWORD": ""
 	    }
     }
 }
