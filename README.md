@@ -23,8 +23,8 @@ _dmarc.syncbook.me. 3600 IN TXT v=DMARC1; p=quarantine; rua=mailto:admin@syncboo
 syncbook.me. 3600 IN TXT v=spf1 mx ip4:128.199.54.205 ~all
 dav.syncbook.me. 3600 IN CNAME syncbook.me.
 ```
-![Imgur](http://i.imgur.com/cVb7yyY.png)
-![Imgur](http://i.imgur.com/1dAOrbc.png)
+![Imgur](http://i.imgur.com/702Qp44.png)
+![Imgur](http://i.imgur.com/0SevKnr.png)
 
 ## .htaccess 
 ### https://www.syncbook.me
