@@ -4,7 +4,7 @@
 
 # Configuration
 
-## DNS Records
+## dnsimple Records
 ```
 $ORIGIN syncbook.me.
 $TTL 1h
@@ -26,6 +26,9 @@ dav.syncbook.me. 3600 IN CNAME syncbook.me.
 ```
 ![Imgur](http://i.imgur.com/702Qp44.png)
 ![Imgur](http://i.imgur.com/0SevKnr.png)
+
+## namecheap
+![Imgur](http://i.imgur.com/0vArduv.png)
 
 ## .htaccess 
 
