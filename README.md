@@ -19,7 +19,7 @@ mail.syncbook.me. 3600 IN A 128.199.54.205
 mail._domainkey.syncbook.me. 3600 IN TXT "v=DKIM1; k=rsa; t=y; "	  "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApmwAeeLGARsIXlborgi+FZZhZLMkm8kXMTfGOtTedZdIfxleEu8gWBcSTw1aCbjFsZT6hl6JZFJP8cZZ7V1uO4iyIL69xa+nC7Ve6r3uGtEgjwuqDQJO25jE+vbNOYj0oOzRzERgKfj+XYvNjd41k6ciquWS6/ZX5eO53R7Ro5mfkUskLqDqx8EvxrorZGZulBZe4OLgnPW6x5ottrF10oJIpF32Q3jGR4wsyaXvnNKu1VQ27Sxy1k6vvPKuTjmd3Dzxpe1tIJagDema+1t2fBe2swVWk1hD0WP+RoolZEpT4ZbBMUiHX4KNmK+qcRJJuqag64Dml2pwT9U6dXaIMQIDAQAB"
 development.syncbook.me. 3600 IN A 128.199.54.205
 webmail.syncbook.me. 3600 IN CNAME syncbook.me.
-_dmarc.syncbook.me. 3600 IN TXT v=DMARC1; p=quarantine; rua=mailto:admin@syncbook,me
+_dmarc.syncbook.me. 3600 IN TXT v=DMARC1; p=quarantine; rua=mailto:admin@syncbook.me
 syncbook.me. 3600 IN TXT v=spf1 mx ip4:128.199.54.205 ~all
 dav.syncbook.me. 3600 IN CNAME syncbook.me.
 ```
