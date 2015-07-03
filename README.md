@@ -70,7 +70,4 @@
         SSLCACertificateFile /etc/apache2/ssl/bundle.crt
 
 </VirtualHost>
-
-RewriteEngine on
-RewriteRule dav/([^.]+) https://dav.syncbook.me/groupwareserver.php/principals/$1 [L]
 ```
