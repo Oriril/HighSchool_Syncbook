@@ -3,6 +3,7 @@
 ![Syncbook Logo](http://i.imgur.com/oONGOVT.png "Syncbook Logo")
 
 # Configuration
+
 ## DNS Records
 ```
 $ORIGIN syncbook.me.
@@ -27,6 +28,7 @@ dav.syncbook.me. 3600 IN CNAME syncbook.me.
 ![Imgur](http://i.imgur.com/0SevKnr.png)
 
 ## .htaccess 
+
 ### https://www.syncbook.me
 ```apache
 <VirtualHost *:80>
@@ -58,6 +60,7 @@ dav.syncbook.me. 3600 IN CNAME syncbook.me.
 
 </VirtualHost>
 ```
+
 ### https://dav.syncbook.me
 ```apache
 <VirtualHost *:80>
