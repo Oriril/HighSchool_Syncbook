@@ -1,9 +1,7 @@
 # Syncbook
-
 ![Syncbook Logo](http://i.imgur.com/oONGOVT.png "Syncbook Logo")
 
 # Configuration
-
 ## dnsimple Records
 ```
 $ORIGIN syncbook.me.
@@ -30,8 +28,9 @@ dav.syncbook.me. 3600 IN CNAME syncbook.me.
 ## namecheap
 ![Imgur](http://i.imgur.com/0vArduv.png)
 
-## .htaccess 
+## digitalOcean
 
+## .htaccess 
 ### https://www.syncbook.me
 ```apache
 <VirtualHost *:80>
