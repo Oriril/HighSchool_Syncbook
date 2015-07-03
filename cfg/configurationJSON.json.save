@@ -1,0 +1,18 @@
+{
+	"DATABASE_HOST": "127.0.0.1",
+	"DATABASE":
+	{
+		"DATABASE_USER_LIST":
+		{
+    		"DB_NAME": "syncbook_users",
+    		"USERNAME": "syncboo"syncbook"k",
+    		"PASSWORD": "k)#N:>jsvM,q4k(="
+    	},
+    	
+    	"DATABASE_USER_SINGLE":
+		{
+            "USERNAME": "syncbook",
+            "PASSWORD": "k)#N:>jsvM,q4k(="
+	    }
+    }
+}
